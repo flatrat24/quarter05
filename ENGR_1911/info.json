@@ -1,0 +1,20 @@
+{
+  "schedule": {
+    "start": 800,
+    "end": 1000,
+    "days": "Mon Wed"
+  },
+
+  "name": {
+    "title": "Introduction to CAD",
+    "short": "ENGR 1911",
+    "code": "ENGR",
+    "number": "1911"
+  },
+
+  "bookmarks": {
+    "Canvas Homepage": "https://canvas.du.edu/courses/178472"
+  },
+
+  "hasLab":         false
+}

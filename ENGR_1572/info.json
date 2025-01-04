@@ -1,0 +1,18 @@
+{
+  "schedule": {
+    "start": 1000,
+    "end": 1100,
+    "days": "Mon Wed Fri"
+  },
+
+  "name": {
+    "title": "Applied MATLAB Programming",
+    "short": "ENGR 1572",
+    "code": "ENGR",
+    "number": "1572"
+  },
+
+  "bookmarks": { },
+
+  "hasLab": false
+}

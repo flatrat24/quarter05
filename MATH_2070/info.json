@@ -1,0 +1,21 @@
+{
+  "schedule": {
+    "start": 800,
+    "end": 1000,
+    "days": "Tue Thu",
+    "labStart": 800,
+    "labEnd": 900,
+    "labDays": "Fri"
+  },
+
+  "name": {
+    "title": "Introduction to Differential Equations",
+    "short": "MATH 2070",
+    "code": "MATH",
+    "number": "2070"
+  },
+
+  "bookmarks": { },
+
+  "hasLab":         true
+}

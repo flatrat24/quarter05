@@ -1,0 +1,23 @@
+{
+  "schedule": {
+    "start": 1100,
+    "end": 1200,
+    "days": "Mon Wed Fri",
+    "labStart": 1100,
+    "labEnd": 1300,
+    "labDays": "Tue"
+  },
+
+  "name": {
+    "title": "Circuits I",
+    "short": "ENEE 2012",
+    "code": "ENEE",
+    "number": "2012"
+  },
+
+  "bookmarks": {
+    "Canvas Homepage": "https://canvas.du.edu/courses/181865"
+  },
+
+  "hasLab":         true
+}

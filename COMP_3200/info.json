@@ -1,0 +1,18 @@
+{
+  "schedule": {
+    "start": 1200,
+    "end": 1400,
+    "days": "Mon Wed"
+  },
+
+  "name": {
+    "title": "Discrete Structures",
+    "short": "COMP 3200",
+    "code": "COMP",
+    "number": "3200"
+  },
+
+  "bookmarks": { },
+
+  "hasLab": false
+}

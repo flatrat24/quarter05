@@ -1,0 +1,18 @@
+{
+  "schedule": {
+    "start": 1400,
+    "end": 1500,
+    "days": "Mon Wed Fri"
+  },
+
+  "name": {
+    "title": "Mechanics of Materials",
+    "short": "ENME 2541",
+    "code": "ENME",
+    "number": "2541"
+  },
+
+  "bookmarks": { },
+
+  "hasLab":         false
+}
