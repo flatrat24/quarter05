@@ -1,0 +1,59 @@
+\documentclass[12pt]{article}
+
+\input{../../xlatex/imports/preamble}
+
+\title{Lecture 001}
+\date{January 07, 2025}
+
+\begin{document}
+
+\begin{example}
+  Consider an object of temperature $T$ places in a room of ambient temperature $T_a$. According to Newton's law of cooling, the \textbf{rate of change} of $T$ is proportional to the difference $T-T_a$. Mathematically, this is expressed as:
+  \begin{equation*}
+    \frac{dT}{dt}=-k(T-T_a)
+  \end{equation*}
+  where $k>0$ and is a constant determined by the properties of the object.
+
+  \vspace{12pt}
+  \hrule
+  \vspace{12pt}
+
+
+
+  \vspace{12pt}
+  \hrule
+  \vspace{12pt}
+
+  Note that the constant $C$ is arbitrary. Without any further information, there is no way to decide $C$. In other words, $T(t)$
+\end{example}
+
+\begin{example}
+  A lake has water volume $V (m^3)$. Assume $V$ is a constant. A factory emits $R$ kilograms of mercury into the lake every day. Suppose the mercury diffuses to the lake instantly and water refreshes every day by $W (m^3)$. How much time does it take for the water to be non-potable (implicitly, $P(0) = 0$). \\
+
+  Let $P(t)$ be the mass of mercury in the lake. Let $\Delta t$ be a short period of time. \\
+
+  What happens between the time $t$ and $t+\Delta t$?
+  \begin{itemize}
+    \itemsep0em
+    \item The increase of mercury $= R \Delta t$
+    \item The decrease of polluted water $= W \Delta t$
+    \item The density of mercury $= \frac{P(t)}{V}$
+    \item The decrease of mercury $= \frac{P(t)}{V} \cdot W \Delta t$
+  \end{itemize}
+  Thus:
+  \begin{align*}
+    \Delta P(t) &= R \Delta t - \frac{P(t)}{V} \cdot W \Delta t \\
+    \frac{\Delta P(t)}{\Delta t} &= R - \frac{P(t)}{V} \cdot W \\
+    \frac{dP}{dt} &= R - \frac{P}{V} \cdot W \\
+    \frac{dP}{R - \frac{P}{V} \cdot W} &= dt
+  \end{align*}
+  ...
+  \begin{align*}
+    ln\left|R-\frac{W}{V}P \right| &= -\frac{W}{V}t + C \\
+    R-\frac{W}{V}P &= Ce^{-\frac{W}{V}t} \\
+    P &= -\frac{V}{W} \left(Ce^{-\frac{W}{V}t} - R\right) \\
+    P &= Ce^{-\frac{W}{V}t} + \frac{Rv}{W}
+  \end{align*}
+\end{example}
+
+\end{document}
