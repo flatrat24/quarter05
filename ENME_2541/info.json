@@ -12,7 +12,10 @@
     "number": "2541"
   },
 
-  "bookmarks": { },
+  "bookmarks": {
+    "Canvas Homepage": "https://canvas.du.edu/courses/182194",
+    "McGraw Hill": "https://newconnect.mheducation.com/student/class/section/150264454"
+  },
 
   "hasLab":         false
 }
