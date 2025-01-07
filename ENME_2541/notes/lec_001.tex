@@ -7,15 +7,107 @@
 
 \begin{document}
 
-\section{Types of Stresses}
-\label{sec:typesOfStresses}
+\section{Axial Stress}
+\label{sec:axialStress}
 
-\begin{definition}{Axial Stress}
-Denotes by the Greek letter sigma ($\sigma$), axial stress is where an object is put under stress along its long axis.
-\end{definition}
+\subsection{Overview}
+\label{ssec:overview}
 
-\begin{definition}{Shear Stress}
-Denotes by the Greek letter tau ($\tau$), shear stress happens when force is applied in opposite directions to opposite ends of an object.
-\end{definition}
+Mechanics of materials provides a means to analyze the effects of \textit{stresses} and \textit{deformations}. Statics covered finding a balance of forces, including internal forces such as \textit{shear}, \textit{bending}, and \textit{tension/compression}. Finding these internal forces is imperative to be able to determine the integrity of a structure. In addition to the internal forces, the integrity of a structure is also partially determined by the \textit{dimensions} and \textit{materials} of that structure.
+
+In the analysis of a rod, for example, the ability for that rod to withstand the internal forces (its structural integrity) is determined by the cross-sectional area and the material of the rod.
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_001}
+    \caption{Resultant Force}
+    \label{fig:001}
+  \end{subfigure}
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_002}
+    \caption{Elementary Forces}
+    \label{fig:002}
+  \end{subfigure}
+  \caption{Axial force is the resultant of distributed elementary forces}
+  \label{fig:axialVsElementary}
+\end{figure}
+
+\subsection{Analyzing Axial Stress}
+\label{ssec:analyzingAxialStress}
+
+In Figure \ref{fig:axialVsElementary}, the \textit{stress} being experiences by the object is the \textbf{force per unit area}, denoted by the Greek letter sigma ($\sigma$).
+
+\begin{formula}{Stress}
+
+  \vspace{10pt}
+  Stress can be calculated by dividing the total axial force by the cross-sectional area: 
+  \begin{equation*}
+    \sigma = \frac{P}{A}
+  \end{equation*}
+\end{formula}
+
+\vspace{12pt}
+\hrule
+\vspace{2pt}
+
+By convention, a positive force indicates \textbf{tensile stress} while a negative force indicates \textbf{compressive stress}.
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_003}
+    \caption{Tensile Stress}
+    \label{fig:003}
+  \end{subfigure}
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_004}
+    \caption{Compressive Stress}
+    \label{fig:004}
+  \end{subfigure}
+  \caption{Tensile vs. Compressive Force}
+  \label{fig:tensileVsCompressiveForce}
+\end{figure}
+
+\hrule
+\vspace{5pt}
+
+\begin{wrapfigure}[5]{r}{0.4\textwidth}
+  \vspace{-20pt}
+  \centering
+  \includestandalone{figures/fig_005}
+  \caption{Normal Stress}
+  \label{fig:005}
+\end{wrapfigure}
+
+The cross section, as seen in Figure \ref{fig:005}, is perpendicular to the axial forces. The corresponding stress in the object in described as \textit{normal stress}.
+
+Thus, the formula of $\sigma = \frac{P}{A}$ gives the normal stress of an object under axial loading.
+
+\subsection{Stress Points}
+\label{ssec:stressPoints}
+
+The formula of $\sigma = \frac{P}{A}$ is only useful for \textit{averages} or \textit{ranges}. This can calculate the average value of the stress over the entire cross section. However, what about calculating at specific points?
+
+\begin{wrapfigure}[]{l}{0.4\textwidth}
+  \centering
+  \includestandalone{figures/fig_006}
+  \caption{Stress Points}
+  \label{fig:006}
+\end{wrapfigure}
+
+In Figure \ref{fig:006}, to find the stress of the highlighted area, the working equation can still be applied, just now with a smaller area. To find the stress at a single point, rather than just a smaller area, stress must be calculated as the area approaches zero.
+
+\begin{formula}{Stress at a Single Point}
+  \begin{equation*}
+    \sigma = \lim_{\Delta A \to 0} \frac{\Delta F}{\Delta A}
+  \end{equation*}
+\end{formula}
+
+
 
 \end{document}
