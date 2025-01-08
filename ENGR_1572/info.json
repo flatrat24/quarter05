@@ -12,7 +12,9 @@
     "number": "1572"
   },
 
-  "bookmarks": { },
+  "bookmarks": {
+    "Canvas Homepage": "https://canvas.du.edu/courses/181810"
+  },
 
   "hasLab": false
 }
