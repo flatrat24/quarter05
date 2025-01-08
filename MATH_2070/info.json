@@ -15,7 +15,9 @@
     "number": "2070"
   },
 
-  "bookmarks": { },
+  "bookmarks": {
+    "Canvas Homepage": "https://canvas.du.edu/courses/183747"
+  },
 
   "hasLab":         true
 }
