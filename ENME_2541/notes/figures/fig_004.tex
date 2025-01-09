@@ -5,11 +5,13 @@
 \date{January 06, 2025}
 
 \begin{document}
-\tdplotsetmaincoords{60}{125}
+\tdplotsetmaincoords{0}{90}
 \begin{tikzpicture}
 		[tdplot_main_coords,
     cube/.style={fill=bl!25!bg, draw=fg, thick, fill opacity = 0.8},
-    force/.style={draw=re, thick, -stealth}]
+    force/.style={draw=re, thick, stealth-}]
+
+  \draw[force, ultra thick] (0.5,0,0.5) -- ++(0,-1,0);
 
   \filldraw[cube] (0,0,0) -- ++(0,4,0) -- ++(1,0,0) -- ++(0,-4,0) -- cycle;
   \filldraw[cube] (0,0,0) -- ++(0,0,1) -- ++(1,0,0) -- ++(0,0,-1) -- cycle;
@@ -17,6 +19,6 @@
   \filldraw[cube] (1,0,0) -- ++(0,4,0) -- ++(0,0,1) -- ++(0,-4,0) -- cycle;
   \filldraw[cube] (0,0,1) -- ++(0,4,0) -- ++(1,0,0) -- ++(0,-4,0) -- cycle;
 
-  \draw[force, ultra thick] (0.5,4,0.5) -- ++(0,1,0) node[anchor = west] {$F_{BC}$};
+  \draw[force, ultra thick] (0.5,4,0.5) -- ++(0,1,0);
 \end{tikzpicture}
 \end{document}
