@@ -14,7 +14,6 @@
 \label{ssec:axialStress}
 
 \subsubsection{Overview}
-\label{sssec:overview}
 
 Mechanics of materials provides a means to analyze the effects of \textit{stresses} and \textit{deformations}. Statics covered finding a balance of forces, including internal forces such as \textit{shear}, \textit{bending}, and \textit{tension/compression}. Finding these internal forces is imperative to be able to determine the integrity of a structure. In addition to the internal forces, the integrity of a structure is also partially determined by the \textit{dimensions} and \textit{materials} of that structure.
 
@@ -117,7 +116,6 @@ In Figure \ref{fig:006}, to find the stress of the highlighted area, the working
 \label{ssec:shearingStress}
 
 \subsubsection{Overview}
-\label{sssec:overview2}
 
 In Section \ref{ssec:axialStress}, the internal forces and corresponding stresses were \textit{normal} to the member.
 
@@ -125,7 +123,7 @@ In Section \ref{ssec:axialStress}, the internal forces and corresponding stresse
   Internal stresses caused by forces with parallel and opposite components vectors.
 \end{definition}
 
-\begin{wrapfigure}[12]{r}{0.35\textwidth}
+\begin{wrapfigure}[11]{r}{0.35\textwidth}
   \vspace{-20pt}
   \centering
   \begin{subfigure}[H]{0.35\textwidth}
@@ -168,6 +166,16 @@ The member in Figure \ref{fig:shearingStress} is said to be in \textbf{single sh
   \label{fig:009}
 \end{figure}
 
+In a case of double shear, the shearing force is divided in half between the planes one between $P_a$ and $P_b$, and one between $P_b$ and $P_c$. Thus, to find the shear stress on either of these planes, only half the force will be used.
+
+\begin{formula}{Double Shear}
+  \begin{equation*}
+    \tau = \frac{P}{2A}
+  \end{equation*}
+\end{formula}
+
+Since there are two faces of shear stress, they will add together to $\frac{P}{A}$.
+
 \subsubsection{Bearing Stress}
 \label{sssec:bearingStress}
 
@@ -177,7 +185,8 @@ Often, rather than singular forces creating shearing stress, the surfaces of mul
   Caused by distributed forces creating shear, bearing stress is the average shear across a region of a member.
 \end{definition}
 
-\begin{wrapfigure}[8]{l}{0.4\textwidth}
+\begin{wrapfigure}[8]{l}{0.5\textwidth}
+  \vspace{-20pt}
   \centering
   \includestandalone{figures/fig_010}
   \caption{Bearing Shear}
@@ -194,6 +203,40 @@ This value is obtained by dividing the load $P$ by the area of the surface of co
   \end{equation*}
 \end{formula}
 
+\subsection{Stress on an Oblique Plane}
+\label{ssec:stressOnAnObliquePlace}
 
+Thus far, only stresses perpendicular and parallel to planes have been considered. However, what if an object such as the one in Figure \ref{fig:obliquePlane} were to be considered where the plane is at an angle?
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_011}
+    \caption{Top View}
+    \label{fig:011}
+  \end{subfigure}
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_012}
+    \caption{Normal View}
+    \label{fig:012}
+  \end{subfigure}
+  \caption{Oblique Plane}
+  \label{fig:obliquePlane}
+\end{figure}
+
+In this situation, the "axial" force applied to the member is no longer just an axial force. There is a component of the force perpendicular to the plane just as there is one parallel. This can be seen in Figure \ref{fig:013}, where the {\color{ma} \textbf{axial stress}} to the plane is purple and the {\color{ye} \textbf{shear stress}} to the plane is yellow.
+
+\begin{figure}[H]
+  \centering
+  \includestandalone{figures/fig_013}
+  \caption{Components of the Applied Force}
+  \label{fig:013}
+\end{figure}
+
+This begins to illustrate the idea that shear and axial stresses aren't very different, and largely differ based on the perspective they are analyzed from.
+
+To calculate the stresses created by the forces exerted on this member, it's just a matter of calculating the vector components of the force and using them where appropriate.
 
 \end{document}

@@ -5,7 +5,7 @@
 \date{January 06, 2025}
 
 \begin{document}
-\tdplotsetmaincoords{60}{125}
+\tdplotsetmaincoords{0}{90}
 \begin{tikzpicture}
 		[tdplot_main_coords,
     cube/.style={fill=bl!25!bg, draw=fg, thick, fill opacity = 0.8},
@@ -28,7 +28,6 @@
   \draw[force, thick] (0.75,4,0.25) -- ++(0,1,0);
   \draw[force, thick] (0.75,4,0.75) -- ++(0,1,0);
 
-  \filldraw[fill=bl, fill opacity = 0.8, draw=bl, thick] (0,2,0) -- ++(1,0,0) -- ++(0,0,1) -- ++(-1,0,0) -- cycle;
-  \draw[draw=fg, thick] (1,0,1) -- ++(0,4,0);
+  \filldraw[fill=bl, fill opacity = 0.8, draw=bl, ultra thick] (-0.25,2.25,0.5) -- ++(1.5,-1,0) -- ++(0,0,1) -- ++(-1.5,1,0) -- cycle;
 \end{tikzpicture}
 \end{document}

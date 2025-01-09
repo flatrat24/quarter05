@@ -1,0 +1,40 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 002}
+\date{January 06, 2025}
+
+\begin{document}
+\tdplotsetmaincoords{0}{90}
+\begin{tikzpicture}
+		[tdplot_main_coords, scale = 1.5,
+    cube/.style={fill=bl!25!bg, draw=fg, thick, fill opacity = 0.8},
+    force/.style={draw=re, ultra thick, -stealth}]
+
+  \draw[re, ultra thick, dashed] (0.25,0,0.25) -- ++(0,-1,0);
+  \draw[force, ma] (0.25,0,0.25) -- node[anchor = south] {\textbf{F}} ++(-0.25,-0.75,0);
+  \draw[force, ye] (0,-0.75,0.25) -- node[anchor = east] {\textbf{V}} ++(0.25,-0.25,0);
+
+  \draw[re, ultra thick, dashed] (0.75,0,0.25) -- node[anchor = north] {\textbf{P}} ++(0,-1,0);
+  \draw[force, ma] (0.75,0,0.25) -- ++(-0.25,-0.75,0);
+  \draw[force, ye] (0.5,-0.75,0.25) -- ++(0.25,-0.25,0);
+
+  \filldraw[cube] (0,0,0) -- ++(0,4,0) -- ++(1,0,0) -- ++(0,-4,0) -- cycle;
+  \filldraw[cube] (0,0,0) -- ++(0,0,1) -- ++(1,0,0) -- ++(0,0,-1) -- cycle;
+  \filldraw[cube] (0,4,0) -- ++(0,0,1) -- ++(1,0,0) -- ++(0,0,-1) -- cycle;
+  \filldraw[cube] (1,0,0) -- ++(0,4,0) -- ++(0,0,1) -- ++(0,-4,0) -- cycle;
+  \filldraw[cube] (0,0,1) -- ++(0,4,0) -- ++(1,0,0) -- ++(0,-4,0) -- cycle;
+
+
+  \filldraw[fill=bl, fill opacity = 0.8, draw=bl, ultra thick] (-0.25,2.25,0.5) -- ++(1.5,-1,0) -- ++(0,0,1) -- ++(-1.5,1,0) -- cycle;
+  \draw[] (0.85,1.9,0) node[rotate = 0, anchor = 0] {$\Theta$};
+
+  \draw[re, ultra thick, dashed] (0.25,4,0.75) -- node[anchor = south] {\textbf{P}} ++(0,1,0);
+  \draw[force, ma] (0.25,4,0.75) -- ++(0.25,0.75,0);
+  \draw[force, ye] (0.5,4.75,0.75) -- ++(-0.25,0.25,0);
+
+  \draw[re, ultra thick, dashed] (0.75,4,0.75) -- ++(0,1,0);
+  \draw[force, ma] (0.75,4,0.75) -- node[anchor = north] {\textbf{F}} ++(0.25,0.75,0);
+  \draw[force, ye] (1,4.75,0.75) -- node[anchor = west] {\textbf{V}} ++(-0.25,0.25,0);
+\end{tikzpicture}
+\end{document}
