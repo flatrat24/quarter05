@@ -10,12 +10,16 @@
 \section{Types of Stress}
 \label{sec:typesOfStress}
 
+Mechanics of materials provides a means to analyze the effects of \textit{stresses} and \textit{deformations}. Statics covered finding a balance of forces, including internal forces such as \textit{shear}, \textit{bending}, and \textit{tension/compression}. Finding these internal forces is imperative to be able to determine the integrity of a structure. In addition to the internal forces, the integrity of a structure is also partially determined by the \textit{dimensions} and \textit{materials} of that structure.
+
 \subsection{Axial Stress}
 \label{ssec:axialStress}
 
 \subsubsection{Overview}
 
-Mechanics of materials provides a means to analyze the effects of \textit{stresses} and \textit{deformations}. Statics covered finding a balance of forces, including internal forces such as \textit{shear}, \textit{bending}, and \textit{tension/compression}. Finding these internal forces is imperative to be able to determine the integrity of a structure. In addition to the internal forces, the integrity of a structure is also partially determined by the \textit{dimensions} and \textit{materials} of that structure.
+\begin{definition}{Axial Stress}
+  Internal stress experienced by a member due to forces applied along its axis. Specifically, stress is a force per area, where the area is the cross section normal to the axis.
+\end{definition}
 
 In the analysis of a rod, for example, the ability for that rod to withstand the internal forces (its structural integrity) is determined by the cross-sectional area and the material of the rod.
 
@@ -51,13 +55,11 @@ In Figure \ref{fig:axialVsElementary}, the \textit{stress} being experiences by 
   \end{equation*}
 \end{formula}
 
-This formula gives the \textit{average} axial stress over the cross section of a member. This stress can be assumed to be \textit{uniform} throughout the cross section.
+This formula gives the \textit{average} axial stress over the cross section of a member. Although in reality the distribution of the stress throughout the member varies, stress can be assumed to be \textit{uniform} throughout the cross section.
 
 \vspace{12pt}
 \hrule
 \vspace{2pt}
-
-By convention, a positive force indicates \textbf{tensile stress} while a negative force indicates \textbf{compressive stress}.
 
 \begin{figure}[H]
   \centering
@@ -77,18 +79,19 @@ By convention, a positive force indicates \textbf{tensile stress} while a negati
   \label{fig:tensileVsCompressiveForce}
 \end{figure}
 
+By convention, a positive force indicates \textbf{tensile stress} while a negative force indicates \textbf{compressive stress}.
+
+\vspace{8pt}
 \hrule
-\vspace{5pt}
 
-The cross section, as seen in Figure \ref{fig:005}, is perpendicular to the axial forces. The corresponding stress in the member in described as \textit{normal stress}.
-
-\begin{figure}[H]
-  \vspace{-20pt}
+\begin{wrapfigure}[6]{r}{0.35\textwidth}
   \centering
   \includestandalone{figures/fig_005}
   \caption{Normal Stress}
   \label{fig:005}
-\end{figure}
+\end{wrapfigure}
+
+The cross section, as seen in Figure \ref{fig:005}, is perpendicular to the axial forces. The corresponding stress in the member in described as axial/normal stress.
 
 Thus, the formula of $\sigma = \frac{P}{A}$ gives the normal stress of an member under axial loading.
 
@@ -117,22 +120,16 @@ In Figure \ref{fig:006}, to find the stress of the highlighted area, the working
 
 \subsubsection{Overview}
 
-In Section \ref{ssec:axialStress}, the internal forces and corresponding stresses were \textit{normal} to the member.
-
-\begin{definition}{Shear Stress}
-  Internal stresses caused by forces with parallel and opposite components vectors.
-\end{definition}
-
-\begin{wrapfigure}[11]{r}{0.35\textwidth}
-  \vspace{-20pt}
+\begin{wrapfigure}[10]{r}{0.25\textwidth}
+  \vspace{-50pt}
   \centering
-  \begin{subfigure}[H]{0.35\textwidth}
+  \begin{subfigure}[H]{0.25\textwidth}
     \centering
     \includestandalone{figures/fig_007}
     \caption{Opposing Forces Creating Shear}
     \label{fig:007}
   \end{subfigure}
-  \begin{subfigure}[H]{0.35\textwidth}
+  \begin{subfigure}[H]{0.25\textwidth}
     \centering
     \includestandalone{figures/fig_008}
     \caption{Opposing Forces Creating Shear}
@@ -141,6 +138,12 @@ In Section \ref{ssec:axialStress}, the internal forces and corresponding stresse
   \caption{Shear Stress}
   \label{fig:shearingStress}
 \end{wrapfigure}
+
+In Section \ref{ssec:axialStress}, the forces creating stress acted perpendicular to the face being analyzed (see Figure \ref{fig:005}). This created axial stress. In the case of transverse forces acting parallel to the face, shearing stress is created.
+
+\begin{definition}{Shear Stress}
+  Internal stresses caused by transverse forces acting parallel to a plane.
+\end{definition}
 
 In Figure \ref{fig:shearingStress}, a member has two opposing forces, $P_a$ and $P_b$, acting upon it. These two forces create internal shear in the section between them as seen in Figure \ref{fig:008}.
 
@@ -157,7 +160,7 @@ The average shearing stress cannot be assumed to be uniform throughout the secti
 \subsubsection{Single and Double Shear}
 \label{sssec:singleAndDoubleShear}
 
-The member in Figure \ref{fig:shearingStress} is said to be in \textbf{single shear} because there is only a single section in shear. However, if forces were to be applied to a member as in Figure \ref{fig:009}, there are now two sections and thus the member is said to be in \textbf{double shear}.
+The member in Figure \ref{fig:shearingStress} is said to be in \textbf{single shear} because the shear stress is entirely on a single plane. If forces were to be applied to a member as in Figure \ref{fig:009}, there are now two sections and thus the member is said to be in \textbf{double shear}.
 
 \begin{figure}[H]
   \centering
@@ -179,21 +182,21 @@ Since there are two faces of shear stress, they will add together to $\frac{P}{A
 \subsubsection{Bearing Stress}
 \label{sssec:bearingStress}
 
-Often, rather than singular forces creating shearing stress, the surfaces of multiple objects will apply distributed forces to each other, thus creating \textbf{bearing shear}.
-
-\begin{definition}{Bearing Shear}
-  Caused by distributed forces creating shear, bearing stress is the average shear across a region of a member.
-\end{definition}
-
-\begin{wrapfigure}[8]{l}{0.5\textwidth}
-  \vspace{-20pt}
+\begin{wrapfigure}[6]{r}{0.3\textwidth}
+  \vspace{-30pt}
   \centering
   \includestandalone{figures/fig_010}
   \caption{Bearing Shear}
   \label{fig:010}
 \end{wrapfigure}
 
-In Figure \ref{fig:010}, two objects are applying reciprocal forces to each other. Throughout the area the two objects interface over, the distribution of the shear is not even. So, in practice, the average nominal value of the stress ($\sigma_b$) called the \textbf{bearing stress} is used.
+Often, rather than singular forces creating axial stress, the surfaces of multiple objects will apply distributed forces to each other, thus creating \textbf{bearing stress}.
+
+\begin{definition}{Bearing Stress}
+  Similar to axial stress, bearing stress is the result of two members interfacing with each other and applying force along an axis.
+\end{definition}
+
+In Figure \ref{fig:010}, two objects are applying reciprocal forces to each other. Throughout the area the two objects interface over, the distribution of the force is not even. So, in practice, the average nominal value of the stress ($\sigma_b$) called the \textbf{bearing stress} is used.
 
 This value is obtained by dividing the load $P$ by the area of the surface of contact.
 
