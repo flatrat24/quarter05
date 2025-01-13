@@ -478,6 +478,13 @@ INPUT /nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fon
 INPUT /nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/tfm/jknappen/ec/ecxc1440.tfm
 INPUT /nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/tfm/jknappen/ec/ecti1200.tfm
 INPUT /nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/tfm/jknappen/ec/ecxc1200.tfm
+INPUT ./lec_002.tex
+INPUT ./lec_002.tex
+INPUT ./lec_002.tex
+INPUT ./lec_002.tex
+INPUT lec_002.tex
+INPUT /nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/tfm/jknappen/ec/ecrm0800.tfm
+INPUT /nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/tfm/jknappen/ec/ecrm0600.tfm
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out

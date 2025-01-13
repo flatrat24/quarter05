@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1736541883.03532 "main.tex" "main.pdf" "main" 1736541884.93576 0
+["pdflatex"] 1736737418.36101 "main.tex" "main.pdf" "main" 1736737419.34314 0
   "../../xlatex/imports/preamble.tex" 1735936758.43427 3949 66d8f0a8b4241e9804622eb951b989c2 ""
   "/nix/store/nrl7r9d478gqb6vqs924s95m1b5jazsb-texlive-2023-env/share/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1 5467731 c054d905585c843f3d779ea379a08fbb ""
   "/nix/store/nrl7r9d478gqb6vqs924s95m1b5jazsb-texlive-2023-env/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1 8221900 7b9d527c326ca41fbbbd9f38dee3868a ""
@@ -10,6 +10,8 @@
   "/nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/tfm/jknappen/ec/eccc1200.tfm" 1 3072 1e3dcc56ea731d0f3645bbefe8c8608c ""
   "/nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/tfm/jknappen/ec/eccc1440.tfm" 1 3072 f2bcba5ec52607af3501d45108193ff5 ""
   "/nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/tfm/jknappen/ec/eccc1728.tfm" 1 3072 4c9b123826d0d85d40f16e82db0803b7 ""
+  "/nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/tfm/jknappen/ec/ecrm0600.tfm" 1 3584 291a5713401683441e0a8c8f4417b17b ""
+  "/nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/tfm/jknappen/ec/ecrm0800.tfm" 1 3584 49064b465390a8e316a3c8417a050403 ""
   "/nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/tfm/jknappen/ec/ecrm1200.tfm" 1 3584 f80ddd985bd00e29e9a6047ebd9d4781 ""
   "/nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/tfm/jknappen/ec/ecrm1440.tfm" 1 3584 3169d30142b88a27d4ab0e3468e963a2 ""
   "/nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/tfm/jknappen/ec/ecrm2074.tfm" 1 3584 8e2870ec7aa9776f59654942b0923f51 ""
@@ -284,11 +286,12 @@
   "/nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/tex/latex/xcolor/xcolor.sty" 1 55487 80a65caedd3722f4c20a14a69e785d8f ""
   "/nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/tex/latex/xifthen/xifthen.sty" 1 5689 1bfa68243e89a54479e7d0580773c57e ""
   "/nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/tex/latex/xkeyval/xkeyval.sty" 1 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
-  "lec_001.tex" 1736541881.95397 7479 5270cc8e0e0910a9b0c557e818fd2ed8 ""
-  "main.aux" 1736541884.75699 2669 bfb19e5646cb3602ae703777b035ba3a "pdflatex"
-  "main.out" 1736541884.75799 1494 bdc561b9d5fced7819b3ef7e24789a85 "pdflatex"
-  "main.tex" 1736539677.66566 327 6938dabe286246c98d15da35e75218c4 ""
-  "main.toc" 1736541884.75899 679 56d9c23d9c9551854e918d60eaa64117 "pdflatex"
+  "lec_001.tex" 1736726104.17357 7483 1c7785c42266f5143d82ce99f4a79fe4 ""
+  "lec_002.tex" 1736737416.81171 4333 9901b6cf2e513ab1501e09b5667fe3d6 ""
+  "main.aux" 1736737419.25766 3079 f74e2ddfd0b568adae212e4172084b7d "pdflatex"
+  "main.out" 1736737419.25766 1658 8c2601f6ec260198bd60b5400cdc816f "pdflatex"
+  "main.tex" 1736726334.45656 345 e5bb89cec3b0f63d35ba66d4c0c84e46 ""
+  "main.toc" 1736737419.25766 766 8e5e809f169a932e58c0a7543dd701a7 "pdflatex"
   (generated)
   "main.aux"
   "main.log"

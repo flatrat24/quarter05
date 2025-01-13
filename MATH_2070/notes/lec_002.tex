@@ -1,0 +1,122 @@
+\documentclass[12pt]{article}
+
+\input{../../xlatex/imports/preamble}
+
+\title{Lecture 002}
+\date{January 12, 2025}
+
+\begin{document}
+\setcounter{equation}{0}
+\newpage
+
+\section{First Order Equations}
+\label{sec:firstOrderEquations}
+
+A first order ODE is an equation in the form of:
+\begin{equation}
+  \frac{dy}{dx} = f(x,y) \ \ \textup{or} \ \ y' = f(x,y)
+  \label{eq:201}
+\end{equation}
+There is no strict process to find a solution to these equations. Thus, a lot of this class is spent on the various different ways to find solutions. To see one of the simpler ways, consider an equation where $f$ is a function of only $x$:
+\begin{equation*}
+  y' = f(x)
+\end{equation*}
+Integrating both sides with respect to $x$, the equation becomes:
+\begin{align*}
+  \int_{}^{} y' \, dx &= \int_{}^{} f(x) \, dx + C \\
+  y(x) &= \int_{}^{} f(x) \, dx + C
+\end{align*}
+This $y(x)$ is the general solution to (\ref{eq:201}). Thus, to solve a differential equation with just a single dependent variable $x$, finding the antiderivative of $f(x)$ is sufficient to find the general solution.
+\begin{example}
+  Find the general solution for:
+  \begin{equation*}
+    y' = 3x^2
+  \end{equation*}
+  Integrating each side gives:
+  \begin{align*}
+    \int_{}^{} y' \, dx &= \int_{}^{} 3x^2 \, dx + C \\
+    y(x) &= x^3 + C
+  \end{align*}
+  Thus, the general solution for $y' = 3x^2$ is $y(x) = x^3 + C$.
+\end{example}
+Generally, there will also be a condition that the solution to a differential equation must satisfy. In general terms, this might look like:
+\begin{equation}
+  y' = f(x), \ y(x_0) = y_0
+  \label{eq:202}
+\end{equation}
+Leaving the solution to (\ref{eq:202}) as:
+\begin{equation*}
+  y(x) = \int_{x_0}^{x} f(t) \,dt + y_0
+\end{equation*}
+Verifying the solution, first $y'$ is computed based on our solution.
+\begin{align*}
+  \frac{d}{dx}\big(y(x)\big) = \frac{d}{dx}\left(\int_{x_0}^{x} f(t) \,dt + y_0\right) \\
+  y' = f(x)
+\end{align*}
+Second, to verify that the initial condition is satisfied:
+\begin{align*}
+  y(x) &= \int_{x_0}^{x} f(t) \,dt + y_0 \\
+  y(x_0) &= \int_{x_0}^{x_0} f(t) \,dt + y_0 \\
+  y(x_0) &= 0 + y_0 \\
+  y(x_0) &= y_0
+\end{align*}
+This confirms the initial condition, and thus it can be seen that the solution to the differential equation with an initial condition has been found.
+\begin{example}
+  Solve
+  \begin{equation*}
+    y' = e^{-x^2}, \ y({\color{gr} 0}) = {\color{re} 1}
+  \end{equation*}
+  First, finding the solution, both sides can be integrated:
+  \begin{equation*}
+    y(x) = \int_{{\color{gr} 0}}^{x} e^{-t^2} \,dt + {\color{re} 1}
+  \end{equation*}
+  And to verify the solution:
+  \begin{figure}[H]
+    \centering
+    \begin{subfigure}[H]{0.45\textwidth}
+      \centering
+      \begin{align*}
+        \frac{d}{dx}\big(y(x)\big) &= \frac{d}{dx}\left(\int_{0}^{x} e^{-t^2} \,dt + 1\right) \\
+        y' &= e^{-x^2}
+      \end{align*}
+    \end{subfigure}
+    \begin{subfigure}[H]{0.45\textwidth}
+      \centering
+      \begin{align*}
+        y(0) &= \int_{0}^{x} e^{t^2} \,dt + 1 \\
+        y(0) &= 0 + 1 \\
+        y(0) &= 1
+      \end{align*}
+    \end{subfigure}
+  \end{figure}
+  The solution passes both verification tests, and so it can be safely said that the solution has been found.
+\end{example}
+
+Using the same method as before, equations of the form in (\ref{eq:203}) can be solved as well.
+\begin{equation}
+  y' = f(y)\ \ \textup{or}\ \ \frac{dy}{dx} = f(y)
+  \label{eq:203}
+\end{equation}
+(\ref{eq:203}) can be rewritten using the inverse function theorem from calculus to switch the roles of $x$ and $y$ to get:
+\begin{equation*}
+  \frac{dx}{dy} = \frac{1}{f(y)}
+\end{equation*}
+Finally, at this point both sides can be integrated with respect to $y$ to get:
+\begin{equation*}
+  x(y) = \int_{}^{} \frac{1}{f(y)} \,dy + C
+\end{equation*}
+From here, it is just a matter of solving for $y$.
+\begin{example}
+  In Subsection \ref{ssec:fourFundamentalEquations}, the claim was made that the solution for $y'=ky$ is $y=Ce^{kx}$ for $k>0$. To show this, the method of integration can be used:
+  \begin{gather*}
+    \frac{dy}{dx} = ky \rightarrow \frac{dx}{dy} = \frac{1}{ky} \\
+    x(y) = \int_{}^{} \frac{1}{ky} \, dy \\
+    x(y) = \frac{1}{k}\ln|y| + D \\
+  \end{gather*}
+  Now solving for $y$:
+  \begin{gather*}
+    x(y) = \frac{1}{k}\ln|y| + D \\
+  \end{gather*}
+\end{example}
+
+\end{document}
