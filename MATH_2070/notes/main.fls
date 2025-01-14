@@ -489,6 +489,7 @@ INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out
 INPUT /nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/type1/public/amsfonts/cm/cmex10.pfb
+INPUT /nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb
 INPUT /nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/type1/public/amsfonts/cm/cmmi12.pfb
 INPUT /nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
 INPUT /nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/type1/public/amsfonts/cm/cmr12.pfb

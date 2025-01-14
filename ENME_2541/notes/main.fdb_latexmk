@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1736568239.98557 "main.tex" "main.pdf" "main" 1736568242.21894 0
+["pdflatex"] 1736802618.17263 "main.tex" "main.pdf" "main" 1736802619.72644 0
   "../../xlatex/imports/preamble.tex" 1735936758.43427 3949 66d8f0a8b4241e9804622eb951b989c2 ""
   "/nix/store/nrl7r9d478gqb6vqs924s95m1b5jazsb-texlive-2023-env/share/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1 5467731 c054d905585c843f3d779ea379a08fbb ""
   "/nix/store/nrl7r9d478gqb6vqs924s95m1b5jazsb-texlive-2023-env/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1 8221900 7b9d527c326ca41fbbbd9f38dee3868a ""
@@ -308,11 +308,11 @@
   "figures/fig_018.tex" 1736564966.10861 1778 c13328e783774b4d6687aeda27ade069 ""
   "lec_001.tex" 1736559823.59333 9771 121511fc6880a44c454033b65cf6d0a3 ""
   "lec_002.tex" 1736401003.82941 3710 2638e4dcedc9433896f9d2d600a39849 ""
-  "lec_003.tex" 1736568238.11569 5352 7253df489253a02998e3c0570d9ab10a ""
-  "main.aux" 1736568242.09668 8662 b91c528b2310f1e187a45101a7153f78 "pdflatex"
-  "main.out" 1736568242.09768 2655 3fd63775aa31506ea4c60ff2e3efe471 "pdflatex"
+  "lec_003.tex" 1736644423.34595 5147 d273178e2dff2d28c751d387cc9cf275 ""
+  "main.aux" 1736802619.608 8662 b91c528b2310f1e187a45101a7153f78 "pdflatex"
+  "main.out" 1736802619.609 2655 3fd63775aa31506ea4c60ff2e3efe471 "pdflatex"
   "main.tex" 1736560467.39273 378 54bdff64d172b8e1b56ba92c02a3e2ee ""
-  "main.toc" 1736568242.09868 1467 a898e5b3dd5163d5e70e865e0983cb47 "pdflatex"
+  "main.toc" 1736802619.609 1467 a898e5b3dd5163d5e70e865e0983cb47 "pdflatex"
   (generated)
   "main.aux"
   "main.log"
