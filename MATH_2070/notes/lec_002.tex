@@ -119,4 +119,66 @@ From here, it is just a matter of solving for $y$.
   \end{gather*}
 \end{example}
 
+\begin{example}
+  \begin{equation*}
+    y' + y = \cos(2t)
+  \end{equation*}
+  This is already in standard form, so we can go on to calculate the integrating factor:
+  \begin{equation*}
+    \mu(t) = e^{\int_{}^{} 1 \,dt} = e^t
+  \end{equation*}
+  Thus, the general solution will be:
+  \begin{equation*}
+    y = \frac{\int_{}^{} e^t \cdot \cos(2t) \,dt}{e^t}
+  \end{equation*}
+  Integrating the numerator:
+  \begin{gather*}
+    \int_{}^{} e^t \cdot \cos(2t) \,dt \\
+    \vdots \\
+    \int_{}^{} e^t \cdot \cos(2t) \,dt = \frac{1}{5}\left(e^t \cos(2t) + 2e^t \sin(2t)\right) + C
+  \end{gather*}
+  Thus:
+  \begin{equation*}
+    y = \frac{\frac{1}{5}\left(e^t \cos(2t) + 2e^t \sin(2t)\right) + C}{e^t} \\
+  \end{equation*}
+  or:
+  \begin{equation*}
+    y = \frac{1}{5}\left(\cos(2t) + 2\sin(2t)\right) + Ce^{-t}
+  \end{equation*}
+\end{example}
+
+\subsection{Separable ODE}
+\label{ssec:separableODE}
+
+The basic form of a separable ODE is:
+\begin{equation*}
+  \frac{dy}{dx} = f(y) \cdot g(x)
+\end{equation*}
+i.e., the derivative is a product of two functions, one depending on $x$ and the other on $y$.
+
+This type of ODE is solved first by separating the variables:
+\begin{equation*}
+  \frac{dy}{f(y)} = g(x) dx
+\end{equation*}
+Now that there is a single type of variable on each side (only $x$ or only $y$), both sides can be integrated.
+
+\begin{example}
+  \begin{equation*}
+    \frac{dy}{dx} = \frac{e^x - x}{e^{-y} + y}
+  \end{equation*}
+  First, move to get one variable on each side:
+  \begin{equation*}
+    e^{-y} + y dy = e^x - x dx
+  \end{equation*}
+  Then integrate:
+  \begin{gather*}
+    \int_{}^{} e^{-y} + y \, dy = \int_{}^{} e^x - x \, dx \\
+    \vdots \\
+    -e^{-y} + \frac{y^2}{2} = e^x - \frac{x^2}{2} + C
+  \end{gather*}
+  From here, it's impossible to solve $y$ from $x$ universally. In this situation, a Taylor Series would be necessary...
+\end{example}
+
+\textbf{Principle:} If an ODE is given without initial values, a one-parameter family of solutions is sufficient. However, if an initial value is given (IVP), an explicit solution might be possible with an interval of existence.
+
 \end{document}
