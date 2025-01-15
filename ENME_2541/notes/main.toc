@@ -11,7 +11,3 @@
 \contentsline {section}{\numberline {2}Design Considerations}{6}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Determining the Strength of Materials}{6}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Factor of Safety}{6}{subsection.2.2}%
-\contentsline {section}{\numberline {3}Deformation}{8}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Normal Strain}{8}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Stress Strain Diagrams}{9}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}True vs. Engineering Stress and Strain}{10}{subsection.3.3}%
