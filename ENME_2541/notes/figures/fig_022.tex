@@ -1,0 +1,27 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 002}
+\date{January 10, 2025}
+
+\begin{document}
+\tdplotsetmaincoords{70}{115}
+\begin{tikzpicture}
+		[tdplot_main_coords,
+    cube/.style={fill=bl!25!bg, draw=fg, thick},
+    force/.style={draw=re, thick, -stealth},
+    connector/.style={draw=fg, thick, dashed}]
+
+    \foreach \x in {0,0.1,...,6} {
+      \pgfmathsetmacro{\xx}{\x + 0.15};
+      \pgfmathsetmacro{\xxx}{\x + 0.25};
+      \pgfmathsetmacro{\color}{100 - ((100/60)*\x)}
+      \fill[cube, draw=bl!\color!re, fill=bl!\color!re] (5,\xx,0) -- ++(0,0.1,0) -- ++(1,0,0) -- ++(0,-0.1,0) -- cycle; % bottom
+      \fill[cube, draw=bl!\color!re, fill=bl!\color!re] (5,\xx,0) -- ++(0,0,1)  -- ++(1,0,0) -- ++(0,0,-1)   -- cycle; % left
+      \fill[cube, draw=bl!\color!re, fill=bl!\color!re] (5,\xxx,0) -- ++(0,0,1)  -- ++(1,0,0) -- ++(0,0,-1)   -- cycle; % right
+      \fill[cube, draw=bl!\color!re, fill=bl!\color!re] (6,\xx,0) -- ++(0,0.1,0) -- ++(0,0,1) -- ++(0,-0.1,0) -- cycle; % front
+      \fill[cube, draw=bl!\color!re, fill=bl!\color!re] (5,\xx,1) -- ++(0,0.1,0) -- ++(1,0,0) -- ++(0,-0.1,0) -- cycle; % top
+    }
+
+\end{tikzpicture}
+\end{document}

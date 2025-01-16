@@ -1,0 +1,38 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 002}
+\date{January 10, 2025}
+
+\begin{document}
+\tdplotsetmaincoords{70}{115}
+\begin{tikzpicture}
+		[tdplot_main_coords,
+    cube/.style={fill=bl!25!bg, draw=fg, thick, fill opacity = 0.8},
+    force/.style={draw=re, thick, -stealth},
+    connector/.style={draw=fg, thick, dashed}]
+
+  \draw[draw=fg, thick, |-]  (4.5,0.055,1) -- node[midway, anchor = south] {$\Delta L$} ++(0,1.5,0);
+  \draw[draw=fg, thick, |-|] (4.5,1.55,1) -- node[midway, anchor = south] {$\Delta\delta$} ++(0,0.5,0);
+  \filldraw[cube, fill=bl!75!re] (5,0.25,0) -- ++(0,2,0) -- ++(1,0,0) -- ++(0,-2,0) -- cycle; % bottom
+  \filldraw[cube, fill=bl!75!re] (5,0.25,0) -- ++(0,0,1) -- ++(1,0,0) -- ++(0,0,-1) -- cycle; % left
+  \filldraw[cube, fill=bl!75!re] (5,1.75,0) -- ++(0,0,1) -- ++(1,0,0) -- ++(0,0,-1) -- cycle; % right inside
+  \filldraw[cube, fill=bl!75!re] (5,2.25,0) -- ++(0,0,1) -- ++(1,0,0) -- ++(0,0,-1) -- cycle; % right
+  \filldraw[cube, fill=bl!75!re] (6,0.25,0) -- ++(0,2,0) -- ++(0,0,1) -- ++(0,-2,0) -- cycle; % front
+  \filldraw[cube, fill=bl!75!re] (5,0.25,1) -- ++(0,2,0) -- ++(1,0,0) -- ++(0,-2,0) -- cycle; % top
+
+  \filldraw[cube, fill=bl!50!re] (5,2.5,0) -- ++(0,2,0) -- ++(1,0,0) -- ++(0,-2,0) -- cycle; % bottom
+  \filldraw[cube, fill=bl!50!re] (5,2.5,0) -- ++(0,0,1) -- ++(1,0,0) -- ++(0,0,-1) -- cycle; % left
+  \filldraw[cube, fill=bl!50!re] (5,4.0,0) -- ++(0,0,1) -- ++(1,0,0) -- ++(0,0,-1) -- cycle; % right inside
+  \filldraw[cube, fill=bl!50!re] (5,4.5,0) -- ++(0,0,1) -- ++(1,0,0) -- ++(0,0,-1) -- cycle; % right
+  \filldraw[cube, fill=bl!50!re] (6,2.5,0) -- ++(0,2,0) -- ++(0,0,1) -- ++(0,-2,0) -- cycle; % front
+  \filldraw[cube, fill=bl!50!re] (5,2.5,1) -- ++(0,2,0) -- ++(1,0,0) -- ++(0,-2,0) -- cycle; % top
+
+  \filldraw[cube, fill=bl!25!re] (5,4.75,0) -- ++(0,2,0) -- ++(1,0,0) -- ++(0,-2,0) -- cycle; % bottom
+  \filldraw[cube, fill=bl!25!re] (5,4.75,0) -- ++(0,0,1) -- ++(1,0,0) -- ++(0,0,-1) -- cycle; % left
+  \filldraw[cube, fill=bl!25!re] (5,6.25,0) -- ++(0,0,1) -- ++(1,0,0) -- ++(0,0,-1) -- cycle; % right inside
+  \filldraw[cube, fill=bl!25!re] (5,6.75,0) -- ++(0,0,1) -- ++(1,0,0) -- ++(0,0,-1) -- cycle; % right
+  \filldraw[cube, fill=bl!25!re] (6,4.75,0) -- ++(0,2,0) -- ++(0,0,1) -- ++(0,-2,0) -- cycle; % front
+  \filldraw[cube, fill=bl!25!re] (5,4.75,1) -- ++(0,2,0) -- ++(1,0,0) -- ++(0,-2,0) -- cycle; % top
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,25 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 002}
+\date{January 10, 2025}
+
+\begin{document}
+\tdplotsetmaincoords{70}{115}
+\begin{tikzpicture}
+		[tdplot_main_coords,
+    cube/.style={fill=bl!25!bg, draw=fg, thick, fill opacity = 0.8},
+    force/.style={draw=re, thick, -stealth},
+    connector/.style={draw=fg, thick, dashed}]
+
+  \draw[draw=fg, thick, |-]  (4.5,0.055,1) -- node[midway, anchor = south] {$L$} ++(0,4.5,0);
+  \draw[draw=fg, thick, |-|] (4.5,4.55,1) -- node[midway, anchor = south] {$\delta$} ++(0,1.5,0);
+  \filldraw[cube] (5,0.25,0) -- ++(0,6,0) -- ++(1,0,0) -- ++(0,-6,0) -- cycle; % bottom
+  \filldraw[cube] (5,0.25,0) -- ++(0,0,1) -- ++(1,0,0) -- ++(0,0,-1) -- cycle; % left
+  \filldraw[cube] (5,4.75,0) -- ++(0,0,1) -- ++(1,0,0) -- ++(0,0,-1) -- cycle; % right inside
+  \filldraw[cube] (5,6.25,0) -- ++(0,0,1) -- ++(1,0,0) -- ++(0,0,-1) -- cycle; % right
+  \filldraw[cube] (6,0.25,0) -- ++(0,6,0) -- ++(0,0,1) -- ++(0,-6,0) -- cycle; % front
+  \filldraw[cube] (5,0.25,1) -- ++(0,6,0) -- ++(1,0,0) -- ++(0,-6,0) -- cycle; % top
+  
+\end{tikzpicture}
+\end{document}

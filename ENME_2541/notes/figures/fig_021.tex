@@ -1,0 +1,40 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 021}
+\date{January 15, 2025}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[
+    scale = 1.25,
+    xlabel={Loads Applied},
+    ylabel={Stress (kPa)},
+    legend pos=north west,
+    ymajorgrids=true,
+    xmajorgrids=true,
+    grid style=dashed,
+    xmode=log,
+    log ticks with fixed point,
+    xtick={100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000, 10000000000, 100000000000, 1000000000000},
+    xticklabels={$10^2$, $10^3$, $10^4$, $10^5$, $10^6$, $10^7$, $10^8$, $10^9$, $10^{10}$, $10^{11}$, $10^{12}$},
+    ]
+    \addplot[
+      color=re,
+      thick,
+      mark=square,
+      ]
+      coordinates {
+        (100,42)(1000,36)(10000,31)(100000,28)(1000000,26)(10000000,24)(100000000,22)(1000000000,20.5)(10000000000,19.5)(100000000000,18.75)(1000000000000,18.25)
+      };
+    \addplot[
+      color=bl,
+      thick,
+      mark=square,
+      ]
+      coordinates {
+        (100,50)(1000,45)(10000,40)(100000,36)(1000000,33)(10000000,31)(100000000,29.5)(1000000000,28.5)(10000000000,28.5)(100000000000,28.5)(1000000000000,28.5)
+      };
+  \end{axis}
+\end{tikzpicture}
+\end{document}

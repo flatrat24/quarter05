@@ -48,12 +48,12 @@ Though indirectly caused by an axial load, the factors in determining the amount
 
 \begin{figure}[H]
   \centering
-  \begin{subfigure}[h]{0.45\textwidth}
+  \begin{subfigure}[h]{0.48\textwidth}
     \centering
     \includestandalone{figures/fig_015}
   \end{subfigure}
   \vrule
-  \begin{subfigure}[h]{0.45\textwidth}
+  \begin{subfigure}[h]{0.48\textwidth}
     \centering
     \includestandalone{figures/fig_016}
   \end{subfigure}
@@ -79,10 +79,15 @@ Assuming the same material, two members of different dimensions, but undergoing 
 
 Similarly, since strain is a ratio between the original length and the final length, a body double the length of another will experience the same strain assuming all else is the same. See Figure \ref{fig:strainForTwoRodsOfDifferentLengths}.
 
+Strain so far has only been considered for uniform bodies: the same material, same cross-section, etc, and only for members loaded axially on their ends. What happens when these conditions aren't met? Conveniently, strain can be added for subsections of a member, and summed together to find the total strain:
+\begin{equation*}
+  \delta = \sum_{i}^{} \frac{P_iL_i}{A_iE_i}
+\end{equation*}
+
 \subsection{Stress Strain Diagrams}
 \label{ssec:stressStrainDiagrams}
 
-Having seen that strain is independent of the dimensions of a material, and only depends on the stress, it follows that plotting strain as a function of stress would result in a diagram generally applicable to a material. This curve, called a \textbf{stress-strain diagram} characterizes the properties of a material.
+Having seen that strain is independent of the dimensions of a material, and rather depends on the stress experienced by the material, it follows that plotting strain as a function of stress would result in a diagram generally applicable to a specific material. This curve, called a \textbf{stress-strain diagram} characterizes the properties of a material.
 
 Though all materials behave differently when examined through a stress-strain diagram, there are two broad categories of materials: \textit{brittle} and \textit{ductile}.
 
@@ -102,15 +107,80 @@ Though all materials behave differently when examined through a stress-strain di
 \subsection{True vs. Engineering Stress and Strain}
 \label{ssec:trueVsEngineeringStressAndStrain}
 
-
-
-The difference between these two areas is the same difference between \textbf{True Stress} and \textbf{Engineering Stress}.
+When an object undergoes elongation, the cross sectional area of that object will change. Thus introduces a question: should the original or current cross-section be used as the area when calculating stress? Rather than having an answer, there are just two types of stress which each reflect one of the options: \textbf{engineering stress} and \textbf{true stress}.
 
 \begin{definition}{True vs. Engineering Stress}
-  The stress experienced by an object calculated using the current real cross-section of the body.
+  \textbf{Engineering stress} is stress experienced by an object calculated using the original cross-section of the body.
   \begin{equation*}
-    \sigma_t = \frac{P}{A}
+  \sigma_e = \frac{P}{A_{initial}}
+  \end{equation*}
+  \textbf{True stress} is stress as calculated by using the current cross-section of the body.
+  \begin{equation*}
+    \sigma_t = \frac{P}{A_{current}}
   \end{equation*}
 \end{definition}
+
+A similar situation occurs when measuring the \textit{strain} of a body. Using the formula for strain as introduced in \ref{ssec:normalStrain} produces the \textbf{engineering strain} experienced by a body. However, if rather than measuring a single value for the length and deformation of the body, one were to subdivide the body into several subsections and measure the deformation for each subsection, something closer to the \textbf{true strain} would be produced. This is seen in Figure \ref{fig:019}.
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_020}
+    \caption{Engineering Strain}
+    \label{fig:020}
+  \end{subfigure}
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_019}
+    \caption{True(ish) Strain}
+    \label{fig:019}
+  \end{subfigure}
+  \caption{Engineering vs. True Strain}
+  \label{fig:engineeringVsTrueStrain}
+\end{figure}
+
+Taking this subdividing to its limit, the \textbf{True Strain} will be a perfectly continuous measurement of the change in deformation over some change in length:
+\begin{equation*}
+  \epsilon_{true} = \int_{L_0}^{L} \frac{dL}{L} \, = \ln \frac{L}{L_0}
+\end{equation*}
+
+\subsection{Hooke's Law and the Modulus of Elasticity}
+\label{ssec:HookesLawAndTheModulusOfElasticity}
+
+Generally, structures are designed to keep any deformations within the linear portion of the stress-strain diagram. Given that some body is kept within that range, the stress ($\sigma$) is directly proportional to the strain ($\epsilon$):
+\begin{equation*}
+  \sigma = E \epsilon
+\end{equation*}
+Where $E$ is the \textbf{modulus of elasticity} of the material.
+\begin{definition}{Modulus of Elasticity}
+  An inherent value to a material that reflects the proportionality between the stress and strain experienced by a body.
+\end{definition}
+This linear relationship, governed by a constant coefficient ($E$) is known as \textbf{Hooke's Law}. This law only applies until the material reaches its \textbf{proportional limit}.
+\begin{definition}{Proportional Limit}
+  The upper bound of the range over which Hooke's Law applies to some material.
+\end{definition}
+
+\subsection{Repeated Loadings and Fatigue}
+\label{ssec:repeatedLoadingsAndFatigue}
+
+So far, only single instances of loading have been considered for the materials. What happens after thousands, or millions, of loads have been repeatedly applied to a material? In these cases, the material is said to have undergone \textbf{fatigue}.
+\begin{definition}{Fatigue}
+  The result of many repeated loadings, fatigue is a general term for the effect that these repeated loadings have on a material.
+\end{definition}
+Failures due to fatigue are generally more brittle than they are ductile. Since fatigue not only increases the chances of a material failing, but also makes it such that there is less of a yield period, it is imperative to consider fatigue when designing structures and machines that are expected to support time-varying loads.
+
+To measure the fatigue of a material, a stress to loading curve can be made. This measures the number of repeated loads required to cause failure at different load-sizes for a given material. A generic one can be seen in Figure \ref{fig:021}, illustrating the typical shape of such a curve.
+
+\begin{figure}[H]
+  \centering
+  \includestandalone{figures/fig_021}
+  \caption{Stress to Loading Curve}
+  \label{fig:021}
+\end{figure}
+
+The flat part at the end of the blue material in Figure \ref{fig:021} marks the \textbf{endurance limit} of the material. This is where, regardless of the number of time a load is applied, the material will never fail. Any force value below the endurance limit on the $y$-axis (stress) will never cause a material to fail.
+
+However, for non-ferrous materials, there is no endurance limit. Rather, the curve just continues to go down. This is seen in the red curve in Figure \ref{fig:021}. This behavior is caused by microscopic failure after each consecutive loading, eventually compounding into total failure.
 
 \end{document}
