@@ -1,0 +1,26 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 014}
+\date{January 10, 2025}
+
+\begin{document}
+\begin{tikzpicture}
+		[scale = 1.75,
+    cube/.style={fill=bl!25!bg, draw=fg, thick, fill opacity = 0.8},
+    force/.style={draw=re, ultra thick, -stealth},
+    line/.style={draw=fg, thick}]
+
+  \draw[cube] (0,0) rectangle ++(0.5,2);
+  \draw[force] (0.25,0) -- ++(0,-0.75);
+  \filldraw[fill=brown!50!bg, draw=brown!50!bg] (-0.15,1.9) rectangle ++(0.8,0.25);
+
+  \draw[cube] (1.2,-0.25) rectangle ++(0.5,2.25);
+  \draw[force] (1.45,-0.25) -- ++(0,-0.75);
+  \filldraw[fill=brown!50!bg, draw=brown!50!bg] (1.05,1.9) rectangle ++(0.8,0.25);
+
+  \draw[line, |-|] (0.85,0) -- node[anchor = east] {$L$} ++(0,2);
+  \draw[line, |-|] (0.85,-0.25) -- node[anchor = east] {$\delta$} ++(0,0.25);
+
+\end{tikzpicture}
+\end{document}

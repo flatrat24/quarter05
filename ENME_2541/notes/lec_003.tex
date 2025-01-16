@@ -1,0 +1,116 @@
+\documentclass[12pt]{article}
+\usepackage{physics}
+
+\input{../../xlatex/imports/preamble}
+
+\title{Lecture 003}
+\date{January 10, 2025}
+
+\begin{document}
+\newpage
+
+\section{Deformation}
+\label{sec:deformation}
+
+\subsection{Normal Strain}
+\label{ssec:normalStrain}
+
+When studying the mechanics of materials, analyzing them entirely in static equilibrium would yield little to no information about how a material changes when ample load is applied. Consider the beam in Figure \ref{fig:014}. After having endured an axial load, the beam deforms be elongating.
+
+\begin{wrapfigure}[6]{r}{0.25\textwidth}
+  \centering
+  \includestandalone{figures/fig_014}
+  \caption{Deformation Due to Axial Stress}
+  \label{fig:014}
+\end{wrapfigure}
+
+In this case, the elongation undergone by the beam is considered the \textbf{strain} endured by the beam. In other situations, strain can look different, such as the bending or compression of a material.
+
+\begin{definition}{Strain}
+  Deformation experienced by an object as the result of stresses exceeding the materials ability to maintain shape.
+\end{definition}
+
+In the case of Figure \ref{fig:014}, the strain is specifically \textbf{normal strain}.
+
+\begin{definition}{Normal Strain}
+  Strain specifically relating to axial/normal stress. It is specifically defined as the \textit{deformation per unit length}. Normal strain is denoted by the Greek letter epsilon ($\epsilon$).
+\end{definition}
+
+Since normal strain is the deformation per unit length, to find the value of $\epsilon$, one must divide the deformation by the \textit{original} length of the member.
+
+\begin{formula}{Normal Strain}
+  \begin{equation*}
+    \epsilon = \frac{\delta}{L}
+  \end{equation*}
+\end{formula}
+
+Though indirectly caused by an axial load, the factors in determining the amount of normal strain experienced by a material are: the materials inherent properties and the axial stress on the member.
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[h]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_015}
+  \end{subfigure}
+  \vrule
+  \begin{subfigure}[h]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_016}
+  \end{subfigure}
+  \caption{Strain For Two Rods of Different Cross Sections}
+  \label{fig:015}
+\end{figure}
+
+Assuming the same material, two members of different dimensions, but undergoing the same stress, will strain the same amount. In Figure \ref{fig:015}, this exact situation is visualized. Since stress is just a ratio of force to area, a member double the area experiencing an axial load double of another member will strain the same.
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[H]{\textwidth}
+    \centering
+    \includestandalone{figures/fig_017}
+  \end{subfigure}
+  \begin{subfigure}[H]{\textwidth}
+    \centering
+    \includestandalone{figures/fig_018}
+  \end{subfigure}
+  \caption{Strain For Two Rods of Different Lengths}
+  \label{fig:strainForTwoRodsOfDifferentLengths}
+\end{figure}
+
+Similarly, since strain is a ratio between the original length and the final length, a body double the length of another will experience the same strain assuming all else is the same. See Figure \ref{fig:strainForTwoRodsOfDifferentLengths}.
+
+\subsection{Stress Strain Diagrams}
+\label{ssec:stressStrainDiagrams}
+
+Having seen that strain is independent of the dimensions of a material, and only depends on the stress, it follows that plotting strain as a function of stress would result in a diagram generally applicable to a material. This curve, called a \textbf{stress-strain diagram} characterizes the properties of a material.
+
+Though all materials behave differently when examined through a stress-strain diagram, there are two broad categories of materials: \textit{brittle} and \textit{ductile}.
+
+\textbf{Ductile materials} are able to yield without necessarily failing entirely. Their elongation initially increases linearly with stress until a some value $\sigma_Y$ where suddenly undergoes a large deformation with a relatively small increase in stress.
+
+\begin{formula}{Measuring Ductility}
+  \begin{equation*}
+    \textup{Percent Elongation} = 100 \cdot \frac{\textup{Length at Failure} - \textup{Initial Length}}{\textup{Initial Length}} = 100 \cdot \frac{L_B - L_0}{L_0}
+  \end{equation*}
+  \begin{equation*}
+    \textup{Percent Reduction in Area} = 100 \cdot \frac{\textup{Initial Area} - \textup{Area at Failure}}{\textup{Initial Area}} = 100 \cdot \frac{A_0 - A_B}{A_0}
+  \end{equation*}
+\end{formula}
+
+\textbf{Brittle materials}, on the other hand, experience a very small amount of yield, after which they tend to fail suddenly. There is a distinct lack of necking in brittle materials.
+
+\subsection{True vs. Engineering Stress and Strain}
+\label{ssec:trueVsEngineeringStressAndStrain}
+
+
+
+The difference between these two areas is the same difference between \textbf{True Stress} and \textbf{Engineering Stress}.
+
+\begin{definition}{True vs. Engineering Stress}
+  The stress experienced by an object calculated using the current real cross-section of the body.
+  \begin{equation*}
+    \sigma_t = \frac{P}{A}
+  \end{equation*}
+\end{definition}
+
+\end{document}

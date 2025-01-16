@@ -1,0 +1,178 @@
+\documentclass[12pt]{article}
+
+\input{../../xlatex/imports/preamble}
+
+\title{Lecture 001}
+\date{January 10, 2025}
+
+\begin{document}
+
+\section{Introduction to Differential Equations}
+\label{sec:introductionToDifferentialEquations}
+
+\subsection{What is a Differential Equation}
+\label{ssec:whatIsADifferentialEquation}
+
+Differential equations are foundational to studying engineering and physics. A very basic example of a differential equation is:
+\begin{equation}
+  \frac{dx}{dt} + x = 2 \cos(t)
+  \label{eq:001}
+\end{equation}
+Here $x$ is the \textit{dependent variable} and $t$ is the \textit{independent variable}. To solve (\ref{eq:001}) is to find $x$ in terms of $t$ such that the equation still holds when everything ($x$, $t$, and $\frac{dx}{dt}$) is plugged in. Consider 
+\begin{equation*}
+  x=x(t)=\cos (t) + \sin (t)
+\end{equation*}
+as the solution for (\ref{eq:001}). Plugging this in as appropriate will verify this solution:
+\begin{align*}
+  \big(-\sin(t)+\cos(t)\big) + \big(\cos(t)+\sin(t)\big) &= 2\cos(t) \\
+  -\sin(t) + \sin(t) + \cos(t) + \cos(t) &= 2\cos(t) \\
+  \cos(t) + \cos(t) &= 2\cos(t) \\
+  2\cos(t) &= 2\cos(t)
+\end{align*}
+Clearly this equality holds and a \textbf{particular solution} has been found for (\ref{eq:001}).
+
+\begin{definition}{Particular Solution}
+  Some solution for a given differential equation.
+\end{definition}
+
+However, multiple solutions can exist; now consider
+\begin{equation*}
+  \frac{dx}{dt} = -\sin(t) + \cos(t) - e^{-t}
+\end{equation*}
+as a solution. To verify:
+\begin{align*}
+  \big(-\sin(t) + \cos(t) - e^{-t}\big) + \big(\cos(t) + \sin(t) + e^{-t}\big) &= 2\cos(t) \\
+  -\sin(t) + \sin(t) + \cos(t) + \cos(t) - e^{-t} + e^{-t} &= 2\cos(t) \\
+  \cos(t) + \cos(t) &= 2\cos(t) \\
+  2\cos(t) &= 2\cos(t)
+\end{align*}
+Several solutions can exist for a given differential equation. For (\ref{eq:001}), the family of solutions exists in the form:
+\begin{equation*}
+  \frac{dx}{dt} = -\sin(t) + \cos(t) - Ce^{-t}
+\end{equation*}
+where $C$ is some constant. This is called the \textbf{General Solution} for the differential equation.
+
+\begin{definition}{General Solution}
+  The entire family of solutions for a given differential equation. A general form of the solution that can be adapted to different specifications.
+\end{definition}
+
+Each value of $C$ gives a different solution, so really there are infinite solutions for (\ref{eq:001}).
+
+\begin{definition}{Differential Equation}
+  An equation containing the derivatives of one or more unknown functions (or dependent variables), with respect to one or more independent variables, is said to be a differential equation (DE).
+\end{definition}
+
+\subsection{Four Fundamental Equations}
+\label{ssec:fourFundamentalEquations}
+
+There exist four equations that are each very common and have solutions that can be memorized. The \textbf{first} among them is:
+\begin{equation}
+  \frac{dy}{dx} = ky
+  \label{eq:002}
+\end{equation}
+For some constant $k>0$, the general solution to (\ref{eq:002}) is:
+\begin{equation*}
+  y(x) = Ce^{kx}
+\end{equation*}
+\hrule
+The \textbf{second} among the four fundamental equations is:
+\begin{equation}
+  \frac{dy}{dx} = -ky
+  \label{eq:003}
+\end{equation}
+For some constant $k>0$, the general solution to (\ref{eq:003}) is:
+\begin{equation*}
+  y(x) = Ce^{-kx}
+\end{equation*}
+\hrule
+The \textbf{third} is a second order derivative (see \ref{sssec:classificationByOrder}):
+\begin{equation}
+  \frac{d^2y}{dx^2} = -k^2y
+  \label{eq:004}
+\end{equation}
+For some constant $k>0$, the general solution for (\ref{eq:004}) is:
+\begin{equation*}
+  y(x) = C_1\cos(kx) + C_2\sin(kx)
+\end{equation*}
+Since (\ref{eq:003}) is of the second order, there are two constants in the solution.
+\vspace{08pt}
+\hrule
+Lastly, the \textbf{fourth} fundamental equation is:
+\begin{equation}
+  \frac{d^2y}{dx^2} = k^2y
+  \label{eq:005}
+\end{equation}
+For some constant $k>0$, the general solution for (\ref{eq:005}) is:
+\begin{equation*}
+  y(x) = C_1e^{kx} + C_2e^{-kx}
+\end{equation*}
+or
+\begin{equation*}
+  y(x) = D_1\cosh(kx) + D_2\sinh(-kx)
+\end{equation*}
+Where:
+\begin{equation*}
+  \cosh(x) = \frac{e^x+e^{-x}}{2}\ \ ;\ \ \sinh(x) = \frac{e^x-e^{-x}}{2}
+\end{equation*}
+
+
+\subsection{Classification of Differential Equations}
+\label{ssec:classificationOfDifferentialEquations}
+
+There exist several types of differential equations. Consequently, they are classified according to \textbf{type}, \textbf{order}, and \textbf{linearity}.
+
+\subsubsection{Classification by Type}
+\label{sssec:classificationByType}
+
+If a given differential equation 1) includes only ordinary derivatives of a number of unknown functions, and 2) those derivatives are all with respect to the same independent variable then it is classified as an \textbf{Ordinary Differential Equation (ODE)}.
+
+\begin{definition}{Ordinary Differential Equation}
+  Equations where the derivatives are taken with respect to only one variable. That is, there is only one independent variable.
+\end{definition}
+
+\begin{equation}
+  \frac{dy}{dx}+5y=e^x \ ;\frac{dy}{dx} + \frac{dr}{dx} = 14x\ ;\frac{d^2y}{dt^2}-\frac{d^2x}{dt^2} = 0
+  \label{eq:006}
+\end{equation}
+Each equation in (\ref{eq:006}) is an example of an ODE. Notice that each equation contains only functions derived with respect to the same variable.
+
+A \textbf{Partial Differential Equation (PDE)} differs in that it contains derivatives of functions with respect to multiple independent variables.
+\begin{equation}
+  \frac{\delta y}{\delta x}+5 \frac{\delta r}{\delta t}=\ln(x) \ ;\frac{\delta y}{\delta x} + \frac{\delta r}{\delta t} = 14x\ ;\frac{\delta ^2y}{\delta t^2} = \frac{\delta ^2b}{\delta x^2}
+  \label{eq:007}
+\end{equation}
+(\ref{eq:007}) are examples of partial differential equations. The Greek letter delta ($\delta$) is used to denote a partial derivative. Thus, $\frac{\delta y}{\delta x}$ is the partial derivative of the function $y$ with respect to $x$.
+
+\begin{definition}{Partial Differential Equation}
+  Equations that depend on partial derivatives of several variables. That is, there are several independent variables.
+\end{definition}
+
+\subsubsection{Classification by Order}
+\label{sssec:classificationByOrder}
+
+The \textbf{order} of a differential equation is the highest order among derivatives it contains. For example, (\ref{eq:008}) is a third-order differential equation because $\frac{d^3u}{dx^3}$ is a third derivative and is the highest derivative.
+\begin{equation}
+  \frac{dy}{dx} - \frac{d^2r}{dx^2} = \frac{d^3u}{dx^3}
+  \label{eq:008}
+\end{equation}
+
+\subsubsection{Classification by Linearity}
+\label{sssec:classificationByLinearity}
+
+An equation is linear if the dependent variable (or variables) and their derivatives appear linearly, that is, only as first powers, they are not multiplied together, and no other functions of the dependent variables appear.
+\begin{equation}
+  e^x \frac{d^2y}{dx^2} + \sin(x) \frac{dy}{dx} + x^2y = \frac{1}{x}
+  \label{eq:009}
+\end{equation}
+(\ref{eq:009}) is a linear differential equation because its \textit{dependent} variable ($y$) only appears linearly. It does not matter that the independent variable ($x$) appears non-linearly. Conversely, (\ref{eq:010}) is non-linear because $y$ is squared.
+\begin{equation}
+  \frac{dy}{dx} = y^2
+  \label{eq:010}
+\end{equation}
+Similarly, (\ref{eq:011}) is also non-linear because $\Theta$ appears inside a $\sin$ function.
+\begin{equation}
+  \frac{d^2\Theta}{dx^2} + \sin(\Theta) = 0
+  \label{eq:011}
+\end{equation}
+
+\end{document}
