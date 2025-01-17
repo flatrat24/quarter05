@@ -1,0 +1,22 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 023}
+\date{January 16, 2025}
+
+\begin{document}
+\begin{tikzpicture}
+		[scale = 1.75,
+    cube/.style={fill=bl!25!bg, draw=fg, thick, fill opacity = 0.8},
+    force/.style={draw=re, ultra thick, -stealth},
+    line/.style={draw=fg, thick}]
+
+  \draw[cube] (0,0) rectangle ++(0.5,2);
+  \draw[force] (0.25,1.5) -- ++(0,-0.5) node[anchor = east, xshift = 1pt] {$P$};
+  \filldraw[fill=brown!50!bg, draw=brown!50!bg] (-0.15,-0.2) rectangle ++(0.8,0.25);
+  \filldraw[fill=brown!50!bg, draw=brown!50!bg] (-0.15,1.8) rectangle ++(0.8,0.25);
+  \draw[force, stealth-] (0.25,-0.20) -- ++(0,-0.25) node[anchor = east, xshift = 1pt] {$R_A$};
+  \draw[force, stealth-] (0.25,2.3) -- ++(0,-0.25) node[anchor = east, xshift = 1pt, yshift = 15pt] {$R_B$};
+
+\end{tikzpicture}
+\end{document}

@@ -95,7 +95,7 @@ Though all materials behave differently when examined through a stress-strain di
 
 \begin{formula}{Measuring Ductility}
   \begin{equation*}
-    \textup{Percent Elongation} = 100 \cdot \frac{\textup{Length at Failure} - \textup{Initial Length}}{\textup{Initial Length}} = 100 \cdot \frac{L_B - L_0}{L_0}
+    \textup{Percent Elongation} = 100 \cdot \frac{\textup{Initial Length} - \textup{Length at Failure}}{\textup{Initial Length}} = 100 \cdot \frac{L_B - L_0}{L_0}
   \end{equation*}
   \begin{equation*}
     \textup{Percent Reduction in Area} = 100 \cdot \frac{\textup{Initial Area} - \textup{Area at Failure}}{\textup{Initial Area}} = 100 \cdot \frac{A_0 - A_B}{A_0}
@@ -182,5 +182,143 @@ To measure the fatigue of a material, a stress to loading curve can be made. Thi
 The flat part at the end of the blue material in Figure \ref{fig:021} marks the \textbf{endurance limit} of the material. This is where, regardless of the number of time a load is applied, the material will never fail. Any force value below the endurance limit on the $y$-axis (stress) will never cause a material to fail.
 
 However, for non-ferrous materials, there is no endurance limit. Rather, the curve just continues to go down. This is seen in the red curve in Figure \ref{fig:021}. This behavior is caused by microscopic failure after each consecutive loading, eventually compounding into total failure.
+
+\subsection{Static Indeterminacy}
+\label{ssec:staticIndeterminacy}
+
+Thus far, only objects in static equilibrium have been considered. However, situations in which statics alone can't determine internal forces are very common. In such cases, the geometry must be used alongside equilibrium equations. These cases are referred to as \textbf{statically indeterminate}.
+
+\begin{definition}{Static Indeterminate}
+  Statically indeterminate structures are those which have reactions and internal forces that cannot be found through statics alone, and thus must derive results based on the material composition of the structure.
+\end{definition}
+
+Consider the structure on Figure \ref{fig:023}. In this body, there is a force being axially applied, but not at the ends of the structure. It is known that the structure is in static equilibrium:
+\begin{equation*}
+  R_A+R_B=P
+\end{equation*}
+However, there are two unknowns in this equation: $R_A$ and $R_B$. In order to solve for these unknowns, it is necessary, then, to use a compatibility equation. However, before understanding that, it is important to understand the \textbf{Principal of Superposition}.
+\begin{definition}{Principal of Superposition}
+  In materials governed by Hooke's Law, the deformation of a structure is equal to the deformation of any number of arbitrary sections of that structure:
+  \begin{equation*}
+    \delta_{total} = \sum_{n}^{N} \delta_n
+  \end{equation*}
+\end{definition}
+
+\begin{figure}[H]
+  \centering
+  \includestandalone{figures/fig_023}
+  \caption{Basic Example}
+  \label{fig:023}
+\end{figure}
+
+By the principal of superposition, one is able to decompose a structure into component parts, solve for the deformation in each part, then sum the deformations to find the total deformation of the structure. 
+
+Applying the Principal of Superposition, it is possible to relate the deformation of the structure based on the constraints. This process results in a compatibility equation.
+
+\begin{figure}[H]
+  \centering
+  \includestandalone{figures/fig_024}
+  \caption{Sections of Figure \ref{fig:023}}
+  \label{fig:024}
+\end{figure}
+
+Decomposing the structure (as seen in Figure \ref{fig:024}), the deformation of each individual component can be analyzed independently, and then be compared through a \textbf{compatibility equation} to determine the true values of each portion:
+\begin{equation*}
+  \delta_{top} + \delta_{bottom} = 0
+\end{equation*}
+This can then be expanded out to:
+\begin{equation*}
+  \frac{P_tL_t}{A_tE_t} = \frac{P_bL_b}{A_bE_b}
+\end{equation*}
+Assuming the same material throughout as well as the same cross-section, this can be taken further by canceling out the area ($A$) and the modulus of elasticity ($E$) of each side, resulting in:
+\begin{align*}
+  P_tL_t &= P_bL_b \\
+  \frac{L_t}{L_b}\cdot P_t &= P_bL_b
+\end{align*}
+In situations like these, it can be clearly seen that the load on each component is directly proportional to the length of that component.
+
+\subsection{Poisson's Ratio}
+\label{ssec:poissonsRatio}
+
+In all engineering materials, the relationship between the elongation of body due to axial stress is directly proportional to contraction in any transverse direction. This relationship is codified with a constant that relates the contraction with the elongation, this constant being a given material's \textbf{Poisson's Ratio}.
+\begin{formula}{Poisson's Ratio}
+  \begin{equation*}
+    \nu = -\frac{\textup{lateral strain}}{\textup{axial strain}} = -\frac{\epsilon_y}{\epsilon_x}
+  \end{equation*}
+\end{formula}
+
+\subsection{Stress Concentrations}
+\label{ssec:stressConcentrations}
+
+Consider Figure \ref{fig:stressDistributionNearDiscontinuity}. Due to the discontinuity in the center, the stress is distributed differently than normal. Considering the location with the smallest cross section (the exact center), the stress is distributed closer to the center of the discontinuity.
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_025}
+  \end{subfigure}
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_026}
+  \end{subfigure}
+  \caption{Stress Distribution Near Discontinuity}
+  \label{fig:stressDistributionNearDiscontinuity}
+\end{figure}
+
+Through rigorous experimentation, it's been determined that analyzing these structures can be done solely based on the geometry of the discontinuities. The main concern of this analysis is to find whether the allowable stress will be exceeded. Since the maximum stress ($\sigma_{max}$) will be at the narrowest cross-section, only this cross section needs to be analyzed.
+
+To complete this analysis, an engineer must find the average stress in the narrowest cross-section:
+\begin{equation*}
+  \sigma_{avg} = \frac{P}{A}
+\end{equation*}
+and the ratio between the average and maximum stress at that cross-section:
+\begin{equation*}
+  K = \frac{\sigma_{max}}{\sigma_{avg}}
+\end{equation*}
+This ratio is referred to as the \textbf{stress concentration factor}. As claimed earlier, this stress concentration factor can be computed based on solely the geometry of the discontinuity. More specifically, there exist \href{https://research.iaun.ac.ir/pd/jjfesharaki/pdfs/UploadFile_9038.pdf}{repositories of information} on how to plot the ratio of the radius and min height ($\frac{r}{h}$) and the ratio between the max and min heights ($\frac{H}{h}$)
+
+\subsection{Thermal Strain}
+\label{ssec:thermalStrain}
+
+When changes in shape due to changes in temperature occur, new stresses are created due to these thermal deformations. Generally, these are somewhat small. However, with large bodies or large changes in temperature these thermal strains create large enough stresses to cause a material to rupture.
+
+\begin{formula}{Thermal Strain}
+  \begin{equation*}
+    \epsilon_{thermal} = \alpha \cdot \Delta T
+  \end{equation*}
+  \begin{tblr}{c|c}
+    \midrule
+    $\alpha = $ coefficient of thermal expansion & $\Delta T = $ change in temperature \\
+    \midrule
+    $L = $ original length of the body           & $\delta = $ change in length of the body \\
+    \midrule
+  \end{tblr}
+\end{formula}
+Similarly, the change in length of a body can be defined by multiplying the thermal strain ($\epsilon_T$) by the original length of the member ($L$).
+\begin{formula}{Change in Length}
+  \begin{equation*}
+    \delta_{thermal} = \epsilon_{T} \cdot L = \alpha \cdot \Delta T \cdot L
+  \end{equation*}
+\end{formula}
+
+\begin{wrapfigure}[]{l}{0.25\textwidth}
+  \centering
+  \includestandalone{figures/fig_027}
+  \caption{Constrained Body}
+  \label{fig:027}
+\end{wrapfigure}
+
+These two formulas model the thermal strain/thermal expansion undergone by unconstrained bodies. However, how do constrained bodies (such as the one in Figure \ref{fig:027}) react to changes in temperature?
+
+In these situations, a \textbf{thermal stress} is induced into this bar. This thermal stress can be calculated in a similar way to statically indeterminate structures (Subsection \ref{ssec:staticIndeterminacy}).
+
+The deformation due to the thermal expansion and the deformation due to the constraints can be summed to the total deformation experienced. In the example of Figure \ref{fig:027}, since the total deformation is zero, the compatibility equation is:
+\begin{align*}
+  \delta_{thermal} + \delta_{constraint} &= 0 \\
+  \left(\alpha \cdot \Delta T \cdot L\right) &= - \delta_C \\
+  \left(\alpha \cdot \Delta T \cdot L\right) &= -\frac{P_CL}{AE}
+\end{align*}
+Then using the values known about the member and its composition, the force applied by the constraints can be found, leading directly to then being able to solve for the stress.
 
 \end{document}
