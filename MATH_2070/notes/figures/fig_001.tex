@@ -1,0 +1,40 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 001}
+\date{January 17, 2025}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[
+    xmin=0, xmax=5,
+    ymin=-30, ymax=30,
+    xtick={0,1,...,5},
+    ytick={-30,-20,...,30},
+    legend pos=north west,
+    ymajorgrids=true,
+    xmajorgrids=true,
+    grid style=dashed,
+    ]
+    \addplot[thick]{0};
+    \addplot[
+      color=re,
+      ultra thick,
+      samples=50,
+      ]
+      {-1/2 * 9.8 * x^2 + 22 * x + 0};
+    \addplot[
+      color=gr,
+      ultra thick,
+      samples=50,
+      ]
+      {-9.8 * x + 22};
+    \addplot[
+      color=bl,
+      ultra thick,
+      samples=50,
+      ]
+      {-9.8};
+  \end{axis}
+\end{tikzpicture}
+\end{document}
