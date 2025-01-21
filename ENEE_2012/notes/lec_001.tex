@@ -7,68 +7,48 @@
 
 \begin{document}
 
-\section{Introduction}
-\label{sec:introduction}
+\section{Basic Concepts}
+\label{sec:basicConcepts}
 
-\subsection{Categorization of Components}
-\label{ssec:categorizationOfComponents}
-
-Rather than trying to understand full circuits at once, it is easier to break them into two groups: \textbf{passive} components and \textbf{active} components.
-
-\begin{definition}{Passive Components}
-  Passive components are ones that don't require any power supply to operate. For example, a resistor or a capacitor are both passive components.
-\end{definition}
-
-\begin{definition}{Active Circuits}
-  Active components require power to operate. In other words, they need to be connected to a power supply to function. Logic gates (74LSXX) are active since they require a power supply.
-\end{definition}
-
-\vspace{12pt}
-\hrule
-\vspace{08pt}
-
-Another way to divide components is between \textbf{linear} and \textbf{non-linear}.
-
-\begin{definition}{Linear Components}
-  Linear components are... They also can be subdivided into components that store energy (capacitors and inductors) and components that dissipate energy (resistors).
-\end{definition}
-
-\begin{definition}{Non-Linear Components}
-  ...
-\end{definition}
-
-\subsection{Overview of Concepts}
-\label{ssec:overviewOfConcepts}
-
-\subsubsection{Charge and Current}
-\label{sssec:chargeAndCurrent}
+\subsection{Charge and Current}
+\label{ssec:chargeAndCurrent}
 
 \begin{definition}{Charge}
-  Charge ($Q$) is an electrical property of the atomic particles of which matter consists, measured in coulombs ($C$).
-  \begin{equation*}
-    Q(t) = \int_{}^{} i(t) \,dt
-  \end{equation*}
+  Charge ($Q$) is an electrical property of the atomic particles of which matter consists, measures in coulombs ($C$).
 \end{definition}
 
-When charged particles move in space over time, such as throughout a wire in a circuit, an electrical current is generated.
+Throughout this course, it is generally the charge of an electron  ($e$) that will be considered.
+\begin{equation*}
+  e = -1.602 \cdot 10^{-19}\ C
+\end{equation*}
+Thus, if there is some known quantity of electrons $n$, the total charge of those electrons can be calculated:
+\begin{equation*}
+  Q = n \cdot e
+\end{equation*}
 
-\begin{definition}{Electric Current}
-  Electric current ($I$) is the time rate of change of charge, measured in amperes ($A$).
-  \begin{equation*}
-    i(t) = \frac{dQ}{dt}
-  \end{equation*}
+Current relates closely with charge, being a measurement of the movement of charge (or electrons).
+
+\begin{definition}{Current}
+  Electric current ($I$) is the rate of change of charge, measured in amperes ($A$).
 \end{definition}
 
-Current is simply a rate of change of a charge, and thus the two are related as the others' derivative/integral.
+Since current is a rate of change (over time) of charge, current and charge relate as each other's (anti)derivative.
 
-\subsubsection{DC vs. AC}
-\label{sssec:dcvsac}
+\begin{equation*}
+  I(t) = \frac{dQ}{dt}\ A \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Q(t) = \int_{}^{} I(t) \,dt \ C
+\end{equation*}
+
+\subsection{Direct vs. Alternating Current}
+\label{ssec:directVsAlternatingCurrent}
+
+\subsubsection{Direct Current}
+\label{sssec:directCurrent}
 
 \begin{definition}{Direct Current}
   A direct current (dc) flows only in one direction and can be constant or time varying.
 \end{definition}
 
-\begin{wrapfigure}[4]{r}{0.4\textwidth}
+\begin{wrapfigure}[5]{r}{0.4\textwidth}
   \centering
   \begin{subfigure}[H]{0.15\textwidth}
     \centering
@@ -88,44 +68,108 @@ Current is simply a rate of change of a charge, and thus the two are related as 
 
 There are two ways of describing the \textit{direction} in which the electrons flow in a direct current: \textbf{conventional flow} and \textbf{electron flow}. Both are shown in Figure \ref{fig:electronFlowInDirectCurrent}.
 
+\subsubsection{Alternating Current}
+\label{sssec:alternatingCurrent}
+
+Direct current flow isn't the only way current can flow. Some currents utilize \textbf{Alternating Current (AC)}.
+
 \begin{definition}{Alternating Current}
   An alternating current (ac) is a current that changes direction with respect to time.
 \end{definition}
 
+\subsection{Voltage}
+\label{ssec:voltage}
+
 \begin{definition}{Voltage}
-  Voltage (or \textit{potential difference}) is the energy required to move a unit charge form a reference point (-) to another point (+), measured in Volts ($V$).
-  \begin{equation*}
-    v(t) = v_b - v_b = \frac{dw}{dQ} = \frac{dE}{dQ}
-  \end{equation*}
+  Voltage (or \textit{potential difference}) is the \textit{energy required} to move a unit charge from a reference point (-) to another point (+), measured in Volts ($V$).
 \end{definition}
 
-% \begin{wrapfigure}[]{l}{0.3\textwidth}
-%   \centering
-%   \includestandalone{figures/fig_003}
-%   \caption{Finding Voltage}
-%   \label{fig:003}
-% \end{wrapfigure}
+The potential different that voltage measures is a literal different in potential between two points in a circuit. As seen in Figure \ref{fig:potentialDifference}, the voltage from $a$ to $b$ is different than the voltage from $b$ to $a$.
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_004}
+  \end{subfigure}
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_005}
+  \end{subfigure}
+  \caption{Potential Difference}
+  \label{fig:potentialDifference}
+\end{figure}
+The energy required to move an object is expressed in Joules ($J$), and remains consistent with measurements of energy to move regular objects like a elevator up a shaft. Since voltage is the energy per unit charge, it can be expressed as:
+\begin{equation*}
+  v(t) = v_b - v_b = \frac{dw}{dQ} = \frac{dE}{dQ}
+\end{equation*}
+Where $w$ is work and $E$ is energy.
 
-\subsubsection{Power and Energy}
-\label{sssec:powerAndEnergy}
+\subsection{Power and Energy}
+\label{ssec:powerAndEnergy}
 
 \begin{definition}{Power}
-  Power is the time rate of expending or absorbing energy measured in watts ($W$). It is the rate of change of energy.
-  \begin{align*}
-    p(t) &= \frac{dE}{dt} = \frac{dE \cdot dQ}{dt \cdot dQ} = \frac{dE}{dQ} \cdot \frac{dQ}{dt} \\
-    p    &= v \cdot i
-  \end{align*}
+  Power ($P$) is the rate of change of energy measured in watts ($W$).
 \end{definition}
+Previously, it's been seen that current is the rate of change of charge (\ref{ssec:chargeAndCurrent}), and voltage is the amount of energy required to move charge (\ref{ssec:voltage}). Putting these two ideas together, it follows that power can be expressed as the product of current and voltage:
+\begin{equation*}
+  P = I \cdot V
+\end{equation*}
+Power is the rate of change of charge multiplied by the amount of energy required to move some charge. Another way of expressing this in terms of calculus is:
+\begin{align*}
+  P(t) &= \frac{dE}{dt} = \frac{dE \cdot dQ}{dt \cdot dQ} = \frac{dE}{dQ} \cdot \frac{dQ}{dt} \\
+\end{align*}
+Where
+\begin{equation*}
+  V(t) = \frac{dE}{dQ}\ \ \ \ \ \textup{and}\ \ \ \ \ I(t) = \frac{dQ}{dt}
+\end{equation*}
 
 \begin{definition}{Energy}
   Energy is the capacity to do work measured in Joules ($J$).
   \begin{equation*}
-    E(t) = \int_{}^{} p(t) \, dt
+    E(t) = \int_{}^{} P(t) \, dt
   \end{equation*}
 \end{definition}
 
-Again, these two values are related as the derivative/integral of the other.
+Currents follow the \textbf{Law of Conservation of Energy}. This means that the total change in energy within a closed circuit must sum to zero:
+\begin{equation*}
+  \sum_{}^{} P = 0
+\end{equation*}
+Thus, the total power supplied to a circuit must be equal to the total power absorbed by that circuit.
 
+The difference between supplying and absorbing energy is a matter of convention and does not matter given that it remains consistent throughout the full analysis of a circuit. Generally, the \textbf{passive sign convention} is used.
+
+\begin{definition}{Passive Sign Convention}
+  Passive sign convention is satisfied when the current enterts through the positive terminal of an element and $P=+V \cdot I$. If the current enters through the negative terminal, $P = -V \cdot I$.
+\end{definition}
+
+\subsection{Categorization of Components}
+\label{ssec:categorizationOfComponents}
+
+\subsubsection{Passive and Active Components}
+\label{sssec:passiveAndActiveComponents}
+
+Rather than trying to understand full circuits at once, it is easier to break them into two groups: \textbf{passive} components and \textbf{active} components.
+
+\begin{definition}{Passive Components}
+  Passive components are ones that don't require any power supply to operate. For example, a resistor or a capacitor are both passive components.
+\end{definition}
+
+\begin{definition}{Active Circuits}
+  Active components require power to operate. In other words, they need to be connected to a power supply to function. Logic gates (74LSXX) are active since they require a power supply.
+\end{definition}
+
+\subsubsection{Linear vs. Non-Linear Components}
+\label{sssec:linearVsNonlinearComponents}
+
+Another way to divide components is between \textbf{linear} and \textbf{non-linear}.
+
+\begin{definition}{Linear Components}
+  Linear components are... They also can be subdivided into components that store energy (capacitors and inductors) and components that dissipate energy (resistors).
+\end{definition}
+
+\begin{definition}{Non-Linear Components}
+  ...
+\end{definition}
 \subsection{Circuit Elements}
 \label{ssec:circuitElements}
 
@@ -166,7 +210,7 @@ When there is current flowing through a wire with resistance approaching zero, a
 
 Resistance and conductance are inversely related. It is the ability of an element of conduct electric current; it is measured in mhos or siemens ($S$).
 
-\subsubsection{Nodes, Branches, & Loops}
+\subsubsection{Nodes, Branches, and Loops}
 \label{sssec:nodesBranchesLoops}
 
 \begin{definition}{Branch}

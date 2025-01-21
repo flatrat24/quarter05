@@ -1,0 +1,15 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 004}
+\date{January 20, 2025}
+
+\begin{document}
+\begin{circuitikz}
+
+  \draw[draw=fg, thick] (0,0) to[battery] ++(0,2) to[short, -*] ++(2,0) node[anchor = west] {$a$};
+  \draw[draw=fg, thick] (0,0) to[short, -*] ++(2,0) node[anchor = west] {$b$};
+  \draw[draw=re, thick, stealth-] (2,0.25) -- node[midway, anchor = west] {$V = V_a - V_b$} ++(0,1.5);
+
+\end{circuitikz}
+\end{document}
