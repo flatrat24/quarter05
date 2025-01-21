@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1737242365.44873 "main.tex" "main.pdf" "main" 1737242366.6141 0
-  "../../xlatex/imports/preamble.tex" 1737237638.45636 3949 66d8f0a8b4241e9804622eb951b989c2 ""
+["pdflatex"] 1737477253.18739 "main.tex" "main.pdf" "main" 1737477254.60588 0
+  "../../xlatex/imports/preamble.tex" 1737256331.07188 3949 66d8f0a8b4241e9804622eb951b989c2 ""
   "/nix/store/nrl7r9d478gqb6vqs924s95m1b5jazsb-texlive-2023-env/share/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1 5467731 c054d905585c843f3d779ea379a08fbb ""
   "/nix/store/nrl7r9d478gqb6vqs924s95m1b5jazsb-texlive-2023-env/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1 8221900 7b9d527c326ca41fbbbd9f38dee3868a ""
   "/nix/store/nrl7r9d478gqb6vqs924s95m1b5jazsb-texlive-2023-env/share/texmf-var/web2c/texmf.cnf" 1 42643 8c6425ba719a3f0a5c44799a4120634a ""
@@ -54,6 +54,7 @@
   "/nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
   "/nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb" 1 30273 87a352d78b6810ae5cfdc68d2fb827b2 ""
   "/nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/type1/public/cm-super/sfbx1200.pfb" 1 140176 d4962f948b4cc0adf4d3dde77a128c95 ""
+  "/nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/type1/public/cm-super/sfrm0800.pfb" 1 164227 3df942b4ff2124425d8fb1b6d3e01c7a ""
   "/nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/type1/public/cm-super/sfrm1000.pfb" 1 138258 6525c253f16cededa14c7fd0da7f67b2 ""
   "/nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/type1/public/cm-super/sfrm1200.pfb" 1 136101 f533469f523533d38317ab5729d00c8a ""
   "/nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/type1/public/cm-super/sfrm1440.pfb" 1 131078 d96015a2fa5c350129e933ca070b2484 ""
@@ -291,12 +292,14 @@
   "/nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/tex/latex/xifthen/xifthen.sty" 1 5689 1bfa68243e89a54479e7d0580773c57e ""
   "/nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/tex/latex/xkeyval/xkeyval.sty" 1 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "figures/fig_001.tex" 1737237698.33631 731 c328511ef7ac929535bb1d95b99f15be ""
+  "figures/fig_002.tex" 1737474862.6513 1098 63bfbaf2219c17f3d6595b6e48ea5d8c ""
+  "figures/fig_003.tex" 1737474862.09137 1098 7af6a3308f4f4bc42bf2721d16344918 ""
   "lec_001.tex" 1736985587.85554 7484 ee040f2e035887a54d0a835e70578841 ""
-  "lec_002.tex" 1737242365.41988 16014 59b14dfff3f4ac21b0e8cb0b7d4f9973 ""
-  "main.aux" 1737242366.50885 5151 7a6289a7a4543354ed0217d4408fbcd7 "pdflatex"
-  "main.out" 1737242366.50885 2847 879cf24e44f1145ffbf3a26043e7c80f "pdflatex"
+  "lec_002.tex" 1737477250.82913 19790 a6cf1bb2c8082a641d647366896ca172 ""
+  "main.aux" 1737477254.50918 6221 c2025951a1ffcbaf347907ac68c312e0 "pdflatex"
+  "main.out" 1737477254.51018 3238 bab4113b222b8c6c545c315d0e260e84 "pdflatex"
   "main.tex" 1737237113.24704 345 e5bb89cec3b0f63d35ba66d4c0c84e46 ""
-  "main.toc" 1737242366.50885 1390 5ee4e95a87501380c32927fc091d3761 "pdflatex"
+  "main.toc" 1737477254.51018 1584 cbeeeec127fa958bc48383e20584b344 "pdflatex"
   (generated)
   "main.aux"
   "main.log"

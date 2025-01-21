@@ -398,4 +398,112 @@ It would now be tempting to say that $-\frac{1}{2y^2} = \sqrt{1+x^2} + C$ is a g
 
 The true answer then would be to say that $-\frac{1}{2y^2} = \sqrt{1+x^2} + C$ is a \textit{family} of solutions rather than the general solution and that $y=0$ is a singular solution.
 
+\subsection{Autonomous ODE}
+\label{ssec:autonomousODE}
+
+\begin{equation*}
+  y' = f(y)
+\end{equation*}
+Such that the right hand side (RHS) does not involve $t$. In other words, it is a function purely in terms of $y$.
+
+The equilibrium solution:
+\begin{equation*}
+  y = y_0
+\end{equation*}
+Such that:
+\begin{equation*}
+  f(y_0) = 0
+\end{equation*}
+\begin{example}
+  \begin{equation*}
+    y' = y^3 - y
+  \end{equation*}
+  Clearly, the RHS is purely in terms of $y$, so this would be able to be solved as an autonomous ODE. So, taking the RHS and solving for $0$:
+  \begin{align*}
+    y^3 - y &= 0 \\
+    y\left(y^2 - 1\right) &= 0 \\
+    y\left(y - 1\right)\left(y + 1\right) &= 0 \\
+    y = 0;\ y = 1;\ y &= -1
+  \end{align*}
+  Thus, there are three equilibrium solutions.
+\end{example}
+
+\subsubsection{Stability of an Equilibrium Solution}
+\label{sssec:stabilityOfAnEqulibriumSolution}
+
+\begin{definition}{Stability}
+  Let $y=y_0$ be an equilibrium solution of $y' = f(y)$. $y=y_0$ is \textit{stable from above} if, for every $y>y_0$ near $y_0$, $f(y)<0$.
+\end{definition}
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_002}
+    \caption{Stable From Above}
+    \label{fig:002}
+  \end{subfigure}
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_003}
+    \caption{Stable From Below}
+    \label{fig:003}
+  \end{subfigure}
+  \caption{Stability}
+  \label{fig:stability}
+\end{figure}
+Using Figure \ref{fig:002} to visualize this, the {\color{gr} solution} is stable from above because, if you were to deviate from the solution, the direction field above will guide you back down to the solution. Figure \ref{fig:003} is stable from below for the same reasons.
+
+It follows then, that if the direction field around the solution points \textit{away} from the solution, then the solution is considered to be \textit{un}stable. Lastly, a solution is \textit{semi}stable if it is stable from one direction and unstable from the other.
+
+\begin{example}
+  \begin{equation*}
+    \frac{dP}{dt} = R - \frac{P}{V}\cdot W;\ P(0) = 0
+  \end{equation*}
+  This is an autonomous ODE since the RHS \textit{does not} depend on $t$. Thus, setting the RHS $= 0$:
+  \begin{gather*}
+    R - \frac{P}{V}\cdot W=0 \\
+    \vdots \\
+    P= \frac{VR}{W}
+  \end{gather*}
+  Finding the stability of this solution: % TODO: SHOW STABILITY
+\end{example}
+
+\begin{example}
+  Falling object from a great height, subject to acceleration due to gravity ($mg$) and air resistance ($kv^2$). Newton's second law:
+  \begin{equation*}
+    m \cdot \frac{dv}{dt} = mg - kv^2;\ v(0) = 0
+  \end{equation*}
+  This ODE is autonomous since the RHS has no $t$ involved, so the equilibrium solution will be obtained by setting the RHS $= 0$.
+  \begin{gather*}
+    mg-kv^2 = 0 \\
+    \vdots \\
+    v = \pm \sqrt{\frac{mg}{k}}
+  \end{gather*}
+  Finding the stability of this solution: % TODO: SHOW STABILITY
+
+
+  Based on this model, the terminal velocity of the falling object will be:
+  \begin{equation*}
+    v = \sqrt{\frac{mg}{k}}
+  \end{equation*}
+  % \hrule
+  % \vspace{12pt}
+  % This ODE can also be solved by finding the explicit solution, first by rearranging the equation:
+  % \begin{gather*}
+  %   m \cdot \frac{dv}{dt} = mg - kv^2 \\
+  %   \vdots \\
+  %   \frac{m}{mg-kv^2}dv = dt
+  % \end{gather*}
+  % Then integrate both sides. Keep in mind that $g$, $k$, and $m$ are constants.
+  % \begin{gather*}
+  %   \int_{}^{} \frac{m}{mg-kv^2} \,dv = \int_{}^{}  \,dt \\
+  %   \frac{m}{k}\int_{}^{} \frac{m}{\frac{mg}{k}-v^2} \,dv = \int_{}^{}  \,dt \\
+  %   \frac{m}{k}\int_{}^{} \frac{m}{\left(\sqrt{\frac{mg}{k}}-v\right)\left(\sqrt{\frac{mg}{k}}+v\right)} \,dv = \int_{}^{}  \,dt \\
+  % \end{gather*}
+\end{example}
+\begin{example}
+  
+\end{example}
+
 \end{document}

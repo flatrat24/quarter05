@@ -490,6 +490,14 @@ INPUT figures/fig_001.tex
 INPUT /nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/tfm/jknappen/ec/ecrm1000.tfm
 INPUT /nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/tfm/jknappen/ec/ecrm0800.tfm
 INPUT /nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/tfm/jknappen/ec/ecrm0600.tfm
+INPUT ./figures/fig_002.tex
+INPUT ./figures/fig_002.tex
+INPUT ./figures/fig_002.tex
+INPUT figures/fig_002.tex
+INPUT ./figures/fig_003.tex
+INPUT ./figures/fig_003.tex
+INPUT ./figures/fig_003.tex
+INPUT figures/fig_003.tex
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out
@@ -504,6 +512,7 @@ INPUT /nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fon
 INPUT /nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT /nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/type1/public/cm-super/sfbx1200.pfb
+INPUT /nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/type1/public/cm-super/sfrm0800.pfb
 INPUT /nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/type1/public/cm-super/sfrm1000.pfb
 INPUT /nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/type1/public/cm-super/sfrm1200.pfb
 INPUT /nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/type1/public/cm-super/sfrm1440.pfb
