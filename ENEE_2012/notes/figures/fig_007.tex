@@ -1,0 +1,28 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 007}
+\date{January 21, 2025}
+
+\begin{document}
+\begin{circuitikz}
+
+  \draw[fg, thick] (0,0) to[vsource] ++(0,2)
+  to[R, -*] ++(2,0)
+  to[short, -*] ++(1,0)
+  -- ++(1,0)
+  to[isource] ++(0,-2)
+  to[short, -*] ++(-1,0)
+  to[short, -*] ++(-1,0)
+  -- ++(-2,0)
+  ;
+
+  \draw[fg, thick] (2,2) to[R] ++(0,-2);
+  \draw[fg, thick] (3,2) to[R] ++(0,-2);
+
+  \filldraw[thick, fill=gr, draw=gr, fill opacity = 0.25, draw opacity = 0.75] (1.9, 1.9) rectangle ++(2.2, 0.2);
+  \filldraw[thick, fill=ye, draw=ye, fill opacity = 0.25, draw opacity = 0.75] (-0.1, 1.9) rectangle ++(0.2, 0.2);
+  \filldraw[thick, fill=re, draw=re, fill opacity = 0.25, draw opacity = 0.75] (-0.1, -0.1) rectangle ++(4.2, 0.2);
+
+\end{circuitikz}
+\end{document}
