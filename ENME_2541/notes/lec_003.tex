@@ -254,11 +254,11 @@ Consider Figure \ref{fig:stressDistributionNearDiscontinuity}. Due to the discon
 
 \begin{figure}[H]
   \centering
-  \begin{subfigure}[H]{0.45\textwidth}
+  \begin{subfigure}[H]{0.48\textwidth}
     \centering
     \includestandalone{figures/fig_025}
   \end{subfigure}
-  \begin{subfigure}[H]{0.45\textwidth}
+  \begin{subfigure}[H]{0.48\textwidth}
     \centering
     \includestandalone{figures/fig_026}
   \end{subfigure}
@@ -283,6 +283,24 @@ This ratio is referred to as the \textbf{stress concentration factor}. As claime
 
 When changes in shape due to changes in temperature occur, new stresses are created due to these thermal deformations. Generally, these are somewhat small. However, with large bodies or large changes in temperature these thermal strains create large enough stresses to cause a material to rupture.
 
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_028}
+    \caption{Initial Temperature $T_i$}
+    \label{fig:028}
+  \end{subfigure}
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_029}
+    \caption{Final Temperature $T_f > T_i$}
+    \label{fig:029}
+  \end{subfigure}
+  \caption{Expansions Due to Increased Temperature}
+  \label{fig:expansionsDueToIncreasedTemperature}
+\end{figure}
+
 \begin{formula}{Thermal Strain}
   \begin{equation*}
     \epsilon_{thermal} = \alpha \cdot \Delta T
@@ -290,10 +308,11 @@ When changes in shape due to changes in temperature occur, new stresses are crea
   \begin{tblr}{c|c}
     \midrule
     $\alpha = $ coefficient of thermal expansion & $\Delta T = $ change in temperature \\
-    \midrule
   \end{tblr}
 \end{formula}
-Similarly, the change in length of a body can be defined by multiplying the thermal strain ($\epsilon_T$) by the original length of the member ($L$).
+Notice that there is no stress associated with the thermal strain. The strain is directly caused by the change in temperature of the material as well as the material's inherent properties.
+
+Similar to the axial elongation, the change in length of a body can be defined by multiplying the thermal strain ($\epsilon_T$) by the original length of the member ($L$).
 \begin{formula}{Change in Length}
   \begin{equation*}
     \delta_{thermal} = \epsilon_{T} \cdot L = \alpha \cdot \Delta T \cdot L
@@ -314,9 +333,33 @@ In these situations, a \textbf{thermal stress} is induced into this bar. This th
 The deformation due to the thermal expansion and the deformation due to the constraints can be summed to the total deformation experienced. In the example of Figure \ref{fig:027}, since the total deformation is zero, the compatibility equation is:
 \begin{align*}
   \delta_{thermal} + \delta_{constraint} &= 0 \\
-  \left(\alpha \cdot \Delta T \cdot L\right) &= - \delta_C \\
-  \left(\alpha \cdot \Delta T \cdot L\right) &= -\frac{P_CL}{AE}
+  \alpha \cdot \Delta T \cdot L &= - \delta_C \\
+  \alpha \cdot \Delta T \cdot L &= -\frac{P_CL}{AE}
 \end{align*}
-Then using the values known about the member and its composition, the force applied by the constraints can be found, leading directly to then being able to solve for the stress.
+Then using the values known about the member and its composition, the force applied by the constraints can be found, leading directly to then being able to solve for the stress. This compatibility equation can be seen in steps in Figure \ref{fig:constrainedThermalExpansion}.
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[t!]{0.3\textwidth}
+    \centering
+    \includestandalone{figures/fig_030}
+    \caption{Initial Body}
+    \label{fig:030}
+  \end{subfigure}
+  \begin{subfigure}[t!]{0.3\textwidth}
+    \centering
+    \includestandalone{figures/fig_031}
+    \caption{Thermal Expansion}
+    \label{fig:031}
+  \end{subfigure}
+  \begin{subfigure}[t!]{0.3\textwidth}
+    \centering
+    \includestandalone{figures/fig_032}
+    \caption{Constraint}
+    \label{fig:032}
+  \end{subfigure}
+  \caption{Constrained Thermal Expansion}
+  \label{fig:constrainedThermalExpansion}
+\end{figure}
 
 \end{document}

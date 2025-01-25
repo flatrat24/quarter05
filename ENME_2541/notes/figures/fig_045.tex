@@ -1,0 +1,32 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 034}
+\date{January 24, 2025}
+
+\begin{document}
+\begin{tikzpicture}
+  [scale = 1.5,
+  body/.style={fill=bl!25!bg, draw=fg, thick},
+  force/.style={draw=re, ultra thick, -stealth},
+  line/.style={draw=fg, thick}]
+
+  \draw[body] (0,0) circle (2);
+  % \foreach \x in {0.25,0.5,...,2} {
+  %   \pgfmathsetmacro{\y}{\x * 0.65}
+  %   \draw[force] (\x,0) -- ++(0,\y);
+  % }
+  \draw[body, fill=ye] (0,0) circle (1.0);
+  \draw[body, fill=bl!25!bg] (0,0) circle (0.75);
+  \draw[force] (0,0.925) -- ++(-0.925,0);
+  \draw[force] (-0.925,0) -- ++(0,-0.925);
+  \draw[force] (0,-0.925) -- ++(0.925,0) node[anchor = west] {$\tau$};
+
+  \draw[force, ma] (1.05, 1.05) node[anchor = west] {$dA$} -- ++(-0.4,-0.2);
+
+  \draw[force, gr, |-|] (0,-0.825) -- node[midway, anchor = west] {$\rho$} ++(0,0.825);
+
+
+  % \draw[force] (2,0) -- ++(0,1.3) node[anchor = south west] {$\tau_{max}$};
+\end{tikzpicture}
+\end{document}

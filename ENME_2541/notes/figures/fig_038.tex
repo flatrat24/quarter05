@@ -1,0 +1,37 @@
+\documentclass{standalone}
+\usepackage{wasysym}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 033}
+\date{January 24, 2025}
+
+\begin{document}
+\begin{tikzpicture}
+  [body/.style={fill=bl!25!bg, draw=fg, thick},
+  force/.style={draw=re, ultra thick, -stealth},
+  line/.style={draw=fg, thick}]
+
+  \fill[body, draw=bl!25!bg] (0,0) rectangle ++(4,3);
+  \draw[body] (0,0) arc (270:90:0.5 and 1.5); % left half of the left ellipse
+  \draw[body] (4,1.5) ellipse (0.5 and 1.5);% right ellipse
+
+  \draw[line, dashed] (-0.5,2) -- ++(4,-1);
+  \draw[line] (-0.5,2) -- ++(4,0);
+
+  \draw[line] (3.5,2) node[anchor = center, xshift=5pt, yshift=-14pt] {$\phi$} -- (4,1.5);
+  \draw[line, dashed] (3.5,1) -- (4,1.5);
+
+  \draw[line, |-|] (3.25,1.9) -- node[anchor = east] {$a$} ++(0,-0.8);
+
+  \draw[fg] (0,3) -- ++(4,0);
+  \draw[fg] (0,0) -- ++(4,0);
+  \draw[force] (-0.5,0) arc (-90:90:-0.5 and 1.5); % left torque
+  \draw[force] (4.5,0) arc (90:-90:0.5 and -1.5); % right torque
+  \draw[body] (0,0) -- (4,0);% bottom line
+  \draw[body] (0,3) -- (4,3);% top line
+  \draw[] (-1.25,1.5) node {$T$};
+  \draw[] (5.25,1.5) node {$T$};
+  \draw[line, |-|] (1.5,-0.25) -- node[midway, anchor=north] {$dx$} ++(0.5,0);
+
+\end{tikzpicture}
+\end{document}

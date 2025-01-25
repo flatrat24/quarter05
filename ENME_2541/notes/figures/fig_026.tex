@@ -19,7 +19,12 @@
     \draw[line, dashed] (1.5,2.25) -- ++(0,-2.5);
 
     \foreach \y in {2,1.9,...,1.4} {
-      \pgfmathsetmacro{\dx}{(3 - \y) * (3 - \y) - 0.75};
+      \pgfmathsetmacro{\dx}{(3 - \y) * (3 - \y) - 0.75}
+      \draw[force] (1.5,\y) -- ++(\dx,0);
+    }
+
+    \foreach \y in {2,1.9,...,1.4} {
+      \pgfmathsetmacro{\dx}{((3 - \y) * (3 - \y)) - 0.75}
       \draw[force] (1.5,\y) -- ++(\dx,0);
     }
 
@@ -28,9 +33,18 @@
     \draw[] ($(1.5,1.5)+(1.6,0)$) node[rotate = 0, anchor = north] {$\sigma_{max}$};
 
     \foreach \y in {0,0.1,...,0.6} {
-      \pgfmathsetmacro{\dx}{(\y + 1) * (\y + 1) - 0.75};
+      \pgfmathsetmacro{\dx}{(\y + 1) * (\y + 1) - 0.75}
       \draw[force] (1.5,\y) -- ++(\dx,0);
     }
 
 \end{tikzpicture}
+
+% \begin{tikzpicture}
+%     \foreach \y in {0, 0.1, ..., 0.6}
+%       {
+%         \pgfmathsetmacro{\x}{(\y + 1) * (\y + 1) - 0.75}
+%         \draw (1,\y) circle (0.2cm);
+%         \fill (1,\y) circle (0.1cm);
+%       }
+% \end{tikzpicture}
 \end{document}

@@ -1,0 +1,22 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 027}
+\date{January 17, 2025}
+
+\begin{document}
+\begin{tikzpicture}
+		[scale = 1.75,
+    rotate = -90,
+    cube/.style={fill=re!25!bg, draw=fg, thick, fill opacity = 0.8},
+    force/.style={draw=re, ultra thick, -stealth},
+    line/.style={draw=fg, thick}]
+
+  \draw[cube] (0,0) rectangle ++(0.5,2);
+  \draw[cube] (0,2) rectangle ++(0.5,0.25);
+  \filldraw[fill=brown!50!bg, draw=brown!50!bg] (-0.15,-0.2) rectangle ++(0.8,0.25);
+  \draw[line, |-|] (-0.3, 0.05) -- node[midway, anchor = south] {$L$} ++(0, 1.95);
+  \draw[line, |-|] (-0.3, 2) -- node[midway, anchor = south] {$\delta_T$} ++(0, 0.25);
+
+\end{tikzpicture}
+\end{document}

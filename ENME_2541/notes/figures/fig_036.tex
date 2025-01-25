@@ -1,0 +1,39 @@
+\documentclass{standalone}
+\usepackage{wasysym}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 033}
+\date{January 24, 2025}
+
+\begin{document}
+\begin{tikzpicture}
+  [body/.style={fill=bl!25!bg, draw=fg, thick},
+  force/.style={draw=re, ultra thick, -stealth},
+  line/.style={draw=fg, thick}]
+
+  \fill[body, draw=bl!25!bg] (0,0) rectangle ++(4,3);
+  \draw[body] (0,0) arc (270:90:0.5 and 1.5); % left half of the left ellipse
+  \draw[body] (4,1.5) ellipse (0.5 and 1.5);% right ellipse
+  \foreach \x in {0.5,1,...,3} {
+    \filldraw[line, dashed, fill=re!50!bg] (\x,0) arc (-90:90:-0.5 and 1.5) -- ++(0.5,0) arc (-90:90:-0.5 and -1.5);
+  }
+  \draw[black, stealth-, thick] (0.25,1.60) -- ++(0,-0.25);
+  \draw[black] (0.5,1.70) node[rotate = 0, anchor = east] {*};
+  \draw[black] (1.0,1.60) node[rotate = 0, anchor = east] {*};
+  \draw[black] (1.5,1.50) node[rotate = 0, anchor = east] {*};
+  \draw[black] (2.0,1.40) node[rotate = 0, anchor = east] {*};
+  \draw[black] (2.5,1.30) node[rotate = 0, anchor = east] {*};
+  \draw[black] (3.0,1.20) node[rotate = 0, anchor = east] {*};
+  \draw[black, stealth-, thick] (2.75,1.45) -- ++(0,0.25);
+  \draw[fg] (0,3) -- ++(4,0);
+  \draw[fg] (0,0) -- ++(4,0);
+  \draw[force] (-0.5,0) arc (-90:90:-0.5 and 1.5); % left torque
+  \draw[force] (4.5,0) arc (90:-90:0.5 and -1.5); % right torque
+  \draw[body] (0,0) -- (4,0);% bottom line
+  \draw[body] (0,3) -- (4,3);% top line
+  \draw[] (-1.25,1.5) node {$T$};
+  \draw[] (5.25,1.5) node {$T$};
+  \draw[line, |-|] (1.5,-0.25) -- node[midway, anchor=north] {$dx$} ++(0.5,0);
+
+\end{tikzpicture}
+\end{document}

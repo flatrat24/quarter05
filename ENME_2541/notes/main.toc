@@ -21,4 +21,12 @@
 \contentsline {subsection}{\numberline {3.7}Poisson's Ratio}{14}{subsection.3.7}%
 \contentsline {subsection}{\numberline {3.8}Stress Concentrations}{14}{subsection.3.8}%
 \contentsline {subsection}{\numberline {3.9}Thermal Strain}{15}{subsection.3.9}%
-\contentsline {section}{\numberline {4}Torsion}{16}{section.4}%
+\contentsline {section}{\numberline {4}Torsion}{17}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Introducing New Values}{17}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Overview of Torsion}{17}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Torsion}{17}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Angle of Twist}{18}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}Shear Strain}{19}{subsubsection.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.4}Distribution of Shear Stress}{20}{subsubsection.4.2.4}%
+\contentsline {subsection}{\numberline {4.3}Multiple Torsions}{20}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Brittle vs. Ductile}{21}{subsubsection.4.3.1}%

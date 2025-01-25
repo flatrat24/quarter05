@@ -11,4 +11,248 @@
 \section{Torsion}
 \label{sec:torsion}
 
+\subsection{Introducing New Values}
+\label{ssec:introducingNewValues}
+
+Before covering concepts, there are several new values, each with its own notation. Referring to Figure \ref{fig:circularShaftInTorsion}, all these new values are labeled, and are as follows:
+
+\begin{center}
+  \begin{tblr}{ccc}
+    \toprule
+    Value & Symbol & Axial Counterpart \\
+    \midrule
+    Torque               & $T$    & Force ($P$) \\
+    Distance From Center & $\rho$ & Force ($P$) \\
+    Radius               & $C$    & Force ($P$) \\
+    Angle of Twist       & $\phi$ & Force ($P$) \\
+    Length of Rotation   & $a$    & Force ($P$) \\
+    \bottomrule
+  \end{tblr}
+\end{center}
+
+\begin{figure}[H]
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_033}
+    \caption{Side Profile}
+    \label{fig:033}
+  \end{subfigure}
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_034}
+    \caption{Front Profile}
+    \label{fig:034}
+  \end{subfigure}
+  \centering
+  \caption{Circular Shaft in Torsion}
+  \label{fig:circularShaftInTorsion}
+\end{figure}
+
+Another important value is the angle formed by the line connecting two points some distance $\rho$ from the center in each face of the shaft. This is the \textbf{shear strain} ($\gamma$) experienced by the body. In Figure \ref{fig:037}, this angle can be seen between the points $n$, $m$, and $m'$.
+
+\begin{figure}[H]
+  \centering
+  \includestandalone{figures/fig_037}
+  \caption{LKADHFLKJDHSFLKJASDFKLJHASLKJFHASLFHLKAFHSLKJFASLKJFASLKJAH}
+  \label{fig:037}
+\end{figure}
+
+\subsection{Overview of Torsion}
+\label{ssec:overviewOfTorsion}
+
+\subsubsection{Torsion}
+\label{sssec:torsion}
+
+\begin{definition}{Torsion}
+  The twisting of an object caused by a moment acting about the object's longitudinal (long) axis.
+\end{definition}
+
+The "force" that creates the moment around the axis is referred to as torque ($\tau$). When a shaft, such as the one if Figure \ref{fig:circularShaftInTorsion} is put into torsion, each cross section to rotate relative to the others. However, the face of each cross section \textit{remains plane}, which means that the cross sections remain flat and undistorted.
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_035}
+    \caption{Before Torsion}
+    \label{fig:035}
+  \end{subfigure}
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_036}
+    \caption{After Torsion}
+    \label{fig:036}
+  \end{subfigure}
+  \caption{Shaft in Torsion}
+  \label{fig:shaftInTorsion}
+\end{figure}
+
+\subsubsection{Angle of Twist}
+\label{sssec:angleOfTwist}
+
+In Figure \ref{fig:angleOfTwist}, the angle of twist ($\phi$) is shown. The angle of twist refers to the angle between an initial point $m$, the center of the face, and the distorted point $m'$. The angle of twist can be calculated as:
+
+\begin{formula}{Angle of Twist}
+  \begin{equation*}
+    \phi = \frac{TL}{GJ}
+  \end{equation*}
+  \begin{tblr}{cc}
+    \midrule
+    $T$: Torque Applied & $L$: Length \\
+    \midrule
+    $G$: Modulus of Rigidity & $J$: Polar Moment of Inertia \\
+    \midrule
+  \end{tblr}
+\end{formula}
+
+\begin{figure}[H]
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_038}
+    \caption{Side Profile}
+    \label{fig:038}
+  \end{subfigure}
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_039}
+    \caption{Front Profile}
+    \label{fig:039}
+  \end{subfigure}
+  \centering
+  \caption{Angle of Twist}
+  \label{fig:angleOfTwist}
+  \vspace{-15pt}
+\end{figure}
+
+\begin{wrapfigure}[4]{r}{0.4\textwidth}
+  \centering
+  \vspace{-30pt}
+  \includestandalone{figures/fig_040}
+  \caption{Geometry of a Cylinder}
+  \label{fig:040}
+\end{wrapfigure}
+
+The polar moment of inertia of an object is a property of an object that described its resistance to torsion. This is a value based on the geometry of the body.
+
+\begin{formula}{Polar Moment of Inertia}
+  \begin{equation*}
+    J = \frac{\pi}{2}\left(r^4_o-r^4_i\right)
+  \end{equation*}
+\end{formula}
+
+\subsubsection{Shear Strain}
+\label{sssec:shearStrain}
+
+\begin{figure}[H]
+  \centering
+  \includestandalone{figures/fig_041}
+  \caption{Front Profile}
+  \label{fig:041}
+\end{figure}
+
+When an object undergoes shear strain one can imagine a grid across the surface of the cylinder. Each square in the grid will undergo a deformation. However, as has been said in Subsubsection \ref{sssec:torsion}, the circular shaft maintains it's cross-section faces' geometry intact. So, each square in the grid will have to maintain the same side lengths:
+
+\begin{figure}[H]
+  \centering
+  \includestandalone{figures/fig_042}
+\end{figure}
+
+The strain caused by this can be calculated in terms of the angle of twist (\ref{sssec:angleOfTwist}) and either the outer radius of the bar ($C$) or some inner radius ($\rho$):
+\begin{formula}{Shear Strain}
+  \begin{equation*}
+    \gamma = \frac{C \phi}{L} \ \ \ \textup{or}\ \ \ \gamma = \frac{\rho \phi}{L}
+  \end{equation*}
+\end{formula}
+
+\subsubsection{Distribution of Shear Stress}
+\label{sssec:distributionOfShearStress}
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_043}
+    \caption{Distribution of Shear Stress}
+    \label{fig:043}
+  \end{subfigure}
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_044}
+    \caption{On a Hollow Object}
+    \label{fig:044}
+  \end{subfigure}
+\end{figure}
+
+The Shear stress is down the radius of the face of the body linearly. In Figure \ref{fig:044}, a hollow object is experiencing shear strain. Since it is hollow, it is more efficient at holding the shear strain.
+
+\begin{wrapfigure}[2]{r}{0.45\textwidth}
+  \centering
+  \includestandalone{figures/fig_045}
+  \caption{Calculating Shear Stress}
+  \label{fig:045}
+\end{wrapfigure}
+
+To calculate the shear strain, consider Figure \ref{fig:045}.
+
+\begin{formula}{Shear Stress}
+  \begin{align*}
+    T    &= \int_{0}^{r} \tau \rho \,dA \\
+         &= \frac{\tau}{\rho}\int_{0}^{r} \rho^2 \,dA \\
+         &= \frac{\tau}{\rho} \left(\frac{\pi}{2}\left(r_0^4-r_i^4\right)\right) \\
+         &= \frac{\tau}{\rho} J
+  \end{align*}
+  \begin{equation*}
+    \tau = \frac{T\rho}{J}
+  \end{equation*}
+\end{formula}
+
+\subsection{Multiple Torsions}
+\label{ssec:multipleTorsions}
+
+\begin{wrapfigure}[9]{l}{0.45\textwidth}
+  \vspace{-10pt}
+  \centering
+  \includestandalone{figures/fig_046}
+  \caption{Multiple Torques}
+  \label{fig:046}
+\end{wrapfigure}
+
+Consider the member in Figure \ref{fig:046} experiencing multiple torques simultaneously. Very similarly to previous techniques used in statics to find internal forces. The shear stress and strain can be found in any region bounded by two torques (on the ends, there would be no stress or strain). Supposing that:
+\begin{equation*}
+  T_b > T_a > T_c
+\end{equation*}
+Then it could be found that region with the greatest shear and stress would be between $T_b$ and $T_a$.
+
+A diagram displaying the internal torque as a function of $x$ would look like that in Figure \ref{fig:047}.
+
+\begin{figure}[H]
+  \centering
+  \includestandalone{figures/fig_047}
+  \caption{Internal Torque Diagram}
+  \label{fig:047}
+\end{figure}
+
+\subsubsection{Brittle vs. Ductile}
+\label{sssec:brittleVsDuctile}
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_048}
+    \caption{Brittle}
+    \label{fig:048}
+  \end{subfigure}
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_049}
+    \caption{Ductile}
+    \label{fig:049}
+  \end{subfigure}
+  \caption{Brittle vs. Ductile}
+  \label{fig:brittleVsDuctile}
+\end{figure}
+
+The brittle material in Figure \ref{fig:048} will fail at a $45\degree$ angle from the longitudinal axis. This is due to the brittle material tend to fail in tension, thus failing along the place of maximum tension. Conversely, the material in Figure \ref{fig:049} is ductile and will then fail along the plane of maximum shear.
+
 \end{document}

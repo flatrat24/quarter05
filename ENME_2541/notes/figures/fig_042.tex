@@ -1,0 +1,27 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 042}
+\date{January 24, 2025}
+
+\begin{document}
+\begin{tikzpicture}
+
+  \filldraw[fill=ye, draw=ye] (0,0) -- ++(4,0) -- ++(0,4) -- ++(-4,0) -- cycle;
+
+  \draw[thick, fg, |-|] (-0.2,0) -- node[anchor = east]  {{\LARGE $a$}} ++(0,4);
+  \draw[thick, fg, |-|] (0,4.2)  -- node[anchor = south] {{\LARGE $b$}} ++(4,0);
+  \draw[thick, fg, |-|] (4.2,0)  -- node[anchor = west]  {{\LARGE $c$}} ++(0,4);
+  \draw[thick, fg, |-|] (0,-0.2)  -- node[anchor = north] {{\LARGE $d$}} ++(4,0);
+
+  \draw[fg] (6,2) node[rotate = 0, anchor = center] {{\huge $\Rightarrow$}};
+
+  \filldraw[fill=ye, draw=ye] (8,0) -- ++(4,-1) -- ++(0,4) -- ++(-4,1) -- cycle;
+
+  \draw[thick, fg, |-|] (7.8,0)  -- node[anchor = east]  {{\LARGE $a$}} ++(0,4);
+  \draw[thick, fg, |-|] (8,4.2)  -- node[anchor = south] {{\LARGE $b$}} ++(4,-1);
+  \draw[thick, fg, |-|] (12.2,-1) -- node[anchor = west]  {{\LARGE $c$}} ++(0,4);
+  \draw[thick, fg, |-|] (8,-0.2)  -- node[anchor = north] {{\LARGE $d$}} ++(4,-1);
+
+\end{tikzpicture}
+\end{document}

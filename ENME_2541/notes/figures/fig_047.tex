@@ -1,0 +1,19 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 046}
+\date{January 24, 2025}
+
+\begin{document}
+\begin{tikzpicture}
+  [body/.style={fill=bl!25!bg, draw=fg, thick},
+  force/.style={draw=re, ultra thick, -stealth},
+  line/.style={draw=fg, thick}]
+
+  \draw[line, stealth-stealth] (0,-1) -- ++(0,2);
+  \draw[line, -stealth] (0,0) -- ++(6.5,0);
+
+  \draw[force] (0,0) -- ++(1.5,0) -- ++(0,-0.75) -- ++(1.5,0) -- ++(0,0.5) -- ++(1.5,0) -- ++(0,0.25) -- ++(01.5,0);
+
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,21 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 034}
+\date{January 24, 2025}
+
+\begin{document}
+\begin{tikzpicture}
+  [body/.style={fill=bl!25!bg, draw=fg, thick},
+  force/.style={draw=re, ultra thick, -stealth},
+  line/.style={draw=fg, thick}]
+
+  \draw[body] (0,0) circle (2);
+  \draw[body, fill=bl!10!bg] (0,0) circle (1.5);
+
+  \draw[draw=gr, thick, -|] (0,0) -- node[midway, anchor = east] {$r_i$} ++(0,-1.4);
+  \draw[draw=ma, thick, -|] (0,0) -- node[midway, anchor = north] {$r_o$} ++(1.9,0);
+
+  \filldraw[bg] (0,0) circle (2.5pt);
+\end{tikzpicture}
+\end{document}
