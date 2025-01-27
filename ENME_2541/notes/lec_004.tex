@@ -53,7 +53,7 @@ Another important value is the angle formed by the line connecting two points so
 \begin{figure}[H]
   \centering
   \includestandalone{figures/fig_037}
-  \caption{LKADHFLKJDHSFLKJASDFKLJHASLKJFHASLFHLKAFHSLKJFASLKJFASLKJAH}
+  \caption{Shear Strain}
   \label{fig:037}
 \end{figure}
 
@@ -85,6 +85,7 @@ The "force" that creates the moment around the axis is referred to as torque ($\
   \end{subfigure}
   \caption{Shaft in Torsion}
   \label{fig:shaftInTorsion}
+  \vspace{-22pt}
 \end{figure}
 
 \subsubsection{Angle of Twist}
@@ -94,7 +95,7 @@ In Figure \ref{fig:angleOfTwist}, the angle of twist ($\phi$) is shown. The angl
 
 \begin{formula}{Angle of Twist}
   \begin{equation*}
-    \phi = \frac{TL}{GJ}
+    \phi = \frac{TL}{GJ}\ \ \ \textup{or}\ \ \ \int_{}^{} d\phi = \int_{}^{} \frac{T(x)}{J(x) \cdot G(x)} \,dx
   \end{equation*}
   \begin{tblr}{cc}
     \midrule
@@ -106,6 +107,7 @@ In Figure \ref{fig:angleOfTwist}, the angle of twist ($\phi$) is shown. The angl
 \end{formula}
 
 \begin{figure}[H]
+  \vspace{-10pt}
   \begin{subfigure}[H]{0.45\textwidth}
     \centering
     \includestandalone{figures/fig_038}
@@ -123,6 +125,9 @@ In Figure \ref{fig:angleOfTwist}, the angle of twist ($\phi$) is shown. The angl
   \label{fig:angleOfTwist}
   \vspace{-15pt}
 \end{figure}
+
+\subsubsection{Polar Moment of Inertia}
+\label{sssec:polarMomentOfInertia}
 
 \begin{wrapfigure}[4]{r}{0.4\textwidth}
   \centering
@@ -164,26 +169,9 @@ The strain caused by this can be calculated in terms of the angle of twist (\ref
   \end{equation*}
 \end{formula}
 
-\subsubsection{Distribution of Shear Stress}
-\label{sssec:distributionOfShearStress}
-
-\begin{figure}[H]
-  \centering
-  \begin{subfigure}[H]{0.45\textwidth}
-    \centering
-    \includestandalone{figures/fig_043}
-    \caption{Distribution of Shear Stress}
-    \label{fig:043}
-  \end{subfigure}
-  \begin{subfigure}[H]{0.45\textwidth}
-    \centering
-    \includestandalone{figures/fig_044}
-    \caption{On a Hollow Object}
-    \label{fig:044}
-  \end{subfigure}
-\end{figure}
-
-The Shear stress is down the radius of the face of the body linearly. In Figure \ref{fig:044}, a hollow object is experiencing shear strain. Since it is hollow, it is more efficient at holding the shear strain.
+\newpage
+\subsubsection{Shear Stress}
+\label{sssec:shearStress}
 
 \begin{wrapfigure}[2]{r}{0.45\textwidth}
   \centering
@@ -202,9 +190,27 @@ To calculate the shear strain, consider Figure \ref{fig:045}.
          &= \frac{\tau}{\rho} J
   \end{align*}
   \begin{equation*}
-    \tau = \frac{T\rho}{J}
+    \tau = \frac{T\rho}{J}\ \ \ \textup{or}\ \ \ \tau = G \cdot \gamma
   \end{equation*}
 \end{formula}
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_043}
+    \caption{Distribution of Shear Stress}
+    \label{fig:043}
+  \end{subfigure}
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_044}
+    \caption{On a Hollow Object}
+    \label{fig:044}
+  \end{subfigure}
+\end{figure}
+
+The Shear stress is down the radius of the face of the body linearly. In Figure \ref{fig:044}, a hollow object is experiencing shear strain. Since it is hollow, it is more efficient at holding the shear strain.
 
 \subsection{Multiple Torsions}
 \label{ssec:multipleTorsions}
@@ -232,8 +238,8 @@ A diagram displaying the internal torque as a function of $x$ would look like th
   \label{fig:047}
 \end{figure}
 
-\subsubsection{Brittle vs. Ductile}
-\label{sssec:brittleVsDuctile}
+\subsection{Brittle vs. Ductile}
+\label{ssec:brittleVsDuctile}
 
 \begin{figure}[H]
   \centering
@@ -254,5 +260,80 @@ A diagram displaying the internal torque as a function of $x$ would look like th
 \end{figure}
 
 The brittle material in Figure \ref{fig:048} will fail at a $45\degree$ angle from the longitudinal axis. This is due to the brittle material tend to fail in tension, thus failing along the place of maximum tension. Conversely, the material in Figure \ref{fig:049} is ductile and will then fail along the plane of maximum shear.
+
+\subsection{Torsional Stiffness}
+\label{ssec:torsionalStiffness}
+
+Similar to how an axial member will have a stiffness that helps in solving statically indeterminate problems, so too do members have torsional stiffnesses ($k$).
+
+\begin{formula}{Torsional Stiffness}
+  \begin{equation*}
+    k = \frac{T}{\phi}
+  \end{equation*}
+\end{formula}
+
+\subsection{Statically Indeterminate Torsion}
+\label{ssec:staticallyIndeterminateTorsion}
+
+\begin{wrapfigure}[7]{r}{0.45\textwidth}
+  \vspace{-30pt}
+  \centering
+  \includestandalone{figures/fig_050}
+  \caption{Statically Indeterminate Torsion}
+  \label{fig:050}
+\end{wrapfigure}
+
+Just as there were situations in Subsection \ref{ssec:staticIndeterminacy} where the internal forces, and in turn the stresses and shears, couldn't be solved through statics alone, there are also situations in which the internal torsion cannot be solved through statics alone. In such cases, it is necessary to analyze the geometry of the problem to solve for internal torsion.
+
+Consider Figure \ref{fig:050}. There is a beam fixed on each end to two supports. Furthermore, there is a torque applied $\frac{1}{3}$ of the way down the beam such that $L_{ab} = \frac{1}{2}L_{bc}$.
+
+\begin{wrapfigure}[7]{l}{0.45\textwidth}
+  \centering
+  \includestandalone{figures/fig_051}
+  \caption{Free Body Diagram}
+  \label{fig:051}
+\end{wrapfigure}
+
+The member in Figure \ref{fig:050} can be translated into a free body diagram as shown in Figure \ref{fig:051} where each component of the beam is considered individually. However, this would result in an equation with two unknowns, thus showing this situation as statically indeterminate:
+\begin{equation*}
+  T_a + T_b = T
+\end{equation*} \\
+So, how should a statically indeterminate torsion problem be approached? First, it must be noticed that, since both ends are fixed in place, then the total angle of twist ($\phi_{t}$) should be zero.
+\begin{equation*}
+  \phi_{t} = 0
+\end{equation*}
+An analogous process to Subsection \ref{ssec:staticIndeterminacy} can be applied in which the shear of each component can be calculated individually to find the total angle of twist.
+\begin{equation*}
+  \phi_{t} = \sum_{n=1}^{N} \phi_{n}
+\end{equation*}
+Thus:
+\begin{align*}
+  \phi_{t} = 0                       &= \phi_{ab} + \phi_{bc} \\
+                                     &= \frac{T_{ab}L_{ab}}{G_{ab}J_{ab}} + \frac{T_{bc}L_{bc}}{G_{bc}J_{bc}} \\ 
+  -\frac{T_{ab}L_{ab}}{G_{ab}J_{ab}} &= \frac{T_{bc}L_{bc}}{G_{bc}J_{bc}} \\
+\end{align*}
+From here, different situations will give different unknowns and thus different values to solve for. In the current example, the only difference between the two sections is their lengths, and so:
+\begin{align*}
+  -\frac{T_{ab}L_{ab}}{GJ} &= \frac{T_{bc}L_{bc}}{GJ} \\
+  -T_{ab}L_{ab} &= T_{bc}L_{bc} \\
+  -\frac{L_{ab}}{L_{bc}} \cdot T_{ab} &= T_{bc}
+\end{align*}
+It can then be seen that the key to solving these statically indeterminate situations is to finding the ratio between the two torques based on the summation of the angles of rotation.
+
+\subsection{Power and Rotation Speed}
+\label{ssec:powerAndRotationSpeed}
+
+For shafts that are designed to be rotated, there is obviously going to be a torque of some kind applied to the shaft to achieve that rotation. When designing these parts, it's important that the torque applied doesn't create shear beyond what is deemed acceptable in the specific context.
+
+To determine the amount of torque generated by the power ($P$) applied at a certain frequency ($f$) to a shaft:
+\begin{formula}{Torque Generated by Power and Frequency}
+  \begin{equation*}
+    T = \frac{P}{2\pi \cdot f}
+  \end{equation*}
+\end{formula}
+Once this torque has been calculated, the engineer can use other methods and formulas from Section \ref{sec:torsion} to calculate the allowable power, frequency, etc., for the specific situation.
+
+\subsection{Stress Concentrations}
+\label{ssec:stressConcentrations}
 
 \end{document}

@@ -1,0 +1,28 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 050}
+\date{January 27, 2025}
+
+\begin{document}
+\begin{tikzpicture}
+  [body/.style={fill=bl!25!bg, draw=fg, thick},
+  force/.style={draw=re, ultra thick, -stealth},
+  line/.style={draw=fg, thick},
+  support/.style={fill=brown!50!bg, draw=brown!50!bg, ultra thick}]
+
+  \draw[body] (0,0) rectangle ++(6,1);
+
+  \draw[force, -stealth] (2,1.25) -- ++(0,-1.75) node[anchor = north] {$T$};
+
+  \filldraw[support] (-0.5,-0.25) rectangle ++(0.5,1.5);
+  \filldraw[support] (6,-0.25) rectangle ++(0.5,1.5);
+
+  \draw[line, |-|] (0,1.5) -- node[midway, anchor = south] {$L_{ab}$} ++(2,0);
+  \draw[line, |-|] (2,1.5) -- node[midway, anchor = south] {$L_{bc}$} ++(4,0);
+
+  \filldraw[] (0,0.5) circle (1.5pt) node[rotate = 0, anchor = west] {$a$};
+  \filldraw[] (2,0.5) circle (1.5pt) node[rotate = 0, anchor = west] {$b$};
+  \filldraw[] (6,0.5) circle (1.5pt) node[rotate = 0, anchor = east] {$c$};
+\end{tikzpicture}
+\end{document}

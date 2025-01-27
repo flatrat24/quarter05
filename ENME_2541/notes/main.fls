@@ -475,9 +475,9 @@ INPUT /nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fon
 INPUT /nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/tfm/jknappen/ec/tcrm1200.tfm
 INPUT /nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/tfm/jknappen/ec/tcrm0800.tfm
 INPUT /nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/tfm/jknappen/ec/tcrm0600.tfm
-OUTPUT main.toc
 INPUT /nix/store/nrl7r9d478gqb6vqs924s95m1b5jazsb-texlive-2023-env/share/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT /nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/enc/dvips/cm-super/cm-super-t1.enc
+OUTPUT main.toc
 INPUT ./lec_001.tex
 INPUT ./lec_001.tex
 INPUT ./lec_001.tex
@@ -704,6 +704,10 @@ INPUT /nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fon
 INPUT /nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/tfm/jknappen/ec/tcrm2488.tfm
 INPUT /nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/tfm/jknappen/ec/tcrm1728.tfm
+INPUT ./figures/fig_045.tex
+INPUT ./figures/fig_045.tex
+INPUT ./figures/fig_045.tex
+INPUT figures/fig_045.tex
 INPUT ./figures/fig_043.tex
 INPUT ./figures/fig_043.tex
 INPUT ./figures/fig_043.tex
@@ -712,10 +716,6 @@ INPUT ./figures/fig_044.tex
 INPUT ./figures/fig_044.tex
 INPUT ./figures/fig_044.tex
 INPUT figures/fig_044.tex
-INPUT ./figures/fig_045.tex
-INPUT ./figures/fig_045.tex
-INPUT ./figures/fig_045.tex
-INPUT figures/fig_045.tex
 INPUT ./figures/fig_046.tex
 INPUT ./figures/fig_046.tex
 INPUT ./figures/fig_046.tex
@@ -732,6 +732,14 @@ INPUT ./figures/fig_049.tex
 INPUT ./figures/fig_049.tex
 INPUT ./figures/fig_049.tex
 INPUT figures/fig_049.tex
+INPUT ./figures/fig_050.tex
+INPUT ./figures/fig_050.tex
+INPUT ./figures/fig_050.tex
+INPUT figures/fig_050.tex
+INPUT ./figures/fig_051.tex
+INPUT ./figures/fig_051.tex
+INPUT ./figures/fig_051.tex
+INPUT figures/fig_051.tex
 INPUT /nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 INPUT main.aux
 INPUT ./main.out

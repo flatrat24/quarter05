@@ -1,0 +1,29 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 050}
+\date{January 27, 2025}
+
+\begin{document}
+\begin{tikzpicture}
+  [body/.style={fill=bl!25!bg, draw=fg, thick},
+  force/.style={draw=re, ultra thick, -stealth},
+  line/.style={draw=fg, thick},
+  support/.style={fill=brown!50!bg, draw=brown!50!bg, ultra thick}]
+
+  \draw[body] (0,0) rectangle ++(2,1);
+  \draw[force, -stealth] (2,1.5) -- ++(0,-1.75) node[anchor = north] {$T$};
+  \draw[force, stealth-] (0,1.5) -- ++(0,-1.75) node[anchor = north] {$T_a$};
+  \filldraw[] (0,0.5) circle (1.5pt) node[rotate = 0, anchor = west] {$a$};
+  \filldraw[] (2,0.5) circle (1.5pt) node[rotate = 0, anchor = east] {$b$};
+  \draw[line, |-|] (0,1.75) -- node[midway, anchor = south] {$L_{ab}$} ++(2,0);
+
+
+  \draw[body] (3,0) rectangle ++(4,1);
+  \draw[force, stealth-] (7,1.5) -- ++(0,-1.75) node[anchor = north] {$T_b$};
+  \draw[force, -stealth] (3,1.5) -- ++(0,-1.75) node[anchor = north] {$T$};
+  \filldraw[] (3,0.5) circle (1.5pt) node[rotate = 0, anchor = west] {$b$};
+  \filldraw[] (7,0.5) circle (1.5pt) node[rotate = 0, anchor = east] {$c$};
+  \draw[line, |-|] (3,1.75) -- node[midway, anchor = south] {$L_{bc}$} ++(4,0);
+\end{tikzpicture}
+\end{document}
