@@ -1,0 +1,154 @@
+\documentclass[12pt]{article}
+
+\input{../../xlatex/imports/preamble}
+
+\title{Lecture 003}
+\date{January 28, 2025}
+
+\begin{document}
+
+\newpage
+\section{Second Order ODEs}
+\label{sec:secondOrderODEs}
+
+Similar to first order ODe's, second order ODE's also have a standard form:
+\begin{equation*}
+  y'' + p(t)y' + q(t)y = g(t)
+\end{equation*}
+
+\begin{definition}{Homogeneous}
+  If the RHS of a second order ODE in standard form is equal to zero ($g(t) = 0$), then the  ODE is said to be homogeneous. Otherwise ,the ODE is non-homogeneous.
+\end{definition}
+
+Rather than focus first on how to solve these second order ODEs, first a little bit of theory about them will be covered.
+
+\subsection{Theory}
+\label{ssec:theory}
+
+\subsubsection{Existence and Uniqueness Theorem}
+\label{sssec:existenceAndUniquenessTheorem}
+
+Given an IVP in the standard form with:
+\begin{equation*}
+  y(t_0) = y_0\ \ \ \textup{and}\ \ \ y'(t_0) = y'_0
+\end{equation*}
+and given that $p(t)$, $q(t)$, and $g(t)$ are continuous on the interval $(a,b)$, and $t \exists (a,b)$, then the IVP has a unique solution on the interval $(a,b)$.
+
+\subsubsection{Wronskian for Linear Independence}
+\label{sssec:wronskianForLinearIndependence}
+
+If $y_a$, $y_b$ are solutions of $y'' + p(t)y' + q(t)y = 0$ on an interval where the existence and uniqueness theorem (\ref{sssec:existenceAndUniquenessTheorem}) holds, then $y_a$, $y_b$ are linearlly independent if and only if:
+\begin{equation*}
+  W(y_a,y_b) = 
+  \begin{vmatrix}
+    y_a(t)  & y_b(t) \\
+    y'_a(t) & y'_b(t) \\
+  \end{vmatrix} = 
+    \left( y_a(t) \cdot y'_b(t) \right) - \left( y_b(t) \cdot y'_a(t) \right) = 0
+\end{equation*}
+on the interval.
+
+\subsubsection{}
+\label{sssec:}
+
+Consider the ODE:
+\begin{equation}
+  ay'' + by' + cy = 0
+  \label{eq:301}
+\end{equation}
+where $a$, $b$, and $c$ are constants.
+
+Idea: Try $y=e^{rt}$, then $y'=re^{rt}$ and $y''=r^2e^{rt}$. Using this, (\ref{eq:301}) becomes:
+\begin{align*}
+  ar^2e^{rt} + bre^{rt} + ce^{rt} &= 0 \\
+  \left(ar^2 + br + c \right) e^{rt} &= 0
+\end{align*}
+$e^{rt}$ will never be $0$, so to solve this, use the quadratic equation to solve for $r$:
+\begin{equation*}
+  ar^2 + br + c = 0
+\end{equation*}
+This equation is referred to as the \textbf{auxiliary equation}. If the auxiliary equation has two distinct real roots $r_a \neq r_b$, then there are two solutions:
+\begin{equation*}
+  y_a = e^{r_at}\ \ \ \textup{and}\ \ \ y_b = e^{r_bt}
+\end{equation*}
+
+\begin{equation*}
+  W(y_a,y_b) = 
+  \begin{vmatrix}
+    e^{r_at} & e^{r_bt} \\
+    r_ae^{r_at} & r_be^{r_bt} \\
+  \end{vmatrix} = 
+  \left( e^{r_at} \cdot r_be^{r_bt} \right) - \left( e^{r_bt} \cdot r_ae^{r_at} \right) \neq 0 (\textup{since $r_a \neq r_b$})
+\end{equation*}
+
+\begin{example}
+  \begin{equation*}
+    y'' - 5y' + 6y = 0
+  \end{equation*}
+  Thus, the auxiliary equation is:
+  \begin{align*}
+    r^2 - 5r + 6 &= 0 \\
+    (r-2)(r-3) &= 0 \\
+    r_a = 2, r_b = 3
+  \end{align*}
+  Thus, the general solution would be:
+  \begin{equation*}
+    y = C_ae^{2t} + C_be^{3t}
+  \end{equation*}
+\end{example}
+
+\begin{example}
+  \begin{equation*}
+    2y'' - 7y' + 3y = 0
+  \end{equation*}
+  Thus, the auxiliary equation is:
+  \begin{align*}
+    2r^2 - 7r + 3 &= 0 \\
+    (2r-1)(r-3) &= 0 \\
+    r_a = \frac{1}{2}, r_b = 3
+  \end{align*}
+  Thus, the general solution would be:
+  \begin{equation*}
+    y = C_ae^{\frac{1}{2}t} + C_be^{3t}
+  \end{equation*}
+\end{example}
+
+\begin{example}
+  \begin{equation*}
+    y'' - 4y' - 6y = 0, y(0) = 1, y'(0) = 0
+  \end{equation*}
+  Thus, the auxiliary equation is:
+  \begin{align*}
+    r^2 - 4r - 6  &= 0  \\
+    r^2 - 4r      &= 6  \\
+    r^2 - 4r      &= 6 \\
+    r^2 - 4r + 4  &= 10 \\
+    (r-2)^2       &= 10 \\
+    r-2           &= \pm \sqrt{10} \\
+    r             &= 2 \pm \sqrt{10}
+  \end{align*}
+  Thus, the general solution would be:
+  \begin{equation*}
+    y = C_ae^{2 + \sqrt{10}} + C_be^{2 - \sqrt{10}}
+  \end{equation*}
+  To solve for the initial conditions, first find $y'$:
+  \begin{equation*}
+    y' = (2 + \sqrt{10})C_ae^{(2 + \sqrt{10})t} + (2 - \sqrt{10})C_be^{(2 - \sqrt{10})t}
+  \end{equation*}
+  Then create a system of equations based on the initial conditions:
+  \begin{gather*}
+    y(0) = 1 \Rightarrow C_a + C_b = 1 \\
+    y'(0) = 0 \Rightarrow C_a(2 + \sqrt{10}) + C_b(2 - \sqrt{10}) = 0
+  \end{gather*}
+  Solving the system of equations, the solution is found:
+  \begin{equation*}
+    y = \frac{5 - \sqrt{10}}{10}e^{(2 + \sqrt{10})t} + \frac{5 + \sqrt{10}}{10}e^{(2 - \sqrt{10})t}
+  \end{equation*}
+  Analyzing the long term behavior:
+  \begin{gather*}
+    \lim_{t \to \infty} \frac{5 - \sqrt{10}}{10}e^{(2 + \sqrt{10})t} = +\infty \\
+    \lim_{t \to \infty} \frac{5 - \sqrt{10}}{10}e^{(2 + \sqrt{10})t} = +\infty \\
+  \end{gather*}
+\end{example}
+
+\end{document}
