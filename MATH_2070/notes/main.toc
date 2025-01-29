@@ -1,5 +1,0 @@
-\contentsline {section}{\numberline {1}Second Order ODEs}{2}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Theory}{2}{subsection.1.1}%
-\contentsline {subsubsection}{\numberline {1.1.1}Existence and Uniqueness Theorem}{2}{subsubsection.1.1.1}%
-\contentsline {subsubsection}{\numberline {1.1.2}Wronskian for Linear Independence}{2}{subsubsection.1.1.2}%
-\contentsline {subsubsection}{\numberline {1.1.3}}{2}{subsubsection.1.1.3}%

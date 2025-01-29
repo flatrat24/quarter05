@@ -320,6 +320,34 @@ From here, different situations will give different unknowns and thus different 
 \end{align*}
 It can then be seen that the key to solving these statically indeterminate situations is to finding the ratio between the two torques based on the summation of the angles of rotation.
 
+Consider the shaft in Figure \ref{fig:compositeStaticIndeterminateTorsion}. In this situation, the shaft is experiencing two equal and opposite torques ($T$). Additionally, the shaft is a composite of a two materials with different rigidities ($G$). How could the torque in each material be found?
+
+\begin{figure}[H]
+  \begin{subfigure}[H]{0.55\textwidth}
+    \centering
+    \includestandalone{figures/fig_052}
+    \caption{Side Profile}
+    \label{fig:052}
+  \end{subfigure}
+  \begin{subfigure}[H]{0.35\textwidth}
+    \centering
+    \includestandalone{figures/fig_053}
+    \caption{Front Profile}
+    \label{fig:053}
+  \end{subfigure}
+  \caption{Statically Indeterminate Composite Shaft}
+  \label{fig:compositeStaticIndeterminateTorsion}
+\end{figure}
+
+In this case, the total angle of twist of the shaft \textit{won't} be zero. However, since the shaft is a composite, it is known that the angle of twist in each material must be the same.
+\begin{equation*}
+  \phi_i = \phi_o \Rightarrow \frac{T_iL}{G_iJ_i} = \frac{T_oL}{G_oJ_o} \Rightarrow \frac{T_i}{G_iJ_i} = \frac{T_o}{G_oJ_o}
+\end{equation*}
+From there, there exist two unknown values: $T_i$ and $T_o$. It may look impossible to solve, however, it's important to remember that the \textit{total} torque ($T$) is known. Thus, there are two equations and two unknowns:
+\begin{equation*}
+  \frac{T_i}{G_iJ_i} = \frac{T_o}{G_oJ_o}\ \ \ \textup{and}\ \ \ T_i + T_o = T
+\end{equation*}
+
 \subsection{Power and Rotation Speed}
 \label{ssec:powerAndRotationSpeed}
 

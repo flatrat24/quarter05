@@ -741,6 +741,14 @@ INPUT ./figures/fig_051.tex
 INPUT ./figures/fig_051.tex
 INPUT figures/fig_051.tex
 INPUT /nix/store/w8fdfdyc5l71qr9m42h2fpifzxp9p5mn-texlive-2023-env-texmfdist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
+INPUT ./figures/fig_052.tex
+INPUT ./figures/fig_052.tex
+INPUT ./figures/fig_052.tex
+INPUT figures/fig_052.tex
+INPUT ./figures/fig_053.tex
+INPUT ./figures/fig_053.tex
+INPUT ./figures/fig_053.tex
+INPUT figures/fig_053.tex
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out

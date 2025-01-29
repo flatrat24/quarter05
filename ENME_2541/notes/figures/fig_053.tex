@@ -1,0 +1,20 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 034}
+\date{January 24, 2025}
+
+\begin{document}
+\begin{tikzpicture}
+  [scale = 1.5,
+  body/.style={fill=bl!25!bg, draw=fg, thick},
+  force/.style={draw=re, ultra thick, -stealth},
+  line/.style={draw=fg, thick}]
+
+  \draw[body] (0,0) circle (1);
+  \draw[body, fill=copper] (0,0) circle (0.375);
+
+  \draw[line, |-|] (-0.375,-0.475) -- node[midway, anchor = north] {$r_i$} ++(0.375,0);
+  \draw[line, |-|] (0,0) -- node[midway, anchor = north] {$r_o$} ++(0.95,0);
+\end{tikzpicture}
+\end{document}

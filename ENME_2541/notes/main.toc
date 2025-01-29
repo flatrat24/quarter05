@@ -33,5 +33,5 @@
 \contentsline {subsection}{\numberline {4.4}Brittle vs. Ductile}{22}{subsection.4.4}%
 \contentsline {subsection}{\numberline {4.5}Torsional Stiffness}{22}{subsection.4.5}%
 \contentsline {subsection}{\numberline {4.6}Statically Indeterminate Torsion}{22}{subsection.4.6}%
-\contentsline {subsection}{\numberline {4.7}Power and Rotation Speed}{23}{subsection.4.7}%
+\contentsline {subsection}{\numberline {4.7}Power and Rotation Speed}{24}{subsection.4.7}%
 \contentsline {subsection}{\numberline {4.8}Stress Concentrations}{24}{subsection.4.8}%
