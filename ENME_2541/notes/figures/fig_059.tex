@@ -1,0 +1,30 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 002}
+\date{January 06, 2025}
+
+\begin{document}
+\tdplotsetmaincoords{70}{125}
+\begin{tikzpicture}
+		[tdplot_main_coords, scale=1.5,
+    cube/.style={fill=bl!25!bg, draw=fg, thick, fill opacity = 0.8},
+    force/.style={draw=re, thick, -stealth}]
+
+  \filldraw[cube] (0,0,0) -- ++(0,4,0) -- ++(1,0,0) -- ++(0,-4,0) -- cycle;
+  \filldraw[cube] (0,0,0) -- ++(0,0,1) -- ++(1,0,0) -- ++(0,0,-1) -- cycle;
+  \filldraw[cube] (0,4,0) -- ++(0,0,1) -- ++(1,0,0) -- ++(0,0,-1) -- cycle;
+  \filldraw[cube] (1,0,0) -- ++(0,4,0) -- ++(0,0,1) -- ++(0,-4,0) -- cycle;
+  \filldraw[cube] (0,0,1) -- ++(0,4,0) -- ++(1,0,0) -- ++(0,-4,0) -- cycle;
+
+  \foreach \x in {0.1,0.2,...,1} {
+    \pgfmathsetmacro{\dz}{\x / 2}
+    \draw[force, thick] (\x,4,0.25) -- ++(0,0,\dz);
+  }
+
+  \draw[force, thick] (0.25,4,0.25) -- ++(0,1,0);
+  \draw[force, thick] (0.25,4,0.75) -- ++(0,1,0);
+  \draw[force, thick] (0.75,4,0.25) -- ++(0,1,0);
+  \draw[force, thick] (0.75,4,0.75) -- ++(0,1,0) node[anchor = west, xshift = 5pt] {$\sigma = \frac{F_{BC}}{A}$};
+\end{tikzpicture}
+\end{document}

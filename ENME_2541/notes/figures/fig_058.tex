@@ -1,0 +1,22 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 057}
+\date{February 03, 2025}
+
+\begin{document}
+\begin{tikzpicture}
+  [scale = 1.75,
+  cube/.style={fill=bl!25!bg, draw=fg, thick, fill opacity = 0.8},
+  force/.style={draw=re, ultra thick, -stealth},
+  line/.style={draw=fg, thick}]
+
+  \draw[cube] (1,0) rectangle ++(3,0.25);
+
+  \filldraw[fg] (1.1,0.125) node[rotate = 0, anchor = west] {$B$} circle (0.025);
+  \filldraw[fg] (3.9,0.125) node[rotate = 0, anchor = east] {$C$} circle (0.025);
+
+  \draw[force] (0.85,0.5) arc (135:225:0.5) node[midway, anchor = east] {$M'$};
+  \draw[force] (4.15,0.5) arc (405:315:0.5) node[midway, anchor = west] {$M$};
+\end{tikzpicture}
+\end{document}

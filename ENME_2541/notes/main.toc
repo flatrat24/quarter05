@@ -20,18 +20,22 @@
 \contentsline {subsection}{\numberline {3.6}Static Indeterminacy}{13}{subsection.3.6}%
 \contentsline {subsection}{\numberline {3.7}Poisson's Ratio}{15}{subsection.3.7}%
 \contentsline {subsection}{\numberline {3.8}Stress Concentrations}{15}{subsection.3.8}%
+\contentsline {subsubsection}{\numberline {3.8.1}Max Stress for a Hole Discontinuity}{16}{subsubsection.3.8.1}%
+\contentsline {subsubsection}{\numberline {3.8.2}Max Stress for a Fillet}{16}{subsubsection.3.8.2}%
 \contentsline {subsection}{\numberline {3.9}Thermal Strain}{16}{subsection.3.9}%
-\contentsline {section}{\numberline {4}Torsion}{18}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Introducing New Values}{18}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Overview of Torsion}{18}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}Torsion}{18}{subsubsection.4.2.1}%
-\contentsline {subsubsection}{\numberline {4.2.2}Angle of Twist}{19}{subsubsection.4.2.2}%
-\contentsline {subsubsection}{\numberline {4.2.3}Polar Moment of Inertia}{19}{subsubsection.4.2.3}%
-\contentsline {subsubsection}{\numberline {4.2.4}Shear Strain}{20}{subsubsection.4.2.4}%
-\contentsline {subsubsection}{\numberline {4.2.5}Shear Stress}{21}{subsubsection.4.2.5}%
-\contentsline {subsection}{\numberline {4.3}Multiple Torsions}{21}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Brittle vs. Ductile}{22}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}Torsional Stiffness}{22}{subsection.4.5}%
-\contentsline {subsection}{\numberline {4.6}Statically Indeterminate Torsion}{22}{subsection.4.6}%
-\contentsline {subsection}{\numberline {4.7}Power and Rotation Speed}{24}{subsection.4.7}%
-\contentsline {subsection}{\numberline {4.8}Stress Concentrations}{24}{subsection.4.8}%
+\contentsline {section}{\numberline {4}Torsion}{19}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Introducing New Values}{19}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Overview of Torsion}{19}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Torsion}{19}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Angle of Twist}{20}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}Polar Moment of Inertia}{20}{subsubsection.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.4}Shear Strain}{21}{subsubsection.4.2.4}%
+\contentsline {subsubsection}{\numberline {4.2.5}Shear Stress}{22}{subsubsection.4.2.5}%
+\contentsline {subsection}{\numberline {4.3}Multiple Torsions}{22}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Brittle vs. Ductile}{23}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Torsional Stiffness}{23}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Statically Indeterminate Torsion}{23}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4.7}Power and Rotation Speed}{25}{subsection.4.7}%
+\contentsline {subsection}{\numberline {4.8}Stress Concentrations in Circular Shafts}{25}{subsection.4.8}%
+\contentsline {section}{\numberline {5}Bending}{27}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Pure Bending}{27}{subsection.5.1}%

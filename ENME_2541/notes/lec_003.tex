@@ -248,9 +248,9 @@ In all engineering materials, the relationship between the elongation of body du
 \end{formula}
 
 \subsection{Stress Concentrations}
-\label{ssec:stressConcentrations}
+\label{ssec:axialStressConcentrations}
 
-Consider Figure \ref{fig:stressDistributionNearDiscontinuity}. Due to the discontinuity in the center, the stress is distributed differently than normal. Considering the location with the smallest cross section (the exact center), the stress is distributed closer to the center of the discontinuity.
+Consider Figure \ref{fig:stressDistributionNearHoleDiscontinuity}. Due to the discontinuity in the center, the stress is distributed differently than normal. Considering the location with the smallest cross section (the exact center), the stress is distributed closer to the center of the discontinuity.
 
 \begin{figure}[H]
   \centering
@@ -262,11 +262,11 @@ Consider Figure \ref{fig:stressDistributionNearDiscontinuity}. Due to the discon
     \centering
     \includestandalone{figures/fig_026}
   \end{subfigure}
-  \caption{Stress Distribution Near Discontinuity}
-  \label{fig:stressDistributionNearDiscontinuity}
+  \caption{Stress Distribution Near Hole Discontinuity}
+  \label{fig:stressDistributionNearHoleDiscontinuity}
 \end{figure}
 
-Through rigorous experimentation, it's been determined that analyzing these structures can be done solely based on the geometry of the discontinuities. The main concern of this analysis is to find whether the allowable stress will be exceeded. Since the maximum stress ($\sigma_{max}$) will be at the narrowest cross-section, only this cross section needs to be analyzed.
+Through experimentation, it's been determined that analyzing these structures can be done solely based on the geometry of the discontinuities. The main concern of this analysis is to find whether the allowable stress will be exceeded. Since the maximum stress ($\sigma_{max}$) will be at the narrowest cross-section, only this cross section needs to be analyzed.
 
 To complete this analysis, an engineer must find the average stress in the narrowest cross-section:
 \begin{equation*}
@@ -276,7 +276,58 @@ and the ratio between the average and maximum stress at that cross-section:
 \begin{equation*}
   K = \frac{\sigma_{max}}{\sigma_{avg}}
 \end{equation*}
-This ratio is referred to as the \textbf{stress concentration factor}. As claimed earlier, this stress concentration factor can be computed based on solely the geometry of the discontinuity. More specifically, there exist \href{https://research.iaun.ac.ir/pd/jjfesharaki/pdfs/UploadFile_9038.pdf}{repositories of information} on how to plot the ratio of the radius and min height ($\frac{r}{h}$) and the ratio between the max and min heights ($\frac{H}{h}$)
+This ratio is referred to as the \textbf{stress concentration factor} ($k$). To use the (experimentally derived) stress concentration, the geometry of the discontinuity must also be known.
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[H]{0.48\textwidth}
+    \centering
+    \includestandalone{figures/fig_054}
+  \end{subfigure}
+  \begin{subfigure}[H]{0.48\textwidth}
+    \centering
+    \includestandalone{figures/fig_055}
+  \end{subfigure}
+  \caption{Stress Distribution Near Fillet Discontinuity}
+  \label{fig:stressDistributionNearFilletDiscontinuity}
+\end{figure}
+
+\subsubsection{Max Stress for a Hole Discontinuity}
+\label{sssec:maxStressForAHoleDiscontinuity}
+
+\begin{wrapfigure}[]{r}{0.45\textwidth}
+  \vspace{-50pt}
+  \centering
+  \includestandalone{figures/fig_025}
+  \caption{Hole Discontinuity}
+  \label{fig:025_b}
+\end{wrapfigure}
+
+For a hole discontinuity, the important geometry is the proportion between the smallest cross-section to the largest:
+\begin{equation*}
+  \frac{H-h}{H}\ \ \ \textup{or}\ \ \ \frac{2r}{H}
+\end{equation*}
+Using this calculated value in conjunction with $k$, the ratio between the two values plotted on a \href{https://research.iaun.ac.ir/pd/jjfesharaki/pdfs/uploadfile_9038.pdf}{chart} results in the ratio between $\sigma_max$ and $\sigma_avg$ for the specific geometry.
+
+\subsubsection{Max Stress for a Fillet}
+\label{sssec:maxStressForAFillet}
+
+\begin{wrapfigure}[11]{r}{0.45\textwidth}
+  \vspace{-75pt}
+  \centering
+  \includestandalone{figures/fig_054}
+  \caption{Fillet Discontinuity}
+  \label{fig:054_b}
+\end{wrapfigure}
+
+Similarly to Subsubsection \ref{sssec:maxStressForAHoleDiscontinuity}, the max stress for a fillet can be found geometrically. However, the geometric values used in this case are $h$ and $r$. 
+\begin{equation*}
+  \frac{r}{h}
+\end{equation*}
+However, rather than just using a single ratio, the ratio between the two heights of the filleted member is also used.
+\begin{equation*}
+  \frac{H}{h}
+\end{equation*}
 
 \subsection{Thermal Strain}
 \label{ssec:thermalStrain}

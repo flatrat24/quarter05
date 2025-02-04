@@ -1,0 +1,59 @@
+\documentclass[12pt]{article}
+
+\input{../../xlatex/imports/preamble}
+
+\title{Lecture 005}
+\date{February 03, 2025}
+
+\begin{document}
+
+\newpage
+\section{Bending}
+\label{sec:bending}
+
+\subsection{Pure Bending}
+\label{ssec:pureBending}
+
+\begin{figure}[H]
+  \centering
+  \includestandalone{figures/fig_057}
+  \caption{Member Experiencing Pure Bending}
+  \label{fig:057}
+\end{figure}
+
+Consider the free body diagram in Figure \ref{fig:057}. Assuming static equilibrium, the forces acting upon it would create bending moments at points $B$ and $C$ as is shown in Figure \ref{fig:058}.
+
+\begin{figure}[H]
+  \centering
+  \includestandalone{figures/fig_058}
+  \caption{Bending Moments in Member}
+  \label{fig:058}
+\end{figure}
+
+The pure symmetry of the bending of the bar ($M' = M$) results in \textbf{pure bending} in the member between $B$ and $C$. This is because the shear force along this section is zero.
+
+\begin{definition}{Pure Bending}
+  A situation in which bending exists in a member without the presence of axial, shear, or torsional forces.
+\end{definition}
+
+If a cross section of the member were to be taken, the internal forces present would be a combination of a shear force acting in the vertical direction and a bending moment.
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_059}
+    \caption{Shear Force}
+    \label{fig:059}
+  \end{subfigure}
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_060}
+    \caption{Bending Moment}
+    \label{fig:060}
+  \end{subfigure}
+  \caption{Internal Forces of a Bending Member}
+  \label{fig:internalForcesOfABendingMember}
+\end{figure}
+
+\end{document}
