@@ -1,0 +1,64 @@
+\documentclass[12pt]{article}
+
+\input{../../xlatex/imports/preamble}
+
+\title{Lecture 004}
+\date{February 03, 2025}
+
+\begin{document}
+
+\newpage
+\section{Circuit Theorems}
+\label{sec:circuitTheorems}
+
+\subsection{Linearity}
+\label{ssec:linearity}
+
+\begin{definition}{Linear Circuit}
+  A linear circuit is one whose output is linearly related to its input.
+\end{definition}
+
+More specifically, a linear circuit must satisfy the homogeneity (scaling) property as well as well as the additive property. Homogeneity means
+
+\begin{figure}[H]
+  
+  \caption{Linear}
+  \label{fig:}
+\end{figure}
+
+\textit{Power is non-linear}.
+
+\subsection{Superposition}
+\label{ssec:superposition}
+
+\begin{definition}{Superposition Principle}
+  The superposition principle states that the voltage across an element \textit{in a linear} circuit is the algebraic sum of the voltages across that element due to each independent source \textit{acting alone}.
+\end{definition}
+
+\begin{figure}[H]
+  \centering
+  \includestandalone{figures/fig_011}
+  \caption{Circuit}
+  \label{fig:011}
+\end{figure}
+Consider the circuit in Figure \ref{fig:011}. This circuit has two sources, and while it can be analyzed through mesh and nodal analysis, the principle of superposition can also be applied to it. By doing so, two similar circuits can be constructed, each taking only a single source at once.
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_012}
+    \caption{Voltage Source}
+    \label{fig:012}
+  \end{subfigure}
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_013}
+    \caption{Current Source}
+    \label{fig:013}
+  \end{subfigure}
+  \caption{Sub-Circuits}
+  \label{fig:subcircuits}
+\end{figure}
+From here, each circuit can be analyzed independently. The values found for voltages and currents throughout the circuits can be summed to find the values from the original circuit in Figure \ref{fig:011}.
+
+\end{document}

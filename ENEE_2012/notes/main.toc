@@ -12,4 +12,8 @@
 \contentsline {subsubsection}{\numberline {2.2.1}In Parallel vs. Series}{6}{subsubsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.3}Kirchhoff's Laws}{7}{subsection.2.3}%
 \contentsline {section}{\numberline {3}Methods of Analysis}{8}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Mesh Analysis}{8}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.1}Nodal Analysis}{8}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Mesh Analysis}{8}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Circuit Theorems}{9}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Linearity}{9}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Superposition}{9}{subsection.4.2}%
