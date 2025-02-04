@@ -1,0 +1,106 @@
+\documentclass[12pt]{article}
+
+\input{../../xlatex/imports/preamble}
+
+\title{Lecture 004}
+\date{January 30, 2025}
+
+\begin{document}
+\newpage
+\section{Complex Numbers}
+\label{sec:complexNumbers}
+
+Complex numbers are of the form:
+\begin{equation*}
+  a + bi
+\end{equation*}
+where $a$ is the \textit{real} part of the number, and $b$ is the imaginary part.
+
+\subsection{Multiplication}
+\label{ssec:multiplication}
+\begin{gather*}
+  (a+bi)(c+di) \\
+  \Rightarrow \\
+  ac + adi + cbi + bdi^2 \\
+  \Rightarrow \\
+  (ac-bd)+i(ad+cb)
+\end{gather*}
+
+\subsection{Geometric Interpretation}
+\label{ssec:geometricInterpretation}
+
+$a+bi$ may be identified with $(a,b)$ in the complex plane where the real part ($a$) is represented by the $x$ coordinate and the imaginary part ($b$) by the $y$ coordinate.
+
+\subsection{Euler's Formula}
+\label{ssec:eulersFormula}
+
+Euler's Formula provides a way to represent a complex number in terms of $\sin$ and $\cos$:
+\begin{gather*}
+  e^{i\theta} = \cos(\theta) + i\sin(\theta) \\
+  \textup{or} \\
+  re^{i\theta} = r\cos(\theta) + ri\sin(\theta),\ r \ge 0
+\end{gather*}
+As can be seen, Euler's Formula is simply just the polar coordinate transformation.
+
+\subsection{Powers and Roots}
+\label{ssec:powersAndRoots}
+
+\subsubsection{Powers}
+\label{sssec:powers}
+
+To square $re^{i \theta} = r\cos(\theta) + ir\sin(\theta)$ using the previous description, it results in:
+\begin{equation*}
+  r^2e^{2i \theta} = r^2\left(\cos(2\theta) + i\sin(2\theta)\right)
+\end{equation*}
+Generally, for any integer $n$, the $n^{th}$ power of $re^{i\theta}$ is simply:
+\begin{equation*}
+  r^ne^{ni \theta} = r^n\left(\cos(n\theta) + i\sin(n\theta)\right)
+\end{equation*}
+Thus,
+\begin{align*}
+  (1+i)^4 &= \left(\sqrt{2}e^{i \frac{\pi}{4}}\right)^4 \\
+          &= \left(\sqrt{2}\right)^4\left(e^{i \frac{\pi}{4}}\right)^4 \\
+          &= 4e^{i\pi} \\
+          &= -4
+\end{align*}
+
+\subsubsection{Roots}
+\label{sssec:roots}
+
+The roots are somewhat more complicated. Generally, for the $n^{th}$ root $\sqrt{z^{\frac{1}{n}}}$ has $n$ different candidates.
+
+Let:
+\begin{equation*}
+  z=Re^{i \theta},\ w = \sqrt{z^{\frac{1}{n}}}
+\end{equation*}
+means that:
+\begin{equation*}
+ w^n = z
+\end{equation*}
+
+If
+\begin{equation*}
+  w = re^{i \alpha}
+\end{equation*}
+then,
+\begin{equation*}
+  r^ne^{in \alpha} = Re^{i \theta}
+\end{equation*}
+The amplitude $r$ is uniquely $R^{\frac{1}{n}}$, however, the phase $\alpha$ is \textit{not} unique. This is because $e^{in \alpha} = e^{i \theta}$ means that:
+\begin{align*}
+  n \alpha &= \theta + 2k\pi, k=0,\pm1,\pm2,\hdots \\
+  \alpha   &= \frac{\theta + 2k\pi}{n}, k=0,\pm1,\pm2,\hdots
+\end{align*}
+\begin{example}
+  \begin{equation*}
+    1^{\frac{1}{3}} = \left(e^{i \cdot 2k\pi}\right)^{\frac{1}{3}}  =e^{i \frac{2k\pi}{3}}
+  \end{equation*}
+  Depending on the value of $k$, there are \textit{three} different possibilites for $e$: \\
+  \begin{align*}
+    &\textup{If}\ k=0,3,6,\hdots \Rightarrow e^{i0}=1 \\
+    &\textup{If}\ k=1,4,7,\hdots \Rightarrow e^{\frac{2\pi}{3}i}=-\frac{1}{2}+\frac{\sqrt{3}}{2}i \\
+    &\textup{If}\ k=2,5,8,\hdots \Rightarrow e^{\frac{3\pi}{3}i}=-\frac{1}{2}-\frac{\sqrt{3}}{2}i \\
+  \end{align*}
+\end{example}
+
+\end{document}
