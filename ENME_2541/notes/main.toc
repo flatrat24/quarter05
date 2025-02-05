@@ -39,3 +39,6 @@
 \contentsline {subsection}{\numberline {4.8}Stress Concentrations in Circular Shafts}{25}{subsection.4.8}%
 \contentsline {section}{\numberline {5}Bending}{27}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Pure Bending}{27}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Bending Strain}{27}{subsubsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.2}Bending Stress}{28}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Impure Bending}{29}{subsection.5.3}%

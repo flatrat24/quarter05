@@ -36,24 +36,147 @@ The pure symmetry of the bending of the bar ($M' = M$) results in \textbf{pure b
   A situation in which bending exists in a member without the presence of axial, shear, or torsional forces.
 \end{definition}
 
-If a cross section of the member were to be taken, the internal forces present would be a combination of a shear force acting in the vertical direction and a bending moment.
-
+If a cross section of the member were to be taken, the internal forces present would be a combination of a shear force acting in the vertical direction and a bending moment. Note these directions as correspondent to the \textit{negative} bending seen in Figure \ref{fig:058}.
 \begin{figure}[H]
   \centering
-  \begin{subfigure}[H]{0.45\textwidth}
-    \centering
-    \includestandalone{figures/fig_059}
-    \caption{Shear Force}
-    \label{fig:059}
-  \end{subfigure}
   \begin{subfigure}[H]{0.45\textwidth}
     \centering
     \includestandalone{figures/fig_060}
     \caption{Bending Moment}
     \label{fig:060}
   \end{subfigure}
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_059}
+    \caption{Shear Force}
+    \label{fig:059}
+  \end{subfigure}
   \caption{Internal Forces of a Bending Member}
   \label{fig:internalForcesOfABendingMember}
 \end{figure}
+
+\subsubsection{Bending Strain}
+\label{sssec:bendingStrain}
+
+Consider the internal tension/compression forces seen in Figure \ref{fig:060}. Notice that, as the forces approach the \textit{centroid} of the beam, the magnitude of the forces decreases. To better understand this, consider the beam in Figure \ref{fig:061}. Along its centroid in green in the {\color{gr} neutral axis}. Along this axis, the beam experiences no elongation. However, along the dotted line, the beam does elongate, implying the existence internal axial forces.
+
+\begin{wrapfigure}[15]{r}{0.5\textwidth}
+  \centering
+  \includestandalone{figures/fig_061}
+  \caption{Neutral Axis}
+  \label{fig:061}
+\end{wrapfigure}
+
+Given the dimensions in Figure \ref{fig:061}, the length of the arc of the {\color{gr} neutral axis} within the beam can be calculated as:
+\begin{equation*}
+  l_{\textup{neutral arc}} = r \cdot \theta
+\end{equation*}
+Similarly, the length of the dashed arc within the beam is:
+\begin{equation*}
+  l_{\textup{dashed}} = (r+y) \cdot \theta
+\end{equation*}
+The strain at any point can then be calculated as the ratio between these two values:
+\begin{align*}
+  \epsilon = \frac{\Delta L}{L_0} = \frac{\left((r+y) \cdot \theta\right) - r \cdot \theta}{r \cdot \theta}
+\end{align*}
+This can then be simplified into:
+\begin{formula}{Bending Strain}
+  \begin{equation*}
+    \epsilon = \frac{y}{r}
+  \end{equation*}
+\end{formula}
+
+\subsection{Bending Stress}
+\label{ssec:bendingStress}
+
+During bending that remains within the elastic, non-plastic, range, Hooke's Law applies. This means that the bending stress can be found by multiplying the strain by some elastic constant:
+\begin{formula}{Bending Stress}
+  \begin{equation*}
+    \sigma = E \epsilon = E \frac{y}{r}
+  \end{equation*}
+\end{formula}
+
+\begin{wrapfigure}[]{r}{0.3\textwidth}
+  \centering
+  \includestandalone{figures/fig_060}
+  \caption{Bending Moment}
+  \label{fig:060_b}
+\end{wrapfigure}
+
+Since the internal moment is created by internal forces, the resultant forces of all of these internal forces must equal the moment. Thus, by integrating the internal forces, the moment can be found.
+\begin{equation*}
+  M = \int_{A}^{} \sigma y \,dA = \int_{A}^{} E\frac{y}{r} y \,dA = \frac{E}{r} \int_{A}^{} y^2 \,dA
+\end{equation*}
+The \textbf{bending moment of inertia} ($I$) of an object quantifies how much a beam resists bending. This value is calculated as:
+\begin{equation*}
+  \int_{A}^{} y^2 \,dA
+\end{equation*}
+Thus:
+\begin{equation*}
+  M = \frac{E}{r} \int_{A}^{} y^2 \,dA = \frac{EI}{r}
+\end{equation*}
+\clearpage
+Combining this equation for $M$ with the previous equation for $\sigma$ results in the \textbf{Flexure Formula}.
+\begin{formula}{Flexure Formula}
+  \begin{equation*}
+    \sigma = \frac{My}{I}
+  \end{equation*}
+  or
+  \begin{equation*}
+    \sigma_{max} = \frac{M}{S}\textup{; where $S=\frac{I}{y_{max}}$ is the \textbf{Section Modulus}}
+  \end{equation*}
+\end{formula}
+
+\subsection{Impure Bending}
+\label{ssec:impureBending}
+
+Just as pure bending happens when there are no shear forces present during bending, impure bending is when shear \textit{and} bending coexist. Luckily, the flexure formula from Subsection \ref{ssec:bendingStress} holds over all cases of pure bending, and most cases of impure bending.
+
+\begin{wrapfigure}[9]{l}{0.3\textwidth}
+  \vspace{-20pt}
+  \centering
+  \includestandalone{figures/fig_062}
+  \caption{Bending Shear}
+  \label{fig:062}
+\end{wrapfigure}
+
+The average shear across some cross-sectional face, such as that in Figure \ref{fig:062}, is simply calculated as:
+\begin{equation*}
+  \tau = \frac{V}{A}
+\end{equation*}
+However, as can be seen, the shear forces are not distributed evenly throughout the face. So, how can the maximum shear stress be found?
+\begin{formula}{Shear Stress}
+  \begin{equation*}
+    \tau(x,y) = \frac{V(x) \cdot Q(y)}{I \cdot b(y)}
+  \end{equation*}
+\end{formula}
+Where $V$ is the shear force, $I$ is the area moment of intertia, $b$ is the width of the face, and $Q$ is the \textbf{first moment of area}.
+\begin{formula}{First Moment of Area}
+  \begin{equation*}
+    Q = \textup{{\color{gr} area outside of axis}} \cdot \textup{{\color{bl} distance to centroid from neutral axis}}
+  \end{equation*}
+  \begin{equation*}
+    Q = {\color{gr} b\left( \frac{h}{2}-y \right)} \cdot {\color{bl} y + \frac{\frac{h}{2}-y}{2}} = \frac{b}{2}\left( \frac{h^2}{4}-y^2 \right)
+  \end{equation*}
+\end{formula}
+\begin{figure}[H]
+  \centering
+  \includestandalone{figures/fig_063}
+  \caption{First Moment of Area}
+  \label{fig:063}
+\end{figure}
+In the case of Figure \ref{fig:062}, the width is constant along the height of the cross-section just as the shear force $V$ is constant throughout the face. With these considerations, the equation of shear stress can be expressed as:
+\begin{formula}{Shear Stress}
+  \begin{equation*}
+    \tau = \frac{V}{2I}\left(\frac{h^2}{4}-y^2\right)
+  \end{equation*}
+\end{formula}
+By inspecting this formula, it can be seen that the \textit{maximum} shear stress would be found at the neutral axis of the face (where $y=0$). By substituting in $y=0$ to the shear stress formula, a formula for the max shear stress ($\tau_{max}$) can be found:
+\begin{formula}{Maximum Shear Stress}
+  \begin{gather*}
+    \tau_{\textup{max,rectangle}} = \frac{V}{2I}\left(\frac{h^2}{4}-0^2\right) = \frac{V}{2I}\frac{h^2}{4} = \frac{3}{2}\frac{V}{A} \\
+    \tau_{\textup{max,circle}} = \frac{4}{3}\frac{V}{A}
+  \end{gather*}
+\end{formula}
 
 \end{document}

@@ -1,0 +1,31 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 061}
+\date{February 04, 2025}
+
+\begin{document}
+\begin{tikzpicture}
+		[cube/.style={fill=bl!25!bg, draw=fg, thick, fill opacity = 0.8},
+    force/.style={draw=re, ultra thick, -stealth},
+    dimension/.style={draw=fg, thick, |-|},
+    line/.style={draw=fg, thick}]
+
+  \draw[line, fg!50!bg] (0,0) -- (2.82,2.82);
+  \draw[line, fg!50!bg] (0,0) -- (-2.82,2.82);
+  \filldraw[cube] (-1.41,1.41) arc (135:45:2) -- (2.82,2.82) arc (45:135:4) -- cycle;
+
+  \draw[line, gr] (0,0) circle (3);
+  \draw[line, dashed] (0,0) circle (3.5);
+
+  \draw[force] (-3.25,3.75) arc (135:225:1) node[midway, anchor = east] {$M'$};
+  \draw[force] (3.25,3.75) arc (405:315:1) node[midway, anchor = west] {$M$};
+
+  \filldraw[fg] (0,0) circle (2pt) node[anchor = south, yshift = 10pt] {$\theta$};
+
+  \draw[line, dashed] (-0.7,0.7) arc (135:45:1);
+
+  \draw[dimension] (0.16,-0.16) -- node[anchor = north west] {$r$} ++(2.07,2.07);
+  \draw[dimension] (0,3.45) -- node[anchor = west] {$x$} ++(0,-0.4);
+\end{tikzpicture}
+\end{document}

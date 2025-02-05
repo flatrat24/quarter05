@@ -6,11 +6,16 @@
 
 \begin{document}
 \begin{tikzpicture}
-		[scale=1.5,
+		[scale=1.6,
     cube/.style={fill=bl!25!bg, draw=fg, thick, fill opacity = 0.8},
-    force/.style={draw=re, thick, -stealth}]
+    force/.style={draw=re, ultra thick, -stealth},
+    dimension/.style={draw=fg, thick, |-|},
+    line/.style={draw=fg, thick}]
 
-    \draw[cube] (-0.2,0.6) rectangle ++(2.2,2.1);
+  \draw[cube] (-0.2,0.6) rectangle ++(2.2,2.1);
+  \draw[line, stealth-stealth] (-0.75,3) node[anchor=south] {$y$} -- ++(0,-3.0) -- ++(3,0) node[anchor = west] {$x$};
+  \draw[dimension] (-0.4,0.6) -- node[midway, anchor = east] {$h$} ++(0,2.1);
+  \draw[dimension] (-0.2,0.4) -- node[midway, anchor = north] {$b$} ++(2.2,0);
 
   \foreach \x in {0,0.2,...,2} {
     \draw[force, thick] (\x,2.7,0.25) -- ++(0,-0.2,0);
