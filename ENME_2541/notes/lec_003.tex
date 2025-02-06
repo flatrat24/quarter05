@@ -295,7 +295,7 @@ This ratio is referred to as the \textbf{stress concentration factor} ($k$). To 
 \subsubsection{Max Stress for a Hole Discontinuity}
 \label{sssec:maxStressForAHoleDiscontinuity}
 
-\begin{wrapfigure}[]{r}{0.45\textwidth}
+\begin{wrapfigure}[]{r}{0.5\textwidth}
   \vspace{-50pt}
   \centering
   \includestandalone{figures/fig_025}
@@ -312,7 +312,7 @@ Using this calculated value in conjunction with $k$, the ratio between the two v
 \subsubsection{Max Stress for a Fillet}
 \label{sssec:maxStressForAFillet}
 
-\begin{wrapfigure}[11]{r}{0.45\textwidth}
+\begin{wrapfigure}[11]{r}{0.5\textwidth}
   \vspace{-75pt}
   \centering
   \includestandalone{figures/fig_054}
@@ -381,29 +381,21 @@ These two formulas model the thermal strain/thermal expansion undergone by uncon
 
 In these situations, a \textbf{thermal stress} is induced into this bar. This thermal stress can be calculated in a similar way to statically indeterminate structures (Subsection \ref{ssec:staticIndeterminacy}).
 
-The deformation due to the thermal expansion and the deformation due to the constraints can be summed to the total deformation experienced. In the example of Figure \ref{fig:027}, since the total deformation is zero, the compatibility equation is:
-\begin{align*}
-  \delta_{thermal} + \delta_{constraint} &= 0 \\
-  \alpha \cdot \Delta T \cdot L &= - \delta_C \\
-  \alpha \cdot \Delta T \cdot L &= -\frac{P_CL}{AE}
-\end{align*}
-Then using the values known about the member and its composition, the force applied by the constraints can be found, leading directly to then being able to solve for the stress. This compatibility equation can be seen in steps in Figure \ref{fig:constrainedThermalExpansion}.
-
 \begin{figure}[H]
   \centering
-  \begin{subfigure}[t!]{0.3\textwidth}
+  \begin{subfigure}[t!]{0.30\textwidth}
     \centering
     \includestandalone{figures/fig_030}
     \caption{Initial Body}
     \label{fig:030}
   \end{subfigure}
-  \begin{subfigure}[t!]{0.3\textwidth}
+  \begin{subfigure}[t!]{0.30\textwidth}
     \centering
     \includestandalone{figures/fig_031}
     \caption{Thermal Expansion}
     \label{fig:031}
   \end{subfigure}
-  \begin{subfigure}[t!]{0.3\textwidth}
+  \begin{subfigure}[t!]{0.38\textwidth}
     \centering
     \includestandalone{figures/fig_032}
     \caption{Constraint}
@@ -412,5 +404,13 @@ Then using the values known about the member and its composition, the force appl
   \caption{Constrained Thermal Expansion}
   \label{fig:constrainedThermalExpansion}
 \end{figure}
+
+The deformation due to the thermal expansion and the deformation due to the constraints can be summed to the total deformation experienced. In the example of Figure \ref{fig:027}, since the total deformation is zero, the compatibility equation is:
+\begin{align*}
+  \delta_{thermal} + \delta_{constraint} &= 0 \\
+  \alpha \cdot \Delta T \cdot L &= - \delta_C \\
+  \alpha \cdot \Delta T \cdot L &= -\frac{P_CL}{AE}
+\end{align*}
+Then using the values known about the member and its composition, the force applied by the constraints can be found, leading directly to then being able to solve for the stress. This compatibility equation can be seen in steps in Figure \ref{fig:constrainedThermalExpansion}.
 
 \end{document}

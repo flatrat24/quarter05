@@ -1,0 +1,29 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 066}
+\date{February 05, 2025}
+
+\begin{document}
+\begin{tikzpicture}
+		[cube/.style={fill=bl!25!bg, draw=fg, thick, fill opacity = 0.8},
+    force/.style={draw=re, ultra thick, -stealth},
+    dimension/.style={draw=fg, thick, |-|},
+    line/.style={draw=fg, thick}]
+
+    \coordinate (a) at (0,0);
+    % \draw[cube] (a) -- ++(1,0) -- ++(2,1) -- ++(1,0) -- ++(0,1) -- ++(-1,0) -- ++(-2,-1) -- ++(-1,0) -- cycle;
+    \draw[cube] ($(a)+(3,1)$) rectangle ++(2,1);
+
+
+    \draw[force] ($(a)+(2.5,1.5)$) -- ++(-1,0) node[anchor = east] {$F'$};
+    \draw[force] ($(a)+(5.5,1.5)$) -- ++(1,0) node[anchor = west] {$F$};
+
+    \filldraw[fg] ($(a)+(3,1.5)$) circle (2pt) node[anchor = south west]{$B$};
+    \filldraw[fg] ($(a)+(4,1.5)$) circle (2pt) node[anchor = south west]{$C$};
+    \filldraw[fg] ($(a)+(5,1.5)$) circle (2pt) node[anchor = north east]{$D$};
+
+    \draw[force, stealth-] ($(a)+(3.00,2.25)$) arc (135:225:1) node[midway, anchor = south east] {$M'$};
+    \draw[force, stealth-] ($(a)+(5.00,2.25)$) arc (405:315:1) node[midway, anchor = south west] {$M$};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,27 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 002}
+\date{January 06, 2025}
+
+\begin{document}
+\tdplotsetmaincoords{60}{125}
+\begin{tikzpicture}
+		[tdplot_main_coords,
+    scale = 1.5,
+    cube/.style={fill=bl!25!bg, draw=fg, thick, fill opacity = 0.8},
+    force/.style={draw=re, ultra thick, -stealth}]
+
+  \draw[force] (0.85,0,0.85) -- ++(0,-1,0) node[anchor = north] {$P$};
+  \filldraw[re] (0.85,0,0.85) circle (1pt);
+
+  \filldraw[cube] (0,0,0) -- ++(0,4,0) -- ++(1,0,0) -- ++(0,-4,0) -- cycle;
+  \filldraw[cube] (0,0,0) -- ++(0,0,1) -- ++(1,0,0) -- ++(0,0,-1) -- cycle;
+  \filldraw[cube] (0,4,0) -- ++(0,0,1) -- ++(1,0,0) -- ++(0,0,-1) -- cycle;
+  \filldraw[cube] (1,0,0) -- ++(0,4,0) -- ++(0,0,1) -- ++(0,-4,0) -- cycle;
+  \filldraw[cube] (0,0,1) -- ++(0,4,0) -- ++(1,0,0) -- ++(0,-4,0) -- cycle;
+
+  \draw[force] (0.85,4,0.85) -- ++(0,1,0) node[anchor = north] {$P$};
+  \filldraw[re] (0.85,4,0.85) circle (1pt);
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,26 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 066}
+\date{February 05, 2025}
+
+\begin{document}
+\begin{tikzpicture}
+		[cube/.style={fill=bl!25!bg, draw=fg, thick, fill opacity = 0.8},
+    force/.style={draw=re, ultra thick, -stealth},
+    dimension/.style={draw=fg, thick, |-|},
+    line/.style={draw=fg, thick}]
+
+    \coordinate (a) at (0,0);
+    \draw[cube] (a) -- ++(1,0) -- ++(2,1) -- ++(1,0) -- ++(0,1) -- ++(-1,0) -- ++(-2,-1) -- ++(-1,0) -- cycle;
+
+    \draw[force] ($(a)+(0.25,0.5)$) -- ++(-1,0) node[anchor = east] {$P$};
+    \draw[force] ($(a)+(4.75,1.5)$) -- ++(1,0) node[anchor = west] {$F$};
+
+    \filldraw[fg] ($(a)+(0.25,0.5)$) circle (2pt) node[anchor = west]{$A$};
+    \filldraw[fg] ($(a)+(3,1.5)$) circle (2pt) node[anchor = east]{$B$};
+    \filldraw[fg] ($(a)+(4,1.5)$) circle (2pt) node[anchor = east]{$C$};
+
+    \draw[force, stealth-] (4.25,2.25) arc (405:315:1) node[midway, anchor = south west] {$M$};
+\end{tikzpicture}
+\end{document}

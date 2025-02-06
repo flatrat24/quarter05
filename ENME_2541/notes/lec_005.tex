@@ -30,7 +30,7 @@ Consider the free body diagram in Figure \ref{fig:057}. Assuming static equilibr
   \label{fig:058}
 \end{figure}
 
-The pure symmetry of the bending of the bar ($M' = M$) results in \textbf{pure bending} in the member between $B$ and $C$. This is because the shear force along this section is zero.
+The pure symmetry of the bending of the bar ($M' = M$) results in \textbf{pure bending} in the member between $B$ and $C$. This is because there is \textit{only} bending in the member.
 
 \begin{definition}{Pure Bending}
   A situation in which bending exists in a member without the presence of axial, shear, or torsional forces.
@@ -58,7 +58,7 @@ If a cross section of the member were to be taken, the internal forces present w
 \subsubsection{Bending Strain}
 \label{sssec:bendingStrain}
 
-Consider the internal tension/compression forces seen in Figure \ref{fig:060}. Notice that, as the forces approach the \textit{centroid} of the beam, the magnitude of the forces decreases. To better understand this, consider the beam in Figure \ref{fig:061}. Along its centroid in green in the {\color{gr} neutral axis}. Along this axis, the beam experiences no elongation. However, along the dotted line, the beam does elongate, implying the existence internal axial forces.
+Consider the internal tension/compression forces seen in Figure \ref{fig:060}. Notice that, as the forces approach the \textit{centroid} of the beam, the magnitude of the forces decreases. To better understand this, consider the beam in Figure \ref{fig:061}. Along its centroid in green in the {\color{gr} neutral axis}. Along this axis, the beam experiences no elongation. However, along the dotted line, the beam does elongate, implying the existence of internal axial forces.
 
 \begin{wrapfigure}[15]{r}{0.5\textwidth}
   \centering
@@ -96,7 +96,8 @@ During bending that remains within the elastic, non-plastic, range, Hooke's Law 
   \end{equation*}
 \end{formula}
 
-\begin{wrapfigure}[]{r}{0.3\textwidth}
+\begin{wrapfigure}[4]{r}{0.3\textwidth}
+  \vspace{-20pt}
   \centering
   \includestandalone{figures/fig_060}
   \caption{Bending Moment}
@@ -107,6 +108,10 @@ Since the internal moment is created by internal forces, the resultant forces of
 \begin{equation*}
   M = \int_{A}^{} \sigma y \,dA = \int_{A}^{} E\frac{y}{r} y \,dA = \frac{E}{r} \int_{A}^{} y^2 \,dA
 \end{equation*}
+
+\subsection{Flexure Formula}
+\label{ssec:flexureFormula}
+
 The \textbf{bending moment of inertia} ($I$) of an object quantifies how much a beam resists bending. This value is calculated as:
 \begin{equation*}
   \int_{A}^{} y^2 \,dA
@@ -121,18 +126,20 @@ Combining this equation for $M$ with the previous equation for $\sigma$ results 
   \begin{equation*}
     \sigma = \frac{My}{I}
   \end{equation*}
+  where $I_{rectangle} = \frac{bh^3}{12}$, $I_{circle} = \frac{\pi\left(r_o^4-r_i^4\right)}{4}$ is the \textbf{area moment of inertia}\\ \\
   or
   \begin{equation*}
-    \sigma_{max} = \frac{M}{S}\textup{; where $S=\frac{I}{y_{max}}$ is the \textbf{Section Modulus}}
+    \sigma_{max} = \frac{M}{S}
   \end{equation*}
+  where $S=\frac{I}{y_{max}}$ is the \textbf{Section Modulus}
 \end{formula}
 
 \subsection{Impure Bending}
 \label{ssec:impureBending}
 
-Just as pure bending happens when there are no shear forces present during bending, impure bending is when shear \textit{and} bending coexist. Luckily, the flexure formula from Subsection \ref{ssec:bendingStress} holds over all cases of pure bending, and most cases of impure bending.
+Just as pure bending happens when there are no shear forces present during bending, impure bending is when shear \textit{and} bending coexist. Luckily, the flexure formula from Subsection \ref{ssec:flexureFormula} holds over all cases of pure bending, and most cases of impure bending.
 
-\begin{wrapfigure}[9]{l}{0.3\textwidth}
+\begin{wrapfigure}[9]{l}{0.35\textwidth}
   \vspace{-20pt}
   \centering
   \includestandalone{figures/fig_062}
@@ -159,13 +166,13 @@ Where $V$ is the shear force, $I$ is the area moment of intertia, $b$ is the wid
     Q = {\color{gr} b\left( \frac{h}{2}-y \right)} \cdot {\color{bl} y + \frac{\frac{h}{2}-y}{2}} = \frac{b}{2}\left( \frac{h^2}{4}-y^2 \right)
   \end{equation*}
 \end{formula}
-\begin{figure}[H]
+In the case of Figure \ref{fig:062}, the width is constant along the height of the cross-section just as the shear force $V$ is constant throughout the face. With these considerations, the equation of shear stress can be expressed as:
+\begin{wrapfigure}[4]{l}{0.35\textwidth}
   \centering
   \includestandalone{figures/fig_063}
   \caption{First Moment of Area}
   \label{fig:063}
-\end{figure}
-In the case of Figure \ref{fig:062}, the width is constant along the height of the cross-section just as the shear force $V$ is constant throughout the face. With these considerations, the equation of shear stress can be expressed as:
+\end{wrapfigure}
 \begin{formula}{Shear Stress}
   \begin{equation*}
     \tau = \frac{V}{2I}\left(\frac{h^2}{4}-y^2\right)
@@ -179,4 +186,103 @@ By inspecting this formula, it can be seen that the \textit{maximum} shear stres
   \end{gather*}
 \end{formula}
 
+\subsection{Stress Concentrations}
+\label{ssec:bendingStressConcentrations}
+
+Just as it was in Subsection \ref{ssec:axialStressConcentrations}, there are also stress concentrations when it comes to non-uniform members experiencing bending. Generally:
+\begin{formula}{Maximum Stress}
+  \begin{equation*}
+    \sigma_{max} = k \frac{Mc}{I} = k \sigma_{avg}
+  \end{equation*}
+\end{formula}
+Where $k$ is the experimentally derived stress concentration factor. To find $k$ for any given member, again, only the geometry of the member must be analyzed. The relevant geometric properties for two types of non-uniform shapes are shown in Figure \ref{fig:stressConcentrationsInBending}.
+\begin{figure}[H]
+  \vspace{-15pt}
+  \centering
+  \begin{subfigure}[H]{0.48\textwidth}
+    \centering
+    \includestandalone{figures/fig_064}
+  \end{subfigure}
+  \begin{subfigure}[H]{0.48\textwidth}
+    \centering
+    \includestandalone{figures/fig_065}
+  \end{subfigure}
+  \caption{Stress Concentrations in Bending}
+  \label{fig:stressConcentrationsInBending}
+\end{figure}
+
+\subsection{Eccentric Bending}
+\label{ssec:eccentricBending}
+
+\subsubsection{Symmetric Eccentric Bending}
+\label{sssec:symmetricEccentricBending}
+
+In all the previous axial loading analysis, it was assumed that the force creating the axial stresses was acting through the centroid of the cross-section of the member. In other words, it was assumed that the forces were perfectly centered. In those cases, only axial stresses occurred. However, what happens in a member is loaded eccentrically (not through its centroid)? This results in \textbf{eccentric loading}.
+\begin{definition}{Eccentric Loading}
+  Eccentric loading occurs when a member is loaded such that the forces creating the load do not have a line of action through the centroid of the member's cross-section.
+\end{definition}
+\begin{figure}[H]
+  \centering
+  \includestandalone{figures/fig_066}
+  \caption{Eccentric Loading}
+  \label{fig:066}
+\end{figure}
+When eccentric loading occurs, bending is created. Consider Figure \ref{fig:066}. It might be intuitive to see that these forces $P$ will create some sort of bending through the section $BD$. This can be seen better if an imaginary cut through the object were to be made as in Figure \ref{fig:067}.
+\begin{figure}[H]
+  \centering
+  \includestandalone{figures/fig_067}
+  \caption{Eccentric Loading}
+  \label{fig:067}
+\end{figure}
+Further dissecting this member, it can be seen in Figure \ref{fig:068} that the section $BD$ is experiencing both centric and bending stresses.
+\begin{figure}[H]
+  \centering
+  \includestandalone{figures/fig_068}
+  \caption{Eccentric Loading}
+  \label{fig:068}
+\end{figure}
+From here, the internal stresses can be expressed as the sum of the internal stresses caused be each of the two loads: the centric axial load and the bending moments.
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[H]{0.3\textwidth}
+    \centering
+    \includestandalone{figures/fig_069}
+    \caption{Centric Load}
+    \label{fig:069}
+  \end{subfigure}
+  {\Large \textbf{$+$}}
+  \begin{subfigure}[H]{0.3\textwidth}
+    \centering
+    \includestandalone{figures/fig_070}
+    \caption{Bending Moment}
+    \label{fig:070}
+  \end{subfigure}
+  {\Large \textbf{$=$}}
+  \begin{subfigure}[H]{0.3\textwidth}
+    \centering
+    \includestandalone{figures/fig_071}
+    \caption{Total Stress}
+    \label{fig:071}
+  \end{subfigure}
+\end{figure}
+\begin{equation*}
+  \sigma = \frac{P}{A} - \frac{My}{I}
+\end{equation*}
+
+\subsubsection{General Eccentric Bending}
+\label{sssec:generalEccentricBending}
+
+Applying the same principles from Subsubsection \ref{sssec:symmetricEccentricBending}, a more generalized approach to eccentric bending that isn't symmetric on any plane with the member can be formulated. Consider Figure \ref{fig:072}.
+\begin{figure}[H]
+  \centering
+  \includestandalone{figures/fig_072}
+  \caption{Asymmetric Eccentric Bending}
+  \label{fig:072}
+\end{figure}
+These axial forces $P$ and $P'$ can be substituted for three component loads applied centrically: a moment $M_z$, a moment $M_y$, and a force $P$. Thus, a more generalized formula can be expressed as:
+\begin{formula}{Axial Stress Under Eccentric Loading}
+  \begin{equation*}
+    \sigma = \frac{P}{A} - \frac{M_zy}{I_z} + \frac{M_yz}{I_y}
+  \end{equation*}
+\end{formula}
 \end{document}
