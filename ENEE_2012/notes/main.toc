@@ -17,3 +17,4 @@
 \contentsline {section}{\numberline {4}Circuit Theorems}{9}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Linearity}{9}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Superposition}{9}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Source Transformation}{10}{subsection.4.3}%

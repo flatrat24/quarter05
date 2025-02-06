@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1738608170.10861 "main.tex" "main.pdf" "main" 1738608172.57404 0
+["pdflatex"] 1738780820.61193 "main.tex" "main.pdf" "main" 1738780822.86975 0
   "../../xlatex/imports/preamble.tex" 1738185780.99453 4040 85c3fcf61d5dea3234569928f9b798ed ""
   "/nix/store/ahqlhcr0qzd91jmi10j8dpflc9i65yrk-texlive-2023-env-texmfdist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1 2971 def0b6c1f0b107b3b936def894055589 ""
   "/nix/store/ahqlhcr0qzd91jmi10j8dpflc9i65yrk-texlive-2023-env-texmfdist/fonts/map/fontname/texfonts.map" 1 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -306,14 +306,15 @@
   "figures/fig_011.tex" 1738607362.27914 404 3f4456f12a613c426cce739211a532b7 ""
   "figures/fig_012.tex" 1738607888.1139 429 9a9e9e40942d545334372d6631d8356a ""
   "figures/fig_013.tex" 1738607935.36509 395 9261c80c8299b03857b9b607e54fd61b ""
+  "figures/fig_014.tex" 1738780800.14565 943 555e9f6b1bc7986fe2e37873c6affff1 ""
   "lec_001.tex" 1737527908.79972 5633 fff18c862632193b84352e2952dff9cc ""
   "lec_002.tex" 1737531075.8703 4752 159b7994cd7073d4b714680e98b3ec24 ""
   "lec_003.tex" 1738607286.66528 445 b467119616643f10dbfab0c8336ae4dd ""
-  "lec_004.tex" 1738608168.78352 1997 0e8eacb4aa967469d03ee1b71104f58e ""
-  "main.aux" 1738608172.45853 7099 747e7b2bc35866f7ce960f39e8a00e18 "pdflatex"
-  "main.out" 1738608172.45953 2629 1412c8e251f36b7782fa062a601c332f "pdflatex"
+  "lec_004.tex" 1738780819.55058 2440 acbcee845bc65573aaafa609f9625f55 ""
+  "main.aux" 1738780822.77056 7591 62d7889a78a837ef4f6bdd49a39675ad "pdflatex"
+  "main.out" 1738780822.77156 2795 7dd6d6315a3bad5a861f00734fc410ca "pdflatex"
   "main.tex" 1738606985.24989 360 3f28b7f3c113c1379171698559d1e333 ""
-  "main.toc" 1738608172.45953 1550 d04037b375a5e8ecc2d9e4e704acbc5d "pdflatex"
+  "main.toc" 1738780822.77156 1638 9943b8b55b941e83fb1a850ac425fccf "pdflatex"
   (generated)
   "main.aux"
   "main.log"

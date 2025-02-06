@@ -1,0 +1,31 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 014}
+\date{February 05, 2025}
+
+\begin{document}
+\begin{tikzpicture}
+
+  \coordinate (a) at (0,0);
+  \draw[fg, thick] ($(a)+(3,0)$) node[anchor = west] {$b$} to[short, *-] ++(-3,0)
+    to[vsource] ++(0,2)
+    to[R, -*, l=$R$] ++(3,0) node[anchor = west] {$a$}
+    ;
+
+  \draw[ultra thick, fg, -stealth] ($(a)+(4,1.25)$) -- ++(1,0);
+  \draw[ultra thick, fg, stealth-] ($(a)+(4,0.75)$) -- ++(1,0);
+
+  \coordinate (b) at ($(a)+(6,0)$);
+  \draw[fg, thick] ($(b)+(3,0)$) node[anchor = west] {$b$} to[short, *-] ++(-3,0)
+    to[isource] ++(0,2)
+    to[short, -*] ++(3,0) node[anchor = west] {$a$}
+    ;
+  \draw[fg, thick] ($(b)+(2.5,0)$) to[R, l=$R$] ++(0,2);
+
+  \draw[] ($(a)+(1.25,0.4)$) node[rotate = 0, anchor = center] {$V_s = R \cdot I_s$};
+
+  \draw[] ($(b)+(1.1,0.4)$) node[rotate = 0, anchor = center] {$I_s = \frac{V_s}{R}$};
+
+\end{tikzpicture}
+\end{document}
