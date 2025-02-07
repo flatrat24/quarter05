@@ -6,7 +6,7 @@
 
 \begin{document}
 \begin{tikzpicture}
-  \begin{axis}[scale = 0.9,
+  \begin{axis}[scale = 0.75,
     xmin=0, xmax=5,
     ymin=-10, ymax=30,
     yticklabel={\empty},
@@ -26,20 +26,20 @@
         color=re,
         thick,
         samples=2,
-      ] {\c+10*x};
+      ] {(\c+10*x) + 0};
     }
-    % \foreach \x in {0,0.25,...,5} {
-    %   \pgfmathsetmacro{\a}{\x};
-    %   \pgfmathsetmacro{\b}{\x + 0.25};
-    %   \pgfmathsetmacro{\c}{\x*(10) + 15}
-    %   \addplot[
-    %     domain=\a:\b,
-    %     -stealth,
-    %     color=re,
-    %     thick,
-    %     samples=2,
-    %   ] {\c+-10*x};
-    % }
+    \foreach \x in {0,0.25,...,5} {
+      \pgfmathsetmacro{\a}{\x}
+      \pgfmathsetmacro{\b}{\x + 0.25}
+      \pgfmathsetmacro{\c}{\x*10 + 15}
+      \addplot[
+        domain=\a:\b,
+        -stealth,
+        color=re,
+        thick,
+        samples=2,
+      ] {(\c+(-10*x)) + 0};
+    }
     \addplot[
       color=gr,
       ultra thick,

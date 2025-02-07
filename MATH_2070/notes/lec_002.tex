@@ -38,10 +38,57 @@ Going one step further and integrating the velocity will yield the position of t
 \end{equation*}
 The last thing to consider with this example are the initial conditions of the differential equation. $v_0$ and $x_0$ are not known quantities, however, if they were to be specified then the differential would have an initial condition to satisfy.
 
-\subsection{First Order Linear ODE}
-\label{ssec:firstOrderLinearODE}
+\subsection{First Order ODE}
+\label{ssec:firstOrderODE}
 
-Before approaching First Order ODEs in Subsection \ref{ssec:firstOrderODE}, First Order Linear ODEs follow a simple pattern for their solutions:
+Based on the classification in Subsubsection \ref{sssec:classificationOfDifferentialEquations}, a first order ODE is a differential equation that whose highest order derivative is a first order derivative and all derivatives are with respect to the same variable.
+
+\begin{definition}{First Order ODE}
+  A differential equation of the first order, with all derivatives being with respect to a single variable (usually $x$ or $t$).
+\end{definition}
+
+Previously, in Subsection \ref{ssec:whatIsADifferentialEquation}, a particular solution was found for the differential equation of:
+\begin{equation*}
+  \frac{dx}{dt} + x = 2 \cos(t)
+  \label{eq:012}
+\end{equation*}
+However, this being a first order ODE, it has more than just a single particular solution. Consider:
+\begin{equation*}
+  \frac{dx}{dt} = -\sin(t) + \cos(t) - e^{-t}
+\end{equation*}
+as a solution to (\ref{eq:012}). To verify:
+\begin{align*}
+  \big(-\sin(t) + \cos(t) - e^{-t}\big) + \big(\cos(t) + \sin(t) + e^{-t}\big) &= 2\cos(t) \\
+  -\sin(t) + \sin(t) + \cos(t) + \cos(t) - e^{-t} + e^{-t} &= 2\cos(t) \\
+  \cos(t) + \cos(t) &= 2\cos(t) \\
+  2\cos(t) &= 2\cos(t)
+\end{align*}
+As can be seen, there exists more than just the single particular solution. In fact, for (\ref{eq:001}), the entire family of solutions exists in the form:
+\begin{equation*}
+  \frac{dx}{dt} = -\sin(t) + \cos(t) - Ce^{-t}
+\end{equation*}
+where $C$ is some constant. This is called a \textbf{One-Parameter Family of Solutions} for the differential equation.
+
+\begin{definition}{One-Parameter Family of Solutions}
+  A one-parameter family of solutions is a solution to a differential equation containing a single constant $C$. This constant is arbitrary, and thus the family of solutions it represents consists of all values of $C$.
+\end{definition}
+
+If a one-parameter family of solutions contains every possible solution to the differential equation, then it is referred to as the \textbf{General Solution}.
+
+\begin{definition}{General Solution}
+  The entire family of solutions for a given differential equation. A general form of the solution that can be adapted to different specifications.
+\end{definition}
+
+Each value of $C$ gives a different solution, so really there are infinite solutions for (\ref{eq:001}).
+
+\subsubsection{First Order Linear ODE}
+\label{sssec:firstOrderLinearODE}
+
+First Order Linear ODEs follow a simple pattern for their solutions. However, before getting to that, what is a first order linear ODE?
+
+\begin{definition}{First Order Linear ODE}
+  A differential equation that 1) doesn't contain a derivative beyond the first order, 2) contains only derivatives with respect to a single variable, and 3) has its dependent variable appear linearly (not part of a sin, cos, square, etc.).
+\end{definition}
 
 If a differential equation is given in \textbf{standard form}:
 \begin{equation*}
@@ -86,8 +133,8 @@ Where the \textbf{integrating factor} ($\mu(t)$) is:
   \end{equation*}
 \end{example}
 
-\subsection{First Order ODE}
-\label{ssec:firstOrderODE}
+\subsubsection{First Order ODE}
+\label{sssec:firstOrderODE}
 
 A first order ODE is an equation in the form of:
 \begin{equation}
@@ -116,7 +163,9 @@ This $y(x)$ is the general solution to (\ref{eq:201}). Thus, to solve a differen
   \end{align*}
   Thus, the general solution for $y' = 3x^2$ is $y(x) = x^3 + C$.
 \end{example}
-Generally, there will also be a condition that the solution to a differential equation must satisfy. In general terms, this might look like:
+\subsubsection{Initial Value Problem}
+\label{sssec:initialValueProblem}
+Generally, there also might be a condition that the solution to a differential equation must satisfy. In general terms, this might look like:
 \begin{equation}
   y' = f(x), \ y(x_0) = y_0
   \label{eq:202}
@@ -224,8 +273,13 @@ From here, it is just a matter of solving for $y$.
   \end{equation*}
 \end{example}
 
-\subsection{Separable ODE}
-\label{ssec:separableODE}
+\subsection{Non-Linear ODE}
+\label{ssec:nonLinearODE}
+
+Generally, non-linear ODEs are quite difficult to solve. For some of them, there are techniques that can be used to simplify the process.
+
+\subsubsection{Separable ODE}
+\label{sssec:separableODE}
 
 The basic form of a separable ODE is:
 \begin{equation*}
@@ -233,12 +287,11 @@ The basic form of a separable ODE is:
 \end{equation*}
 i.e., the derivative is a product of two functions, one depending on $x$ and the other on $y$.
 
-This type of ODE is solved first by separating the variables:
+This type of ODE is solved first by separating the variables. The LHS is reserved for $y$ and the RHS for $x$:
 \begin{equation*}
   \frac{dy}{f(y)} = g(x) dx
 \end{equation*}
-Now that there is a single type of variable on each side (only $x$ or only $y$), both sides can be integrated.
-
+Now that there is a single type of variable on each side (only $x$ or only $y$), both sides can be integrated. This will yield a one-parameter family of \textit{implicit solutions} (see Subsection \ref{ssec:implicitAndExplicitSolutions}).
 \begin{example}
   \begin{equation*}
     y' = xy
@@ -251,9 +304,13 @@ Now that there is a single type of variable on each side (only $x$ or only $y$),
   \begin{align*}
     \frac{dy}{y} &= x\ dx \\
     \int_{}^{} \frac{1}{y} \, dy &= \int_{}^{} x \, dx + C \\
-    \ln|y| &= \frac{x^2}{2} + C \\
+    \ln|y| &= \frac{x^2}{2} + C
+  \end{align*}
+  This here is the implicit solution to the ODE. It won't always be the case, but here algebra can be used to find the explicit solution:
+  \begin{align*}
     e^{\ln|y|} &= e^{\frac{x^2}{2} + C} \\
-    |y| &= De^{\frac{x^2}{2}}
+    y &= e^{\frac{x^2}{2}} \cdot e^{C} \\
+    y &= De^{\frac{x^2}{2}}
   \end{align*}
   Where $D>0$. Since $y=0$ is a solution as well, this can be simplified to:
   \begin{equation*}
@@ -262,6 +319,49 @@ Now that there is a single type of variable on each side (only $x$ or only $y$),
 \end{example}
 
 \textbf{Principle:} If an ODE is given without initial values, a one-parameter family of solutions is sufficient. However, if an initial value is given (IVP), an explicit solution might be possible with an interval of existence.
+
+\begin{example}
+  \begin{equation*}
+    \frac{dy}{dx} = \frac{e^x - x}{e^{-y} + y}
+  \end{equation*}
+  First, separating the variables to each side:
+  \begin{align*}
+    \frac{dy}{dx} &= \left(e^x - x\right) \cdot \frac{1}{e^{-y} + y} \\
+    \left(e^{-y} + y\right) dy &= \left(e^x - x\right) dx
+  \end{align*}
+  Then integrating each side appropriately:
+  \begin{align*}
+    \int e^{-y} + y \, dy &= \int e^x - x \, dx \\
+    -e^{-y} + \frac{1}{2}y^2 &= e^x - \frac{1}{2}x^2 + C
+  \end{align*}
+  And thus, a one-parameter family of implicit solutions has been found.
+\end{example}
+
+\subsubsection{Singular Solutions}
+\label{sssec:singularSolutions}
+
+Consider:
+\begin{equation}
+  y' = xy^3\left(1+x^2\right)^{-\frac{1}{2}}
+  \label{eq:206}
+\end{equation}
+(\ref{eq:206}) is a separable ODE that can be reorganized as:
+\begin{equation*}
+  y' = y^3 \cdot \frac{x}{\sqrt{1+x^2}}
+\end{equation*}
+And subsequently separated into:
+\begin{equation*}
+  \frac{dy}{y^3} = \frac{x}{\sqrt{1+x^2}}\ dx
+\end{equation*}
+And solved:
+\begin{align*}
+  \frac{dy}{y^3} &= \frac{x}{\sqrt{1+x^2}}\ dx \\
+  \int_{}^{} \frac{1}{y^3} \, dy &= \int_{}^{} \frac{x}{\sqrt{1+x^2}}\,dx \\
+  -\frac{1}{2y^2} &= \sqrt{1+x^2} + C
+\end{align*}
+It would now be tempting to say that $-\frac{1}{2y^2} = \sqrt{1+x^2} + C$ is a general solution to (\ref{eq:206}). However, $y=0$ is also a solution to (\ref{eq:206})$\hdots$
+
+The true answer then would be to say that $-\frac{1}{2y^2} = \sqrt{1+x^2} + C$ is a \textit{family} of solutions rather than the general solution and that $y=0$ is a singular solution.
 
 \subsection{Implicit and Explicit Solutions}
 \label{ssec:implicitAndExplicitSolutions}
@@ -278,7 +378,7 @@ Sometimes a wall is reached even if the integration is possible. Consider:
   y' = \frac{xy}{y^2 + 1}
   \label{eq:204}
 \end{equation}
-Using the technique described in Subsection \ref{ssec:separableODE}, this can be separated into:
+Using the technique described in Subsection \ref{sssec:separableODE}, this can be separated into:
 
 \begin{align*}
   y' &= \frac{xy}{y^2 + 1} \\
@@ -302,8 +402,65 @@ Producing the exact same equation in (\ref{eq:204}), thus verifying the solution
 
 Since these solutions are implicit, they might not be able to be graphed as a valid function. In those cases, other information, such as an initial condition, can be used to further inform the appropriate solution.
 
-\subsection{Intervals of Existence}
-\label{ssec:intervalsOfExistence}
+\subsection{Pathological and Reasonable IVP}
+\label{ssec:pathologicalAndReasonableIVP}
+
+\subsubsection{Pathological IVP}
+\label{sssec:pathologicalIVP}
+
+Consider:
+\begin{equation}
+  \frac{dy}{dx}=x \sqrt{y}\textup{, }y(0) = 0
+  \label{eq:207}
+\end{equation}
+Solving this IVP, it can be seen that both:
+\begin{equation*}
+  y = \frac{1}{16}x^2\ \ \ \textup{and}\ \ \ y=0
+\end{equation*}
+are both solutions to (\ref{eq:207}). This would then be referred to as a \textbf{Pathological IVP}.
+
+\begin{definition}{Pathological IVP}
+  An IVP with zero solutions, more than one solution, or infinitely many solutions.
+\end{definition}
+
+\begin{example}
+  \begin{equation*}
+    ty'+(t-1)y = -e^{-t}\textup{,}\ y(0) = 1
+  \end{equation*}
+  First, putting the ODE into standard form:
+  \begin{equation*}
+    y'+ \frac{t-1}{t}y = \frac{-e^{-t}}{t}
+  \end{equation*}
+  Thus:
+  \begin{equation*}
+    p(t) = \frac{t-1}{t}\ \ \ \ \ \ g(t) = \frac{-e^{-t}}{t}\ \ \ \ \ \ \mu(t) = \frac{e^t}{t}
+  \end{equation*}
+  Giving the general solution as:
+  \begin{align*}
+    y = \frac{\int \frac{e^t}{t} \cdot \frac{-e^{-t}}{t} \,dt}{\frac{e^t}{t}} = \frac{-\int \frac{1}{t^2} \,dt}{\frac{e^t}{t}} = \frac{\frac{1}{t} + C}{\frac{e^t}{t}} = e^{-t} + Cte^{-t}
+  \end{align*}
+  Now to solve the IVP, plugging in the values of $y(0)$ and $t=0$:
+  \begin{equation*}
+    y = e^{-t} + Cte^{-t}\ \  \Rightarrow\ \ 1 = e^{0} + C \cdot 0 \cdot e^{0} = 1 + 0
+  \end{equation*}
+  The disappearance of $C$ (due to being multiplied by $0$) reveals that there are infinitely many solutions to this IVP, thus showing its pathological nature.
+\end{example}
+
+\begin{example}
+  \begin{equation*}
+    ty'+(t-1)y = -e^{-t}\textup{,}\ y(0) = 0
+  \end{equation*}
+  By taking the same IVP as previous, but changing the initial condition from $y(0) = 1$ to $y(0) = 0$, the behavior changes:
+  \begin{equation*}
+    y = e^{-t} + Cte^{-t}\ \  \Rightarrow\ \ 0 = e^{0} + C \cdot 0 \cdot e^{0} = 1 + 0
+  \end{equation*}
+  Clearly, $0 \neq 1$, showing that this IVP has zero solutions. Again, this is a pathological IVP.
+\end{example}
+
+\subsubsection{Reasonable IVP}
+\label{sssec:reasonableIVP}
+
+It might be tempting to say that any IVP that is \textit{not} pathological is then reasonable. While exclusivity exists between the two, the proper method to determine if an IVP is reasonably posed is by using the \textbf{Existence and Uniqueness Theorem}.
 
 \begin{definition}{Existence and Uniqueness Theorem}
   Consider:
@@ -320,7 +477,43 @@ Since these solutions are implicit, they might not be able to be graphed as a va
   Then there exists a unique function $y = y(t)$ over the interval $(a,b)$ that solves the IVP.
 \end{definition}
 
+Notice that, to determine if a unique solutions exists based on the existence and uniqueness theorem, the IVP need not be solved.
+
+\begin{example}
+  \begin{equation*}
+    ty'+(t-1)y = -e^{-t}\textup{,}\ y\left(\ln|2|\right) = \frac{1}{2}
+  \end{equation*}
+  Putting into standard form:
+  \begin{equation*}
+    y'+ \frac{t-1}{t}y = \frac{-e^{-t}}{t}
+  \end{equation*}
+  From here, $p(t)$ and $g(t)$ can be seen to be:
+  \begin{equation*}
+    p(t) = \frac{t-1}{t}\ \ \ \ \ \ g(t) = \frac{-e^{-t}}{t}
+  \end{equation*}
+  Both $p(t)$ and $g(t)$ are continuous everywhere except for at $t=0$, where both of their denominators will equal $0$. This says that there are two open intervals over which there could possbily be a single unique solution: $(-\infty,0)$ or $(0,\infty)$.
+\\ \\
+  Because the initial value is $y\left(\ln|2|\right) = \frac{1}{2}$, the second interval is chosen as $t_0=\ln|2|$ lays on the interval $(0,\infty)$.
+\end{example}
 Based on this theorem, it can be asserted that there exists a unique solution over an interval $(a,b)$ provided that this interval contains $t_0$ from the IVP and both functions $p(t)$ and $g(t)$ are continuous over this interval.
+
+\subsection{Intervals of Existence}
+\label{ssec:intervalsOfExistence}
+
+\subsubsection{Linear IVPs}
+\label{sssec:linearIVPs}
+
+Based on the existence and uniqueness theorem as outlined in Subsubsection \ref{sssec:reasonableIVP}, the general steps for finding the interval of existence is:
+\begin{enumerate}
+  \itemsep0em
+  \item Find the standard form
+    \begin{equation*}
+      y'+p(t)y = g(t)\textup{,}\ y(t_0) = y_0
+    \end{equation*}
+  \item Locate the singular points (where $p(t)$ or $g(t)$ are not continuous)
+  \item Based on the singular points, find the open intervals over which both $p(t)$ and $g(t)$ are continuous
+  \item Pick the interval that contains $t_0$
+\end{enumerate}
 
 \begin{example}
   \begin{equation*}
@@ -340,63 +533,37 @@ Based on this theorem, it can be asserted that there exists a unique solution ov
   Furthermore, since the initial condition is given as $y\left(\ln(2)\right) = \frac{1}{2}$, $t_0 = \ln(2)$. Thus, the interval of existence for the solution of this ODE would be the interval of $(0,\infty)$.
 \end{example}
 
-In some differential equations, a solution that is found is only valid over a certain interval. Consider (\ref{eq:205}):
-\begin{equation}
-  \frac{dy}{dx} = \frac{4}{(x-1)^{\frac{2}{3}}},\ y(0) = -10
-  \label{eq:205}
-\end{equation}
-This differential equation can be solved pretty straightforwardly:
-\begin{align*}
-  y &= \int_{}^{} \frac{4}{(x-1)^{2/3}},\ dx \\
-  y &= 12(x-1)^{\frac{1}{3}} + C
-\end{align*}
-Then using the initial condition to find the value of $C$:
-\begin{align*}
-  -10 &= 12(0-1)^{\frac{1}{3}} + C \\
-  -10 &= 12(-1)^{\frac{1}{3}} + C\\
-  -10 &= 12(-1) + C \\
-  -10 &= -12(-1) + C \\
-  2   &= C \\
-\end{align*}
-And finally the solution to (\ref{eq:205}):
+\subsubsection{Non-Linear IVPs}
+\label{sssec:nonLinearIVPs}
+
+Consider:
 \begin{equation*}
-  y = 12(x-1)^{\frac{1}{3}} + 2
+  y' = f(t,y)\textup{,}\ y(t_0) = y_0
 \end{equation*}
-Now that the solution has been found, over what interval is this solution valid? This question is the crux of what the interval of existence means for a differential equation.
+Assume that:
+\begin{enumerate}
+  \itemsep0em
+  \item The function $f(t,y)$ is continuous \textbf{near} $(t_0,y_0)$
+  \item The function $\frac{\delta f}{\delta y}(t,y)$ is continuous \textbf{near} $(t_0,y_0)$
+\end{enumerate}
+Then a unique solution $y=y(t)$ exists \textbf{near} $t=t_0$, i.e., there exists a small number $\epsilon > 0$ such that a solution exists on $(t_0-\epsilon,t_0+\epsilon)$.
 
-Looking at the solution: $y = 12(x-1)^{\frac{1}{3}} + 2$, it can be seen that the solution is infinitely continuous, or continuous over the interval of $(-\infty, \infty)$.
+\begin{example}
+  \begin{equation*}
+    y' = y^{\frac{1}{3}}\textup{,}\ y(0) = 1
+  \end{equation*}
+  First, find the behavior of $f(t,y)$:
+  \begin{equation*}
+    f(t,y) = y^{\frac{1}{3}}\ \textup{is continuous everywhere.}
+  \end{equation*}
+  Then, find the behavior of $\frac{\delta f}{\delta y}(t,y)$:
+  \begin{equation*}
+    \frac{\delta f}{\delta y}(t,y) = \frac{d}{dx}\left(y^{\frac{1}{3}}\right) = \frac{1}{3}y^{-\frac{2}{3}}\ \textup{is continuous everywhere when $y\neq0$.}
+  \end{equation*}
+  Thus, since the IVP is $y(0)=1 \Rightarrow (t_0,y_0) = (0,1)$, the IVP has a unique solution near $t=0$. The discontinuity when $y=0$ is irrelevant because it is not near $y_0=1$.
+\end{example}
 
-However, the original equation given: $\frac{dy}{dx} = \frac{4}{(x-1)^{\frac{2}{3}}}$ is differentiable over the interval $(-\infty,1)\cup(1,\infty)$.
-
-Since there is then a discontinuity (caused by the derivative being non-differentiable at a point) at $1$, the interval of existence will only be the portion of continuity that contains the initial condition of $y(0)=-10$.
-
-Thus, the interval of existence of (\ref{eq:205}) is $(-\infty, 1)$. Note that, with different initial conditions, the interval of existence could be different even with the same differential equation.
-
-\subsection{Single Solutions}
-\label{ssec:singleSolutions}
-
-Consider
-\begin{equation}
-  y' = xy^3\left(1+x^2\right)^{-\frac{1}{2}}
-  \label{eq:206}
-\end{equation}
-(\ref{eq:206}) is a separable ODE that can be reorganized as:
-\begin{equation*}
-  y' = y^3 \cdot \frac{x}{\sqrt{1+x^2}}
-\end{equation*}
-And subsequently separated into:
-\begin{equation*}
-  \frac{dy}{y^3} = \frac{x}{\sqrt{1+x^2}}\ dx
-\end{equation*}
-And solved:
-\begin{align*}
-  \frac{dy}{y^3} &= \frac{x}{\sqrt{1+x^2}}\ dx \\
-  \int_{}^{} \frac{1}{y^3} \, dy &= \int_{}^{} \frac{x}{\sqrt{1+x^2}}\,dx \\
-  -\frac{1}{2y^2} &= \sqrt{1+x^2} + C
-\end{align*}
-It would now be tempting to say that $-\frac{1}{2y^2} = \sqrt{1+x^2} + C$ is a general solution to (\ref{eq:206}). However, $y=0$ is also a solution to (\ref{eq:206})$\hdots$
-
-The true answer then would be to say that $-\frac{1}{2y^2} = \sqrt{1+x^2} + C$ is a \textit{family} of solutions rather than the general solution and that $y=0$ is a singular solution.
+Though still very helpful, this theorem is not as powerful as the linear version as it only concludes local existence rather than an interval of existence. However, it can still be used to determine whether an IVP is reasonably or pathologically formulated.
 
 \subsection{Autonomous ODE}
 \label{ssec:autonomousODE}
@@ -414,6 +581,7 @@ Such that:
 \begin{equation*}
   f(y_0) = 0
 \end{equation*}
+This means that the equilibrium solutions must be a value such that $y'(y_0)=0$.
 \begin{example}
   \begin{equation*}
     y' = y^3 - y
@@ -426,6 +594,18 @@ Such that:
     y = 0;\ y = 1;\ y &= -1
   \end{align*}
   Thus, there are three equilibrium solutions.
+  \begin{gather*}
+    @y=0\\
+    y' = y\left(y - 1\right)\left(y + 1\right) \Rightarrow 0\left(0 - 1\right)\left(0 + 1\right) = 0 \cdot -1 \cdot 1 = 0
+  \end{gather*}
+  \begin{gather*}
+    @y=1\\
+    y' = y\left(y - 1\right)\left(y + 1\right) \Rightarrow 1\left(1 - 1\right)\left(1 + 1\right) = 1 \cdot 0 \cdot 2 = 0
+  \end{gather*}
+  \begin{gather*}
+    @y=-1\\
+    y' = y\left(y - 1\right)\left(y + 1\right) \Rightarrow -1\left(-1 - 1\right)\left(-1 + 1\right) = -1 \cdot -2 \cdot 0 = 0
+  \end{gather*}
 \end{example}
 
 \subsubsection{Stability of an Equilibrium Solution}
@@ -451,23 +631,56 @@ Such that:
   \end{subfigure}
   \caption{Stability}
   \label{fig:stability}
+  \vspace{-10pt}
 \end{figure}
-Using Figure \ref{fig:002} to visualize this, the {\color{gr} solution} is stable from above because, if you were to deviate from the solution, the direction field above will guide you back down to the solution. Figure \ref{fig:003} is stable from below for the same reasons.
+Using Figure \ref{fig:002} as a visual, the {\color{gr} solution} is stable from above because, if you were to deviate from the solution, the direction field above will guide you back down to the solution. Figure \ref{fig:003} is stable from below for the same reasons.
 
-It follows then, that if the direction field around the solution points \textit{away} from the solution, then the solution is considered to be \textit{un}stable. Lastly, a solution is \textit{semi}stable if it is stable from one direction and unstable from the other.
+It follows then, that if the direction field around the solution points \textit{away} from the solution, then the solution is considered to be \textit{un}stable. See this in Figure \ref{fig:instability}.
 
-\begin{example}
-  \begin{equation*}
-    \frac{dP}{dt} = R - \frac{P}{V}\cdot W;\ P(0) = 0
-  \end{equation*}
-  This is an autonomous ODE since the RHS \textit{does not} depend on $t$. Thus, setting the RHS $= 0$:
-  \begin{gather*}
-    R - \frac{P}{V}\cdot W=0 \\
-    \vdots \\
-    P= \frac{VR}{W}
-  \end{gather*}
-  Finding the stability of this solution: % TODO: SHOW STABILITY
-\end{example}
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_004}
+    \caption{Unstable From Above}
+    \label{fig:004}
+  \end{subfigure}
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_005}
+    \caption{Unstable From Below}
+    \label{fig:005}
+  \end{subfigure}
+  \caption{Instability}
+  \label{fig:instability}
+  \vspace{-10pt}
+\end{figure}
+
+When considering a solutions behavior from both sides (top and bottom), it can be said to be either stable, unstable, or semistable.
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[H]{0.30\textwidth}
+    \centering
+    \includestandalone{figures/fig_006}
+    \caption{Stable}
+    \label{fig:006}
+  \end{subfigure}
+  \begin{subfigure}[H]{0.30\textwidth}
+    \centering
+    \includestandalone{figures/fig_007}
+    \caption{Unstable}
+    \label{fig:007}
+  \end{subfigure}
+  \begin{subfigure}[H]{0.30\textwidth}
+    \centering
+    \includestandalone{figures/fig_008}
+    \caption{Semistable}
+    \label{fig:008}
+  \end{subfigure}
+  \caption{Instability}
+  \label{fig:instability}
+\end{figure}
 
 \begin{example}
   Falling object from a great height, subject to acceleration due to gravity ($mg$) and air resistance ($kv^2$). Newton's second law:
@@ -487,23 +700,160 @@ It follows then, that if the direction field around the solution points \textit{
   \begin{equation*}
     v = \sqrt{\frac{mg}{k}}
   \end{equation*}
-  % \hrule
-  % \vspace{12pt}
-  % This ODE can also be solved by finding the explicit solution, first by rearranging the equation:
-  % \begin{gather*}
-  %   m \cdot \frac{dv}{dt} = mg - kv^2 \\
-  %   \vdots \\
-  %   \frac{m}{mg-kv^2}dv = dt
-  % \end{gather*}
-  % Then integrate both sides. Keep in mind that $g$, $k$, and $m$ are constants.
-  % \begin{gather*}
-  %   \int_{}^{} \frac{m}{mg-kv^2} \,dv = \int_{}^{}  \,dt \\
-  %   \frac{m}{k}\int_{}^{} \frac{m}{\frac{mg}{k}-v^2} \,dv = \int_{}^{}  \,dt \\
-  %   \frac{m}{k}\int_{}^{} \frac{m}{\left(\sqrt{\frac{mg}{k}}-v\right)\left(\sqrt{\frac{mg}{k}}+v\right)} \,dv = \int_{}^{}  \,dt \\
-  % \end{gather*}
+  \hrule
+  \vspace{12pt}
+  This ODE can also be solved by finding the explicit solution, first by rearranging the equation:
+  \begin{gather*}
+    m \cdot \frac{dv}{dt} = mg - kv^2 \\
+    \vdots \\
+    \frac{m}{mg-kv^2}dv = dt
+  \end{gather*}
+  Then integrate both sides. Keep in mind that $g$, $k$, and $m$ are constants.
+  \begin{gather*}
+    \int_{}^{} \frac{m}{mg-kv^2} \,dv = \int_{}^{}  \,dt \\
+    \frac{m}{k}\int_{}^{} \frac{m}{\frac{mg}{k}-v^2} \,dv = \int_{}^{}  \,dt \\
+    \frac{m}{k}\int_{}^{} \frac{m}{\left(\sqrt{\frac{mg}{k}}-v\right)\left(\sqrt{\frac{mg}{k}}+v\right)} \,dv = \int_{}^{}  \,dt \\
+  \end{gather*}
 \end{example}
+
+\subsection{Second Order ODEs}
+\label{ssec:secondOrderODEs}
+
+Similar to first order ODe's, second order ODE's also have a standard form:
+\begin{equation*}
+  y'' + p(t)y' + q(t)y = g(t)
+\end{equation*}
+
+\begin{definition}{Homogeneous}
+  If the RHS of a second order ODE in standard form is equal to zero ($g(t) = 0$), then the  ODE is said to be homogeneous. Otherwise ,the ODE is non-homogeneous.
+\end{definition}
+
+Rather than focus first on how to solve these second order ODEs, first a little bit of theory about them will be covered.
+
+\subsubsection{Existence and Uniqueness Theorem}
+\label{sssec:existenceAndUniquenessTheorem}
+
+Given an IVP in the standard form with:
+\begin{equation*}
+  y(t_0) = y_0\ \ \ \textup{and}\ \ \ y'(t_0) = y'_0
+\end{equation*}
+and given that $p(t)$, $q(t)$, and $g(t)$ are continuous on the interval $(a,b)$, and $t \exists (a,b)$, then the IVP has a unique solution on the interval $(a,b)$.
+
+\subsubsection{Wronskian for Linear Independence}
+\label{sssec:wronskianForLinearIndependence}
+
+If $y_a$, $y_b$ are solutions of $y'' + p(t)y' + q(t)y = 0$ on an interval where the existence and uniqueness theorem (\ref{sssec:existenceAndUniquenessTheorem}) holds, then $y_a$, $y_b$ are linearlly independent if and only if:
+\begin{equation*}
+  W(y_a,y_b) = 
+  \begin{vmatrix}
+    y_a(t)  & y_b(t) \\
+    y'_a(t) & y'_b(t) \\
+  \end{vmatrix} = 
+    \left( y_a(t) \cdot y'_b(t) \right) - \left( y_b(t) \cdot y'_a(t) \right) = 0
+\end{equation*}
+on the interval.
+
+\subsubsection{}
+\label{sssec:}
+
+Consider the ODE:
+\begin{equation}
+  ay'' + by' + cy = 0
+  \label{eq:301}
+\end{equation}
+where $a$, $b$, and $c$ are constants.
+
+Idea: Try $y=e^{rt}$, then $y'=re^{rt}$ and $y''=r^2e^{rt}$. Using this, (\ref{eq:301}) becomes:
+\begin{align*}
+  ar^2e^{rt} + bre^{rt} + ce^{rt} &= 0 \\
+  \left(ar^2 + br + c \right) e^{rt} &= 0
+\end{align*}
+$e^{rt}$ will never be $0$, so to solve this, use the quadratic equation to solve for $r$:
+\begin{equation*}
+  ar^2 + br + c = 0
+\end{equation*}
+This equation is referred to as the \textbf{auxiliary equation}. If the auxiliary equation has two distinct real roots $r_a \neq r_b$, then there are two solutions:
+\begin{equation*}
+  y_a = e^{r_at}\ \ \ \textup{and}\ \ \ y_b = e^{r_bt}
+\end{equation*}
+
+\begin{equation*}
+  W(y_a,y_b) = 
+  \begin{vmatrix}
+    e^{r_at} & e^{r_bt} \\
+    r_ae^{r_at} & r_be^{r_bt} \\
+  \end{vmatrix} = 
+  \left( e^{r_at} \cdot r_be^{r_bt} \right) - \left( e^{r_bt} \cdot r_ae^{r_at} \right) \neq 0 (\textup{since $r_a \neq r_b$})
+\end{equation*}
+
 \begin{example}
-  
+  \begin{equation*}
+    y'' - 5y' + 6y = 0
+  \end{equation*}
+  Thus, the auxiliary equation is:
+  \begin{align*}
+    r^2 - 5r + 6 &= 0 \\
+    (r-2)(r-3) &= 0 \\
+    r_a = 2, r_b = 3
+  \end{align*}
+  Thus, the general solution would be:
+  \begin{equation*}
+    y = C_ae^{2t} + C_be^{3t}
+  \end{equation*}
+\end{example}
+
+\begin{example}
+  \begin{equation*}
+    2y'' - 7y' + 3y = 0
+  \end{equation*}
+  Thus, the auxiliary equation is:
+  \begin{align*}
+    2r^2 - 7r + 3 &= 0 \\
+    (2r-1)(r-3) &= 0 \\
+    r_a = \frac{1}{2}, r_b = 3
+  \end{align*}
+  Thus, the general solution would be:
+  \begin{equation*}
+    y = C_ae^{\frac{1}{2}t} + C_be^{3t}
+  \end{equation*}
+\end{example}
+
+\begin{example}
+  \begin{equation*}
+    y'' - 4y' - 6y = 0, y(0) = 1, y'(0) = 0
+  \end{equation*}
+  Thus, the auxiliary equation is:
+  \begin{align*}
+    r^2 - 4r - 6  &= 0  \\
+    r^2 - 4r      &= 6  \\
+    r^2 - 4r      &= 6 \\
+    r^2 - 4r + 4  &= 10 \\
+    (r-2)^2       &= 10 \\
+    r-2           &= \pm \sqrt{10} \\
+    r             &= 2 \pm \sqrt{10}
+  \end{align*}
+  Thus, the general solution would be:
+  \begin{equation*}
+    y = C_ae^{2 + \sqrt{10}} + C_be^{2 - \sqrt{10}}
+  \end{equation*}
+  To solve for the initial conditions, first find $y'$:
+  \begin{equation*}
+    y' = (2 + \sqrt{10})C_ae^{(2 + \sqrt{10})t} + (2 - \sqrt{10})C_be^{(2 - \sqrt{10})t}
+  \end{equation*}
+  Then create a system of equations based on the initial conditions:
+  \begin{gather*}
+    y(0) = 1 \Rightarrow C_a + C_b = 1 \\
+    y'(0) = 0 \Rightarrow C_a(2 + \sqrt{10}) + C_b(2 - \sqrt{10}) = 0
+  \end{gather*}
+  Solving the system of equations, the solution is found:
+  \begin{equation*}
+    y = \frac{5 - \sqrt{10}}{10}e^{(2 + \sqrt{10})t} + \frac{5 + \sqrt{10}}{10}e^{(2 - \sqrt{10})t}
+  \end{equation*}
+  Analyzing the long term behavior:
+  \begin{gather*}
+    \lim_{t \to \infty} \frac{5 - \sqrt{10}}{10}e^{(2 + \sqrt{10})t} = +\infty \\
+    \lim_{t \to \infty} \frac{5 - \sqrt{10}}{10}e^{(2 + \sqrt{10})t} = +\infty \\
+  \end{gather*}
 \end{example}
 
 \end{document}

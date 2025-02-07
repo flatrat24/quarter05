@@ -13,6 +13,10 @@
 \subsection{What is a Differential Equation}
 \label{ssec:whatIsADifferentialEquation}
 
+\begin{definition}{Differential Equation}
+  An equation containing the derivatives of one or more unknown functions (or dependent variables), with respect to one or more independent variables, is said to be a differential equation (DE).
+\end{definition}
+
 Differential equations are foundational to studying engineering and physics. A very basic example of a differential equation is:
 \begin{equation}
   \frac{dx}{dt} + x = 2 \cos(t)
@@ -33,33 +37,6 @@ Clearly this equality holds and a \textbf{particular solution} has been found fo
 
 \begin{definition}{Particular Solution}
   Some solution for a given differential equation.
-\end{definition}
-
-However, multiple solutions can exist; now consider
-\begin{equation*}
-  \frac{dx}{dt} = -\sin(t) + \cos(t) - e^{-t}
-\end{equation*}
-as a solution. To verify:
-\begin{align*}
-  \big(-\sin(t) + \cos(t) - e^{-t}\big) + \big(\cos(t) + \sin(t) + e^{-t}\big) &= 2\cos(t) \\
-  -\sin(t) + \sin(t) + \cos(t) + \cos(t) - e^{-t} + e^{-t} &= 2\cos(t) \\
-  \cos(t) + \cos(t) &= 2\cos(t) \\
-  2\cos(t) &= 2\cos(t)
-\end{align*}
-Several solutions can exist for a given differential equation. For (\ref{eq:001}), the family of solutions exists in the form:
-\begin{equation*}
-  \frac{dx}{dt} = -\sin(t) + \cos(t) - Ce^{-t}
-\end{equation*}
-where $C$ is some constant. This is called the \textbf{General Solution} for the differential equation.
-
-\begin{definition}{General Solution}
-  The entire family of solutions for a given differential equation. A general form of the solution that can be adapted to different specifications.
-\end{definition}
-
-Each value of $C$ gives a different solution, so really there are infinite solutions for (\ref{eq:001}).
-
-\begin{definition}{Differential Equation}
-  An equation containing the derivatives of one or more unknown functions (or dependent variables), with respect to one or more independent variables, is said to be a differential equation (DE).
 \end{definition}
 
 \subsection{Four Fundamental Equations}
@@ -115,7 +92,6 @@ Where:
   \cosh(x) = \frac{e^x+e^{-x}}{2}\ \ ;\ \ \sinh(x) = \frac{e^x-e^{-x}}{2}
 \end{equation*}
 
-
 \subsection{Classification of Differential Equations}
 \label{ssec:classificationOfDifferentialEquations}
 
@@ -169,9 +145,9 @@ An equation is linear if the dependent variable (or variables) and their derivat
   \frac{dy}{dx} = y^2
   \label{eq:010}
 \end{equation}
-Similarly, (\ref{eq:011}) is also non-linear because $\Theta$ appears inside a $\sin$ function.
+Similarly, (\ref{eq:011}) is also non-linear because $\theta$ appears inside a $\sin$ function.
 \begin{equation}
-  \frac{d^2\Theta}{dx^2} + \sin(\Theta) = 0
+  \frac{d^2\theta}{dx^2} + \sin(\theta) = 0
   \label{eq:011}
 \end{equation}
 

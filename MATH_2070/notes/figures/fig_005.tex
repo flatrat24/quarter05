@@ -16,30 +16,31 @@
     xmajorgrids=true,
     grid style=dashed,
     ]
-    \foreach \x in {0,0.25,...,5} {
-      \pgfmathsetmacro{\a}{\x};
-      \pgfmathsetmacro{\b}{\x + 0.25};
-      \pgfmathsetmacro{\c}{\x*(-10) + 5}
-      \addplot[
-        domain=\a:\b,
-        -stealth,
-        color=re,
-        thick,
-        samples=2,
-      ] {\c+10*x};
-    }
+    % \addplot[thick]{0};
     % \foreach \x in {0,0.25,...,5} {
     %   \pgfmathsetmacro{\a}{\x};
     %   \pgfmathsetmacro{\b}{\x + 0.25};
-    %   \pgfmathsetmacro{\c}{\x*(10) + 15}
+    %   \pgfmathsetmacro{\c}{\x*(-10) + 5}
     %   \addplot[
     %     domain=\a:\b,
     %     -stealth,
     %     color=re,
     %     thick,
     %     samples=2,
-    %   ] {\c+-10*x};
+    %   ] {\c+10*x};
     % }
+    \foreach \x in {0,0.25,...,5} {
+      \pgfmathsetmacro{\a}{\x}
+      \pgfmathsetmacro{\b}{\x + 0.25}
+      \pgfmathsetmacro{\c}{\x*10 + 15}
+      \addplot[
+        domain=\a:\b,
+        -stealth,
+        color=re,
+        thick,
+        samples=2,
+      ] {(\c+(-10*x)) - 7};
+    }
     \addplot[
       color=gr,
       ultra thick,
