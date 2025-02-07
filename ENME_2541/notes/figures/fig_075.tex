@@ -1,0 +1,25 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 073}
+\date{February 07, 2025}
+
+\begin{document}
+\begin{tikzpicture}
+  [cube/.style={fill=bl!25!bg, draw=fg, thick, fill opacity = 0.8},
+  force/.style={draw=re, ultra thick, -stealth},
+  dimension/.style={draw=fg, thick, |-|},
+  line/.style={draw=fg, thick}]
+
+  \filldraw[cube] (0,0) rectangle ++(2,2);
+  \filldraw[fill opacity = 1, fill=bg, thick] (0.25,0.25) rectangle ++(1.5,1.5);
+
+  \draw[line, ultra thick, gr, draw opacity = 0.5, dashed] (-0.1,1) -- ++(2.2,0);
+
+  \draw[dimension] (-0.2,0) -- node[midway, anchor = east] {$H$} ++(0,2);
+  \draw[dimension] (0,-0.2) -- node[midway, anchor = north] {$B$} ++(2,0);
+
+  \draw[dimension] (2.15,0.25) -- node[midway, anchor = west] {$h$} ++(0,1.5);
+  \draw[dimension] (0.25,2.15) -- node[midway, anchor = south] {$b$} ++(1.5,0);
+\end{tikzpicture}
+\end{document}

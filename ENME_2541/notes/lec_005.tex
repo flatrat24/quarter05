@@ -126,7 +126,7 @@ Combining this equation for $M$ with the previous equation for $\sigma$ results 
   \begin{equation*}
     \sigma = \frac{My}{I}
   \end{equation*}
-  where $I_{rectangle} = \frac{bh^3}{12}$, $I_{circle} = \frac{\pi\left(r_o^4-r_i^4\right)}{4}$ is the \textbf{area moment of inertia}\\ \\
+  where $I_{rectangle} = \frac{bh^3}{12}$, $I_{circle} = \frac{\pi\left(r_o^4-r_i^4\right)}{4}$ is the \textbf{area moment of inertia}\\
   or
   \begin{equation*}
     \sigma_{max} = \frac{M}{S}
@@ -285,4 +285,35 @@ These axial forces $P$ and $P'$ can be substituted for three component loads app
     \sigma = \frac{P}{A} - \frac{M_zy}{I_z} + \frac{M_yz}{I_y}
   \end{equation*}
 \end{formula}
+
+\subsection{Prismatic Beams}
+\label{ssec:prismaticBeams}
+
+The maximum absolute value of the bending moment ($|M|_{max}$) generally guides the design process for a beam. The maximum normal stress ($\sigma_{max}$) is found at the surface where $|M|_{max}$ occurs. Thus, to find the maximum stress, $|M|_{max}$ can be substituted into the flexure formula:
+\begin{equation*}
+  \sigma_{max} = \frac{|M|_{max}y}{I} = \frac{|M|_{max}}{S}
+\end{equation*}
+Considering that the maximum stress cannot exceed the allowable stress ($\sigma_{all}$) at any point in the beam, by substituting $\sigma_{all}$ for $\sigma_{max}$, the minimum section modulus ($S_{min}$) can be solved for:
+\begin{equation*}
+  \sigma_{all} = \frac{|M|_{max}}{S_{min}} \Rightarrow S_{min} = \frac{|M|_{max}}{\sigma_{all}}
+\end{equation*}
+These considerations will guide the design of efficient and structurally sound beams.
+
+The section modulus of many cross-sections can be calculated geometrically. For common shapes, see Table \ref{tbl:sectionModulusOfSeveralCrossSections}. The {\color{gr} neutral axis} is highlighted in green for each figure.
+
+\begin{figure}[H]
+  \centering
+  \begin{tblr}{c|c||c|c}
+    \toprule
+    Geometry & Equation & Geometry & Equation \\
+    \midrule
+    \includestandalone{figures/fig_073} & $S = \frac{BH^2}{6}-\frac{bh^3}{6H}$ & \includestandalone{figures/fig_074} & $S = \frac{B^2\left(H-h\right)}{6} + \frac{(B-b)^3 \cdot h}{6B}$ \\
+    \includestandalone{figures/fig_075} & $S = \frac{BH^2}{6} - \frac{bh^3}{6H}$ & \includestandalone{figures/fig_077} & $S = \frac{\pi \left( R^4 - r^4 \right)}{4R}$ \\
+    \includestandalone{figures/fig_076} & $S = \frac{BH^2}{24}$ & \includestandalone{figures/fig_078} & $S = \frac{BH^2}{6} - \frac{bh^3}{6H}$ \\
+    \bottomrule
+  \end{tblr}
+  \caption{Section Modulus of Several Cross-Sections}
+  \label{tbl:sectionModulusOfSeveralCrossSections}
+\end{figure}
+
 \end{document}
