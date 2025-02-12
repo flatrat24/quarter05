@@ -1,0 +1,21 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 010}
+\date{February 10, 2025}
+
+\begin{document}
+\begin{tikzpicture}
+
+  \draw[fg, -stealth] (0,0) -- ++(3,0) node[anchor = north] {Real};
+  \draw[fg, -stealth] (0,0) -- ++(0,3) node[anchor = west] {Imaginary};
+
+  \draw[draw=bl, thick] (0,0) node[anchor = south west, xshift = 9pt] {$\theta$} -- node[midway, anchor = south east] {$r$} ++(2,2);
+  \draw[draw=bl, dashed] (2,2) -- ++(-2,0);
+  \draw[draw=bl, dashed] (2,2) -- ++(0,-2);
+
+  \filldraw[gr] (0,2) circle (1.5pt) node[anchor = south west] {$r \sin \theta$};
+  \filldraw[re] (2,0) circle (1.5pt) node[anchor = south west] {$r \cos \theta$};
+
+\end{tikzpicture}
+\end{document}

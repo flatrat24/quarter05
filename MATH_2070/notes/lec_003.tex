@@ -7,5 +7,110 @@
 
 \begin{document}
 
+\newpage
+\section{Numerical Methods}
+\label{sec:numericalMethods}
+
+Oftentimes, differential equations are difficult to solve analytically. Of course, different ODEs are difficult for different reasons, but they are still difficult nonetheless. When analytical methods are difficult enough to the point where they fail, numerical methods of analysis can be used in their place.
+
+More specifically, numerical methods are used:
+\begin{itemize}
+  \itemsep0em
+  \item With any \textit{reasonably formulated} IVP
+  \item Often when analytical methods fail
+  \item Often in engineering contexts in real world practices
+\end{itemize}
+
+\subsection{Euler's Method}
+\label{ssec:eulersMethod}
+
+The core idea of Euler's Method is that a function's derivative can be used to approximate the function's value near a point. In other words, some point $f(b)$ can be approximated by knowing some other point $f(a)$ provided that 1) $a$ and $b$ are near each other and 2) $f'(b)$ is known.
+
+Consider:
+\begin{equation*}
+  y' = f(t,y)\textup{, }y(t_0)=y_0
+\end{equation*}
+Then:
+\begin{equation*}
+  y(t_0+h) \approx y(t_0) + y'(t_0) \cdot h
+\end{equation*}
+for some small step size $h$.
+
+Taking this idea an extending it to any possible $n$ for $y_n$, the formula for Euler's Method is:
+\begin{formula}{Euler's Method}
+  \begin{equation*}
+    y_n = y_{n-1} + h \cdot f(t_{n-1}, y_{n-1})
+  \end{equation*}
+  \begin{equation*}
+    \textup{Given: }y' = f(t,y)\textup{, for some small step size } h
+  \end{equation*}
+\end{formula}
+Based on this, the basic steps to computing a value based on Euler's Formula are:
+\begin{enumerate}
+  \itemsep0em
+  \item Formulate an equation for $y'$ in terms of $t$ and $y$
+  \item Apply Euler's Formula to express $y_n$ in terms of $y_{n-1}$, $n$, and $h$
+  \item Determine the number of steps to compute
+  \item Compute $y_n$ incrementally (use a calculator or software)
+\end{enumerate}
+Consider the IVP:
+\begin{equation}
+  y'+y = t+1 \textup{, }y(1) = 3
+  \label{eq:3011}
+\end{equation}
+Compute $y(3)$ with a step size of $h=0.5$: \\
+
+\begin{enumerate}
+  \itemsep0em
+  \item Formulate an equation for $y'$ in terms of $t$ and $y$
+    \begin{equation*}
+      y' = t-y+1 \Rightarrow f(t,y) = t-y+1
+    \end{equation*}
+  \item Apply Euler's Formula to express $y_n$ in terms of $y_{n-1}$, $n$, and $h$
+    \begin{align*}
+      y_n &= y_{n-1} + {\color{re} h} \cdot {\color{ye} f(t_{n-1}, y_{n-1})} \Rightarrow y_n = y_{n-1} + {\color{re} h}({\color{ye} t_{n-1} - y_{n-1} + 1}) \\
+      \Rightarrow y_n &= y_{n-1} + {\color{re} h}({\color{gr} t_{n-1}} - {\color{bl} y_{n-1}} + 1) \Rightarrow y_n = y_{n-1} + {\color{re} h}({\color{gr} t_0 + h(n-1)} - {\color{bl} y_{n-1}} + 1) \\
+      \Rightarrow y_n &= y_{n-1} + {\color{re} 0.5}({\color{gr} 1 + 0.5(n-1)} - {\color{bl} y_{n-1}} + 1) \Rightarrow y_n = 0.5y_{n-1} + 0.25n + 0.75
+    \end{align*}
+  \item Determine the number of steps to compute
+    \begin{align*}
+      y(3) \Rightarrow t_0 + nh = 3 \Rightarrow 3-t_0 = nh \Rightarrow \frac{3-t_0}{h} = n \Rightarrow \frac{3-1}{0.5} = n \Rightarrow n = \frac{2}{0.5} \Rightarrow n = 4
+    \end{align*}
+  \item Compute $y_n$ incrementally (use a calculator or software)
+    \begin{align*}
+      y_0 &= y(1) = 3 \\
+      y_1 &= 0.5 \cdot y_{0} + 0.25 \cdot n + 0.75 \Rightarrow y_1 = 0.5 \cdot 3 + 0.25 \cdot 1 + 0.75 = 2.5 \\
+      y_2 &= 0.5 \cdot y_{1} + 0.25 \cdot n + 0.75 \Rightarrow y_2 = 0.5 \cdot 2.5 + 0.25 \cdot 2 + 0.75 = 2.5 \\
+      y_3 &= 0.5 \cdot y_{2} + 0.25 \cdot n + 0.75 \Rightarrow y_3 = 0.5 \cdot 2.5 + 0.25 \cdot 3 + 0.75 = 2.75 \\
+      y_4 &= 0.5 \cdot y_{3} + 0.25 \cdot n + 0.75 \Rightarrow y_4 = 0.5 \cdot 2.75 + 0.25 \cdot 4 + 0.75 = 3.125
+    \end{align*}
+\end{enumerate}
+
+\subsection{Error Analysis}
+\label{ssec:errorAnalysis}
+
+In the above example of Euler's Formula (\ref{eq:3011}), the approximation of $y(3)$ was calculated to be $3.125$. The actual value of $y(3)$ given the same IVP, but solved directly, is $\approx 3.27067$. Clearly, there is error to Euler's Formula.
+
+A simple way to analyze the error over some interval $(t_0,t_0 + h)$, the second derivative of $y$ can be used ($y''(t)$). If, over this interval:
+\begin{enumerate}
+  \itemsep0em
+  \item $y''(t) > 0 \Rightarrow $ Underestimate
+  \item $y''(t) < 0 \Rightarrow $ Overestimate
+  \item $y''(t) = 0 \Rightarrow $ Proper Estimate
+  \item $y''(t)$ changes sign $\Rightarrow$ Can't tell
+\end{enumerate}
+
+The error of (\ref{eq:3011}) can be analyzed by determining if there was an under or overestimate over each interval calculated. To do so, the second derivative of the $y(t)$ must be found:
+\begin{equation*}
+  y' = t-y+1 \Rightarrow y'' = {\color{re} t'} - {\color{gr} y'} + {\color{bl} 1} \Rightarrow y'' = {\color{re} 1} - {\color{gr} (t-y+1)} \Rightarrow y'' = -t + y
+\end{equation*}
+Then using $y''(t)$, the value of the second derivative at each step can be calculated to see if there was an over or underestimate at each step. Notice that the value of $y$ used at each step is the estimated value from Euler's Formula:
+\begin{align*}
+  y''(1.5) &= -1.5 + 2.5 = 1 \Rightarrow y''(1.5) > 0 \Rightarrow \textup{underestimate} \\
+  y''(2) &= -2 + 2.5 = 0.5 \Rightarrow y''(2) > 0 \Rightarrow \textup{underestimate} \\
+  y''(2.5) &= -2.5 + 2.75 = 0.25 \Rightarrow y''(2.5) > 0 \Rightarrow \textup{underestimate} \\
+  y''(3) &= -3 + 3.125 = 0.125 \Rightarrow y''(3) > 0 \Rightarrow \textup{underestimate}
+\end{align*}
+Considering that each step is an underestimate, it is \textit{likely} that the approximation via Euler's Formula of $y(3) = 3.125$ is also an underestimate. Unfortunately, this process is not absolute, and only provides evidence to \textit{suggest} an underestimate.
 
 \end{document}

@@ -1,0 +1,231 @@
+\documentclass[12pt]{article}
+
+\input{../../xlatex/imports/preamble}
+
+\title{Lecture 006}
+\date{February 10, 2025}
+
+\begin{document}
+\newpage
+\section{Non-Homogeneous ODE}
+\label{sec:nonHomogeneousODE}
+
+Non-Homogeneous ODE's are of the form:
+\begin{equation*}
+  y'' + p(t)y' + q(t)y = g(t)
+\end{equation*}
+These ODEs behave differently to previous ones. As such, the principle of superposition would now say:
+
+\begin{definition}{Principle of Superposition (Non-Homogeneous)}
+  If $Y_1$, $Y_2$ are two solutions of
+  \begin{equation*}
+    y'' + p(t)y' + q(t)y = g(t)
+  \end{equation*}
+  then $Y_1-Y_2$ is a solution of
+  \begin{equation*}
+    y'' + p(t)y' + q(t)y = 0
+  \end{equation*}
+\end{definition}
+
+The proof of this is as follows:
+\begin{align*}
+  y_1'' + p(t)y_1' + q(t)y_1 &= g(t) \\
+  y_2'' + p(t)y_2' + q(t)y_2 &= g(t)
+\end{align*}
+Then:
+\begin{equation*}
+  Y_1 - Y_2 = y_1''-y_2'' + p(t)\left(y_1'-y_2'\right) + q(t)\left(y_1-y_2\right) = g(t)-g(t) = 0
+\end{equation*}
+\vspace{12pt}
+\hrule
+\vspace{12pt}
+The general solutions of $y'' + p(t)y' + q(t)y = g(t)$ is of the form:
+\begin{align*}
+  y &= y_c + Y \\
+    &= C_1y_1 + C_2y_2 + Y
+\end{align*}
+where $y_c = C_1y_1 + C_2y_2$ is the general solution of the \textit{homogeneous} ODE $y'' + p(t)y' + q(t)y = 0$, and $Y$ is a particular solution of the \textit{non-homogeneous} $y'' + p(t)y' + q(t)y = g(t)$.
+
+The terminology to describe the parts of this general solutions is:
+\begin{itemize}
+  \itemsep0em
+  \item $y_c = C_1y_1 + C_2y_2$ is the {\color{re} \textbf{complementary solution}}
+  \item $Y$ is the {\color{re} \textbf{particular solution}}
+\end{itemize}
+
+% The proof of this starts with verifying that $y_c + Y$ satisfies the ODE:
+% \begin{align*}
+%   \textup{LHS} &= y_c'' + Y'' + p(t)\left(y_c' + Y'\right) + g(t)\left(y_c + Y\right) \\
+%                &= y_c'' + p(t)y_c' + g(t)y_c + Y'' + p(t)Y' + g(t)Y \\
+%                &= g(t) = \textup{RHS}
+% \end{align*}
+% Since:
+% \begin{gather*}
+%   y_c'' + p(t)y_c' + g(t)y_c = 0 \\
+%   Y'' + p(t)Y' + g(t)Y = g(t)
+% \end{gather*}
+% Any solution of the non-homogeneous ODE is of the form $y_c+Y$ for some $C_1$, $C_2$.
+%
+% Set $y$ to be any solution of $y'' + p(t)y' + g(t)y = g(t)$.
+%
+% Principle $\Rightarrow$ $y-Y$ is a solutions of $y'' + p(t)y' + g(t)y = 0$ $\Rightarrow$ $y-Y = C_1y_1 + C_2y_2$ for some $C_1$, $C_2$.
+%
+% \vspace{12pt}
+% \hrule
+% \vspace{12pt}
+
+Finding the complementary solution is simple. All that needs to be done is described in Subsection \ref{ssec:linearHomogeneousODEWithConstantCoefficients}. To find the particular solution, two methods can be used:
+\begin{enumerate}
+  \itemsep0em
+  \item Method of Undetermined Coefficients
+  \item Variation of Parameter
+\end{enumerate}
+
+\subsection{Method of Undetermined Coefficients}
+\label{ssec:methodOfUndeterminedCoefficients}
+The method makes it easy to generalize to higher order ODEs, however it only works for:
+\begin{equation*}
+  ay'' + by' + c = g(t)
+\end{equation*}
+Where $g(t)$ is a product of exponential polynomials, $\sin$, and $\cos$ functions. However, these limitations aren't very relevant for engineering applications.
+
+\begin{example}
+  \begin{equation*}
+    y'' - 2y' - 3y = 3
+  \end{equation*}
+  RHS is a constant function, so try a constant function.
+
+  First, using the complementary equation, namely:
+  \begin{equation*}
+    y'' - 2y' - 3y = 0
+  \end{equation*}
+  The auxiliary equation can be formulated as:
+  \begin{equation*}
+    r^2 - 2r - 3
+  \end{equation*}
+  Giving roots of $r_1=3$, $r_2=-1$, thus giving the general solution as:
+  \begin{equation*}
+    y_c = C_1e^{3t} + C_2e^{-t}
+  \end{equation*}
+
+  Set $Y$ equal to some constant $A$:
+  \begin{align*}
+    Y = A   \\
+    Y' = 0  \\
+    Y'' = 0
+  \end{align*}
+  and plug in the ODE:
+  \begin{equation*}
+    Y'' - 2Y' - 3Y = 0 - 0 - 3A = 3 \Rightarrow -3A = 3 \Rightarrow A = -1
+  \end{equation*}
+  Giving $Y=-1$ as a particular solution, so then the general solution is:
+  \begin{equation*}
+    y = c_1e^{3t} + C_2e^{-t} - 1
+  \end{equation*}
+\end{example}
+It should be noted that if the RHS is a polynomial of degree $n$, $Y$ should be set as a generic polynomial of degree $n$. Even when $g(t) = t$, $Y$ should still start from degree $n$, and work all the way down to the constant.
+\begin{example}
+  \begin{equation*}
+    y'' - y' - 2y = t^2 + 1
+  \end{equation*}
+  Since the RHS is a polynomial function of degree $2$, so to solve, first try a polynomial function of degree $2$.
+
+  By inspection, the complimentary solution of $y'' - y' - 2y = 0$ is:
+  \begin{equation*}
+    y_c = C_1e^{-t}+C_2e^{2t}
+  \end{equation*}
+  Set:
+  \begin{align*}
+    Y &= At^2 + Bt + C \\
+    Y' &= 2At + B \\
+    Y'' &= 2A
+  \end{align*}
+  Thus:
+  \begin{align*}
+    Y'' - Y' - 2Y &= 2A - (2At+B) - 2\left(At^2+Bt+C\right) \\
+                  &= (-2A)t^2 + (-2A-2B)t + (2A - B - 2C) \\
+                  &= t^2 + 1
+  \end{align*}
+  Thus, setting $t^2 + 1$ and $2At^2 + (-2A-2B)t + 2A - B - 2C$ equal to each other, it can be found that:
+  \begin{align*}
+    -2At^2 = 1t^2         &\Rightarrow -2A = 1 \\
+    (-2A-2B)t^1 = (0)t^1  &\Rightarrow -2A-2B = 0 \\
+    (2A-B-2C)t^0 = (1)t^0 &\Rightarrow 2A-B-2C = 1
+  \end{align*}
+  Then solving for each value of $A$, $B$, and $C$:
+  \begin{gather*}
+    A = -\frac{1}{2} \\
+    B = -A = \frac{1}{2} \\
+    C = \frac{2A-B-1}{2} = -\frac{5}{4}
+  \end{gather*}
+  Giving the particular solution $Y$ as:
+  \begin{equation*}
+    Y = -\frac{1}{2}t^2 + \frac{1}{2}t - \frac{5}{4}
+  \end{equation*}
+  and the general solution as:
+  \begin{equation*}
+    y = C_1e^{-t} + C_2e^{2t} - \frac{1}{2}t^2 + \frac{1}{2}t - \frac{5}{4}
+  \end{equation*}
+\end{example}
+
+\begin{example}
+  \begin{equation*}
+    y'' - y' - 2y = t^3
+  \end{equation*}
+  First, setting the particular solution $Y$ as some generic polynomial of the $n^{th}$ degree:
+  \begin{align*}
+    Y &= At^3 - Bt^2 + Ct + D \\
+    Y' &= 3At^2 - 2Bt + C \\
+    Y'' &= 6At^1 - 2B
+  \end{align*}
+  and plugging it in:
+  \begin{equation*}
+    Y'' - Y' - 2Y = -2A^3 + \left(-3A-2B\right)t^2 + (6A-2B-2C)t + (2B-C-2D)
+  \end{equation*}
+  Comparing $Y = At^3 - Bt^2 + Ct + D$ with $-2A^3 + \left(-3A-2B\right)t^2 + (6A-2B-2C)t + (2B-C-2D)$, a system of equations can be found as:
+  \begin{gather*}
+    -2A = 1 \\
+    -3A-2B = 0 \\
+    6A - 2B - 2C = 0 \\
+    2B - C - 2D = 0
+  \end{gather*}
+  Solving the system gives:
+  \begin{align*}
+    A &= - \frac{1}{2} \\
+    B &= - \frac{3}{2}A = \frac{3}{4} \\
+    C &= \frac{1}{2}(6A-2B) = -\frac{9}{4} \\
+    D &= \frac{1}{2}(2B-C) = \frac{15}{8}
+  \end{align*}
+  Thus finding the particular solution as:
+  \begin{equation*}
+    Y = - \frac{1}{2}t^3 + \frac{3}{4}t^2 + -\frac{9}{4}t + \frac{15}{8}
+  \end{equation*}
+  and subsequently, the general solution as:
+  \begin{equation*}
+    y = C_1e^{2t} + C_2e^{-t} - \frac{1}{2}t^3 + \frac{3}{4}t^2 + -\frac{9}{4}t + \frac{15}{8}
+  \end{equation*}
+\end{example}
+
+\subsection{Variation of Parameters}
+\label{ssec:variationOfParameters}
+
+The most general way to obtain $Y$ is a \textbf{Variation of Parameters}.
+
+Knowing that $y_c = C_1y_1 + C_2y_2$, then $C_1$, $C_2$ are varriated into function such that:
+\begin{equation*}
+  Y = u_1y_1 + u_2y_2
+\end{equation*}
+Then plugging $Y$ into the non-homogeneous ODE:
+\[
+  \begin{cases} 
+    u_1'y_1 + u_2'y_2 = 0 \\
+    u_1'y_1' + u_2'y_2' = g(t)
+  \end{cases}
+  \Rightarrow u_1' = \frac{-y_2 \cdot g}{W(y_1,y_2)}, u_1' = \frac{y_1 \cdot g}{W(y_1,y_2)} \\
+\]
+\begin{equation*}
+  Y = y_1 \cdot \int_{}^{} \frac{-y_2 \cdot g}{W(y_1,y_2)} \,dt + y_2 \cdot \int_{}^{} \frac{y_1 \cdot g}{W(y_1,y_2)} \,dt
+\end{equation*}
+As can probably be seen, higher order generalization is very complicated. Thus introduces the \textbf{Method of Undetermined Coefficients}.
+
+\end{document}

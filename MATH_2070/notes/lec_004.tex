@@ -7,100 +7,290 @@
 
 \begin{document}
 \newpage
-\section{Complex Numbers}
-\label{sec:complexNumbers}
+\section{Second Order ODEs}
+\label{sec:secondOrderODEs}
 
-Complex numbers are of the form:
+Similar to first order ODE's, second order ODE's also have a standard form:
 \begin{equation*}
-  a + bi
+  y'' + p(t)y' + q(t)y = g(t)
 \end{equation*}
-where $a$ is the \textit{real} part of the number, and $b$ is the imaginary part.
+Moreover, if the RHS ($g(t)$) is equal to zero, then the ODE is said to be homogeneous.
+\begin{definition}{Homogeneous}
+  If the RHS of a second order ODE in standard form is equal to zero ($g(t) = 0$), then the  ODE is said to be homogeneous. Otherwise ,the ODE is non-homogeneous.
+\end{definition}
 
-\subsection{Multiplication}
-\label{ssec:multiplication}
-\begin{gather*}
-  (a+bi)(c+di) \\
-  \Rightarrow \\
-  ac + adi + cbi + bdi^2 \\
-  \Rightarrow \\
-  (ac-bd)+i(ad+cb)
-\end{gather*}
+Unfortunately, there is no standard formula to solve a second (or higher) order differential equation. However, there are different kinds of second order ODEs that benefit from different strategies when it comes to solving them. But before solving second order ODEs, it's important to know a little theory about them.
 
-\subsection{Geometric Interpretation}
-\label{ssec:geometricInterpretation}
+\subsection{Existence and Uniqueness Theorem}
+\label{ssec:existenceAndUniquenessTheorem}
 
-$a+bi$ may be identified with $(a,b)$ in the complex plane where the real part ($a$) is represented by the $x$ coordinate and the imaginary part ($b$) by the $y$ coordinate.
-
-\subsection{Euler's Formula}
-\label{ssec:eulersFormula}
-
-Euler's Formula provides a way to represent a complex number in terms of $\sin$ and $\cos$:
-\begin{gather*}
-  e^{i\theta} = \cos(\theta) + i\sin(\theta) \\
-  \textup{or} \\
-  re^{i\theta} = r\cos(\theta) + ri\sin(\theta),\ r \ge 0
-\end{gather*}
-As can be seen, Euler's Formula is simply just the polar coordinate transformation.
-
-\subsection{Powers and Roots}
-\label{ssec:powersAndRoots}
-
-\subsubsection{Powers}
-\label{sssec:powers}
-
-To square $re^{i \theta} = r\cos(\theta) + ir\sin(\theta)$ using the previous description, it results in:
+Given an IVP in the standard form:
 \begin{equation*}
-  r^2e^{2i \theta} = r^2\left(\cos(2\theta) + i\sin(2\theta)\right)
+  y'' + p(t)y' + q(t)y = g(t)
 \end{equation*}
-Generally, for any integer $n$, the $n^{th}$ power of $re^{i\theta}$ is simply:
+with:
 \begin{equation*}
-  r^ne^{ni \theta} = r^n\left(\cos(n\theta) + i\sin(n\theta)\right)
+  y(t_0) = y_0\ \ \ \textup{and}\ \ \ y'(t_0) = y'_0
 \end{equation*}
-Thus,
+if $p(t)$, $q(t)$, and $g(t)$ are continuous on the interval $(a,b)$, and $t_0 \in (a,b)$, then the IVP has a unique solution on the interval $(a,b)$.
+
+\subsection{Principle of Superposition}
+\label{ssec:principleOfSuperposition}
+
+Given a second order, linear, \textit{and} homogeneous ODE:
+\begin{equation*}
+  y'' + p(t)y' + q(t)y = 0
+\end{equation*}
+If some two functions $y_1$ and $y_2$ are solutions to the ODE, then for every real number $c_1$ and $c_2$, the function:
+\begin{equation*}
+  c_1y_1 + c_2y_2
+\end{equation*}
+is also a solution.
+
+Furthermore, if $y_1$ and $y_2$ are linearly independent, then the general solution to the ODE is:
+\begin{equation*}
+  y = C_1y_1 + C_2y_2
+\end{equation*}
+
+\subsection{Wronskian for Linear Independence}
+\label{ssec:wronskianForLinearIndependence}
+
+If $y_1$ and $y_2$ are solutions of $y'' + p(t)y' + q(t)y = 0$ on an interval where the existence and uniqueness theorem (\ref{sssec:existenceAndUniquenessTheorem}) holds, then $y_1$ and $y_2$ are linearly independent if and only if:
+\begin{equation*}
+  \left(W(y_1,y_2)\right)(t) = 
+  \begin{vmatrix}
+    y_1(t)  & y_2(t) \\
+    y'_1(t) & y'_2(t) \\
+  \end{vmatrix} = 
+    \left( y_1(t) \cdot y'_2(t) \right) - \left( y_2(t) \cdot y'_1(t) \right) \neq 0
+\end{equation*}
+on the interval in consideration. It should be noted that $\left(W(y_1,y_2)\right)(t) \neq 0$ need only be true at one point on the interval to demonstrate linear independence.
+
+\subsection{Linear Homogeneous ODE with Constant Coefficients}
+\label{ssec:linearHomogeneousODEWithConstantCoefficients}
+
+Consider the ODE:
+\begin{equation}
+  ay'' + by' + cy = 0
+  \label{eq:301}
+\end{equation}
+where $a$, $b$, and $c$ are constants.
+
+Idea: Try $y=e^{rt}$ as a solution: $y=e^{rt}$, $y'=re^{rt}$, and $y''=r^2e^{rt}$. Using this, (\ref{eq:301}) becomes:
 \begin{align*}
-  (1+i)^4 &= \left(\sqrt{2}e^{i \frac{\pi}{4}}\right)^4 \\
-          &= \left(\sqrt{2}\right)^4\left(e^{i \frac{\pi}{4}}\right)^4 \\
-          &= 4e^{i\pi} \\
-          &= -4
+  ar^2e^{rt} + bre^{rt} + ce^{rt} &= 0 \\
+  \left(ar^2 + br + c \right) e^{rt} &= 0
 \end{align*}
-
-\subsubsection{Roots}
-\label{sssec:roots}
-
-The roots are somewhat more complicated. Generally, for the $n^{th}$ root $\sqrt{z^{\frac{1}{n}}}$ has $n$ different candidates.
-
-Let:
+$e^{rt}$ will never be $0$, so to solve this, use the quadratic equation to solve for $r$:
 \begin{equation*}
-  z=Re^{i \theta},\ w = \sqrt{z^{\frac{1}{n}}}
+  ar^2 + br + c = 0
 \end{equation*}
-means that:
+This equation is referred to as the \textbf{auxiliary equation}.
+
+\subsubsection{Distinct Real Roots Case}
+\label{sssec:distinctRealRootsCase}
+
+If the auxiliary equation has two distinct real roots $r_a \neq r_b$, then there are two solutions:
 \begin{equation*}
- w^n = z
+  y_1 = e^{r_1t}\ \ \ \textup{and}\ \ \ y_2 = e^{r_2t}
 \end{equation*}
 
-If
 \begin{equation*}
-  w = re^{i \alpha}
+  W(y_1,y_2) = 
+  \begin{vmatrix}
+    e^{r_1t} & e^{r_2t} \\
+    r_1e^{r_1t} & r_2e^{r_2t} \\
+  \end{vmatrix} = 
+  \left( e^{r_at} \cdot r_be^{r_bt} \right) - \left( e^{r_bt} \cdot r_ae^{r_at} \right) \neq 0\ (\textup{since $r_a \neq r_b$})
 \end{equation*}
-then,
-\begin{equation*}
-  r^ne^{in \alpha} = Re^{i \theta}
-\end{equation*}
-The amplitude $r$ is uniquely $R^{\frac{1}{n}}$, however, the phase $\alpha$ is \textit{not} unique. This is because $e^{in \alpha} = e^{i \theta}$ means that:
-\begin{align*}
-  n \alpha &= \theta + 2k\pi, k=0,\pm1,\pm2,\hdots \\
-  \alpha   &= \frac{\theta + 2k\pi}{n}, k=0,\pm1,\pm2,\hdots
-\end{align*}
+
 \begin{example}
   \begin{equation*}
-    1^{\frac{1}{3}} = \left(e^{i \cdot 2k\pi}\right)^{\frac{1}{3}}  =e^{i \frac{2k\pi}{3}}
+    y'' - 5y' + 6y = 0
   \end{equation*}
-  Depending on the value of $k$, there are \textit{three} different possibilites for $e$: \\
+  Auxiliary equation:
   \begin{align*}
-    &\textup{If}\ k=0,3,6,\hdots \Rightarrow e^{i0}=1 \\
-    &\textup{If}\ k=1,4,7,\hdots \Rightarrow e^{\frac{2\pi}{3}i}=-\frac{1}{2}+\frac{\sqrt{3}}{2}i \\
-    &\textup{If}\ k=2,5,8,\hdots \Rightarrow e^{\frac{3\pi}{3}i}=-\frac{1}{2}-\frac{\sqrt{3}}{2}i \\
+    r^2 - 5r + 6 &= 0 \\
+    (r-2)(r-3) &= 0 \\
+    r_a = 2, r_b = 3
   \end{align*}
+  General solution:
+  \begin{equation*}
+    y = C_ae^{2t} + C_be^{3t}
+  \end{equation*}
 \end{example}
+
+\begin{example}
+  \begin{equation*}
+    2y'' - 7y' + 3y = 0
+  \end{equation*}
+  Auxiliary equation:
+  \begin{align*}
+    2r^2 - 7r + 3 &= 0 \\
+    (2r-1)(r-3) &= 0 \\
+    r_a = \frac{1}{2}, r_b = 3
+  \end{align*}
+  General solution:
+  \begin{equation*}
+    y = C_ae^{\frac{1}{2}t} + C_be^{3t}
+  \end{equation*}
+\end{example}
+
+\begin{example}
+  \begin{equation*}
+    y'' - 4y' - 6y = 0, y(0) = 1, y'(0) = 0
+  \end{equation*}
+  Auxiliary equation:
+  \begin{align*}
+    r^2 - 4r - 6  &= 0  \\
+    r^2 - 4r      &= 6  \\
+    r^2 - 4r      &= 6 \\
+    r^2 - 4r + 4  &= 10 \\
+    (r-2)^2       &= 10 \\
+    r-2           &= \pm \sqrt{10} \\
+    r             &= 2 \pm \sqrt{10}
+  \end{align*}
+  General solution:
+  \begin{equation*}
+    y = C_ae^{2 + \sqrt{10}} + C_be^{2 - \sqrt{10}}
+  \end{equation*}
+  To solve for the initial conditions, first find $y'$:
+  \begin{equation*}
+    y' = (2 + \sqrt{10})C_ae^{(2 + \sqrt{10})t} + (2 - \sqrt{10})C_be^{(2 - \sqrt{10})t}
+  \end{equation*}
+  Then create a system of equations based on the initial conditions:
+  \begin{gather*}
+    y(0) = 1 \Rightarrow C_a + C_b = 1 \\
+    y'(0) = 0 \Rightarrow C_a(2 + \sqrt{10}) + C_b(2 - \sqrt{10}) = 0
+  \end{gather*}
+  Solving the system of equations, $C_1$ and $C_2$ are found to be:
+  \begin{equation*}
+    C_1 = \frac{-5-\sqrt{10}}{10}\ \ \ \ \ \ \ \ \ C_2 = \frac{5+\sqrt{10}}{10}
+  \end{equation*}
+  Giving the solution to the IVP as:
+  \begin{equation*}
+    y = \frac{-5 - \sqrt{10}}{10}e^{(2 + \sqrt{10})t} + \frac{5 + \sqrt{10}}{10}e^{(2 - \sqrt{10})t}
+  \end{equation*}
+  Analyzing the long term behavior:
+  \begin{gather*}
+    \lim_{t \to \infty} \frac{-5 - \sqrt{10}}{10}e^{(2 + \sqrt{10})t} = -\infty \\
+    \lim_{t \to \infty} \frac{5 + \sqrt{10}}{10}e^{(2 - \sqrt{10})t} = 0 \\
+  \end{gather*}
+  The second term approaches $0$, so the solution is dominated by the first term. The long term behavior of this solution, then, is that it approaches $-\infty$.
+\end{example}
+
+\subsubsection{Complex Roots Case}
+\label{sssec:complexRootsCase}
+
+See Section \ref{sec:complexNumbers} for information regarding the use of complex numbers, Euler's Formula, etc., that will be used in this section.
+
+Consider the ODE:
+\begin{equation*}
+  ay'' + by' + cy = 0
+\end{equation*}
+where $a$, $b$, and $c$ are constants. By using the function $y=e^{rt}$ (see Subsection \ref{ssec:linearHomogeneousODEWithConstantCoefficients}), the auxiliary equation is:
+\begin{equation*}
+  ar^2 + br + c = 0
+\end{equation*}
+Assuming that the quadratic equation produces two complex roots, these two roots can be written as:
+\begin{equation*}
+  r_1 = \alpha + i \beta,\ r_2 = \alpha - i \beta
+\end{equation*}
+Thus, the two complex solutions are:
+\begin{equation*}
+  y_1 = e^{(\alpha + i \beta)t},\ r_2 = e^{(\alpha - i \beta)t}
+\end{equation*}
+Euler's Formula (Subsection \ref{ssec:eulersFormula}) allows them to be written as:
+\begin{equation*}
+  y_1 = {\color{ma} e^{\alpha t}\cos(\beta t)}+{\color{or} ie^{\alpha t}\sin(\beta t)},\ y_2 = {\color{ma} e^{\alpha t}\cos(\beta t)}-{\color{or} ie^{\alpha t}\sin(\beta t)}
+\end{equation*}
+At this point, each solution $y_1$ and $y_2$ exist as a complex function with a {\color{ma} real part} and an {\color{or} imaginary part}. They can each be expressed in the form:
+\begin{equation*}
+  y(t) = {\color{ma} u(t)} + {\color{or} iv(t)}
+\end{equation*}
+If
+\begin{equation}
+  y(t) = u(t) + iv(t)
+  \label{eq:401}
+\end{equation}
+is a solution of
+\begin{equation}
+  y'' + p(t)y' + q(t)y = 0
+  \label{eq:402}
+\end{equation}
+then both $u(t)$ and $v(t)$ are solutions as well. This can be seen considering the first and second derivatives of (\ref{eq:401}):
+\begin{align*}
+  y(t)   &= u(t) + iv(t) \\
+  y'(t)  &= u'(t) + iv'(t) \\
+  y''(t) &= u''(t) + iv''(t) \\
+\end{align*}
+and plugging them into (\ref{eq:402}):
+\begin{align*}
+  y'' + p(t)y' + q(t)y &= 0 \\
+  u''(t) + iv''(t) + p(t)\big[u'(t) + iv'(t)\big] + q(t)\big[u(t) + iv(t)\big] &= 0 \\
+  {\color{bl} u''(t) + pu'(t) + qu(t)} + {\color{or} i\big[v''(t) + pv'(t) + qv(t)\big]} &= 0 = {\color{ma} 0}+{\color{gr} 0i}
+\end{align*}
+Since ${\color{bl} a}+{\color{or} bi} = {\color{ma} c} +{\color{gr} di} \Leftrightarrow {\color{bl} a} = {\color{ma} c},\ {\color{or} b} = {\color{gr} d}$, it can be stated that:
+\begin{equation*}
+  {\color{bl} u''(t) + pu'(t) + qu(t)} = {\color{ma} 0},\ {\color{or} i\big[v''(t) + pv'(t) + qv(t)\big]} = {\color{gr} 0}
+\end{equation*}
+Therefore, both $u(t)$ and $v(t)$ are solutions.
+
+Furthermore, if the auxiliary equation of $ay'' + by' + cy = 0$ has complex solutions $\alpha + i \beta$ and $\alpha - i \beta$, then the general solution of the ODE is:
+\begin{equation*}
+  y = C_1e^{\alpha t}\cos(\beta t) + C_2e^{\alpha t}\sin(\beta t)
+\end{equation*}
+
+\subsubsection{Repeated Roots Case}
+\label{sssec:repeatedRootsCase}
+
+Consider an ODE such as:
+\begin{equation*}
+  ay'' + by' + cy = 0
+\end{equation*}
+with the auxiliary equation:
+\begin{equation*}
+  ar^2 + br + c = 0
+\end{equation*}
+that produces only a single root ($r_1 = r_2 = R$). In such a case, the quadratic equation only produces a single solution to the ODE:
+\begin{equation*}
+  y_1 = e^{Rt}
+\end{equation*}
+In these cases, another solution may be obtained as:
+\begin{equation*}
+  y_2 = te^{rt}
+\end{equation*}
+Thus creating the general solution of:
+\begin{equation*}
+  y = C_1e^{rt} + C_2te^{rt}
+\end{equation*}
+
+\subsubsection{Summary}
+\label{sssec:summary}
+
+For a second order linear homogeneous ODE with constant coefficients:
+\begin{equation*}
+  ay'' + by' + cy = g(t)
+\end{equation*}
+The auxiliary equation is then:
+\begin{equation*}
+  ar^2 + br + c = 0
+\end{equation*}
+By solving the quadratic equation, three cases can occur:
+\begin{enumerate}
+  \itemsep0em
+  \item Two distinct real roots (\ref{sssec:distinctRealRootsCase}): $r_1 \neq r_2$
+    \begin{equation*}
+      y = C_1e^{r_1t} + C_2e^{r_2t}
+    \end{equation*}
+  \item Two distinct complex roots (\ref{sssec:complexRootsCase}): $r_1 = \alpha + i \beta$, $r_2 = \alpha - i \beta$
+    \begin{equation*}
+      y = C_1e^{\alpha t} \cos (\beta t) + C_2e^{\alpha t} \sin (\beta t)
+    \end{equation*}
+  \item Two repeated real roots (\ref{sssec:repeatedRootsCase}): $r_1 = r_2 = R$
+    \begin{equation*}
+      y = C_1e^{Rt} + C_2te^{Rt}
+    \end{equation*}
+\end{enumerate}
 
 \end{document}
