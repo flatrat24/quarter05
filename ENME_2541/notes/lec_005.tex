@@ -96,7 +96,7 @@ During bending that remains within the elastic, non-plastic, range, Hooke's Law 
   \end{equation*}
 \end{formula}
 
-\begin{wrapfigure}[4]{r}{0.3\textwidth}
+\begin{wrapfigure}[5]{r}{0.3\textwidth}
   \vspace{-20pt}
   \centering
   \includestandalone{figures/fig_060}
@@ -131,8 +131,18 @@ Combining this equation for $M$ with the previous equation for $\sigma$ results 
   \begin{equation*}
     \sigma_{max} = \frac{M}{S}
   \end{equation*}
-  where $S=\frac{I}{y_{max}}$ is the \textbf{Section Modulus}
+  where $S=\frac{I}{y_{max}}=\frac{I}{C}$ is the \textbf{Section Modulus}
 \end{formula}
+
+\subsection{Moment of Inertia}
+\label{ssec:momentOfInertia}
+
+The moment of inertia for some common shapes can be calculated geometrically (see Table \ref{tbl:sectionModulusOfSeveralCrossSections}). However, the general process of calculating a moment of inertia is as follows:
+\begin{enumerate}
+  \itemsep0em
+  \item Calculate the centroid of the shape ($\overline{y}$)
+  \item Calculate moment of inertia for each rectangular segment independently using the \textbf{parallel axis theorem}
+\end{enumerate}
 
 \subsection{Impure Bending}
 \label{ssec:impureBending}
@@ -303,13 +313,21 @@ The section modulus of many cross-sections can be calculated geometrically. For 
 
 \begin{figure}[H]
   \centering
-  \begin{tblr}{c|c||c|c}
+  \begin{tblr}{ccc}
     \toprule
-    Geometry & Equation & Geometry & Equation \\
+    Geometry & Moment of Inertia & Section Modulus \\
     \midrule
-    \includestandalone{figures/fig_073} & $S = \frac{BH^2}{6}-\frac{bh^3}{6H}$ & \includestandalone{figures/fig_074} & $S = \frac{B^2\left(H-h\right)}{6} + \frac{(B-b)^3 \cdot h}{6B}$ \\
-    \includestandalone{figures/fig_075} & $S = \frac{BH^2}{6} - \frac{bh^3}{6H}$ & \includestandalone{figures/fig_077} & $S = \frac{\pi \left( R^4 - r^4 \right)}{4R}$ \\
-    \includestandalone{figures/fig_076} & $S = \frac{BH^2}{24}$ & \includestandalone{figures/fig_078} & $S = \frac{BH^2}{6} - \frac{bh^3}{6H}$ \\
+    \includestandalone{figures/fig_073} & $temp$                                     & $S = \frac{BH^2}{6}-\frac{bh^3}{6H}$ \\
+    \midrule
+    \includestandalone{figures/fig_074} & $temp$                                     & $S = \frac{B^2\left(H-h\right)}{6} + \frac{(B-b)^3 \cdot h}{6B}$ \\
+    \midrule
+    \includestandalone{figures/fig_075} & $I = \frac{1}{12}\left(BH^3 - bh^3\right)$ & $S = \frac{BH^2}{6} - \frac{bh^3}{6H}$ \\
+    \midrule
+    \includestandalone{figures/fig_077} & $I = \frac{pi}{4} \left( R^4-r^4 \right)$  & $S = \frac{pi}{4} \cdot \frac{R^4 - r^4}{R}$ \\
+    \midrule
+    \includestandalone{figures/fig_076} & $temp$                                     & $S = \frac{BH^2}{24}$ \\
+    \midrule
+    \includestandalone{figures/fig_078} & $temp$                                     & $S = \frac{BH^2}{6} - \frac{bh^3}{6H}$ \\
     \bottomrule
   \end{tblr}
   \caption{Section Modulus of Several Cross-Sections}

@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1738960755.23578 "main.tex" "main.pdf" "main" 1738960759.60051 0
+["pdflatex"] 1738964170.5671 "main.tex" "main.pdf" "main" 1738964174.47306 0
   "../../xlatex/imports/preamble.tex" 1738185780.99453 4040 85c3fcf61d5dea3234569928f9b798ed ""
   "/nix/store/ahqlhcr0qzd91jmi10j8dpflc9i65yrk-texlive-2023-env-texmfdist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1 2971 def0b6c1f0b107b3b936def894055589 ""
   "/nix/store/ahqlhcr0qzd91jmi10j8dpflc9i65yrk-texlive-2023-env-texmfdist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1 2900 1537cc8184ad1792082cd229ecc269f4 ""
@@ -384,16 +384,16 @@
   "figures/fig_075.tex" 1738958996.16434 893 d9fc92dd7bfabebcd8a2a9e336aaa75c ""
   "figures/fig_076.tex" 1738959170.44898 690 01e228652555772b0a0b146a55a40b38 ""
   "figures/fig_077.tex" 1738959525.27068 904 76167a9d223d16d92c4e73da286a04ea ""
-  "figures/fig_078.tex" 1738959793.1929 916 b4ad73df5b2fe7e7e7fbb4288448e132 ""
+  "figures/fig_078.tex" 1738963669.3402 906 084dd0b6329d4ce307611f438ceb2be0 ""
   "lec_001.tex" 1736985587.84954 9771 121511fc6880a44c454033b65cf6d0a3 ""
   "lec_002.tex" 1736401003.82941 3710 2638e4dcedc9433896f9d2d600a39849 ""
   "lec_003.tex" 1738777600.42289 20572 d79120b145391b80c046907de131b12f ""
   "lec_004.tex" 1738385266.54276 15103 cbe74c8d265a0beba89751abf80f95a0 ""
-  "lec_005.tex" 1738960753.67441 13723 f4cc4ffd799392b93b45af4dee470829 ""
-  "main.aux" 1738960759.47132 32745 4a5cbe8d5764ca10ec87e8756ff810cd "pdflatex"
-  "main.out" 1738960759.47432 8045 1c14a75429451c4a5e11f86d263a5239 "pdflatex"
-  "main.tex" 1738777337.53429 414 b72a279184c24a90c6d805e1b9a06f41 ""
-  "main.toc" 1738960759.47432 4405 7b57fe31d3b5bf1af32a9975875706f7 "pdflatex"
+  "lec_005.tex" 1738964167.17864 14591 9c772f2958892be96f77d13463afc5fe ""
+  "main.aux" 1738964174.36267 32950 377bbfceefa746bb22843cbaecc6b238 "pdflatex"
+  "main.out" 1738964174.36467 8194 001a5957fba045fecd1119158c0362b2 "pdflatex"
+  "main.tex" 1738962341.10493 414 b72a279184c24a90c6d805e1b9a06f41 ""
+  "main.toc" 1738964174.36467 4489 597beb89f1e47e9421e97479b7cfcd88 "pdflatex"
   (generated)
   "main.aux"
   "main.log"
