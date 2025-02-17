@@ -1,0 +1,30 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 081}
+\date{February 13, 2025}
+
+\begin{document}
+\begin{tikzpicture}
+  [cube/.style={fill=bl!25!bg, draw=fg, thick, fill opacity = 0.8},
+  force/.style={draw=re, ultra thick, -stealth},
+  dimension/.style={draw=fg, thick, |-|},
+  support/.style={fill=brown!50!bg, draw=brown!50!bg, ultra thick},
+  line/.style={draw=fg, thick}]
+
+  \draw[cube, fill=bl!10!bg] (0,0) rectangle ++(4,4);
+  \draw[cube] (0,3) rectangle ++(4,1);
+
+  \filldraw[fg] (2,3.5) circle (2pt) node[anchor = west] {$C'$};
+
+  \draw[line, -stealth] (0.75,4.5) node[anchor = east] {$A'$} -- ++(0.5,-1);
+
+  \draw[line, gr] (-0.5,2) -- ++(5,0) node[anchor = west] {$z$};
+  \draw[line, gr] (2,-0.5) -- ++(0,5) node[anchor = south] {$y$};
+
+  \draw[dimension] (-0.25,2.05) -- node[midway, anchor = east] {$\overline{y}$} ++(0,1.4);
+  \draw[dimension] (4.25,2.05) -- node[midway, anchor = west] {$y$} ++(0,0.9);
+  \draw[dimension] (-0.75,0) -- node[midway, anchor = east] {$c = \frac{1}{2}h$} ++(0,2);
+  \draw[dimension] (-0.75,2) -- node[midway, anchor = east] {$c = \frac{1}{2}h$} ++(0,2);
+\end{tikzpicture}
+\end{document}

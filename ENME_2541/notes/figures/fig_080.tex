@@ -1,0 +1,23 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 080}
+\date{February 13, 2025}
+
+\begin{document}
+\begin{tikzpicture}
+  [scale = 0.5,
+  cube/.style={fill=bl!25!bg, draw=fg, thick, fill opacity = 0.8},
+  force/.style={draw=re, ultra thick, -stealth},
+  dimension/.style={draw=fg, thick, |-|},
+  support/.style={fill=brown!50!bg, draw=brown!50!bg, ultra thick},
+  line/.style={draw=fg, thick}]
+
+  % Draw the layers of the beam
+  \filldraw[cube, fill opacity = 1] (0, 0) to[out=0,in=155] ++(10,-1.5) -- ++(-1.25,-4.3) to[out=155,in=0] ++(-8.75,1.5) -- cycle;
+
+  \draw[force] (10.50,-1.00) arc (390:300:4) node[midway, anchor = south west] {$M$};
+
+  \draw[support] (0,-4.6) rectangle ++(-0.5,5);
+\end{tikzpicture}
+\end{document}

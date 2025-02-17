@@ -334,4 +334,58 @@ The section modulus of many cross-sections can be calculated geometrically. For 
   \label{tbl:sectionModulusOfSeveralCrossSections}
 \end{figure}
 
+\subsection{Transverse Shear}
+\label{ssec:transverseShear}
+
+When a beam is put into bending, shear forces are created. In figure Figure \ref{fig:shearDueToBending}, there are two examples of members under bending. In Figure \ref{fig:079}, the planks are not adhered to each other, and thus, when they bend, they also slide.
+
+Now imagine that, as in Figure \ref{fig:080}, the bending force is applied to a solid member. The tendency to slide still exists, but is resisted. Thus, internal shear is created as a result.
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_079}
+    \caption{Planks Under Bending}
+    \label{fig:079}
+  \end{subfigure}
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_080}
+    \caption{Beam Under Bending}
+    \label{fig:080}
+  \end{subfigure}
+  \caption{Shear Due to Bending}
+  \label{fig:shearDueToBending}
+\end{figure}
+
+The internal shearing stresses calculated as:
+\begin{formula}{Shear Stress Due to Bending}
+  \begin{equation*}
+    \tau = \frac{VQ}{It}
+  \end{equation*}
+\end{formula}
+Where $t$ is the thickness of the cross-section of concern, and $Q$ is the \textbf{First Moment of Area}.
+
+\subsubsection{First Moment of Area}
+\label{sssec:firstMomentOfArea}
+
+\begin{wrapfigure}[]{r}{0.35\textwidth}
+  \vspace{-45pt}
+  \centering
+  \includestandalone{figures/fig_081}
+  \caption{First Moment of Area}
+  \label{fig:081}
+\end{wrapfigure}
+
+The first moment of area is a calculation based on two values: the area of consideration ($A'$) as well as the distance from the centroid of $A'$ and the neutral axis ($\overline{y}$)
+
+\begin{formula}{First Moment of Area}
+  \begin{equation*}
+    A' \cdot \overline{y}
+  \end{equation*}
+\end{formula}
+
+The area ($A'$) considered is determined by the location at which the shear is being calculated. In Figure \ref{fig:081}, the area considered corresponds to calculating the shear some distance $y$ from the {\color{gr} neutral axis}.
+
 \end{document}
