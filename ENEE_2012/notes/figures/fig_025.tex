@@ -1,0 +1,20 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 024}
+\date{February 15, 2025}
+
+\begin{document}
+\begin{circuitikz}
+  [scale = 0.8,
+  body/.style={fill=bl!25!bg, draw=fg, thick},
+  force/.style={draw=re, ultra thick, -stealth},
+  dimension/.style={draw=fg, thick, |-|},
+  line/.style={draw=fg, thick}]
+
+  \draw[fg, thick] (0,0) to[pR] ++(2,0);
+  \draw[] (2.5,0) node[rotate = 0, anchor = center] {or};
+  \draw[fg, thick] (3,0) to[vR] ++(2,0);
+
+\end{circuitikz}
+\end{document}

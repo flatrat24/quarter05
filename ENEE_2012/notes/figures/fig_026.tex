@@ -1,0 +1,26 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 026}
+\date{February 15, 2025}
+
+\begin{document}
+\begin{circuitikz}
+  \draw[fg, thick] (0,0) to[vsource] ++(0,4)
+  to[R, -*] ++(4,0) node[anchor = south west] {$n_1$}
+  to[short, -*] ++(2,0)
+  -- ++(2,0)
+  to[isource, l_=$I_a$] ++(0,-4)
+  to[short, -*] ++(-2,0)
+  to[short, -*] ++(-2,0) node[anchor = south west] {$n_2$}
+  -- ++(-4,0);
+
+  \draw[fg, thick] (4,4) to[R] ++(0,-4);
+  \draw[fg, thick] (6,4) to[R] ++(0,-4);
+
+  \draw[fg, thick, stealth-] (2.5,3.5) node[anchor=north] {$-$} -- node[anchor=north] {$I_1$} ++(-1,0) node[anchor=north] {$+$};
+
+  \draw[fg, thick, -stealth] (3.5,2.5) node[anchor=east] {$+$} -- node[anchor=east] {$I_2$} ++(0,-1) node[anchor=east] {$-$};
+  \draw[fg, thick, -stealth] (5.5,2.5) node[anchor=east] {$+$} -- node[anchor=east] {$I_3$} ++(0,-1) node[anchor=east] {$-$};
+\end{circuitikz}
+\end{document}

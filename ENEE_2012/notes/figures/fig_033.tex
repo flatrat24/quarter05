@@ -1,0 +1,39 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 026}
+\date{February 15, 2025}
+
+\begin{document}
+\begin{circuitikz}
+  \draw[fg, thick] (0,0) to[vsource, -*, l_=$V_a$] ++(0,4)
+  to[R, -*, l=$R_1$] ++(4,0)
+  to[short, -*] ++(2,0)
+  -- ++(2,0)
+  to[R, l=$R_3$] ++(0,-4)
+  to[short, -*] ++(-2,0)
+  to[short, -*] ++(-2,0)
+  to[short, -*] ++(-4,0);
+
+  \filldraw[thick, fill=ma, draw=ma, fill opacity = 0.25, draw opacity = 0.75] (-0.1,-0.1) rectangle ++(6.2,4.2);
+  % \filldraw[thick, fill=re, draw=re, fill opacity = 0.25, draw opacity = 0.75] (4.1,0.1) rectangle ++(1.8,3.8);
+  % \filldraw[thick, fill=gr, draw=gr, fill opacity = 0.25, draw opacity = 0.75] (6.1,0.1) rectangle ++(1.8,3.8);
+
+  \draw[fg, thick] (0,0) node[ground] {};
+
+  \draw[fg, thick] (4,4) to[isource, l=$I_a$] ++(0,-4);
+  \draw[fg, thick] (6,4) to[R, l=$R_2$] ++(0,-4);
+
+  \draw[fg, thick, -stealth] (2,1.75) arc (270:0:0.35) node[anchor=north] {$I_1$};
+  \draw[fg, thick, -stealth] (4.75,3) arc (270:0:0.35) node[anchor=north] {$I_2$};
+  \draw[fg, thick, -stealth] (6.75,3) arc (270:0:0.35) node[anchor=north] {$I_3$};
+
+  % \draw[fg, thick, stealth-] (2.5,3.5) node[anchor=north] {$-$} -- node[anchor=north] {$V_1$} ++(-1,0) node[anchor=north] {$+$};
+  % \draw[fg, thick, -stealth] (3.5,2.5) node[anchor=east] {$+$} -- node[anchor=east]   {$V_2$} ++(0,-1) node[anchor=east] {$-$};
+  % \draw[fg, thick, -stealth] (5.5,2.5) node[anchor=east] {$+$} -- node[anchor=east]   {$V_3$} ++(0,-1) node[anchor=east] {$-$};
+
+  \draw[fg] (2,3.5) node[anchor=west, xshift = 5pt]  {$-$}  node[anchor=center] {$V_1$} node[anchor=east, xshift = -5pt] {$+$};
+  \draw[fg] (5.5,2) node[anchor=south, yshift = 5pt] {$+$} node[anchor=center] {$V_2$} node[anchor=north, yshift = -5pt] {$-$};
+  \draw[fg] (7.5,2) node[anchor=south, yshift = 5pt] {$+$} node[anchor=center] {$V_3$} node[anchor=north, yshift = -5pt] {$-$};
+\end{circuitikz}
+\end{document}

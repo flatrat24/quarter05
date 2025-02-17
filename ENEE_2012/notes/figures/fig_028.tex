@@ -1,0 +1,31 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 028}
+\date{February 15, 2025}
+
+\begin{document}
+\begin{circuitikz}
+
+  \coordinate (a) at (0,0);
+  \draw[thick, fg] (a) to[vsource, l_=$V$] ++(0,3)
+    to[R, a_=$+\ V_1\ -$, l=$R_1$]  ++(3,0)
+    to[R, a_=$+\ V_2\ -$, l=$R_2$]  ++(3,0)
+    to[R, a_=$+\ V_3\ -$, l=$R_3$]  ++(3,0)
+    -- ++(0,-3)
+    -- ++(-9,0)
+    ;
+  \draw[fg, thick, -stealth] ($(a)+(4.5,1)$) arc (270:0:0.35) node[anchor=north] {$I$};
+
+  \draw[fg, ultra thick, -stealth] (9.5,1.5) -- ++(0.75,0);
+
+  \coordinate (b) at (11,0);
+  \draw[thick, fg] (b) to[vsource, l_=$V$] ++(0,3)
+    to[R, a_=$+\ V\ -$, l=$R_1+R_2+R_3$]  ++(3,0)
+    -- ++(0,-3)
+    -- ++(-3,0)
+    ;
+  \draw[fg, thick, -stealth] ($(b)+(2,1)$) arc (270:0:0.35) node[anchor=north] {$I$};
+
+\end{circuitikz}
+\end{document}

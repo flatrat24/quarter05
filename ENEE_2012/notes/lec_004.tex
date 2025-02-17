@@ -2,77 +2,134 @@
 
 \input{../../xlatex/imports/preamble}
 
-\title{Lecture 004}
-\date{February 03, 2025}
+\title{Lecture 003}
+\date{January 27, 2025}
 
 \begin{document}
-
 \newpage
-\section{Circuit Theorems}
-\label{sec:circuitTheorems}
 
-\subsection{Linearity}
-\label{ssec:linearity}
+\section{Methods of Analysis}
+\label{sec:methodsOfAnalysis}
 
-\begin{definition}{Linear Circuit}
-  A linear circuit is one whose output is linearly related to its input.
-\end{definition}
+\subsection{Nodal Analysis}
+\label{ssec:nodalAnalysis}
 
-More specifically, a linear circuit must satisfy the homogeneity (scaling) property as well as well as the additive property. Homogeneity means
+Nodal analysis applies Kirchoff's Current Law (Subsubsection \ref{sssec:kirchoffsCurrentLaw}) at each node in a circuit to find the voltages at each of those nodes relative to some ground.
 
-\begin{figure}[H]
-  
-  \caption{Linear}
-  \label{fig:}
-\end{figure}
+Consider the current in Figure \ref{fig:030}. In this circuit, there are three nodes, each labeled with some voltage $V_1$, $V_2$, and $V_3$. Applying nodal analysis to this circuit would start with applying KCL at each node:
+\begin{wrapfigure}[10]{r}{0.45\textwidth}
+  \vspace{-10pt}
+  \centering
+  \includestandalone{figures/fig_030}
+  \caption{Nodal Analysis}
+  \label{fig:030}
+\end{wrapfigure}
+\begin{align*}
+  @ V_1 \rightarrow 0 &= -I_1 + I_2 + I_3 + I_a \\
+  @ V_2 \rightarrow 0 &= I_1 - I_2 - I_3 - I_a
+\end{align*}
+Then, by applying Ohm's Law to each of the currents, the equations can be rewritten as:
+\begin{align*}
+  @ V_1 \rightarrow 0 &= -\frac{V_1-V_2}{R_1} + \frac{V_2-V_G}{R_2} + \frac{V_2-V_G}{R_3} + I_a \\
+  @ V_2 \rightarrow 0 &= \frac{V_1-V_2}{R_1} - \frac{V_2-V_G}{R_2} - \frac{V_2-V_G}{R_3} - I_a
+\end{align*}
+At this point, the equations can be treated as any other system of equations and be solved through linear algebra and matrices. In this case, since there are only two unknown values ($V_1$ and $V_2$), linear algebra is not needed. However, as the circuits become more complicated, the linear algebra approach becomes more appealing.
 
-\textit{Power is non-linear}.
+\subsubsection{Supernodes}
+\label{sssec:supernodes}
 
-\subsection{Superposition}
-\label{ssec:superposition}
+Consider the circuit in Figure \ref{fig:031}. This circuit contains a {\color{ma} supernode} around $V_a$ because the voltage source is between two non-reference nodes.
 
-\begin{definition}{Superposition Principle}
-  The superposition principle states that the voltage across an element \textit{in a linear} circuit is the algebraic sum of the voltages across that element due to each independent source \textit{acting alone}.
+\begin{definition}{Supernode}
+  A supernode is formed by enclosing a voltage source connected between two non-reference nodes and any elements connected in parallel with it.
 \end{definition}
 
 \begin{figure}[H]
   \centering
-  \includestandalone{figures/fig_011}
-  \caption{Circuit}
-  \label{fig:011}
+  \includestandalone{figures/fig_031}
+  \caption{Supernode}
+  \label{fig:031}
 \end{figure}
-Consider the circuit in Figure \ref{fig:011}. This circuit has two sources, and while it can be analyzed through mesh and nodal analysis, the principle of superposition can also be applied to it. By doing so, two similar circuits can be constructed, each taking only a single source at once.
+
+In cases with a supernode, the current over the voltage source ($V_b$) can't be found through simple Ohm's Law. Instead, the supernode can be treated as a single node to apply KCL to:
+\begin{equation*}
+  0 = I_1 - I_2 - I_3 - I_a
+\end{equation*}
+which then can be transformed with Ohm's law to an equation in terms of voltages and resistances. However, from these two nodes ($V_2$ and $V_3$) only once equation was found. The second equation can be formulated as just the voltage difference between the two nodes due to the voltage source:
+\begin{equation*}
+  V_2 + V_b = V_3
+\end{equation*}
+This supernode analysis can then be combined with regular nodal analysis at $V_1$ to complete the analysis of the circuit.
+
+\subsection{Mesh Analysis}
+\label{ssec:meshAnalysis}
+
+Mesh analysis applies Kirchoff's Voltage Law (Subsubsection \ref{sssec:kirchoffsVoltageLaw}) at each loop in the circuit to find the currents in each of those loops.
+
+Consider the circuit in Figure \ref{fig:032}. In the circuit, there are three loops each with some current ($I_1$, $I_2$, and $I_3$) flowing through them. According to KVL, the total voltage rise/drop throughout each of these loops should be zero.
+
 \begin{figure}[H]
   \centering
+  \includestandalone{figures/fig_032}
+  \caption{Mesh Analysis}
+  \label{fig:032}
+\end{figure}
+
+The first step, then, to applying mesh analysis onto the circuit would be to sum the voltages around each loop. It's important to keep a consistent sign convention (\ref{ssec:signConvention}) in which current flows from high ($+$) to low ($-$) voltages. Thus, a voltage drop across a resistor ($+ \rightarrow -$) would be positive and a voltage rise ($- \rightarrow +$) would be negative:
+\begin{align*}
+  @ I_1 \rightarrow V_a  &= V_1 + V_2 \\
+  @ I_2 \rightarrow 0    &= -V_2 + V_3 \\
+  @ I_3 \rightarrow -V_b &= V_3
+\end{align*}
+Applying Ohm's Law to each voltage, the equations become:
+\begin{figure}[H]
+  \vspace{-20pt}
   \begin{subfigure}[H]{0.45\textwidth}
     \centering
-    \includestandalone{figures/fig_012}
-    \caption{Voltage Source}
-    \label{fig:012}
+    \begin{align*}
+      V_a  &= R_1(I_1) + R_2(I_1-I_2) \\
+      0    &= -R_2(I_1-I_2) + R_3(I_2-I_3) \\
+      -V_b &= R_3(I_2-I_3)
+    \end{align*}
   \end{subfigure}
+  $\rightarrow$
   \begin{subfigure}[H]{0.45\textwidth}
     \centering
-    \includestandalone{figures/fig_013}
-    \caption{Current Source}
-    \label{fig:013}
+    \begin{align*}
+      V_a  &= I_1(R_1 + R_2) + I_2(-R_2) + I_3(0) \\
+      0    &= I_1(-R_2) + I_2(R_2 + R_3) + I_3(-R_3) \\
+      -V_b &= I_1(0) + I_2(-R_3) + I_3(R_3)
+    \end{align*}
   \end{subfigure}
-  \caption{Sub-Circuits}
-  \label{fig:subcircuits}
 \end{figure}
-From here, each circuit can be analyzed independently. The values found for voltages and currents throughout the circuits can be summed to find the values from the original circuit in Figure \ref{fig:011}.
+From here, it's just a matter of solving a system of equations by any means necessary.
 
-\subsection{Source Transformation}
-\label{ssec:sourceTransformation}
+\subsubsection{Supermesh}
+\label{sssec:supermesh}
 
-\begin{definition}{Source Transformation}
-  A source transformation is the process of replacing a voltage source $V_s$ in series with a resistor $R$ with a current source $I_s$ in parallel with a resistor or vice versa.
+Consider the circuit in Figure \ref{fig:033}. If this circuit were to be approached exactly like the circuit in Figure \ref{fig:032}, eventually a roadblock would be hit since the voltage drop across the current source $I_a$ cannot be calculated through Ohm's Law. This is because the two loops $I_1$ and $I_2$ form a {\color{ma} supermesh}.
+
+\begin{definition}{Supermesh}
+  A supermesh results when two meshes/loops share a current source.
 \end{definition}
 
 \begin{figure}[H]
   \centering
-  \includestandalone{figures/fig_014}
-  \caption{Source Transformation}
-  \label{fig:014}
+  \includestandalone{figures/fig_033}
+  \caption{Supermesh}
+  \label{fig:033}
 \end{figure}
+
+To solve this circuit, supermesh analysis must be applied. Similarly to the supernode analysis, the supermesh can be treated as a single loop in which the voltage drop throughout the entire {\color{ma} supermesh} is set to zero:
+\begin{align*}
+  V_a             &= V_1 + V_2 \\
+  \Rightarrow V_a &= R_1(I_1) + R_2(I_2 - I_3) \\
+  \Rightarrow V_a &= I_1(R_1) + I_2(R_2) + I_3(-R_2)
+\end{align*}
+The second equation derived from the supermesh would be the relationship between the currents $I_1$, $I_2$, and $I_a$:
+\begin{equation*}
+  I_a = I_1 - I_2
+\end{equation*}
+The equation in the loop $I_3$ can be found normally, and from there a system of equations can be solved however desired.
 
 \end{document}

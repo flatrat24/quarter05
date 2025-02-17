@@ -3,135 +3,129 @@
 \input{../../xlatex/imports/preamble}
 
 \title{Lecture 002}
-\date{January 21, 2025}
+\date{February 15, 2025}
 
 \begin{document}
+
 \newpage
+\section{Circuit Elements}
+\label{sec:circuitElements}
 
-\section{Basic Laws}
-\label{sec:basicLaws}
+\subsection{Sources}
+\label{ssec:sources}
 
-\subsection{Ohm's Law}
-\label{ssec:ohmsLaw}
+The most basic kind of source is an \textbf{ideal independent source}. These can be in the form of a voltage or current source, and supply some fixed amount of either voltage or current.
 
-\textbf{Ohm's Law} states that the voltage $V$ is \textit{directly} proportional to the current $I$ and resistance $R$ of a circuit.
-
-\begin{formula}{Ohm's Law}
-  \begin{equation*}
-    V = IR
-  \end{equation*}
-  Where:
-  \begin{equation*}
-    R = \rho \cdot \frac{l}{A}
-  \end{equation*}
-\end{formula}
-
-When there is current flowing through a wire with resistance approaching zero, a \textbf{short circuit} is created. Conversely, an \textbf{open circuit} is where the resistance in a circuit approaches infinity.
-
-Whereas resistance measures how much something impedes the flow of current, \textbf{conductance} is the ability of an element of conduct electric current; it is measured in mhos ($\mho$) or siemens ($S$).
-
-\subsubsection{Resistivity}
-\label{sssec:resistivity}
-
-\begin{definition}{Resistivity ($\rho$)}
-  A value representing the amount a material conducts electricity. Most metals tend to have high conductivity, while rubber has a low conductivity.
+\begin{definition}{Ideal Independent Source}
+  An ideal independent source is an active element that provides specified voltage or current that is completely independent of other circuit elements.
 \end{definition}
 
-The resistance $\si{R}$ of a wire, for example, is a value to varies with the inherent properties as well as the dimensions of the wire and its materials. The inherent properties of a material as they relate to resistance are codified as a material's \textbf{resistivity}.
-
-\subsection{Nodes, Branches, and Loops}
-\label{ssec:nodesBranchesLoops}
-
-\begin{definition}{Branch $(b)$}
-  Represents a single element in a circuit such as a resistor or power supply.
-\end{definition}
-
-\begin{wrapfigure}[7]{l}{0.35\textwidth}
+\begin{figure}[H]
   \centering
-  \includestandalone{figures/fig_007}
-  \caption{Nodes and Branches}
-  \label{fig:007}
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \begin{subfigure}[H]{0.45\textwidth}
+      \centering
+      \includestandalone{figures/fig_015}
+      \caption{Voltage Source}
+      \label{fig:015}
+    \end{subfigure}
+    \begin{subfigure}[H]{0.45\textwidth}
+      \centering
+      \includestandalone{figures/fig_016}
+      \caption{Current Source}
+      \label{fig:016}
+    \end{subfigure}
+    \caption{Independent Sources}
+    \label{fig:independentSources}
+  \end{subfigure}
+  \vrule
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \begin{subfigure}[H]{0.45\textwidth}
+      \centering
+      \includestandalone{figures/fig_017}
+      \caption{Voltage Source}
+      \label{fig:017}
+    \end{subfigure}
+    \begin{subfigure}[H]{0.45\textwidth}
+      \centering
+      \includestandalone{figures/fig_018}
+      \caption{Current Source}
+      \label{fig:018}
+    \end{subfigure}
+    \caption{Controlled Sources}
+    \label{fig:controlledSources}
+  \end{subfigure}
+  \caption{Sources}
+  \label{fig:sources}
+\end{figure}
+
+In addition to ideal independent sources, there also exist \textbf{ideal controlled sources}. Again, they can provide either voltage or current, but the amount they provide is dependent on the circuit they are a part of.
+
+\begin{definition}{Ideal Controlled Source}
+  An ideal controlled source is an active element in which the source quantity is controlled by another voltage or current.
+\end{definition}
+
+\begin{wrapfigure}[11]{r}{0.45\textwidth}
+  \vspace{-10pt}
+  \begin{subfigure}[H]{0.45\textwidth}
+    \begin{subfigure}[H]{0.45\textwidth}
+      \includestandalone{figures/fig_019}
+      \caption{VCVS}
+      \label{fig:019}
+    \end{subfigure}
+    \begin{subfigure}[H]{0.45\textwidth}
+      \includestandalone{figures/fig_020}
+      \caption{CCVS}
+      \label{fig:020}
+    \end{subfigure}
+  \end{subfigure}
+  \begin{subfigure}[H]{0.45\textwidth}
+    \begin{subfigure}[H]{0.45\textwidth}
+      \includestandalone{figures/fig_021}
+      \caption{VCCS}
+      \label{fig:021}
+    \end{subfigure}
+    \begin{subfigure}[H]{0.45\textwidth}
+      \includestandalone{figures/fig_022}
+      \caption{CCCS}
+      \label{fig:022}
+    \end{subfigure}
+  \end{subfigure}
+  \caption{Controlled Source Types}
+  \label{fig:controlledSourceTypes}
 \end{wrapfigure}
 
-In Figure \ref{fig:007}, there exist \textit{five} branches in the circuit. Specifically, there are three resistors, one voltage source, and one current source:
-\begin{equation*}
-  3 + 1 + 1 = 5
-\end{equation*}
+As stated earlier, controlled sources can provide either current or voltage. Furthermore, they can be \textit{dependent} on either some voltage ($V_x$) or some current ($I_x$) in a circuit. Thus, there are four kinds of controlled sources:
 
-\begin{definition}{Node ($n$)}
-  The point of connection between two or more branches.
-\end{definition}
+\begin{itemize}
+  \itemsep0em
+  \item \textbf{V}oltage \textbf{C}ontrolled \textbf{V}oltage \textbf{S}ource (\ref{fig:019})
+  \item \textbf{C}urrent \textbf{C}ontrolled \textbf{V}oltage \textbf{S}ource (\ref{fig:020})
+  \item \textbf{V}oltage \textbf{C}ontrolled \textbf{C}urrent \textbf{S}ource (\ref{fig:021})
+  \item \textbf{C}urrent \textbf{C}ontrolled \textbf{C}urrent \textbf{S}ource (\ref{fig:022})
+\end{itemize}
 
-In the same circuit (\ref{fig:007}), there are three nodes. Each node is highlighted in a different color. Notice that there are no branches within a node, thus each node is the largest area possible without crossing a branch. Furthermore, the voltage throughout an ideal node is zero.
+\subsection{Resistors}
+\label{ssec:resistors}
 
-\begin{definition}{Loop ($l$)}
-  A loop is any \textit{closed} path in a circuit. Generally, loops are defined as the smallest possible path.
-\end{definition}
-
-\begin{figure}[H]
-  \centering
-  \includestandalone{figures/fig_008}
-  \caption{Loops}
-  \label{fig:008}
-\end{figure}
-\vspace{-10pt}
-Each shown in a different color in Figure \ref{fig:008}, loops are easy to visualize as the area enclosed by any closed series of components.
-
-\begin{formula}{Network Topology}
-  \begin{equation*}
-    b = l + n - 1
-  \end{equation*}
-  \vspace{-17pt}
-\end{formula}
-
-\subsubsection{In Parallel vs. Series}
-\label{sssec:inParallelVsSeries}
-
-\begin{definition}{Series}
-  Two or more elements are in series if they exclusively share a single node and consequently carry the same current.
-\end{definition}
+The most basic kind of resistor is just a fixed resistor (as seen in Figure \ref{fig:024}). These resistors will have some set value of $R$ that does not change.
 
 \begin{figure}[H]
   \centering
-  \begin{subfigure}[H]{0.45\textwidth}
-    \centering
-    \includestandalone{figures/fig_009}
-    \caption{Loops}
-    \label{fig:009}
-  \end{subfigure}
-  \begin{subfigure}[H]{0.45\textwidth}
-    \centering
-    \includestandalone{figures/fig_010}
-    \caption{Loops}
-    \label{fig:010}
-  \end{subfigure}
-  \caption{In Parallel and In Series}
-  \label{fig:inParallelAndInSeries}
+  \includestandalone{figures/fig_024}
+  \caption{Fixed Resistor}
+  \label{fig:024}
 \end{figure}
 
-Continuing with the same circuit, Figure \ref{fig:009} highlights elements in series. The only two elements in series are the voltage source and the top resistor.
+There also exist variable resistors (also called potentiometers). These resistors can by manipulated manually, or through the design of a circuit, to have variable resistances. (Figure \ref{fig:025})
 
-Figure \ref{fig:010} highlights two of the three sets of parallel components. The third set would be the leftmost vertical resistor and the current source.
-
-\begin{definition}{In Parallel}
-  Two or more elements are in parallel if they are connected to the same two notes and consequently have the same voltage across them.
-\end{definition}
-
-\subsection{Kirchhoff's Laws}
-\label{ssec:kirchoffsLaws}
-
-\begin{definition}{Kirchhoff's Current Law}
-  Kirchhoff's Current Law (KCL) states that the algebraic sum of currents entering a node (or a closed boundary) is zero:
-  \begin{equation*}
-    \sum_{n=1}^{N_{branch}} i_n = 0
-  \end{equation*}
-\end{definition}
-
-\begin{definition}{Kirchhoff's Voltage Law}
-  Kirchhoff's Voltage Law (KVL) states that the algebraic sum of all voltages around a closed path is zero:
-  \begin{equation*}
-    \sum_{m=1}^{M_{branch}} v_m = 0
-  \end{equation*}
-\end{definition}
+\begin{figure}[H]
+  \centering
+  \includestandalone{figures/fig_025}
+  \caption{Variable Resistor}
+  \label{fig:025}
+\end{figure}
 
 \end{document}
