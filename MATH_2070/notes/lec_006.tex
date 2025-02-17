@@ -81,6 +81,7 @@ Finding the complementary solution is simple. All that needs to be done is descr
   \item Variation of Parameter
 \end{enumerate}
 
+\newpage
 \subsection{Method of Undetermined Coefficients}
 \label{ssec:methodOfUndeterminedCoefficients}
 The method makes it easy to generalize to higher order ODEs, however it only works for:
@@ -89,143 +90,338 @@ The method makes it easy to generalize to higher order ODEs, however it only wor
 \end{equation*}
 Where $g(t)$ is a product of exponential polynomials, $\sin$, and $\cos$ functions. However, these limitations aren't very relevant for engineering applications.
 
-\begin{example}
-  \begin{equation*}
-    y'' - 2y' - 3y = 3
-  \end{equation*}
-  RHS is a constant function, so try a constant function.
-
-  First, using the complementary equation, namely:
-  \begin{equation*}
-    y'' - 2y' - 3y = 0
-  \end{equation*}
-  The auxiliary equation can be formulated as:
-  \begin{equation*}
-    r^2 - 2r - 3
-  \end{equation*}
-  Giving roots of $r_1=3$, $r_2=-1$, thus giving the general solution as:
-  \begin{equation*}
-    y_c = C_1e^{3t} + C_2e^{-t}
-  \end{equation*}
-
-  Set $Y$ equal to some constant $A$:
-  \begin{align*}
-    Y = A   \\
-    Y' = 0  \\
-    Y'' = 0
-  \end{align*}
-  and plug in the ODE:
-  \begin{equation*}
-    Y'' - 2Y' - 3Y = 0 - 0 - 3A = 3 \Rightarrow -3A = 3 \Rightarrow A = -1
-  \end{equation*}
-  Giving $Y=-1$ as a particular solution, so then the general solution is:
-  \begin{equation*}
-    y = c_1e^{3t} + C_2e^{-t} - 1
-  \end{equation*}
-\end{example}
-It should be noted that if the RHS is a polynomial of degree $n$, $Y$ should be set as a generic polynomial of degree $n$. Even when $g(t) = t$, $Y$ should still start from degree $n$, and work all the way down to the constant.
-\begin{example}
-  \begin{equation*}
-    y'' - y' - 2y = t^2 + 1
-  \end{equation*}
-  Since the RHS is a polynomial function of degree $2$, so to solve, first try a polynomial function of degree $2$.
-
-  By inspection, the complimentary solution of $y'' - y' - 2y = 0$ is:
-  \begin{equation*}
-    y_c = C_1e^{-t}+C_2e^{2t}
-  \end{equation*}
-  Set:
-  \begin{align*}
-    Y &= At^2 + Bt + C \\
-    Y' &= 2At + B \\
-    Y'' &= 2A
-  \end{align*}
-  Thus:
-  \begin{align*}
-    Y'' - Y' - 2Y &= 2A - (2At+B) - 2\left(At^2+Bt+C\right) \\
-                  &= (-2A)t^2 + (-2A-2B)t + (2A - B - 2C) \\
-                  &= t^2 + 1
-  \end{align*}
-  Thus, setting $t^2 + 1$ and $2At^2 + (-2A-2B)t + 2A - B - 2C$ equal to each other, it can be found that:
-  \begin{align*}
-    -2At^2 = 1t^2         &\Rightarrow -2A = 1 \\
-    (-2A-2B)t^1 = (0)t^1  &\Rightarrow -2A-2B = 0 \\
-    (2A-B-2C)t^0 = (1)t^0 &\Rightarrow 2A-B-2C = 1
-  \end{align*}
-  Then solving for each value of $A$, $B$, and $C$:
-  \begin{gather*}
-    A = -\frac{1}{2} \\
-    B = -A = \frac{1}{2} \\
-    C = \frac{2A-B-1}{2} = -\frac{5}{4}
-  \end{gather*}
-  Giving the particular solution $Y$ as:
-  \begin{equation*}
-    Y = -\frac{1}{2}t^2 + \frac{1}{2}t - \frac{5}{4}
-  \end{equation*}
-  and the general solution as:
-  \begin{equation*}
-    y = C_1e^{-t} + C_2e^{2t} - \frac{1}{2}t^2 + \frac{1}{2}t - \frac{5}{4}
-  \end{equation*}
-\end{example}
-
-\begin{example}
-  \begin{equation*}
-    y'' - y' - 2y = t^3
-  \end{equation*}
-  First, setting the particular solution $Y$ as some generic polynomial of the $n^{th}$ degree:
-  \begin{align*}
-    Y &= At^3 - Bt^2 + Ct + D \\
-    Y' &= 3At^2 - 2Bt + C \\
-    Y'' &= 6At^1 - 2B
-  \end{align*}
-  and plugging it in:
-  \begin{equation*}
-    Y'' - Y' - 2Y = -2A^3 + \left(-3A-2B\right)t^2 + (6A-2B-2C)t + (2B-C-2D)
-  \end{equation*}
-  Comparing $Y = At^3 - Bt^2 + Ct + D$ with $-2A^3 + \left(-3A-2B\right)t^2 + (6A-2B-2C)t + (2B-C-2D)$, a system of equations can be found as:
-  \begin{gather*}
-    -2A = 1 \\
-    -3A-2B = 0 \\
-    6A - 2B - 2C = 0 \\
-    2B - C - 2D = 0
-  \end{gather*}
-  Solving the system gives:
-  \begin{align*}
-    A &= - \frac{1}{2} \\
-    B &= - \frac{3}{2}A = \frac{3}{4} \\
-    C &= \frac{1}{2}(6A-2B) = -\frac{9}{4} \\
-    D &= \frac{1}{2}(2B-C) = \frac{15}{8}
-  \end{align*}
-  Thus finding the particular solution as:
-  \begin{equation*}
-    Y = - \frac{1}{2}t^3 + \frac{3}{4}t^2 + -\frac{9}{4}t + \frac{15}{8}
-  \end{equation*}
-  and subsequently, the general solution as:
-  \begin{equation*}
-    y = C_1e^{2t} + C_2e^{-t} - \frac{1}{2}t^3 + \frac{3}{4}t^2 + -\frac{9}{4}t + \frac{15}{8}
-  \end{equation*}
-\end{example}
-
-\subsection{Variation of Parameters}
-\label{ssec:variationOfParameters}
-
-The most general way to obtain $Y$ is a \textbf{Variation of Parameters}.
-
-Knowing that $y_c = C_1y_1 + C_2y_2$, then $C_1$, $C_2$ are varriated into function such that:
+\subsubsection{Constant Functions}
+\label{sssec:constantFunctions}
+Consider the ODE:
 \begin{equation*}
-  Y = u_1y_1 + u_2y_2
+  y'' - 2y' - 3y = 3
 \end{equation*}
-Then plugging $Y$ into the non-homogeneous ODE:
-\[
-  \begin{cases} 
-    u_1'y_1 + u_2'y_2 = 0 \\
-    u_1'y_1' + u_2'y_2' = g(t)
-  \end{cases}
-  \Rightarrow u_1' = \frac{-y_2 \cdot g}{W(y_1,y_2)}, u_1' = \frac{y_1 \cdot g}{W(y_1,y_2)} \\
-\]
+% First, using the complementary equation, namely:
+% \begin{equation*}
+%   y'' - 2y' - 3y = 0
+% \end{equation*}
+% The auxiliary equation can be formulated as:
+% \begin{equation*}
+%   r^2 - 2r - 3
+% \end{equation*}
+% Giving roots of $r_1=3$, $r_2=-1$, thus giving the general solution as:
+% \begin{equation*}
+%   y_c = C_1e^{3t} + C_2e^{-t}
+% \end{equation*}
+
+Since the RHS is a constant function, set $Y$ equal to some constant function $A$:
+\begin{align*}
+  Y = A   \\
+  Y' = 0  \\
+  Y'' = 0
+\end{align*}
+and plug in the ODE:
+\begin{align*}
+  Y'' - 2Y' - 3Y  &= 0 - 0 - 3A = 3 \\
+  \Rightarrow -3A &= 3 \\
+  \Rightarrow A   &= -1
+\end{align*}
+Giving $Y=-1$ as a particular solution, so the particular solution is:
 \begin{equation*}
-  Y = y_1 \cdot \int_{}^{} \frac{-y_2 \cdot g}{W(y_1,y_2)} \,dt + y_2 \cdot \int_{}^{} \frac{y_1 \cdot g}{W(y_1,y_2)} \,dt
+  Y = -1
 \end{equation*}
-As can probably be seen, higher order generalization is very complicated. Thus introduces the \textbf{Method of Undetermined Coefficients}.
+% And the general solutions is:
+% \begin{equation*}
+%   y = c_1e^{3t} + C_2e^{-t} - 1
+% \end{equation*}
+\subsubsection{Polynomial Functions}
+\label{sssec:polynomialFunctions}
+Consider the ODE:
+\begin{equation*}
+  y'' - y' - 2y = t^2 + 1
+\end{equation*}
+
+% By inspection, the complimentary solution of $y'' - y' - 2y = 0$ is:
+% \begin{equation*}
+%   y_c = C_1e^{-t}+C_2e^{2t}
+% \end{equation*}
+
+Since the RHS is a polynomial function of degree $2$, $Y$ can be set equal to a generic polynomial function of degree $2$. Set:
+\begin{align*}
+  Y &= At^2 + Bt + C \\
+  Y' &= 2At + B \\
+  Y'' &= 2A
+\end{align*}
+Thus:
+\begin{align*}
+  Y'' - Y' - 2Y &= 2A - (2At+B) - 2\left(At^2+Bt+C\right) \\
+                &= (-2A)t^2 + (-2A-2B)t + (2A - B - 2C) \\
+                &= t^2 + 1
+\end{align*}
+Setting $t^2 + 1$ and $(2A)t^2 + (-2A-2B)t^1 + (2A - B - 2C)t^0$ equal to each other, it can be found that:
+\begin{align*}
+  -2At^2 = 1t^2         &\Rightarrow -2A = 1 \\
+  (-2A-2B)t^1 = (0)t^1  &\Rightarrow -2A-2B = 0 \\
+  (2A-B-2C)t^0 = (1)t^0 &\Rightarrow 2A-B-2C = 1
+\end{align*}
+Then solving for each value of $A$, $B$, and $C$:
+\begin{gather*}
+  A = -\frac{1}{2} \\
+  B = -A = \frac{1}{2} \\
+  C = \frac{2A-B-1}{2} = -\frac{5}{4}
+\end{gather*}
+Giving the particular solution $Y$ as:
+\begin{equation*}
+  Y = -\frac{1}{2}t^2 + \frac{1}{2}t - \frac{5}{4}
+\end{equation*}
+% and the general solution as:
+% \begin{equation*}
+%   y = C_1e^{-t} + C_2e^{2t} - \frac{1}{2}t^2 + \frac{1}{2}t - \frac{5}{4}
+% \end{equation*}
+
+It should be noted that if the RHS is a polynomial of degree $n$, $Y$ should be set as a generic polynomial of degree $n$. Even when $g(t) = t$, $Y$ should still start from degree $n$, and work all the way down to the constant. For example, if:
+\begin{align*}
+  g(t) = t^2 + t + 1  &\Rightarrow Y = At^2 + Bt + C \\
+  g(t) = 6t^4         &\Rightarrow Y = At^4 + Bt^3 + Ct^2 + Dt + E \\
+  g(t) = t            &\Rightarrow Y = At \\
+  g(t) = -t^3 + t - 8 &\Rightarrow Y = At^3 + Bt^2 + Ct^1 + D
+\end{align*}
+
+As a full example, consider the ODE:
+\begin{equation*}
+  y'' - y' - 2y = t^3
+\end{equation*}
+First, setting the particular solution $Y$ as some generic polynomial of the $n^{th}$ degree:
+\begin{align*}
+  Y &= At^3 - Bt^2 + Ct + D \\
+  Y' &= 3At^2 - 2Bt + C \\
+  Y'' &= 6At^1 - 2B
+\end{align*}
+and plugging it in:
+\begin{equation*}
+  Y'' - Y' - 2Y = -2A^3 + \left(-3A-2B\right)t^2 + (6A-2B-2C)t + (2B-C-2D)
+\end{equation*}
+Comparing $Y = At^3 - Bt^2 + Ct + D$ with $-2A^3 + \left(-3A-2B\right)t^2 + (6A-2B-2C)t + (2B-C-2D)$, a system of equations can be found as:
+\begin{gather*}
+  -2A = 1 \\
+  -3A-2B = 0 \\
+  6A - 2B - 2C = 0 \\
+  2B - C - 2D = 0
+\end{gather*}
+Solving the system gives:
+\begin{align*}
+  A &= - \frac{1}{2} \\
+  B &= - \frac{3}{2}A = \frac{3}{4} \\
+  C &= \frac{1}{2}(6A-2B) = -\frac{9}{4} \\
+  D &= \frac{1}{2}(2B-C) = \frac{15}{8}
+\end{align*}
+Thus finding the particular solution as:
+\begin{equation*}
+  Y = - \frac{1}{2}t^3 + \frac{3}{4}t^2 + -\frac{9}{4}t + \frac{15}{8}
+\end{equation*}
+and subsequently, the general solution as:
+\begin{equation*}
+  y = C_1e^{2t} + C_2e^{-t} - \frac{1}{2}t^3 + \frac{3}{4}t^2 + -\frac{9}{4}t + \frac{15}{8}
+\end{equation*}
+
+\subsubsection{Exponential Functions}
+\label{sssec:exponentialFunctions}
+
+Consider the ODE:
+\begin{equation*}
+  y'' - y' - 2y = e^{3t}
+\end{equation*}
+Since the RHS is an exponential function, formulate $Y$ as some generic exponential function with \textbf{the same} exponential coefficient.
+\begin{align*}
+  Y   &= Ae^{3t} \\
+  Y'  &= 3Ae^{3t} \\
+  Y'' &= 9Ae^{3t}
+\end{align*}
+then plug into the ODE:
+\begin{align*}
+  Y'' - Y' - 2Y &= 9Ae^{3t} - 3Ae^{3t} - 2\left(Ae^{3t}\right) \\
+                &= 9Ae^{3t} - 3Ae^{3t} - 2\left(Ae^{3t}\right) \\
+                &= 4Ae^{3t} = e^{3t}
+\end{align*}
+Thus showing that:
+\begin{equation*}
+  A = \frac{1}{4} \rightarrow Y = Ae^{3t} = \frac{1}{4}e^{3t}
+\end{equation*}
+
+\subsubsection{Sine and Cosine Functions}
+\label{sssec:sinAndCosFunctions}
+
+Consider the ODE:
+\begin{equation*}
+  y'' - 2y' + y = 3\sin(3t)
+\end{equation*}
+Since the RHS is some linear combination of $\sin$ and $\cos$ functions, formulate $Y$ as a generic summation of $\sin$ and $\cos$ with \textbf{the same} trigonometric coefficient.
+\begin{align*}
+  Y   &= A\sin(3t) + B\cos(3t) \\
+  Y'  &= 3A\cos(3t) - 3B\sin(3t) \\
+  Y'' &= -9A\sin(3t) - 9B\cos(3t)
+\end{align*}
+then plug into the ODE:
+\begin{align*}
+  Y'' - 2Y' + Y &= \left[-9A\sin(3t) - 9B\cos(3t)\right] - 2\left[3A\cos(3t) - 3B\sin(3t)\right] + \left[A\sin(3t) + B\cos(3t)\right] \\
+                &= (-8A+6B)\sin(3t) + (-8B-6A)\cos(3t) = 3\sin(3t)
+\end{align*}
+Thus showing that:
+\begin{align*}
+  -8A + 6B &= 3 \\
+  -8B - 6A &= 0
+\end{align*}
+and, in turn, that:
+\begin{equation*}
+  A = -\frac{6}{25}\ \ \\textup{,}\ \ \ B =  \frac{9}{50} \rightarrow Y = -\frac{6}{25}\sin(3t)+\frac{9}{50}\cos(3t)
+\end{equation*}
+Note that, for any linear combination of $\sin$ and $\cos$, this process works. It doesn't matter that the example case of $g(t)$ was without a $\cos$ term. For example:
+\begin{align*}
+  g(t) = 3\cos(2t)              &\Rightarrow Y = A\sin(2t) + B\cos(2t) \\
+  g(t) = \frac{1}{2}\sin(t)     &\Rightarrow Y = A\sin(t) + B\cos(t) \\
+  g(t) = \sin(4t) + \cos(4t)    &\Rightarrow Y = A\sin(4t) + B\cos(4t)
+\end{align*}
+
+\subsubsection{First Ansatz}
+\label{sssec:firstAnsatz}
+
+These methods described in Subsubsections \ref{sssec:constantFunctions}, \ref{sssec:polynomialFunctions}, \ref{sssec:exponentialFunctions}, and \ref{sssec:sinAndCosFunctions} all work because:
+\begin{itemize}
+  \itemsep0em
+  \item Derivatives of constant functions are constant functions ($0$)
+  \item Derivatives of polynomial functions are polynomials (up the same degree)
+  \item Derivatives of exponential functions are exponential functions (with the same exponential coefficient)
+  \item Derivatives of sine and cosine functions are sine and cosine functions (with the same trigonometric coefficient)
+\end{itemize}
+And so, the general approach for an ODE in the form:
+\begin{equation*}
+  ay'' + by' + cy = g(t)
+\end{equation*}
+If $g(t)$ is:
+\begin{itemize}
+  \itemsep0em
+  \item A constant function, eg. $2$, $16$, $-12$:
+    \begin{equation*}
+      Y = A
+    \end{equation*}
+  \item A polynomial function of degree {\color{gr} $n$}, eg. $t^{{\color{gr} 3}} + 2t - 1$, $t - 12 + t^{{\color{gr} 100}}$, $t^{\color{gr} 1}$:
+    \begin{equation*}
+      Y = At^n + Bt^{n-1} + Ct^{n-2} + \hdots + Dt + E = \sum_{i=0}^{n} C_it^{n-i}
+    \end{equation*}
+  \item An exponential function with an exponential coefficient of {\color{re} $\alpha$}, eg. $12e^{{\color{re}3}t}$, $e^{{\color{re}1}t}$, $32e^{{\color{re}-5}t}$:
+    \begin{equation*}
+      Y = Ae^{{\color{re}\alpha}t}
+    \end{equation*}
+  \item A linear combination of $\sin$ and $\cos$ with a trig coefficient of {\color{ma} $\beta$}, eg. $\sin({\color{ma}3}t)$, $\sin({\color{ma}2}t) - 12\cos({\color{ma}2}t)$:
+    \begin{equation*}
+      Y = A\sin({\color{ma}\beta}t) + B\cos({\color{ma}\beta}t) \\
+    \end{equation*}
+\end{itemize}
+This list of templates for solving for the particular solution of a non-homogeneous ODE continues with combinations of the basic types in Subsubsections \ref{sssec:constantFunctions}, \ref{sssec:polynomialFunctions}, \ref{sssec:exponentialFunctions}, and \ref{sssec:sinAndCosFunctions}.
+
+If $g(t)$ is:
+\begin{itemize}
+  \itemsep0em
+  \item A product of a {\color{gr} polynomial} and {\color{re} exponential} function, eg. $4t^3e^{3t}$, $\left(t^3 + 2t\right)e^{-t}$
+    \begin{equation*}
+      Y = \left({\color{gr} \sum_{i=0}^{n} C_it^{n-i}}\right){\color{re} e^{\alpha t}}
+    \end{equation*}
+  \item A product of a {\color{gr} polynomial} and {\color{ma} trigonometric} function, eg. $4t^2\sin(2t)$, $t^4\sin(3t) + 2t^2\cos(3t)$
+    \begin{equation*}
+      Y = \left({\color{gr} \sum_{i=0}^{n} C_it^{n-i}}\right){\color{ma} \sin(\beta t)} + \left({\color{gr} \sum_{i=n}^{2n} C_it^{2n-i}}\right){\color{ma} \cos(\beta t)}
+    \end{equation*}
+    It should be noted that both $\sin$ and $\cos$ are paired with a generic polynomial of the \textbf{same highest degree} from $g(t)$. Additionally, the coefficients of each term in each polynomial are entirely unique. For example, for:
+    \begin{equation*}
+      g(t) = 2t\cos(3t) + \left(t^2 + 1\right)\sin(3t)
+    \end{equation*}
+    The highest degree polynomial term is $n=2$, and thus:
+    \begin{equation*}
+      Y = \left(At^2+Bt+C\right)\sin(3t) + \left(Dt^2+Et+F\right)\cos(3t)
+    \end{equation*}
+  \item A product of a {\color{re} exponential} and {\color{ma} trigonometric} function, eg. $3e^{3t}\cos(4t)$, $2e^{3t}\cos(4t)-3e^{3t}\sin(4t)$
+    \begin{equation*}
+      Y = {\color{re} Ae^{\alpha t}}{\color{ma} \sin(\beta t)}+{\color{re} Be^{\alpha t}}{\color{ma} \cos(\beta t)}
+    \end{equation*}
+  \item A product of a {\color{gr} polynomial}, {\color{re} exponential}, and {\color{ma} trigonometric} function, eg. $18(t^2 - t)e^{3t}\cos(4t) - 7e^{3t}\sin(4t)$
+    \begin{equation*}
+      Y = \left({\color{gr} \sum_{i=0}^{n} C_it^{n-i}}\right){\color{re} Ae^{\alpha t}}{\color{ma} \sin(\beta t)}+\left({\color{gr} \sum_{i=n}^{2n} C_it^{2n-i}}\right){\color{re} Be^{\alpha t}}{\color{ma} \cos(\beta t)}
+    \end{equation*}
+\end{itemize}
+
+\subsubsection{Second Ansatz}
+\label{sssec:secondAnsatz}
+
+Consider the ODE:
+
+\begin{equation*}
+  y''-y'-2y = e^{2t}
+\end{equation*}
+
+Based on Subsubsection \ref{sssec:combinationsOfTHeThreeBasicFunctions}, the particular solution $Y$ should be formulated as:
+\begin{align*}
+  Y   &= Ae^{2t} \\
+  Y'  &= 2Ae^{2t} \\
+  Y'' &= 4Ae^{2t}
+\end{align*}
+such that when it's plugged into the ODE:
+\begin{align*}
+  Y'' - Y' - 2Y &= 4Ae^{2t} - 2Ae^{2t} - 2Ae^{2t} \\
+                &= 4Ae^{2t} - 4Ae^{2t} \\
+                &= 0 = g(t) = e^{2t}
+\end{align*}
+There is no such solution to the equation:
+\begin{equation*}
+  0 = e^{2t}
+\end{equation*}
+and thus the first ansatz fails. In such a situation, the second ansatz should be used. Namely, by applying the variation of parameters, $Y$ can be formulated as the first ansatz multiplied by a $t$ factor:
+\begin{align*}
+  Y   = Ae^{2t}    &\rightarrow Y   = Ate^{2t} \\
+  Y'  = 2Ae^{2t}  &\rightarrow  Y'  = Ae^{2t} + 2Ate^{2t} \\
+  Y'' = 4Ae^{2t} &\rightarrow   Y'' = 2Ae^{2t} + 2Ae^{2t} + 4Ate^{2t}
+\end{align*}
+and thus, when plugged in:
+\begin{align*}
+  Y'' - Y' - 2Y &= 2Ae^{2t} + 2Ae^{2t} + 4Ate^{2t} - Ae^{2t} - 2Ate^{2t} - 2Ate^{2t} \\
+                &= 3Ae^{2t} = g(t) = e^{2t}
+\end{align*}
+then, to solve the equation, the result is:
+\begin{equation*}
+  A = \frac{1}{3} \rightarrow Y = \frac{1}{3}te^{2t}
+\end{equation*}
+
+\subsubsection{Third Ansatz}
+\label{sssec:thirdAnsatz}
+
+Consider the ODE:
+\begin{equation*}
+  y'' - 2y' + y = 2te^{t}
+\end{equation*}
+
+\subsubsection{Finding the True Ansatz}
+\label{sssec:findingTheTrueAnsatz}
+
+Trying the first, then second, then third, etc., ansatz consecutively isn't the \textit{wrong} way to approach finding the particular solution, but it's cumbersome and tedious. Can the ODE be analyzed in such a way that will determine which ansatz ($1^{st}$, $2^{nd}$, $3^{rd}$, etc) will work?
+
+\subsubsection{Principle of Superposition}
+\label{sssec:principleOfSuperpositionAnsatz}
+
+In all $g(t)$ seen thus far, all exponential coefficients have been the same. However, this will not always be the case. What should be done in $g(t)$ is a sum of functions with different exponential coefficients?
+
+% \subsection{Variation of Parameters}
+% \label{ssec:variationOfParameters}
+%
+% The most general way to obtain $Y$ is a \textbf{Variation of Parameters}.
+%
+% Knowing that $y_c = C_1y_1 + C_2y_2$, then $C_1$, $C_2$ are varriated into function such that:
+% \begin{equation*}
+%   Y = u_1y_1 + u_2y_2
+% \end{equation*}
+% Then plugging $Y$ into the non-homogeneous ODE:
+% \[
+%   \begin{cases} 
+%     u_1'y_1 + u_2'y_2 = 0 \\
+%     u_1'y_1' + u_2'y_2' = g(t)
+%   \end{cases}
+%   \Rightarrow u_1' = \frac{-y_2 \cdot g}{W(y_1,y_2)}, u_1' = \frac{y_1 \cdot g}{W(y_1,y_2)} \\
+% \]
+% \begin{equation*}
+%   Y = y_1 \cdot \int_{}^{} \frac{-y_2 \cdot g}{W(y_1,y_2)} \,dt + y_2 \cdot \int_{}^{} \frac{y_1 \cdot g}{W(y_1,y_2)} \,dt
+% \end{equation*}
+% As can probably be seen, higher order generalization is very complicated. Thus introduces the \textbf{Method of Undetermined Coefficients}.
 
 \end{document}
