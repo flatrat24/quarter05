@@ -1,0 +1,23 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 034}
+\date{February 18, 2025}
+
+\begin{document}
+\begin{circuitikz}
+
+  \draw[fg, thick] (0,0) to[R] ++(2.00,0)
+  to[R] ++(2.00,0)
+  to[short] ++(0,1)
+  to[I] ++(-4,0)
+  to[short] ++(0,-1);
+
+  \draw[fg, thick] (0,0) -- (0,-1)
+  to[cI, invert] ++(4.0,0)
+  -- ++(0,1);
+
+  \filldraw[thick, fill=gr, draw=gr, fill opacity = 0.1, draw opacity = 0.75] (0.1,-1.6) rectangle ++(3.8,2);
+
+\end{circuitikz}
+\end{document}

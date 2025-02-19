@@ -27,4 +27,4 @@
 \contentsline {section}{\numberline {5}Circuit Theorems}{15}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Superposition}{15}{subsection.5.1}%
 \contentsline {subsection}{\numberline {5.2}Source Transformation}{15}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Thevenin's Theorem}{15}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.3}Thevenin's Theorem}{16}{subsection.5.3}%

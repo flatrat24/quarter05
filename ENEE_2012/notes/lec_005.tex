@@ -69,11 +69,69 @@ From here, each circuit can be analyzed independently. The values found for volt
 \end{definition}
 
 \begin{figure}[H]
+  \vspace{-10pt}
   \centering
   \includestandalone{figures/fig_014}
   \caption{Source Transformation}
   \label{fig:014}
+  \vspace{-10pt}
 \end{figure}
+
+In Figure \ref{fig:014}, the voltage source and current source can be switched back and forth by applying source transformation.
+
+To transform a voltage source to a current source, the voltage source must be \textit{in series} with a resistor. The transformation will then yield a current source \textit{in parallel} with the resistor, and a current source value calculated from Ohm's Law ($I = \frac{V}{R}$). Consider the circuits in Figure \ref{fig:voltageTransformations}. In each circuit, the voltage sources that \textit{can} be transformed into current sources are highlighted in {\color{gr} green}.
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[H]{0.3\textwidth}
+    \centering
+    \includestandalone{figures/fig_034}
+    \caption{}
+    \label{fig:034}
+  \end{subfigure}
+  \begin{subfigure}[H]{0.3\textwidth}
+    \centering
+    \includestandalone{figures/fig_035}
+    \caption{}
+    \label{fig:035}
+  \end{subfigure}
+  \begin{subfigure}[H]{0.3\textwidth}
+    \centering
+    \includestandalone{figures/fig_036}
+    \caption{}
+    \label{fig:036}
+  \end{subfigure}
+  \caption{Voltage Transformations}
+  \label{fig:voltageTransformations}
+\end{figure}
+
+The applied source transformations to each circuit can be seen in Figure \ref{fig:voltageTransformationsAfter}.
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[H]{0.3\textwidth}
+    \centering
+    \includestandalone{figures/fig_037}
+    \caption{}
+    \label{fig:037}
+  \end{subfigure}
+  \begin{subfigure}[H]{0.3\textwidth}
+    \centering
+    \includestandalone{figures/fig_038}
+    \caption{}
+    \label{fig:038}
+  \end{subfigure}
+  \begin{subfigure}[H]{0.3\textwidth}
+    \centering
+    \includestandalone{figures/fig_039}
+    \caption{}
+    \label{fig:039}
+  \end{subfigure}
+  \caption{Voltage Transformations}
+  \label{fig:voltageTransformationsAfter}
+\end{figure}
+
+The same process, just reversed, can be done to transform a current source into a voltage source. If a current source exists \textit{in parallel} with a resistor, it can be transformed into a voltage source \textit{in series} with that resistor. The voltage on the voltage source is determined by Ohm's Law ($V = IR$).
 
 \subsection{Thevenin's Theorem}
 \label{ssec:theveninsTheorem}

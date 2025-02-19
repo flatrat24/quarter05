@@ -1,0 +1,21 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 034}
+\date{February 18, 2025}
+
+\begin{document}
+\begin{circuitikz}
+
+  \draw[fg, thick] (0,0) to[V] ++(2,0)
+  to[V, -*] ++(0,2)
+  to[R] ++(2,0)
+  to[R] ++(0,-2)
+  to[short, -*] ++(-2,0);
+
+  \draw[fg, thick] (0,0) to[R] ++(0,2)
+  to[short] ++(2,0);
+
+  \filldraw[thick, fill=gr, draw=gr, fill opacity = 0.1, draw opacity = 0.75] (-0.6,-0.6) -- ++(2.2,0) -- ++(0,1.2) -- ++(-1.1,0) -- ++(0,1.25) -- ++(-1.1,0) -- cycle;
+\end{circuitikz}
+\end{document}
