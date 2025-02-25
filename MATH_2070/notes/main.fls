@@ -564,6 +564,11 @@ INPUT ./lec_006.tex
 INPUT ./lec_006.tex
 INPUT ./lec_006.tex
 INPUT lec_006.tex
+INPUT ./lec_007.tex
+INPUT ./lec_007.tex
+INPUT ./lec_007.tex
+INPUT ./lec_007.tex
+INPUT lec_007.tex
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out

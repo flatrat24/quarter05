@@ -47,8 +47,15 @@
 \contentsline {subsubsection}{\numberline {6.1.2}Polynomial Functions}{34}{subsubsection.6.1.2}%
 \contentsline {subsubsection}{\numberline {6.1.3}Exponential Functions}{36}{subsubsection.6.1.3}%
 \contentsline {subsubsection}{\numberline {6.1.4}Sine and Cosine Functions}{36}{subsubsection.6.1.4}%
-\contentsline {subsubsection}{\numberline {6.1.5}First Ansatz}{37}{subsubsection.6.1.5}%
-\contentsline {subsubsection}{\numberline {6.1.6}Second Ansatz}{38}{subsubsection.6.1.6}%
-\contentsline {subsubsection}{\numberline {6.1.7}Third Ansatz}{39}{subsubsection.6.1.7}%
-\contentsline {subsubsection}{\numberline {6.1.8}Finding the True Ansatz}{39}{subsubsection.6.1.8}%
-\contentsline {subsubsection}{\numberline {6.1.9}Principle of Superposition}{39}{subsubsection.6.1.9}%
+\contentsline {subsection}{\numberline {6.2}Ansatz}{37}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}First Ansatz}{37}{subsubsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2}Higher Order Ansatz}{39}{subsubsection.6.2.2}%
+\contentsline {subsubsection}{\numberline {6.2.3}Finding the Final Ansatz}{40}{subsubsection.6.2.3}%
+\contentsline {subsubsection}{\numberline {6.2.4}Principle of Superposition}{40}{subsubsection.6.2.4}%
+\contentsline {section}{\numberline {7}Higher Order Linear ODE}{41}{section.7}%
+\contentsline {subsection}{\numberline {7.1}General Theory}{41}{subsection.7.1}%
+\contentsline {subsubsection}{\numberline {7.1.1}Homogeneous Case}{41}{subsubsection.7.1.1}%
+\contentsline {subsubsection}{\numberline {7.1.2}Non-Homogeneous Case}{41}{subsubsection.7.1.2}%
+\contentsline {subsection}{\numberline {7.2}Constant Coefficients}{41}{subsection.7.2}%
+\contentsline {subsubsection}{\numberline {7.2.1}Homogeneous Case}{41}{subsubsection.7.2.1}%
+\contentsline {subsubsection}{\numberline {7.2.2}Non-Homogeneous Case}{42}{subsubsection.7.2.2}%

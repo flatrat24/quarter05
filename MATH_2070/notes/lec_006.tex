@@ -277,6 +277,9 @@ Note that, for any linear combination of $\sin$ and $\cos$, this process works. 
   g(t) = \sin(4t) + \cos(4t)    &\Rightarrow Y = A\sin(4t) + B\cos(4t)
 \end{align*}
 
+\subsection{Ansatz}
+\label{ssec:ansatz}
+
 \subsubsection{First Ansatz}
 \label{sssec:firstAnsatz}
 
@@ -335,16 +338,30 @@ If $g(t)$ is:
     \end{equation*}
   \item A product of a {\color{re} exponential} and {\color{ma} trigonometric} function, eg. $3e^{3t}\cos(4t)$, $2e^{3t}\cos(4t)-3e^{3t}\sin(4t)$
     \begin{equation*}
-      Y = {\color{re} Ae^{\alpha t}}{\color{ma} \sin(\beta t)}+{\color{re} Be^{\alpha t}}{\color{ma} \cos(\beta t)}
+      Y = {\color{gr} A}{\color{re} e^{\alpha t}}{\color{ma} \sin(\beta t)}+{\color{gr} B}{\color{re} e^{\alpha t}}{\color{ma} \cos(\beta t)}
     \end{equation*}
+    It should be noted that {\color{gr} A} and {\color{gr} B} both come from the fact that any function can be considered to have a polynomial factor of the zeroth degree, which would just be a constant function.
   \item A product of a {\color{gr} polynomial}, {\color{re} exponential}, and {\color{ma} trigonometric} function, eg. $18(t^2 - t)e^{3t}\cos(4t) - 7e^{3t}\sin(4t)$
     \begin{equation*}
-      Y = \left({\color{gr} \sum_{i=0}^{n} C_it^{n-i}}\right){\color{re} Ae^{\alpha t}}{\color{ma} \sin(\beta t)}+\left({\color{gr} \sum_{i=n}^{2n} C_it^{2n-i}}\right){\color{re} Be^{\alpha t}}{\color{ma} \cos(\beta t)}
+      Y = \left({\color{gr} \sum_{i=0}^{n} C_it^{n-i}}\right){\color{re} e^{\alpha t}}{\color{ma} \sin(\beta t)}+\left({\color{gr} \sum_{i=n}^{2n} C_it^{2n-i}}\right){\color{re} e^{\alpha t}}{\color{ma} \cos(\beta t)}
     \end{equation*}
 \end{itemize}
 
-\subsubsection{Second Ansatz}
-\label{sssec:secondAnsatz}
+The template to solve for the particular solution of a non-homogeneous ODE seen in (\ref{eq:601}) applies to all functions of $g(t)$ that any of the previous templates would apply to.
+\begin{equation}
+  Y = \left({\color{gr} \sum_{i=0}^{n} C_it^{n-i}}\right){\color{re} e^{\alpha t}}{\color{ma} \sin(\beta t)}+\left({\color{gr} \sum_{i=n}^{2n} C_it^{2n-i}}\right){\color{re} e^{\alpha t}}{\color{ma} \cos(\beta t)}
+  \label{eq:601}
+\end{equation}
+Consider:
+\begin{equation*}
+  g(t) = 2t\cos(2t)
+\end{equation*}
+Though only a {\color{gr} polynomial} ($2t$) and a {\color{ma} trigonometric} function \big($\cos(2t)$\big) are seen, there still exists an {\color{re} exponential} function ($e^0$). Thus, it can be seen that {\color{gr} $n=1$}, {\color{re} $\alpha = 0$}, and {\color{ma} $\beta = 2$}. Since $\alpha = 0$, the exponential term would just be $1$ which is why it can be essentially ignored.
+
+This template to solve for the particular solution is referred to as the \textbf{First Ansatz}. It can be constructed generically based on the values of {\color{gr} $n$}, {\color{re} $\alpha$}, and {\color{ma} $\beta$}. Once the first ansatz in constructed, the particular solution can be solved through the same methods as seen in Subsection \ref{ssec:methodOfUndeterminedCoefficients}.
+
+\subsubsection{Higher Order Ansatz}
+\label{sssec:higherOrderAnsatz}
 
 Consider the ODE:
 
@@ -352,7 +369,7 @@ Consider the ODE:
   y''-y'-2y = e^{2t}
 \end{equation*}
 
-Based on Subsubsection \ref{sssec:combinationsOfTHeThreeBasicFunctions}, the particular solution $Y$ should be formulated as:
+Based on Subsection \ref{sssec:firstAnsatz}, the particular solution $Y$ should be formulated as:
 \begin{align*}
   Y   &= Ae^{2t} \\
   Y'  &= 2Ae^{2t} \\
@@ -364,11 +381,11 @@ such that when it's plugged into the ODE:
                 &= 4Ae^{2t} - 4Ae^{2t} \\
                 &= 0 = g(t) = e^{2t}
 \end{align*}
-There is no such solution to the equation:
+However, it can be seen that there is no such solution to the equation:
 \begin{equation*}
   0 = e^{2t}
 \end{equation*}
-and thus the first ansatz fails. In such a situation, the second ansatz should be used. Namely, by applying the variation of parameters, $Y$ can be formulated as the first ansatz multiplied by a $t$ factor:
+In such a situation where the first ansatz fails, the second ansatz should be used. Namely, by applying the variation of parameters, $Y$ can be formulated as the first ansatz multiplied by a $t$ factor:
 \begin{align*}
   Y   = Ae^{2t}    &\rightarrow Y   = Ate^{2t} \\
   Y'  = 2Ae^{2t}  &\rightarrow  Y'  = Ae^{2t} + 2Ate^{2t} \\
@@ -383,45 +400,82 @@ then, to solve the equation, the result is:
 \begin{equation*}
   A = \frac{1}{3} \rightarrow Y = \frac{1}{3}te^{2t}
 \end{equation*}
+\hrule
 
-\subsubsection{Third Ansatz}
-\label{sssec:thirdAnsatz}
-
-Consider the ODE:
+Now, consider:
 \begin{equation*}
   y'' - 2y' + y = 2te^{t}
 \end{equation*}
+The first ansatz ($Y = (At+B)e^t$) fails, as does the second ansatz ($Y = (At^2 + Bt)e^t$). In such cases, continuing increasing the order of the ansatz applied will lead to success. Consider the third ansatz (found through multiplying by a factor of $t^2$):
+\begin{align*}
+  Y   &= (At^3 + Bt^2)e^t \\
+  Y'  &= (3At^2 + 2Bt)e^t + (At^3 + Bt^2)e^t \\
+  Y'' &= (6At+2B)e^t + 2(3At^2+2Bt)e^t + (At^3+Bt^2)e^t
+\end{align*}
+By applying the same process as with previous ansatz:
+\begin{multline*}
+  Y'' - 2Y' + Y = \big((6At+2B)e^t + 2(3At^2+2Bt)e^t + (At^3+Bt^2)e^t\big)\\ - 2\big((3At^2 + 2Bt)e^t + (At^3 + Bt^2)e^t\big) + \big((At^3 + Bt^2)e^t\big)
+\end{multline*}
+Which can be simplified into:
+\begin{equation*}
+  (6At+2B)e^t = RHS = 2te^t \rightarrow A = \frac{1}{6},\ B = 0
+\end{equation*}
 
-\subsubsection{Finding the True Ansatz}
-\label{sssec:findingTheTrueAnsatz}
+\subsubsection{Finding the Final Ansatz}
+\label{sssec:findingTheFinalAnsatz}
 
 Trying the first, then second, then third, etc., ansatz consecutively isn't the \textit{wrong} way to approach finding the particular solution, but it's cumbersome and tedious. Can the ODE be analyzed in such a way that will determine which ansatz ($1^{st}$, $2^{nd}$, $3^{rd}$, etc) will work?
+
+Consider the two previous examples:
+\begin{equation*}
+  y''-y'-2y = e^{2t}
+\end{equation*}
+\begin{enumerate}
+  \itemsep0em
+  \item This ODE was determined to need the second ansatz
+  \item The auxiliary equation is $r^2 - r - 2r$, which has roots $r_1 = 2$, $r_2 = -1$
+  \item The exponential coefficient ($\alpha + \beta i$) of $g(t)$ is $2 + 0i$
+\end{enumerate}
+\vspace{12pt}
+\begin{equation*}
+  y'' - 2y' + y = 2te^{t}
+\end{equation*}
+\begin{enumerate}
+  \itemsep0em
+  \item This ODE was determined to need the third ansatz
+  \item The auxiliary equation is $r^2 - 2r + r$, which has roots $r_1 = r_2 = 1$
+  \item The exponential coefficient ($\alpha + \beta i$) of $g(t)$ is $1 + 0i$
+\end{enumerate}
+Based on these two examples, it can be seen that, for the ODE:
+\begin{equation*}
+  ay'' + by' + cy = g(t)
+\end{equation*}
+where:
+\begin{equation*}
+  g(t) = e^{{\color{re} \alpha} t} \cos({\color{ma} \beta} t) \cdot (\textup{polynomial}) + e^{{\color{re} \alpha} t} \sin({\color{ma} \beta} t) \cdot (\textup{polynomial})
+\end{equation*}
+the first $m$ ansatz fail, where $m$ is the number of times the exponential coefficient (${\color{re} \alpha} + {\color{ma} \beta} i$) appears as a root for the auxiliary equation. Thus, the first ansatz must be modified by $t^m$.
 
 \subsubsection{Principle of Superposition}
 \label{sssec:principleOfSuperpositionAnsatz}
 
-In all $g(t)$ seen thus far, all exponential coefficients have been the same. However, this will not always be the case. What should be done in $g(t)$ is a sum of functions with different exponential coefficients?
+In all $g(t)$ seen thus far, all exponential coefficients have been the same. However, this will not always be the case. What should be done in $g(t)$ is a sum of functions with different exponential coefficients (different $\alpha$ and $\beta$)?
 
-% \subsection{Variation of Parameters}
-% \label{ssec:variationOfParameters}
-%
-% The most general way to obtain $Y$ is a \textbf{Variation of Parameters}.
-%
-% Knowing that $y_c = C_1y_1 + C_2y_2$, then $C_1$, $C_2$ are varriated into function such that:
-% \begin{equation*}
-%   Y = u_1y_1 + u_2y_2
-% \end{equation*}
-% Then plugging $Y$ into the non-homogeneous ODE:
-% \[
-%   \begin{cases} 
-%     u_1'y_1 + u_2'y_2 = 0 \\
-%     u_1'y_1' + u_2'y_2' = g(t)
-%   \end{cases}
-%   \Rightarrow u_1' = \frac{-y_2 \cdot g}{W(y_1,y_2)}, u_1' = \frac{y_1 \cdot g}{W(y_1,y_2)} \\
-% \]
-% \begin{equation*}
-%   Y = y_1 \cdot \int_{}^{} \frac{-y_2 \cdot g}{W(y_1,y_2)} \,dt + y_2 \cdot \int_{}^{} \frac{y_1 \cdot g}{W(y_1,y_2)} \,dt
-% \end{equation*}
-% As can probably be seen, higher order generalization is very complicated. Thus introduces the \textbf{Method of Undetermined Coefficients}.
+In such cases, the principle of superposition can be applied:
+\begin{definition}{Principle of Superposition}
+  If $Y_1$ is a particular solution of:
+  \begin{equation*}
+    y'' + p(t)y' + q(t)y = g_1(t)
+  \end{equation*}
+  and if $Y_2$ is a particular solution of:
+  \begin{equation*}
+    y'' + p(t)y' + q(t)y = g_2(t)
+  \end{equation*}
+  then $Y_1 + Y_2$ is a particular solution of:
+  \begin{equation*}
+    y'' + p(t)y' + q(t)y = g_1(t) + g_2(t)
+  \end{equation*}
+\end{definition}
+Essentially, individual particular solutions can be found for the sum components of $g(t)$, and then can be added together to find the solution to $g(t)$.
 
 \end{document}

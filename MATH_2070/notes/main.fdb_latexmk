@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1739810019.73933 "main.tex" "main.pdf" "main" 1739810023.03719 0
-  "../../xlatex/imports/preamble.tex" 1738185780.99453 4040 85c3fcf61d5dea3234569928f9b798ed ""
+["pdflatex"] 1740527437.03062 "main.tex" "main.pdf" "main" 1740527441.47309 0
+  "../../xlatex/imports/preamble.tex" 1738892924.27908 4040 85c3fcf61d5dea3234569928f9b798ed ""
   "/nix/store/ahqlhcr0qzd91jmi10j8dpflc9i65yrk-texlive-2023-env-texmfdist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1 2971 def0b6c1f0b107b3b936def894055589 ""
   "/nix/store/ahqlhcr0qzd91jmi10j8dpflc9i65yrk-texlive-2023-env-texmfdist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/nix/store/ahqlhcr0qzd91jmi10j8dpflc9i65yrk-texlive-2023-env-texmfdist/fonts/map/fontname/texfonts.map" 1 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -317,11 +317,12 @@
   "lec_003.tex" 1739229071.93014 5846 84e706941f3c45a1b6a3ab322af93c9b ""
   "lec_004.tex" 1739338651.61933 10522 8d619caf7d1eff63795e664eab8ca336 ""
   "lec_005.tex" 1739338800.64942 5316 486fc0ea387c5b895a928a1fd3d92bfe ""
-  "lec_006.tex" 1739810014.60692 16368 1ec62ef6cfa79d9a4abb63d95904ad41 ""
-  "main.aux" 1739810022.90679 16853 f822eea5681a821a11402eca5a687468 "pdflatex"
-  "main.out" 1739810022.90779 9534 252e8cfdf72f54332e800a9b3810bdeb "pdflatex"
-  "main.tex" 1739231805.80642 417 27267c3c0b1ad3cbf21e3f75369f5f50 ""
-  "main.toc" 1739810022.90779 5007 bb308d5ae404a348cfa377ef498bb576 "pdflatex"
+  "lec_006.tex" 1740527436.62944 19752 a8adc7b136d895f5c4188eaf449f62f8 ""
+  "lec_007.tex" 1740527433.37142 3543 92145d5e2f58bc81a6e45fa8af8d8525 ""
+  "main.aux" 1740527441.36348 18424 817aba3573dec767c77ebd57b2c0f3df "pdflatex"
+  "main.out" 1740527441.36548 10638 ec8f8bbefa4750fb46a659dbc0e174f8 "pdflatex"
+  "main.tex" 1740525802.90494 435 68dcaedbd130226c4a1ff4732cf04ace ""
+  "main.toc" 1740527441.36548 5627 12d00746cd4869dd4a6bd78957e250b7 "pdflatex"
   (generated)
   "main.aux"
   "main.log"

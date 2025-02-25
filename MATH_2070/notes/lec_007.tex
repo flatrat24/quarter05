@@ -1,0 +1,93 @@
+\documentclass[12pt]{article}
+
+\input{../../xlatex/imports/preamble}
+
+\title{Lecture 007}
+\date{February 25, 2025}
+
+\begin{document}
+\newpage
+\section{Higher Order Linear ODE}
+\label{sec:higherOrderLinearODE}
+
+\subsection{General Theory}
+\label{ssec:generalTheory}
+
+\subsubsection{Homogeneous Case}
+\label{sssec:homogeneousCase}
+
+For homogeneous higher order linear ODEs:
+\begin{equation*}
+  y^{(n)} + p_1(t)y^{(n-1)} + \hdots + p_{n-1}(t)y' + p_n(t)y = 0
+\end{equation*}
+The fundamental set of solutions is a set of solutions ($y_1, \hdots, y_n$) that are:
+\begin{itemize}
+  \itemsep0em
+  \item solutions to the ODE
+  \item linearly independent (Subsection \ref{ssec:wronskianForLinearIndependence})
+  \item can be summed, through the principle of superposition, to find the general solution:
+    \begin{equation*}
+      y = C_1y_1 + \hdots + C_ny_n
+    \end{equation*}
+\end{itemize}
+
+\subsubsection{Non-Homogeneous Case}
+\label{sssec:nonHomogeneousCase}
+
+For non-homogeneous higher order linear ODEs:
+\begin{equation*}
+  y^{(n)} + p_1(t)y^{(n-1)} + \hdots + p_{n-1}(t)y' + p_n(t)y = g(t)
+\end{equation*}
+The structure of the general solution is $y = y_c + Y$:
+\begin{itemize}
+  \itemsep0em
+  \item $y_c$ is the complementary solution (the general solution to the corresponding homogeneous ODE)
+  \item $Y$ is a particular solution to the non-homogeneous ODE
+\end{itemize}
+Solving these higher-order linear ODEs is incredibly similar to the second order ODEs in Section \ref{sec:nonHomogeneousODE}.
+
+\subsection{Constant Coefficients}
+\label{ssec:constantCoefficients}
+
+\subsubsection{Homogeneous Case}
+\label{sssec:homogeneousCase2}
+
+For the homogeneous ODE
+\begin{equation*}
+  y^{(n)} + p_1(t)y^{(n-1)} + \hdots + p_{n-1}(t)y' + p_n(t)y = 0
+\end{equation*}
+the auxiliary equation can be formulated as
+\begin{equation*}
+  a_nr^n + a_{n-1}y^{(n-1)} + \hdots + a_1y' + a_0y = 0
+\end{equation*}
+where $r$ is a solution to the auxiliary equation. If $r$ is:
+\begin{itemize}
+  \itemsep0em
+  \item a real \textit{single} root, then it contributes \textit{one} function $e^{rt}$ to the fundamental set of solutions
+  \item a real root \textit{repeated $m$ times}, then it contributes $m$ functions
+    \begin{equation*}
+      e^{rt}, te^{rt},\hdots,t^{m-1}e^{rt}
+    \end{equation*}
+    to the fundamental set of solutions
+  \item a complex ($r=\alpha + \beta i$) \textit{single} root, then together with its conjugate ($r=\alpha - \beta i$), two functions are contributed the to fundamental set of solutions
+    \begin{equation*}
+      e^{\alpha t}\cos(\beta t),\ e^{\alpha t}\sin(\beta t)
+    \end{equation*}
+  \item a complex ($r=\alpha + \beta i$) root \textit{repeated $m$ times}, then together with its conjugate ($r=\alpha - \beta i$), $2m$ functions are contributed the to fundamental set of solutions
+    \begin{equation*}
+      e^{\alpha t}\cos(\beta t),\ e^{\alpha t}\sin(\beta t),\ te^{\alpha t}\cos(\beta t),\ te^{\alpha t}\sin(\beta t),\ \hdots\ ,\ t^{m-1}e^{\alpha t}\cos(\beta t),\ t^{m-1}e^{\alpha t}\sin(\beta t)
+    \end{equation*}
+\end{itemize}
+
+\subsubsection{Non-Homogeneous Case}
+\label{sssec:nonHomogeneousCase2}
+
+For the ODE:
+\begin{equation*}
+  y^{(n)} + p_1(t)y^{(n-1)} + \hdots + p_{n-1}(t)y' + p_n(t)y = g(t)
+\end{equation*}
+To find the complementary solution to a non-homogeneous ODE, the same exact steps as in Subsubsection \ref{sssec:homogeneousCase2} can be taken with the associated homogeneous ODE.
+
+Similarly, the particular solution can be found just as it was in Subsection \ref{ssec:ansatz}.
+
+\end{document}
