@@ -1,0 +1,195 @@
+\documentclass[12pt]{article}
+
+\input{../../xlatex/imports/preamble}
+
+\title{Lecture 008}
+\date{March 02, 2025}
+
+\begin{document}
+\newpage
+
+\section{Laplace Transform}
+\label{sec:laplaceTransform}
+
+The general notation of a Laplace Transform is:
+\begin{equation*}
+  \mathcal{L}\big\{f(t)\big\} = F(s)
+\end{equation*}
+where $f(t)$ is an input function that will be transformed into some other function: $F(s)$. Notice, the variable each function depends on is different: $t \rightarrow s$.
+
+The actual formula for computing the Laplace Transform is:
+\begin{equation*}
+  F(s) = \int_{0}^{\infty} e^{-st}f(t) \,dt
+\end{equation*}
+
+\subsection{Linearity of Laplace Transform}
+\label{ssec:linearityOfLaplaceTransform}
+
+For some real numbers $\alpha$ and $\beta$, consider the following Laplace Transform:
+\begin{equation*}
+  \mathcal{L}\big\{\alpha f(t) + \beta g(t)\big\}
+\end{equation*}
+By the formula of the Laplace Transform in Section \ref{sec:laplaceTransform}:
+\begin{align*}
+  \mathcal{L}\big\{\alpha f(t) + \beta g(t)\big\} &= \int_{0}^{\infty} \big( \alpha f(t) + \beta g(t) \big)e^{-st} \,dt \\
+                                                  &= \int_{0}^{\infty} \alpha f(t) e^{-st} + \beta g(t) e^{-st} \, dt \\
+                                                  &= \int_{0}^{\infty} \alpha f(t) e^{-st} \, dt + \int_{0}^{\infty} \beta g(t) e^{-st} \, dt \\
+                                                  &= \alpha \int_{0}^{\infty} f(t) e^{-st} \, dt + \beta \int_{0}^{\infty} g(t) e^{-st} \, dt \\
+                                                  &= \alpha \mathcal{L}\big\{ f(t) \big\} + \beta \mathcal{L}\big\{ g(t) \big\}
+\end{align*}
+Thus, it can be seen that, through the linearity of integrals, so too is the Laplace Transformation linear. In short:
+\begin{equation*}
+  \mathcal{L}\big\{\alpha f(t) + \beta g(t)\big\} = \alpha \mathcal{L}\big\{ f(t) \big\} + \beta \mathcal{L}\big\{ g(t) \big\}
+\end{equation*}
+
+\subsection{Basic Laplace Transform Formulas}
+\label{ssec:basicLaplaceTransformFormulas}
+
+For \textbf{power functions}, the Laplace Transform is:
+\begin{equation*}
+  \mathcal{L}\big\{ t^n \big\} = \frac{n!}{s^{n+1}},\ s>0
+\end{equation*}
+This formula, in tandem with the linearity of Laplace Transforms, can be used to find the Laplace Transform of any polynomial function.
+
+For any \textbf{exponential function}:
+\begin{equation*}
+  \mathcal{L}\big\{ e^{\alpha t} \big\} = \frac{1}{s- \alpha},\ s>\alpha
+\end{equation*}
+
+For \textbf{sine} and \textbf{cosine}:
+\begin{align*}
+  \mathcal{L}\big\{\cos(\beta t) \big\} &= \frac{s}{s^2 + \beta^2},\ s>0 \\
+  \mathcal{L}\big\{\sin(\beta t) \big\} &= \frac{\beta}{s^2 + \beta^2},\ s>0
+\end{align*}
+
+For \textbf{hyperbolic} functions:
+\begin{align*}
+  \mathcal{L}\big\{\cosh(kt) \big\} &= \frac{s}{s^2 - k^2},\ s>k \\
+  \mathcal{L}\big\{\sinh(kt) \big\} &= \frac{k}{s^2 - k^2},\ s>k
+\end{align*}
+
+\subsection{Existence of the Laplace Transform}
+\label{ssec:existenceOfTheLaplaceTransform}
+
+Prior to defining the existence of $\mathcal{L}\big\{f(t)\big\}$, \textbf{piecewise continuity} and \textbf{exponential order} must be understood.
+
+\begin{definition}{Piecewise Continuity}
+  A function is said to be piecewise continuous over some interval $[0,\infty)$ if, for any subinterval $[a,b]$, there is a finite number of discontinuities.
+\end{definition}
+
+These discontinuities can be either hole or jump discontinuities since those exist at finite points. Consider the function:
+\begin{equation*}
+  f(t) = \frac{t^2}{t-2}
+\end{equation*}
+This function is \textit{piecewise} continuous over $[0,\infty)$ since there only exists a discontinuity at $t=2$, which is a finite number of discontinuities ($1$). Now, consider the function:
+\begin{equation*}
+  f(t) = \sqrt{t-10}
+\end{equation*}
+Since this function is undefined when $t<10$, the function is discontinuous at infinitely many numbers over the range $(0,10)$. Thus, this function is \textit{not} piecewise continuous.
+
+\begin{definition}{Exponential Order}
+  A function is said to be of exponential order if there exist constants {\color{re} $c$}, {\color{gr} $M>0$}, and {\color{bl} $T>0$} such that:
+  \begin{equation*}
+    \forall t>{\color{bl} T},\ \big|f(t)\big| \leq {\color{gr} M}e^{{\color{re} c}t}
+  \end{equation*}
+\end{definition}
+In other words, \big|f(t)\big| must not grow faster that some generic exponential function with some positive coefficient.
+
+Polynomial functions, exponential functions of the form $e^{\alpha t}$, cosine, and sine functions are all of exponential order. However, consider the function:
+\begin{equation*}
+  f(t) = e^{t^{2}}
+\end{equation*}
+This function is \textit{not} of exponential order since, for every possible $c>0$:
+\begin{equation*}
+  \left|\frac{e^{t^{2}}}{e^{ct}}\right| = e^{t^2-ct} = e^{t(t-c)} \rightarrow \infty
+\end{equation*}
+and thus $e^{t^{2}}$ grows faster than any possible multiple of $e^{ct}$ and is shown to \textit{not} be of exponential order.
+
+With these two ideas covered, $\mathcal{L}\big\{f(t)\big\}$ exists for $s>c$ given that $f(t)$ is piecewise continuous over $[0,\infty)$ and is of exponential order. These two conditions are sufficient, but not necessary.
+
+\subsection{Long Term Behavior of the Laplace Transform}
+\label{ssec:longTermBehaviorOfTheLaplaceTransform}
+
+Continuing with piecewise continuity and exponential order, it can be said that if a function $f(t)$ is both piecewise continuous and of exponential order, then the function $F(s) = \mathcal{L}\big\{f(t)\big\}$ satisfies:
+\begin{equation*}
+  \lim_{s \to \infty} F(s) = 0
+\end{equation*}
+
+\subsection{Inverse Laplace Transform}
+\label{ssec:inverseLaplaceTransform}
+
+Just as any other inverse function, the inverse Laplace Transform will essentially reverse the process of the Laplace Transformation. If $F(s)$ represents the Laplace Transform of $f(t)$, then $f(t)$ is the inverse Laplace Transform of $F(s)$.
+\begin{equation*}
+  \mathcal{L}\big\{f(t)\big\} = F(s) \rightarrow \mathcal{L}^{-1}\big\{F(s)\big\} = f(t)
+\end{equation*}
+
+\subsubsection{Linearity of the Inverse Laplace Transform}
+\label{sssec:linearityOfTheInverseLaplaceTransform}
+The inverse Laplace Transform maintains that same linearity as the Laplace Transform does. As such:
+\begin{equation*}
+  \mathcal{L}^{-1}\big\{\alpha F(s) + \beta G(s)\big\} = \alpha \mathcal{L}^{-1}\big\{ F(s) \big\} + \beta \mathcal{L}^{-1}\big\{ G(s) \big\}
+\end{equation*}
+
+\subsubsection{Basic Inverse Laplace Transform Formulas}
+\label{sssec:basicInverseLaplaceTransformFormulas}
+Furthermore, just as there are fundamental Laplace Transforms that should be memorized and immediately recognized, so too are the inverse Laplace Transforms to be memorized (they're the same ones, just in reverse).
+
+For \textbf{power functions}:
+\begin{equation*}
+  \mathcal{L}^{-1}\left\{\frac{1}{s^n}\right\} = \frac{t^{n-1}}{(n-1)!}
+\end{equation*}
+
+For \textbf{exponential functions}:
+\begin{equation*}
+  \forall \alpha \in \mathbb{R},\ \mathcal{L}^{-1}\left\{\frac{1}{s-\alpha}\right\} = e^{\alpha t}
+\end{equation*}
+
+For \textbf{sine} and \textbf{cosine}:
+\begin{align*}
+  \forall \beta \in \mathbb{R},\ \beta > 0 \rightarrow \mathcal{L}^{-1}\left\{\frac{s}{s^2+\beta^2}\right\} &= \cos(\beta t) \\
+  \forall \beta \in \mathbb{R},\ \beta > 0 \rightarrow \mathcal{L}^{-1}\left\{\frac{1}{s^2+\beta^2}\right\} &= \frac{1}{\beta}\sin(\beta t)
+\end{align*}
+
+For \textbf{hyperbolic functions}:
+\begin{align*}
+  \forall k \in \mathbb{R},\ k > 0 \rightarrow \mathcal{L}^{-1}\left\{\frac{s}{s^2-k^2}\right\} &= \cosh(kt) \\
+  \forall k \in \mathbb{R},\ k > 0 \rightarrow \mathcal{L}^{-1}\left\{\frac{1}{s^2-k^2}\right\} &= \frac{1}{k}\sinh(kt)
+\end{align*}
+
+\subsection{Laplace Transform of Derivatives}
+\label{ssec:laplaceTransformOfDerivatives}
+
+If $f(t)$ is continuous on the interval $[0,\infty)$, of exponential order, and if $f'(t)$ is piecewise continuous on $[0,\infty)$, then:
+\begin{equation*}
+  \mathcal{L}\big\{f'(t)\big\} = s\mathcal{L}\big\{f(t)\big\} - f(0) = sF(s) - f(0)
+\end{equation*}
+
+To prove this, consider the following Laplace Transform:
+\begin{equation*}
+  \mathcal{L}\big\{f'(t)\big\} = \int_{0}^{\infty} f'(t)e^{-st} \,dt
+\end{equation*}
+Through integration by parts, this can be written as:
+\begin{align*}
+  \int_{0}^{\infty} f'(t)e^{-st} \,dt &= \big[f(t)e^{-st}\big]_{0}^{\infty} - \int_{0}^{\infty} -s \cdot f(t)e^{-st} \,dt \\
+                                      &= {\color{ma} \big[f(t)e^{-st}\big]_{0}^{\infty}} + s {\color{gr} \int_{0}^{\infty} f(t)e^{-st} \,dt} \\
+                                      &= {\color{ma} \left(\lim_{t \to \infty} f(t)e^{-st} - f(0)e^0\right)} + s {\color{gr} F(s)}
+\end{align*}
+
+Under the assumption that $f(t)$ is of exponential order, for a sufficiently large value of $s$:
+\begin{equation*}
+  \lim_{t \to \infty} f(t)e^{-st} = 0
+\end{equation*}
+thus showing that:
+\begin{equation*}
+  \mathcal{L}\big\{f'(t)\big\} = sF(s) - f(0)
+\end{equation*}
+
+This process of proof can be used to prove:
+\begin{align*}
+  \mathcal{L}\big\{f''(t)\big\} &= s^2F(s) - sf(0) - f'(0) \\
+  \mathcal{L}\big\{f'''(t)\big\} &= s^3F(s) - s^2f(0) - sf'(0) - f''(0) \\
+                                 &\vdots \\
+  \mathcal{L}\big\{f^{(n)}(t)\big\} &= s^nF(s) - s^{n-1}f(0) - s^{n-2}f'(0) - \hdots - f^{(n-1)}(0) \\
+\end{align*}
+
+\end{document}
