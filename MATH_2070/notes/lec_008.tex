@@ -172,7 +172,7 @@ Through integration by parts, this can be written as:
 \begin{align*}
   \int_{0}^{\infty} f'(t)e^{-st} \,dt &= \big[f(t)e^{-st}\big]_{0}^{\infty} - \int_{0}^{\infty} -s \cdot f(t)e^{-st} \,dt \\
                                       &= {\color{ma} \big[f(t)e^{-st}\big]_{0}^{\infty}} + s {\color{gr} \int_{0}^{\infty} f(t)e^{-st} \,dt} \\
-                                      &= {\color{ma} \left(\lim_{t \to \infty} f(t)e^{-st} - f(0)e^0\right)} + s {\color{gr} F(s)}
+                                      &= {\color{ma} \left(\lim_{b \to \infty} f(b)e^{-sb} - f(0)e^0\right)} + s {\color{gr} F(s)}
 \end{align*}
 
 Under the assumption that $f(t)$ is of exponential order, for a sufficiently large value of $s$:
@@ -189,7 +189,201 @@ This process of proof can be used to prove:
   \mathcal{L}\big\{f''(t)\big\} &= s^2F(s) - sf(0) - f'(0) \\
   \mathcal{L}\big\{f'''(t)\big\} &= s^3F(s) - s^2f(0) - sf'(0) - f''(0) \\
                                  &\vdots \\
-  \mathcal{L}\big\{f^{(n)}(t)\big\} &= s^nF(s) - s^{n-1}f(0) - s^{n-2}f'(0) - \hdots - f^{(n-1)}(0) \\
+  \mathcal{L}\big\{f^{(n)}(t)\big\} &= s^nF(s) - s^{n-1}f(0) - s^{n-2}f'(0) - \hdots - f^{(n-1)}(0)
 \end{align*}
+Provided that, for the Laplace Transform of some derivative $f^{n}(t)$, $f^{n}(t)$ is piecewise continuous and all previous functions $\big[f(t),\ f'(t), \hdots\big]$ are continuous over $[0,\infty)$ and of exponential order. The Laplace of the $n^{th}$ derivative can also be expressed as:
+\begin{equation*}
+  \mathcal{L}\big\{f^{(n)}(t)\big\} = s^nF(s) - \sum_{i=0}^{n-1} s^{n-1-i}f^{(i)}(0)
+\end{equation*}
+
+\subsection{First Translation Theorem}
+\label{ssec:firstTranslationTheorem}
+\begin{definition}{First Translation Theorem}
+  If $\mathcal{L}\big\{f(t)\big\}=F(s)$, then
+  \begin{equation*}
+    \mathcal{L}\big\{e^{at}f(t)\big\}=F(s-a)
+  \end{equation*}
+  or
+  \begin{equation*}
+    \mathcal{L}\big\{e^{at}f(t)\big\}=\mathcal{L}\big\{f(t)\big\}\Big\vert_{s\mapsto s-a}
+  \end{equation*}
+\end{definition}
+Consider the Laplace Transform of:
+\begin{equation*}
+  \mathcal{L}\big\{e^{at}f(t)\big\}
+\end{equation*}
+This can be rewritten as:
+\begin{equation*}
+  \int_{0}^{\infty} e^{at}f(t)e^{-st} \,dt = \int_{0}^{\infty} f(t)e^{-(s-a)t} \, dt = F(s-a)
+\end{equation*}
+What this shows is that, when a function $f(t)$ is multiplied by an exponential function of $e^{at}$, the resulting Laplace Transform will be whatever the Laplace Transform of $f(t)$ is, with $s \mapsto s-a$.
+
+The First Translation Theorem can be used to transform a function with an exponential factor.
+
+\begin{example}
+  Evaluate $\mathcal{L}\big\{e^{5t}t^3\big\}$:
+  \begin{equation*}
+    \mathcal{L}\big\{e^{5t}t^3\big\} = \mathcal{L}\big\{t^3\big\}\Big\vert_{s \mapsto s-5} = \frac{3!}{s^4}\Big\vert_{s \mapsto s-5} = \frac{6}{\left(s-5\right)^4}
+  \end{equation*}
+  \hrule
+  \vspace{12pt}
+  Evaluate $\mathcal{L}\big\{e^{-3t}sin(6t)\big\}$:
+  \begin{equation*}
+    \mathcal{L}\big\{e^{-3t}sin(6t)\big\} = \mathcal{L}\big\{sin(6t)\big\}\Big\vert_{s \mapsto s+3} = \frac{6}{s^2 + 6^2}\Big\vert_{s \mapsto s+3} = \frac{6}{(s+3)^2 + 36}
+  \end{equation*}
+\end{example}
+
+It can also be used in reverse to inverse Laplace Transform a fraction with repeated linear factors:
+\begin{example}
+  Evaluate $\mathcal{L}^{-1}\left\{\frac{2s+5}{(s-3)^2}\right\}$:
+
+  First, the fraction is broken into partial fractions:
+  \begin{equation*}
+    \frac{2s+5}{(s-3)^2} = \frac{A}{s-3} + \frac{B}{(s-3)^2} \rightarrow \hdots \rightarrow A = 2,\ B = 11 \rightarrow \frac{2s+5}{(s-3)^2} = \frac{2}{s-3} + \frac{11}{(s-3)^2}
+  \end{equation*}
+  Therefore:
+  \begin{equation*}
+    \mathcal{L}^{-1}\left\{\frac{2s+5}{(s-3)^2}\right\} = \mathcal{L}^{-1}\left\{\frac{2}{s-3}\right\} + \mathcal{L}^{-1}\left\{\frac{11}{(s-3)^2}\right\}
+  \end{equation*}
+  Then, by applying the First Translation Theorem:
+  \begin{equation*}
+    \mathcal{L}^{-1}\left\{\frac{2}{s}\right\}{\color{gr} \Big\vert_{s \mapsto s-3}} + \mathcal{L}^{-1}\left\{\frac{11}{s^2}\right\}{\color{gr} \Big\vert_{s \mapsto s-3}} = {\color{gr} e^{3t}}{\color{re} \mathcal{L}^{-1}\left\{\frac{{\color{ma} 2}}{s}\right\}} + {\color{gr} e^{3t}}{\color{re} \mathcal{L}^{-1}\left\{\frac{{\color{ma} 11}}{s^2}\right\}} = {\color{gr} e^{3t}}\cdot {\color{ma} 2} \cdot {\color{re} 1} + {\color{gr} e^{3t}} \cdot {\color{ma} 11} \cdot {\color{re} t}
+  \end{equation*}
+  Thus:
+  \begin{equation*}
+    \mathcal{L}^{-1}\left\{\frac{2s+5}{(s-3)^2}\right\} = 2e^{3t} + 11te^{3t}
+  \end{equation*}
+\end{example}
+\subsubsection{Application on Fraction With an Irreducible Quadratic Denominator}
+\label{sssec:}
+The process in the previous example can be generalized into a process that will work with any fraction in the form of (under the assumption that the denominator is irreducible/has no real roots):
+\begin{equation*}
+  \frac{As+B}{as^2+bs+c}
+\end{equation*}
+where the general process is completing the square of the denominator to find {\color{gr} $\alpha$} (the number to shift by) and {\color{re} $\beta$} (the trigonometric coefficient), process the numerator to get it into the form of $s- {\color{gr} \alpha}+C$, then separating the numerator such that $s- {\color{gr} \alpha}$ is one fraction and $C$ is another. From there, each fraction can be inverse Laplace Transformed on its own due to the linearity of the inverse Laplace Transform:
+
+\textbf{1) Complete the Square of the Denominator:}
+\begin{equation*}
+  as^2+bs+c = a\left(s^2+ \frac{b}{a}s+\left(\frac{b}{2a}\right)^2-\left(\frac{b}{2a}\right)^2+\frac{c}{a}\right) = a\left( \left(s+\frac{b}{2a}\right)^2 + \frac{-b^2 + 4ac}{4a^2} \right)
+\end{equation*}
+During this process, it is assumed that the denominator is \textit{irreducible}, meaning that it has no real roots. Because of this, it can be stated that $-b^2+4ac>0$. Thus:
+\begin{equation*}
+  {\color{gr} \alpha} = -\frac{b}{2a},\ {\color{re} \beta}=\frac{\sqrt{-b^2+4ac}}{2a}
+\end{equation*}
+\textbf{2) Process the Numerator to Find $s-{\color{gr} \alpha}$}
+\begin{equation*}
+  As+B = A(s-\alpha+\alpha)+B = {\color{gr} A(s-\alpha)}+{\color{re} (A\alpha+B)}
+\end{equation*}
+\textbf{3) Putting it All Together}
+\begin{equation*}
+  \frac{As+B}{as^2+bs+c} = \frac{{\color{gr} A(s-\alpha)}}{a\big[(s-\alpha)^2+\beta^2\big]} + \frac{{\color{re} A \alpha+B}}{a\big[(s-\alpha)^2+\beta^2\big]} = \frac{A}{a} \cdot \frac{(s-\alpha)}{(s-\alpha)^2+\beta^2} + \frac{A \alpha + B}{a} \cdot \frac{1}{(s-\alpha)^2+\beta^2}
+\end{equation*}
+\textbf{4) Inverse Laplace Transform the Fractions}
+\begin{align*}
+     &\frac{A}{a} \cdot \mathcal{L}^{-1}\left\{\frac{(s-\alpha)}{(s-\alpha)^2+\beta^2}\right\} + \frac{A \alpha + B}{a} \cdot \mathcal{L}^{-1}\left\{\frac{1}{(s-\alpha)^2+\beta^2}\right\} \\ \\
+  =\ &\frac{A}{a} \cdot \mathcal{L}^{-1}\left\{\frac{s}{s^2+\beta^2}\right\}\Big\vert_{s \mapsto s-\alpha} + \frac{A \alpha + B}{a} \cdot \mathcal{L}^{-1}\left\{\frac{1}{s^2+\beta^2}\right\}\Big\vert_{s \mapsto s-\alpha} \\ \\
+  =\ &\frac{A}{a} e^{\alpha t} \cdot \mathcal{L}^{-1}\left\{\frac{s}{s^2+\beta^2}\right\} + \frac{A \alpha + B}{a} e^{\alpha t} \cdot \mathcal{L}^{-1}\left\{\frac{1}{s^2+\beta^2}\right\} \\ \\
+  =\ &\frac{A}{a} e^{\alpha t} \cos(\beta t) + \frac{A \alpha + B}{a} \cdot \frac{1}{\beta} e^{\alpha t} \sin(\beta t)
+\end{align*}
+
+\subsection{Unit Step Function}
+\label{ssec:unitStepFunction}
+
+\begin{wrapfigure}[]{r}{0.3\textwidth}
+  \vspace{-20pt}
+  \centering
+  \includestandalone{figures/fig_012}
+  \caption{Unit Step Function}
+  \label{fig:012}
+\end{wrapfigure}
+
+The unit step function is defined as:
+\begin{equation*}
+  \mathcal{U}(t-a)=\begin{cases}
+    0,\ 0 \leq t < a \\
+    1,\ a \leq t \\
+  \end{cases}
+\end{equation*}
+Any piecewise function can be expressed as a sum of functions with unit step functions. Consider the following generic piecewise function:
+\begin{equation*}
+  f(t) = \begin{cases}
+    f_1(t),\ 0\leq t < a \\
+    f_2(t),\ t\leq a \\
+  \end{cases}
+\end{equation*}
+This function can be expressed as a sum of functions using the unit step function as follows:
+\begin{equation*}
+  f(t) = f_1(t)+\big({\color{re} f_2(t)-f_1(t)}\big)\mathcal{U}(t-a)
+\end{equation*}
+The general concept is that, prior to $t$ reaching $a$, $\mathcal{U}(t-a)=0$, so the {\color{re} $f_2(t)-f_1(t)$} has a coefficient of $0$, and thus has no effect on the value of $f(t)$. However, upon $t$ reaching $a$, $\mathcal{U}(t-a)=1$, and thus the value of $f(t)$ is modified by the difference between $f_1(t)$ and $f_2(t)$.
+
+In other words, once the unit step function's $a$ is reached, the value of $f(t)$ changes from $f_1(t)$ to $f_2(t)$ by adding the difference between the two sub-functions. This "transformation" of a piecewise function can be done an arbitrary number of times:
+\begin{equation*}
+  f(t) = \begin{cases}
+    f_1(t),\ 0 \leq t < a \\
+    f_2(t),\ a \leq t < b \\
+    f_3(t),\ b \leq t < c \\
+    f_4(t),\ c \leq t < d \\
+    f_5(t),\ d \leq t \\
+  \end{cases}
+\end{equation*}
+can be equivalently expressed as:
+\begin{equation*}
+  f_1(t)+\big(f_2(t)-f_1(t)\big)\mathcal{U}(t-a)+\big(f_3(t)-f_2(t)\big)\mathcal{U}(t-b)+\big(f_4(t)-f_3(t)\big)\mathcal{U}(t-c)+\big(f_5(t)-f_4(t)\big)\mathcal{U}(t-d)
+\end{equation*}
+Furthermore, a function given in terms of unit step functions can be translated back into a piecewise function:
+\begin{equation*}
+  f(t) = g_1(t) + g_2(t)\mathcal{U}(t-a) + g_3(t)\mathcal{U}(t-b)
+\end{equation*}
+becomes
+\begin{align*}
+  f(t) = \begin{cases}
+    g_1(t)        ,&\ 0 \leq t < a \\
+    g_1+g_2(t)    ,&\ a \leq t < b \\
+    g_1+g_2+g_3(t),&\ b \leq t \\
+  \end{cases}
+\end{align*}
+
+\subsubsection{Second Translation Theorem}
+\label{sssec:secondTranslationTheorem}
+
+Considering some function shifted by some value $a$ with the unit step function:
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_013}
+    \caption{$y=f(t)$}
+    \label{fig:013}
+  \end{subfigure}
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_014}
+    \caption{$y=f(t-a)\mathcal{U}(t-a)$}
+    \label{fig:014}
+  \end{subfigure}
+\end{figure}
+the \textbf{Second Translation Theorem} is:
+
+\begin{definition}{Second Translation Theorem}
+  If $\mathcal{L}\left\{f(t)\right\}=F(s)$, then
+  \begin{equation*}
+    \mathcal{L}\left\{f(t-a)\mathcal{U}(t-a)\right\}=e^{-as}F(s)
+  \end{equation*}
+\end{definition}
+
+The proof of which is as follows. Considering some function $\mathcal{L}\left\{f(t-a)\mathcal{U}(t-a)\right\}$, the Laplace Transform of the function is:
+\begin{equation*}
+  \int_{0}^{\infty} f(t-a)\mathcal{U}(t-a)e^{-st} \,dt = \int_{a}^{\infty} f(t-a)\mathcal{U}(t-a)e^{-st} \,dt
+\end{equation*}
+this equivalency is valid since, up until $t=a$, the value of the entire function is $0$ since the unit step function has yet to be "activated". Then, mapping $(t-a) \mapsto T$:
+\begin{equation*}
+  \int_{0}^{\infty} f(T)\mathcal{U}(T){\color{gr} e^{-s(T+a)}} \,dt = \int_{0}^{\infty} f(T){\color{re} \mathcal{U}(T)}{\color{gr} e^{-sT-sa}} \,dT = {\color{gr} e^{-sa}}\int_{0}^{\infty} f(T)\cdot{\color{re} 1}\cdot{\color{gr} e^{-sT}} \,dT = e^{-as}F(s)
+\end{equation*}
+Thus:
+\begin{equation*}
+  \mathcal{L}\left\{f(t-a)\mathcal{U}(t-a)\right\}=e^{-as}F(s)\ \ \ \textup{or}\ \ \ \mathcal{L}\left\{f(t)\mathcal{U}(t-a)\right\}=e^{-as}\mathcal{L}\left\{f(t+a)\right\}
+\end{equation*}
 
 \end{document}

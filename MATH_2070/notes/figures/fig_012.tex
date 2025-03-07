@@ -1,0 +1,21 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 012}
+\date{March 06, 2025}
+
+\begin{document}
+\begin{tikzpicture}
+  \draw[fg, -stealth] (0,0) -- ++(5,0);
+  \draw[fg, -stealth] (0,0) -- node[midway, anchor=east] {$1$} ++(0,2);
+
+  \draw[draw=fg, dashed, thick] (0,1) -- ++(2,0);
+  \draw[draw=bl, ultra thick] (0,0) -- ++(2,0) node[anchor=north] {$a$};
+  \draw[draw=bl, dashed, ultra thick] (2,0) -- ++(0,1);
+  \draw[draw=bl, -stealth, ultra thick] (2,1) -- ++(2.5,0);
+
+  \draw[draw=bl, fill=bl] (0,0) circle (2pt);
+  \draw[draw=bl, fill=bg] (2,0) circle (2pt);
+  \draw[draw=bl, fill=bl] (2,1) circle (2pt);
+\end{tikzpicture}
+\end{document}
