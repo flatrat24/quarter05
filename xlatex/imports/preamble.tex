@@ -156,7 +156,7 @@
 
 % Example Problem
 \newcounter{example}[section]
-\newenvironment{example}{
+\newenvironment{example}[1]{
   \stepcounter{example}
   \begin{tcolorbox}[
     standard jigsaw, % Allows opacity
@@ -167,7 +167,7 @@
     sharp corners,
     coltext={fg}
   ]
-  \textbf{Example \hfill \thesection.\theexample}
+  \textbf{Example - #1 \hfill \thesection.\theexample}
   \vspace{5px}
   \hrule
   \vspace{5px}
