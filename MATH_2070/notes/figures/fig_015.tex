@@ -1,0 +1,45 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 015}
+\date{March 08, 2025}
+
+\begin{document}
+\begin{tikzpicture}
+  \draw[fg, -stealth] (-0.5,0) -- ++(7.5,0);
+  \draw[fg, -stealth] (0,-0.5) node[anchor=south east, yshift=-2pt, xshift=0] {$0$} -- ++(0,1.85);
+
+  \coordinate (a) at (0,1);
+  \draw[draw=bl, ultra thick]           (a) node[anchor=east] {$1$} -- ++(1,0);
+  \draw[draw=bl, dashed, ultra thick] ($(a)+(1,0)$) -- ++(0,-1) node[anchor=north] {$1$};
+  \draw[draw=bl, ultra thick]         ($(a)+(1,-1)$) -- ++(1,0);
+  \draw[draw=bl, dashed, ultra thick] ($(a)+(2,-1)$) node[anchor=north] {$2$} -- ++(0,1);
+  \draw[draw=bl, fill=bl]             ($(a)+(0,0)$) circle (2pt);
+  \draw[draw=bl, fill=bg]             ($(a)+(1,0)$) circle (2pt);
+  \draw[draw=bl, fill=bl]             ($(a)+(1,-1)$) circle (2pt);
+  \draw[draw=bl, fill=bg]             ($(a)+(2,-1)$) circle (2pt);
+
+  \coordinate (b) at ($(a)+(2,0)$);
+  \draw[draw=bl, ultra thick]           (b) -- ++(1,0);
+  \draw[draw=bl, dashed, ultra thick] ($(b)+(1,0)$) -- ++(0,-1) node[anchor=north] {$3$};
+  \draw[draw=bl, ultra thick]         ($(b)+(1,-1)$) -- ++(1,0);
+  \draw[draw=bl, dashed, ultra thick] ($(b)+(2,-1)$) node[anchor=north] {$4$} -- ++(0,1);
+  \draw[draw=bl, fill=bl]             ($(b)+(0,0)$) circle (2pt);
+  \draw[draw=bl, fill=bg]             ($(b)+(1,0)$) circle (2pt);
+  \draw[draw=bl, fill=bl]             ($(b)+(1,-1)$) circle (2pt);
+  \draw[draw=bl, fill=bg]             ($(b)+(2,-1)$) circle (2pt);
+
+  \coordinate (c) at ($(b)+(2,0)$);
+  \draw[draw=bl, ultra thick]           (c) -- ++(1,0);
+  \draw[draw=bl, dashed, ultra thick] ($(c)+(1,0)$) -- ++(0,-1) node[anchor=north] {$5$};
+  \draw[draw=bl, ultra thick]         ($(c)+(1,-1)$) -- ++(1,0);
+  \draw[draw=bl, dashed, ultra thick] ($(c)+(2,-1)$) node[anchor=north] {$6$} -- ++(0,1);
+  \draw[draw=bl, fill=bl]             ($(c)+(0,0)$) circle (2pt);
+  \draw[draw=bl, fill=bg]             ($(c)+(1,0)$) circle (2pt);
+  \draw[draw=bl, fill=bl]             ($(c)+(1,-1)$) circle (2pt);
+  \draw[draw=bl, fill=bg]             ($(c)+(2,-1)$) circle (2pt);
+
+  \draw[draw=bl, ultra thick, -stealth] ($(c)+(2,0)$) -- ++(1,0);
+  \draw[draw=bl, fill=bl]               ($(c)+(2,0)$) circle (2pt);
+\end{tikzpicture}
+\end{document}

@@ -103,7 +103,7 @@ Where the \textbf{integrating factor} ($\mu(t)$) is:
   \mu(t) = e^{\int_{}^{} p(t) \,dt}
 \end{equation*}
 
-\begin{example}
+\begin{example}{First Order Linear ODE in Standard Form}
   \begin{equation*}
     y' + 2y = e^{3t},\ y(0) = 3
   \end{equation*}
@@ -151,7 +151,7 @@ Integrating both sides with respect to $x$, the equation becomes:
   y(x) &= \int_{}^{} f(x) \, dx + C
 \end{align*}
 This $y(x)$ is the general solution to (\ref{eq:201}). Thus, to solve a differential equation with just a single dependent variable $x$, finding the antiderivative of $f(x)$ is sufficient to find the general solution.
-\begin{example}
+\begin{example}{First Order Linear ODE by Direct Integration}
   Find the general solution for:
   \begin{equation*}
     y' = 3x^2
@@ -187,7 +187,7 @@ Second, to verify that the initial condition is satisfied:
   y(x_0) &= y_0
 \end{align*}
 This confirms the initial condition, and thus it can be seen that the solution to the differential equation with an initial condition has been found.
-\begin{example}
+\begin{example}{First Order Linear IVP by Direct Integration}
   Solve
   \begin{equation*}
     y' = e^{-x^2}, \ y({\color{gr} 0}) = {\color{re} 1}
@@ -218,34 +218,34 @@ This confirms the initial condition, and thus it can be seen that the solution t
   The solution passes both verification tests, and so it can be safely said that the solution has been found.
 \end{example}
 
-Using the same method as before, equations of the form in (\ref{eq:203}) can be solved as well.
-\begin{equation}
-  y' = f(y)\ \ \textup{or}\ \ \frac{dy}{dx} = f(y)
-  \label{eq:203}
-\end{equation}
-(\ref{eq:203}) can be rewritten using the inverse function theorem from calculus to switch the roles of $x$ and $y$ to get:
-\begin{equation*}
-  \frac{dx}{dy} = \frac{1}{f(y)}
-\end{equation*}
-Finally, at this point both sides can be integrated with respect to $y$ to get:
-\begin{equation*}
-  x(y) = \int_{}^{} \frac{1}{f(y)} \,dy + C
-\end{equation*}
-From here, it is just a matter of solving for $y$.
-\begin{example}
-  In Subsection \ref{ssec:fourFundamentalEquations}, the claim was made that the solution for $y'=ky$ is $y=Ce^{kx}$ for $k>0$. To show this, the method of integration can be used:
-  \begin{gather*}
-    \frac{dy}{dx} = ky \rightarrow \frac{dx}{dy} = \frac{1}{ky} \\
-    x(y) = \int_{}^{} \frac{1}{ky} \, dy \\
-    x(y) = \frac{1}{k}\ln|y| + D \\
-  \end{gather*}
-  Now solving for $y$:
-  \begin{gather*}
-    x(y) = \frac{1}{k}\ln|y| + D \\
-  \end{gather*}
-\end{example}
+% Using the same method as before, equations of the form in (\ref{eq:203}) can be solved as well.
+% \begin{equation}
+%   y' = f(y)\ \ \textup{or}\ \ \frac{dy}{dx} = f(y)
+%   \label{eq:203}
+% \end{equation}
+% (\ref{eq:203}) can be rewritten using the inverse function theorem from calculus to switch the roles of $x$ and $y$ to get:
+% \begin{equation*}
+%   \frac{dx}{dy} = \frac{1}{f(y)}
+% \end{equation*}
+% Finally, at this point both sides can be integrated with respect to $y$ to get:
+% \begin{equation*}
+%   x(y) = \int_{}^{} \frac{1}{f(y)} \,dy + C
+% \end{equation*}
+% From here, it is just a matter of solving for $y$.
+% \begin{example}{}
+%   In Subsection \ref{ssec:fourFundamentalEquations}, the claim was made that the solution for $y'=ky$ is $y=Ce^{kx}$ for $k>0$. To show this, the method of integration can be used:
+%   \begin{gather*}
+%     \frac{dy}{dx} = ky \rightarrow \frac{dx}{dy} = \frac{1}{ky} \\
+%     x(y) = \int_{}^{} \frac{1}{ky} \, dy \\
+%     x(y) = \frac{1}{k}\ln|y| + D \\
+%   \end{gather*}
+%   Now solving for $y$:
+%   \begin{gather*}
+%     x(y) = \frac{1}{k}\ln|y| + D \\
+%   \end{gather*}
+% \end{example}
 
-\begin{example}
+\begin{example}{First Order Linear ODE by Direct Integration}
   \begin{equation*}
     y' + y = \cos(2t)
   \end{equation*}
@@ -292,7 +292,7 @@ This type of ODE is solved first by separating the variables. The LHS is reserve
   \frac{dy}{f(y)} = g(x) dx
 \end{equation*}
 Now that there is a single type of variable on each side (only $x$ or only $y$), both sides can be integrated. This will yield a one-parameter family of \textit{implicit solutions} (see Subsection \ref{ssec:implicitAndExplicitSolutions}).
-\begin{example}
+\begin{example}{First Order Non-Linear ODE by Separation of Variables}
   \begin{equation*}
     y' = xy
   \end{equation*}
@@ -320,7 +320,7 @@ Now that there is a single type of variable on each side (only $x$ or only $y$),
 
 \textbf{Principle:} If an ODE is given without initial values, a one-parameter family of solutions is sufficient. However, if an initial value is given (IVP), an explicit solution might be possible with an interval of existence.
 
-\begin{example}
+\begin{example}{First Order Non-Linear ODE by Separation of Variables}
   \begin{equation*}
     \frac{dy}{dx} = \frac{e^x - x}{e^{-y} + y}
   \end{equation*}
@@ -423,7 +423,7 @@ are both solutions to (\ref{eq:207}). This would then be referred to as a \textb
   An IVP with zero solutions, more than one solution, or infinitely many solutions.
 \end{definition}
 
-\begin{example}
+\begin{example}{Determining if an ODE is Pathological}
   \begin{equation*}
     ty'+(t-1)y = -e^{-t}\textup{,}\ y(0) = 1
   \end{equation*}
@@ -446,7 +446,7 @@ are both solutions to (\ref{eq:207}). This would then be referred to as a \textb
   The disappearance of $C$ (due to being multiplied by $0$) reveals that there are infinitely many solutions to this IVP, thus showing its pathological nature.
 \end{example}
 
-\begin{example}
+\begin{example}{Determining if an ODE is Pathological}
   \begin{equation*}
     ty'+(t-1)y = -e^{-t}\textup{,}\ y(0) = 0
   \end{equation*}
@@ -479,22 +479,6 @@ It might be tempting to say that any IVP that is \textit{not} pathological is th
 
 Notice that, to determine if a unique solutions exists based on the existence and uniqueness theorem, the IVP need not be solved.
 
-\begin{example}
-  \begin{equation*}
-    ty'+(t-1)y = -e^{-t}\textup{,}\ y\left(\ln|2|\right) = \frac{1}{2}
-  \end{equation*}
-  Putting into standard form:
-  \begin{equation*}
-    y'+ \frac{t-1}{t}y = \frac{-e^{-t}}{t}
-  \end{equation*}
-  From here, $p(t)$ and $g(t)$ can be seen to be:
-  \begin{equation*}
-    p(t) = \frac{t-1}{t}\ \ \ \ \ \ g(t) = \frac{-e^{-t}}{t}
-  \end{equation*}
-  Both $p(t)$ and $g(t)$ are continuous everywhere except for at $t=0$, where both of their denominators will equal $0$. This says that there are two open intervals over which there could possbily be a single unique solution: $(-\infty,0)$ or $(0,\infty)$.
-\\ \\
-  Because the initial value is $y\left(\ln|2|\right) = \frac{1}{2}$, the second interval is chosen as $t_0=\ln|2|$ lays on the interval $(0,\infty)$.
-\end{example}
 Based on this theorem, it can be asserted that there exists a unique solution over an interval $(a,b)$ provided that this interval contains $t_0$ from the IVP and both functions $p(t)$ and $g(t)$ are continuous over this interval.
 
 \subsection{Intervals of Existence}
@@ -515,22 +499,21 @@ Based on the existence and uniqueness theorem as outlined in Subsubsection \ref{
   \item Pick the interval that contains $t_0$
 \end{enumerate}
 
-\begin{example}
+\begin{example}{Interval of Existence of a First Order Linear IVP}
   \begin{equation*}
-    ty' + (t-1)y = -e^{-t},\ y\left(\ln(2)\right) = \frac{1}{2}
+    ty'+(t-1)y = -e^{-t}\textup{,}\ y\left(\ln|2|\right) = \frac{1}{2}
   \end{equation*}
-  To use the theorem, first the equation must be expressed in its standard form:
+  Putting into standard form:
   \begin{equation*}
-    y' + \frac{t-1}{t}\cdot y = -\frac{e^{-t}}{t}
+    y'+ \frac{t-1}{t}y = \frac{-e^{-t}}{t}
   \end{equation*}
-  Where:
-  \begin{align*}
-    p(t) &= \frac{t-1}{t} \\
-    g(t) &= -\frac{e^{-t}}{t}
-  \end{align*}
-  Since, for both of these functions, the only point of discontinuity is $t=0$, then it is known that the only two possible intervals of existence are either $(-\infty,0)$ or $(0,\infty)$. \\
-
-  Furthermore, since the initial condition is given as $y\left(\ln(2)\right) = \frac{1}{2}$, $t_0 = \ln(2)$. Thus, the interval of existence for the solution of this ODE would be the interval of $(0,\infty)$.
+  From here, $p(t)$ and $g(t)$ can be seen to be:
+  \begin{equation*}
+    p(t) = \frac{t-1}{t}\ \ \ \ \ \ g(t) = \frac{-e^{-t}}{t}
+  \end{equation*}
+  Both $p(t)$ and $g(t)$ are continuous everywhere except for at $t=0$, where both of their denominators will equal $0$. This says that there are two open intervals over which there could possbily be a single unique solution: $(-\infty,0)$ or $(0,\infty)$.
+\\ \\
+  Because the initial value is $y\left(\ln|2|\right) = \frac{1}{2}$, the second interval is chosen as $t_0=\ln|2|$ lays on the interval $(0,\infty)$.
 \end{example}
 
 \subsubsection{Non-Linear IVPs}
@@ -548,7 +531,7 @@ Assume that:
 \end{enumerate}
 Then a unique solution $y=y(t)$ exists \textbf{near} $t=t_0$, i.e., there exists a small number $\epsilon > 0$ such that a solution exists on $(t_0-\epsilon,t_0+\epsilon)$.
 
-\begin{example}
+\begin{example}{Interval of Existence of a First Order Non-Linear IVP}
   \begin{equation*}
     y' = y^{\frac{1}{3}}\textup{,}\ y(0) = 1
   \end{equation*}
@@ -582,7 +565,7 @@ Such that:
   f(y_0) = 0
 \end{equation*}
 This means that the equilibrium solutions must be a value such that $y'(y_0)=0$.
-\begin{example}
+\begin{example}{Autonomous ODE}
   \begin{equation*}
     y' = y^3 - y
   \end{equation*}
@@ -682,7 +665,7 @@ When considering a solutions behavior from both sides (top and bottom), it can b
   \label{fig:typesOfStability}
 \end{figure}
 
-\begin{example}
+\begin{example}{Autonomous ODE: Real World Example}
   Falling object from a great height, subject to acceleration due to gravity ($mg$) and air resistance ($kv^2$). Newton's second law:
   \begin{equation*}
     m \cdot \frac{dv}{dt} = mg - kv^2;\ v(0) = 0

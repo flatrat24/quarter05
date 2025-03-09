@@ -220,7 +220,7 @@ What this shows is that, when a function $f(t)$ is multiplied by an exponential 
 
 The First Translation Theorem can be used to transform a function with an exponential factor.
 
-\begin{example}
+\begin{example}{Laplace Transform with First Translation Theorem}
   Evaluate $\mathcal{L}\big\{e^{5t}t^3\big\}$:
   \begin{equation*}
     \mathcal{L}\big\{e^{5t}t^3\big\} = \mathcal{L}\big\{t^3\big\}\Big\vert_{s \mapsto s-5} = \frac{3!}{s^4}\Big\vert_{s \mapsto s-5} = \frac{6}{\left(s-5\right)^4}
@@ -234,7 +234,7 @@ The First Translation Theorem can be used to transform a function with an expone
 \end{example}
 
 It can also be used in reverse to inverse Laplace Transform a fraction with repeated linear factors:
-\begin{example}
+\begin{example}{Inverse Laplace Transform with First Translation Theorem}
   Evaluate $\mathcal{L}^{-1}\left\{\frac{2s+5}{(s-3)^2}\right\}$:
 
   First, the fraction is broken into partial fractions:
@@ -384,6 +384,109 @@ this equivalency is valid since, up until $t=a$, the value of the entire functio
 Thus:
 \begin{equation*}
   \mathcal{L}\left\{f(t-a)\mathcal{U}(t-a)\right\}=e^{-as}F(s)\ \ \ \textup{or}\ \ \ \mathcal{L}\left\{f(t)\mathcal{U}(t-a)\right\}=e^{-as}\mathcal{L}\left\{f(t+a)\right\}
+\end{equation*}
+
+\begin{example}{IVP Using Laplace Transform and Unit Step Function}
+  Consider the IVP:
+  \begin{equation*}
+    y'+y=f(t),\ y(0)=5,\ f(t)=\begin{cases}
+      0,&\ 0\leq t<\pi \\
+      3\cos(t),&\ \pi< t \\
+    \end{cases}
+  \end{equation*}
+  First, rewrite the RHS as a function using the step function $\mathcal{U}(t)$:
+  \begin{equation*}
+    f(t) = 0 + (3\cos(t)-0)\mathcal{U}(t-\pi) = 3\cos(t)\cdot\mathcal{U}(t-\pi)
+  \end{equation*}
+  Then, with $Y(s)=\mathcal{L}\left\{y(t)\right\}$, find the Laplace Transform of the equation:
+  \begin{gather*}
+    \mathcal{L}\left\{y'+y\right\} = sY(s)-y(0)+Y(s) = Y(s)(s+1)-5 \\
+    \mathcal{L}\left\{3\cos(t)\cdot\mathcal{U}(t-\pi)\right\} = 3e^{-\pi t}\mathcal{L}\left\{\cos(t+\pi)\right\} = -3e^{-\pi t}\mathcal{L}\left\{\cos(t)\right\} = -3e^{-\pi t}\frac{s}{s^2+1} \\
+  Y(s)(s+1)-5 = -3e^{-\pi t}\frac{s}{s^2+1}
+  \end{gather*}
+  Solve algebraically for $Y(s)$:
+  \begin{align*}
+    Y(s)(s+1)-5 = -3e^{-\pi t}\frac{s}{s^2+1} \rightarrow Y(s) = -3e^{-\pi t}\frac{s}{(s^2+1)(s+1)} + \frac{5}{s+1}
+  \end{align*}
+  Find the inverse Laplace Transform of the equation to find $y(t)$:
+  \begin{equation*}
+    \mathcal{L}^{-1}\left\{-3e^{-\pi t}\frac{s}{(s^2+1)(s+1)} + \frac{5}{s+1}\right\} = {\color{gr} \mathcal{L}^{-1}\left\{-3e^{-\pi t}\frac{s}{(s^2+1)(s+1)}\right\}} + {\color{re} \mathcal{L}^{-1}\left\{\frac{5}{s+1}\right\}}
+  \end{equation*}
+  For the first Inverse Laplace:
+  \begin{gather*}
+    {\color{gr} \mathcal{L}^{-1}\left\{-3e^{-\pi t}\frac{s}{(s^2+1)(s+1)}\right\}} = \mathcal{L}^{-1}\left\{\frac{-3s}{(s^2+1)(s+1)}\right\}\Big\vert_{t \mapsto t-\pi} \mathcal{U}(t-\pi) \\
+    = \mathcal{L}^{-1}\left\{\frac{\frac{3}{2}}{s+1}-\frac{\frac{3}{2}s}{s^2+1}-\frac{\frac{3}{2}}{s^2+1}\right\}\Big\vert_{t \mapsto t-\pi} \mathcal{U}(t-\pi) = \left(\frac{3}{2}e^{-t}-\frac{3}{2}\cos(t)-\frac{3}{2}\sin(t)\right)\Big\vert_{t \mapsto t-\pi}\mathcal{U}(t-\pi) \\
+    \left(\frac{3}{2}e^{-(t-\pi)}+\frac{3}{2}\cos(t)+\frac{3}{2}\sin(t)\right)\mathcal{U}(t-\pi)
+  \end{gather*}
+  For the second Inverse Laplace:
+  \begin{equation*}
+    {\color{re} \mathcal{L}^{-1}\left\{\frac{5}{s+1}\right\}} = 5e^{-t}
+  \end{equation*}
+  Giving a final function of:
+  \begin{equation*}
+    y(t) = \left(\frac{3}{2}e^{-(t-\pi)}+\frac{3}{2}\cos(t)+\frac{3}{2}\sin(t)\right)\mathcal{U}(t-\pi) + 5e^{-t}
+  \end{equation*}
+  Which can be translated into a piecewise function:
+  \begin{equation*}
+    y(t) = \begin{cases}
+      5e^{-t},&\ 0 \leq t < \pi \\
+      5e^{-t}+\frac{3}{2}e^{-(t-\pi)}+\frac{3}{2}\cos(t)+\frac{3}{2}\sin(t),&\ \pi \leq t
+    \end{cases}
+  \end{equation*}
+\end{example}
+
+\subsection{Periodic Functions}
+\label{ssec:periodicFunctions}
+
+\begin{definition}{Periodic Function}
+  A function $f(t)$ is said to be periodic if it repeats over some period. Specifically, a function is $T$-periodic if $\forall t \in D,\ f(t+T)=f(t)$ (where $D$ is the domain of $f$) and $T$ is the smallest possible number satisfying this equality.
+\end{definition}
+
+
+
+Consider some function $f(t)$ that is $T$-periodic on $[0,\infty)$. Finding the Laplace Transform:
+\begin{equation*}
+  \mathcal{L}\left\{f(t)\right\} = \int_{0}^{\infty} f(t)e^{-st} \,dt = {\color{or} \int_{0}^{T} f(t)e^{-st} \,dt} + {\color{gr} \int_{T}^{\infty} f(t)e^{-st} \,dt}
+\end{equation*}
+Focusing on the second integral, because $\forall t>T,\ f(t)=f(t-T)$:
+\begin{equation*}
+  {\color{gr} \int_{T}^{\infty} f(t)e^{-st} \,dt} = \int_{T}^{\infty} f(t-T)e^{-s(t-T+T)} \,dt = {\color{ma} e^{-sT}}{\color{re} \int_{T}^{\infty} f(t-T)e^{-s(t-T)} \,dt}
+\end{equation*}
+If some dummy variable $u=t-T$, then:
+\begin{equation*}
+  {\color{re} \int_{T}^{\infty} f(t-T)e^{-s(t-T)} \,dt} = \int_{0}^{\infty} f(u)e^{-su} \,dt = \mathcal{L}\left\{f(u)\right\} = {\color{ma} \mathcal{L}\left\{f(t)\right\}}
+\end{equation*}
+Therefore, putting both integrals back together:
+\begin{equation*}
+  \mathcal{L}\left\{f(t)\right\} = {\color{or} \int_{0}^{T} f(t)e^{-st} \,dt} + {\color{ma} e^{-sT}\mathcal{L}\left\{f(t)\right\}}
+\end{equation*}
+Then, solving for $\mathcal{L}\left\{f(t)\right\}$:
+\begin{equation*}
+  \mathcal{L}\left\{f(t)\right\} = \frac{1}{1-s^{-sT}}\int_{0}^{T} f(t)e^{-st} \,dt
+\end{equation*}
+\begin{definition}{Laplace Transform of a Periodic Function}
+  The Laplace Transform of a $T$-periodic function $f(t)$ is:
+  \begin{equation*}
+    \mathcal{L}\left\{f(t)\right\} = \frac{1}{1-s^{-sT}}\int_{0}^{T} f(t)e^{-st} \,dt
+  \end{equation*}
+\end{definition}
+\begin{wrapfigure}[5]{r}{0.45\textwidth}
+  \centering
+  \vspace{-10pt}
+  \includestandalone{figures/fig_015}
+  \caption{Square Wave Function}
+  \label{fig:015}
+\end{wrapfigure}
+Consider a square wave function $E(t)$, a $2$-periodic function that is extended from the following piecewise function:
+\begin{equation*}
+  E(t) = \begin{cases}
+    1,&\ 0 \leq t < 1 \\
+    0,&\ 1 \leq t < 2
+  \end{cases}
+\end{equation*}
+Using the shown method of finding the Laplace Transform of a periodic function:
+\begin{equation*}
+  \mathcal{L}\left\{E(t)\right\} = \frac{1}{1-e^{-2s}}\int_{0}^{2} E(t)e^{-st} \,dt = \frac{1}{1-e^{-2s}}\int_{0}^{1} 1 \cdot e^{-st} \,dt = \frac{1}{1-e^{-2s}}\left[-\frac{1}{s}e^{-st}\right]_0^1 = \frac{1}{s\left(1+e^{-s}\right)}
 \end{equation*}
 
 \end{document}
