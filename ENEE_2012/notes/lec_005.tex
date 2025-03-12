@@ -11,23 +11,6 @@
 \section{Circuit Theorems}
 \label{sec:circuitTheorems}
 
-% \subsection{Linearity}
-% \label{ssec:linearity}
-%
-% \begin{definition}{Linear Circuit}
-%   A linear circuit is one whose output is linearly related to its input.
-% \end{definition}
-%
-% More specifically, a linear circuit must satisfy the homogeneity (scaling) property as well as well as the additive property. Homogeneity means
-%
-% \begin{figure}[H]
-%   
-%   \caption{Linear}
-%   \label{fig:}
-% \end{figure}
-%
-% \textit{Power is non-linear}.
-
 \subsection{Superposition}
 \label{ssec:superposition}
 
@@ -129,11 +112,120 @@ The applied source transformations to each circuit can be seen in Figure \ref{fi
   \end{subfigure}
   \caption{Voltage Transformations}
   \label{fig:voltageTransformationsAfter}
+  \vspace{-10pt}
 \end{figure}
 
 The same process, just reversed, can be done to transform a current source into a voltage source. If a current source exists \textit{in parallel} with a resistor, it can be transformed into a voltage source \textit{in series} with that resistor. The voltage on the voltage source is determined by Ohm's Law ($V = IR$).
 
 \subsection{Thevenin's Theorem}
 \label{ssec:theveninsTheorem}
+
+\begin{definition}{Thevenin's Theorem}
+  States that a linear two-terminal circuit can be replaced by an equivalent circuit consisting of a voltage source ($V_{th}$) in series with a resistor ($R_{th}$) where $V_{th}$ is the \textbf{open-circuit voltage} and $R_{th}$ is the equivalent resistance at the terminals when the independent sources are turned off.
+\end{definition}
+
+Consider the circuit in Figure \ref{fig:042}.
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_042}
+    \caption{Circuit}
+    \label{fig:042}
+  \end{subfigure}
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_043}
+    \caption{Thevenin Equivalent}
+    \label{fig:043}
+  \end{subfigure}
+  \caption{Thevenin's Theorem}
+  \label{fig:theveninsTheoremOne}
+  \vspace{-10pt}
+\end{figure}
+Thevenin's Theorem states that this circuit, seeing that it is indeed linear, can be modeled as an equivalent circuit between terminals $a$ and $b$ as simply a resistor and voltage source in series.
+
+To find the Thevenin equivalent circuit, $V_{th}$ and $R_{th}$ must be found. To find $V_{th}$, as in Figure \ref{fig:040}, is found by opening the circuit between $a$ and $b$. To find $R_{th}$, the resistance of the circuit must be analyzed by shorting voltage sources and opening current sources.
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_040}
+    \caption{Open Circuit Voltage}
+    \label{fig:040}
+  \end{subfigure}
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_041}
+    \caption{Dead Circuit Resistance}
+    \label{fig:041}
+  \end{subfigure}
+  \caption{Finding Thevenin's Theorem}
+  \label{fig:theveninsTheorem}
+\end{figure}
+Some circuits, such as the one in Figure \ref{fig:044}, aren't possible to find the $R_{th}$ of just through adding resistance values in series and parallel.
+\begin{figure}[H]
+  \centering
+  \includestandalone{figures/fig_044}
+  \caption{Finding $R_{th}$}
+  \label{fig:044}
+\end{figure}
+In such cases, by inserting some dummy voltage source between the terminals $a$ and $b$ and solving for the current over that branch, Ohm's Law can then be applied to calculate the resistance:
+\begin{equation*}
+  R_{th} = \frac{V_{dummy}}{I_{calculated}}
+\end{equation*}
+
+\subsection{Norton's Theorem}
+\label{ssec:theveninsTheorem}
+
+\begin{definition}{Norton's Theorem}
+  States that a linear two-terminal circuit can be replaced by an equivalent circuit consisting of a current source ($I_{N}$) in series with a resistor ($R_{N}$) where $I_{N}$ is the \textbf{short-circuit current} and $R_{N}$ is the equivalent resistance at the terminals when the independent sources are turned off.
+\end{definition}
+
+Consider the circuit in Figure \ref{fig:047}.
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_047}
+    \caption{Circuit}
+    \label{fig:047}
+  \end{subfigure}
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_048}
+    \caption{Norton Equivalent}
+    \label{fig:048}
+  \end{subfigure}
+  \caption{Norton's Theorem}
+  \label{fig:NortonTheoremOne}
+  \vspace{-10pt}
+\end{figure}
+Similar to Thevenin's Theorem, since this circuit still is linear, it can also be expressed as a simple circuit with just a current source and resistor in parallel. Notice that a Thevenin equivalent and a Norton equivalent circuit are simply source transformed versions of the other (see Figure \ref{fig:014}).
+
+To solve for a Norton equivalent circuit, $I_N$ and $R_N$ must be found. $R_N$ can be found the same as previously in Subsection \ref{ssec:theveninsTheorem}. $I_N$, however, is solved by shorting terminals $a$ and $b$, and finding the current over the wire.
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_045}
+    \caption{Short Circuit Current}
+    \label{fig:045}
+  \end{subfigure}
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_046}
+    \caption{Dead Circuit Resistance}
+    \label{fig:046}
+  \end{subfigure}
+  \caption{Thevenin's Theorem}
+  \label{fig:theveninsTheoremOne}
+  \vspace{-10pt}
+\end{figure}
+
+\subsection{Maximum Power Transfer}
+\label{ssec:maximumPowerTransfer}
+
 
 \end{document}

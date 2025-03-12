@@ -1,0 +1,13 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 043}
+\date{March 11, 2025}
+
+\begin{document}
+\begin{circuitikz}
+  \draw[fg, thick] (0,0) node[anchor=west] {$a$} to[short, o-] ++(-3,0) to[I] ++(0,2) to[short, -o] ++(3,0) node[anchor=west] {$b$};
+
+  \draw[fg, thick] (-1.5,0) to[R, o-o] ++(0,2);
+\end{circuitikz}
+\end{document}

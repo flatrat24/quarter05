@@ -385,6 +385,17 @@ Thus:
 \begin{equation*}
   \mathcal{L}\left\{f(t-a)\mathcal{U}(t-a)\right\}=e^{-as}F(s)\ \ \ \textup{or}\ \ \ \mathcal{L}\left\{f(t)\mathcal{U}(t-a)\right\}=e^{-as}\mathcal{L}\left\{f(t+a)\right\}
 \end{equation*}
+Furthermore, the Second Translation Theorem can be applied inversely:
+\begin{definition}{Second Translation Theorem - Inverse}
+  If $\mathcal{L}\left\{f(t)\right\}=F(s)$, then
+  \begin{equation*}
+    \mathcal{L}^{-1}\left\{e^{-as}F(s)\right\}=\mathcal{L}^{-1}\left\{F(s)\right\}\Big\vert_{t \mapsto t-a}\mathcal{U}(t-a)
+  \end{equation*}
+  or:
+  \begin{equation*}
+    \mathcal{L}^{-1}\left\{e^{-as}F(s)\right\}=f(t-a)\mathcal{U}(t-a)
+  \end{equation*}
+\end{definition}
 
 \begin{example}{IVP Using Laplace Transform and Unit Step Function}
   Consider the IVP:

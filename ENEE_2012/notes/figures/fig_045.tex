@@ -1,0 +1,22 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 042}
+\date{March 11, 2025}
+
+\begin{document}
+\begin{circuitikz}
+  \draw[fg, thick] (0,0) to[V] ++(0,2)
+  to[R] ++(2,0)
+  to[short] ++(2,0)
+  to[R, -o] ++(2,0) node[anchor=west] {$a$}
+  to[short] ++(0,-2);
+
+  \draw[fg, thick, -stealth] (6.25,0.25) -- node[anchor=west] {$I_N$} ++(0,1.5);
+
+  \draw[fg, thick] (0,0) to[short, -o] ++(6,0) node[anchor=west] {$b$};
+
+  \draw[fg, thick] (2,0) to[I, o-o] ++(0,2);
+  \draw[fg, thick] (4,0) to[R, o-o] ++(0,2);
+\end{circuitikz}
+\end{document}

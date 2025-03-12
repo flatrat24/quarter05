@@ -1,0 +1,24 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 044}
+\date{March 11, 2025}
+
+\begin{document}
+\begin{circuitikz}
+
+  \draw[fg, thick] (0,0)
+  to[V] ++(0,4)
+  to[R, -o] ++(4,0) node[anchor=south west] {$a$}
+  to[R] ++(-2,-2)
+  to[R] ++(2,-2)
+  to[short] ++(-4,0);
+
+  \draw[fg, thick] (2,2) to[R] ++(4,0);
+
+  \draw[fg, thick] (4,4)
+  to[R, -o] ++(2,-2) node[anchor=south west] {$b$}
+  to[R] ++(-2,-2);
+
+\end{circuitikz}
+\end{document}

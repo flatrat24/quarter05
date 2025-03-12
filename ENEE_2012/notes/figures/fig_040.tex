@@ -1,0 +1,21 @@
+\documentclass{standalone}
+\input{../../../xlatex/imports/preamble}
+
+\title{Figure 040}
+\date{March 11, 2025}
+
+\begin{document}
+\begin{circuitikz}
+  \draw[fg, thick] (0,0) to[V] ++(0,2)
+  to[R] ++(2,0)
+  to[short] ++(2,0)
+  to[R, -o] ++(2,0) node[anchor=north] {$+$};
+
+  \draw[fg, thick] (0,0) to[short, -o] ++(6,0) node[anchor=south] {$-$};
+
+  \draw[fg, thick] (2,0) to[I, o-o] ++(0,2);
+  \draw[fg, thick] (4,0) to[R, o-o] ++(0,2);
+
+  \draw[] (6,1) node[rotate = 0, anchor = center] {$V_{th}$};
+\end{circuitikz}
+\end{document}
