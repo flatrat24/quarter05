@@ -176,7 +176,7 @@ In such cases, by inserting some dummy voltage source between the terminals $a$ 
 \end{equation*}
 
 \subsection{Norton's Theorem}
-\label{ssec:theveninsTheorem}
+\label{ssec:nortonsTheorem}
 
 \begin{definition}{Norton's Theorem}
   States that a linear two-terminal circuit can be replaced by an equivalent circuit consisting of a current source ($I_{N}$) in series with a resistor ($R_{N}$) where $I_{N}$ is the \textbf{short-circuit current} and $R_{N}$ is the equivalent resistance at the terminals when the independent sources are turned off.
@@ -219,13 +219,73 @@ To solve for a Norton equivalent circuit, $I_N$ and $R_N$ must be found. $R_N$ c
     \caption{Dead Circuit Resistance}
     \label{fig:046}
   \end{subfigure}
-  \caption{Thevenin's Theorem}
-  \label{fig:theveninsTheoremOne}
+  \caption{Norton's Theorem}
+  \label{fig:nortonsTheorem}
   \vspace{-10pt}
 \end{figure}
 
-\subsection{Maximum Power Transfer}
-\label{ssec:maximumPowerTransfer}
+\subsection{Power Transfer}
+\label{ssec:powerTransfer}
 
+In a circuit reduced to the form of a Thevenin or Norton circuit, the next step of the analysis might then to be determine the amount of \textbf{power} consumed by some load connected between the terminals $a$ and $b$. As in Subsection \ref{ssec:powerAndEnergy}, the power can be calculated as:
+\begin{equation*}
+  P = I \cdot V
+\end{equation*}
+\begin{wrapfigure}[5]{r}{0.3\textwidth}
+  \vspace{-30pt}
+  \centering
+  \includestandalone{figures/fig_049}
+  \caption{Thevenin Equivalent}
+  \label{fig:049}
+\end{wrapfigure}
+For a Thevenin circuit, this could take the form of multiplying the current in the circuit by the voltage drop across the load (with a voltage divider):
+\begin{equation*}
+  P = {\color{gr} I} \cdot {\color{re} V} = \left[{\color{gr} \frac{V_{th}}{R_{th}+R_{L}}}\right] \cdot \left[{\color{re} V_{th}\frac{R_{L}}{R_{L}+R_{th}}}\right] = {\color{bl} R_L \cdot \left(\frac{V_{th}}{R_L+R_{th}}\right)^2}
+\end{equation*}
+Thus, giving the equation for the power consumed by the load in terms of $R_L$, $R_{th}$, and $V_{th}$.
+
+\begin{wrapfigure}[6]{l}{0.3\textwidth}
+  \vspace{-20pt}
+  \centering
+  \includestandalone{figures/fig_050}
+  \caption{Norton Equivalent}
+  \label{fig:050}
+\end{wrapfigure}
+
+For a Norton circuit, it might be simpler to see it as a {\color{ma} current divider} for $I$ multiplied with an {\color{or} Ohm's Law} to find $V$:
+\begin{equation*}
+  P = {\color{ma} I} \cdot {\color{or} V} = \left[{\color{ma} \frac{I_{N}}{\left(R_{N}^{-1}+R_{L}^{-1}\right)R_{L}}}\right] \cdot \left[{\color{or} \frac{I_{N}}{R_{N}^{-1}+R_{L}^{-1}}}\right] = {\color{cy} \left(\frac{I_N}{R_{N}^{-1}+R_{L}^{-1}}\right)^2 \cdot \frac{1}{R_L}}
+\end{equation*}
+Thus giving the power consumed in terms of $R_L$, $R_N$ and $I_{N}$.
+
+Considering the fact that $V_{th}=I_N \cdot R_{th/N}$ and $I_N = \frac{V_{th}}{R_{th/N}}$ by Ohm's Law, these two equations can be shown to be equivalent:
+\begin{gather*}
+  \left[{\color{bl} R_L \cdot \left(\frac{V_{th}}{R_L+R_{th}}\right)^2} = {\color{cy} \left(\frac{I_N}{R_{N}^{-1}+R_{L}^{-1}}\right)^2 \cdot \frac{1}{R_L}}\right] \rightarrow \left[R_{\color{fg} L}^{\color{re} 2} \cdot \left(\frac{V_{th}}{R_L+R_{th}}\right)^{\color{re} 2} = \left(\frac{I_N}{R_{N}^{-1}+R_{L}^{-1}}\right)^{\color{re} 2}\right] \rightarrow \\
+  \left[R_L \cdot \frac{{\color{gr} V_{th}}}{R_L+R_{th}} = \frac{I_N}{R_{N}^{-1}+R_{L}^{-1}}\right] \rightarrow \left[R_L \cdot \frac{{\color{gr} {\color{re} I_N} \cdot R_{th/N}}}{R_L+R_{th}} = \frac{{\color{re} I_N}}{R_{N}^{-1}+R_{L}^{-1}}\right] \rightarrow \left[\frac{R_L \cdot R_{th/N}}{R_L+R_{th}} = \frac{{\color{re} 1}}{R_{N}^{-1}+R_{L}^{-1}}\right] \rightarrow \\
+  \left[\frac{R_L+R_{th}}{R_L \cdot R_{th/N}} = \frac{1}{R_N} + \frac{1}{R_L}\right] \rightarrow \left[\frac{R_L}{R_L \cdot R_{th/N}} + \frac{R_{th}}{R_L \cdot R_{th/N}} = \frac{1}{R_N} + \frac{1}{R_L}\right] \rightarrow \left[\frac{1}{R_N} + \frac{1}{R_L} = \frac{1}{R_N} + \frac{1}{R_L}\right]
+\end{gather*}
+
+\subsubsection{Maximum Power Transfer}
+\label{sssec:maximumPowerTransfer}
+
+Often, maximizing the power consumed by a load is desirable in the design process. Using calculus, and specifically optimization, the load resistance that yields the maximum power consumed by the load can be solved for. Consider the Thevenin equation for power:
+\begin{equation*}
+  P = R_L \cdot \left(\frac{V_{th}}{R_L+R_{th}}\right)^2
+\end{equation*}
+The first step of optimization is to derive the equation. Deriving with respect to $R_L$:
+\begin{equation*}
+  \frac{dP}{dR_L} = V_{th}^2 \cdot \left(\frac{R_{th}-R_L}{\left(R_{th}+R_{L}\right)^3}\right)
+\end{equation*}
+Then, set $\frac{dP}{dR_L}=0$ to find critical points. It is only at these points where an extrema (whether max or min) may occur:
+\begin{equation*}
+  V_{th}^2 \cdot \left(\frac{R_{th}-R_L}{\left(R_{th}+R_{L}\right)^3}\right) = 0 \rightarrow R_{th}-R_L = 0 \rightarrow R_{th}=R_L
+\end{equation*}
+Thus, when $R_L=R_{th}$, the maximum amount of power consumption over the load occurs. This process can be done analogously for the Norton euqation for power, and will give the same answer.
+\begin{definition}{Maximum Power}
+  The maximum power is transferred to the load when the load resistance equals the Thevenin/Norton resistance as seen from the load.
+  \begin{equation*}
+    R_L = R_{th/N}
+  \end{equation*}
+\end{definition}
 
 \end{document}
