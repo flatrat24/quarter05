@@ -1,0 +1,216 @@
+\documentclass[12pt]{article}
+
+\input{../../xlatex/imports/preamble}
+
+\title{Lecture 002}
+\date{January 12, 2025}
+
+\begin{document}
+\setcounter{equation}{0}
+\newpage
+
+% \subsection{Implicit and Explicit Solutions}
+% \label{ssec:implicitAndExplicitSolutions}
+%
+% In general, anytime an ODE is given \textit{without} initial values, then a single-parameter family of \textit{implicit} solutions is sufficient.
+%
+% If given an IVP, however, then finding an \textit{explicit} solution and an \textit{interval of existence} should be attempted. In some situations, this won't be possible, but it should be attempted at least.
+%
+% \subsubsection{Implicit Solutions}
+% \label{sssec:implicitSolution}
+%
+% Sometimes a wall is reached even if the integration is possible. Consider:
+% \begin{equation}
+%   y' = \frac{xy}{y^2 + 1}
+%   \label{eq:204}
+% \end{equation}
+% Using the technique described in Subsection \ref{sssec:separableODE}, this can be separated into:
+%
+% \begin{align*}
+%   y' &= \frac{xy}{y^2 + 1} \\
+%   \frac{dy}{dx} &= \frac{xy}{y^2 + 1} \\
+%   \frac{y^2 + 1}{y}dy  &= x\ dx \\
+%   \left(y+\frac{1}{y}\right)dy  &= x\ dx
+% \end{align*}
+% Integrating both sides gives:
+% \begin{equation*}
+%   \frac{y^2}{2} + \ln|y| = \frac{x^2}{2} + C
+% \end{equation*}
+% The integration of this equation is quite simple. However, try to solve for $y$ and see how difficult that will be. Though solving for $y$ itself is too difficult, this form is still a solution and can still be verified.
+% \begin{align*}
+%   \frac{d}{dx}\left(\frac{y^2}{2} + \ln|y|\right) &= \frac{d}{dx}\left(\frac{x^2}{2} + C\right) \\
+%   y'\left(y + \frac{1}{y}\right) &= x \\
+%   y \cdot \left(y'\left(y + \frac{1}{y}\right) \right) &= y \cdot x \\
+%   y'\left(y^2 + 1\right) &= y \cdot x \\
+%   y' &= \frac{xy}{y^2 + 1}
+% \end{align*}
+% Producing the exact same equation in (\ref{eq:204}), thus verifying the solution.
+%
+% Since these solutions are implicit, they might not be able to be graphed as a valid function. In those cases, other information, such as an initial condition, can be used to further inform the appropriate solution.
+
+\subsection{Autonomous ODE}
+\label{ssec:autonomousODE}
+
+\begin{equation*}
+  y' = f(y)
+\end{equation*}
+Such that the right hand side (RHS) does not involve $t$. In other words, it is a function purely in terms of $y$.
+
+The equilibrium solution:
+\begin{equation*}
+  y = y_0
+\end{equation*}
+Such that:
+\begin{equation*}
+  f(y_0) = 0
+\end{equation*}
+This means that the equilibrium solutions must be a value such that $y'(y_0)=0$.
+\begin{example}{Autonomous ODE}
+  \begin{equation*}
+    y' = y^3 - y
+  \end{equation*}
+  Clearly, the RHS is purely in terms of $y$, so this would be able to be solved as an autonomous ODE. So, taking the RHS and solving for $0$:
+  \begin{align*}
+    y^3 - y &= 0 \\
+    y\left(y^2 - 1\right) &= 0 \\
+    y\left(y - 1\right)\left(y + 1\right) &= 0 \\
+    y = 0;\ y = 1;\ y &= -1
+  \end{align*}
+  Thus, there are three equilibrium solutions.
+  \begin{gather*}
+    @y=0\\
+    y' = y\left(y - 1\right)\left(y + 1\right) \Rightarrow 0\left(0 - 1\right)\left(0 + 1\right) = 0 \cdot -1 \cdot 1 = 0
+  \end{gather*}
+  \begin{gather*}
+    @y=1\\
+    y' = y\left(y - 1\right)\left(y + 1\right) \Rightarrow 1\left(1 - 1\right)\left(1 + 1\right) = 1 \cdot 0 \cdot 2 = 0
+  \end{gather*}
+  \begin{gather*}
+    @y=-1\\
+    y' = y\left(y - 1\right)\left(y + 1\right) \Rightarrow -1\left(-1 - 1\right)\left(-1 + 1\right) = -1 \cdot -2 \cdot 0 = 0
+  \end{gather*}
+\end{example}
+
+\subsubsection{Stability of an Equilibrium Solution}
+\label{sssec:stabilityOfAnEqulibriumSolution}
+
+\begin{definition}{Stability}
+  Let $y=y_0$ be an equilibrium solution of $y' = f(y)$. $y=y_0$ is \textit{stable from above} if, for every $y>y_0$ near $y_0$, $f(y)<0$.
+\end{definition}
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_002}
+    \caption{Stable From Above}
+    \label{fig:002}
+  \end{subfigure}
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_003}
+    \caption{Stable From Below}
+    \label{fig:003}
+  \end{subfigure}
+  \caption{Stability}
+  \label{fig:stability}
+  \vspace{-10pt}
+\end{figure}
+Using Figure \ref{fig:002} as a visual, the {\color{gr} solution} is stable from above because, if you were to deviate from the solution, the direction field above will guide you back down to the solution. Figure \ref{fig:003} is stable from below for the same reasons.
+
+It follows then, that if the direction field around the solution points \textit{away} from the solution, then the solution is considered to be \textit{un}stable. See this in Figure \ref{fig:instability}.
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_004}
+    \caption{Unstable From Above}
+    \label{fig:004}
+  \end{subfigure}
+  \begin{subfigure}[H]{0.45\textwidth}
+    \centering
+    \includestandalone{figures/fig_005}
+    \caption{Unstable From Below}
+    \label{fig:005}
+  \end{subfigure}
+  \caption{Instability}
+  \label{fig:instability}
+  \vspace{-10pt}
+\end{figure}
+
+When considering a solutions behavior from both sides (top and bottom), it can be said to be either stable, unstable, or semistable.
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[H]{0.30\textwidth}
+    \centering
+    \includestandalone{figures/fig_006}
+    \caption{Stable}
+    \label{fig:006}
+  \end{subfigure}
+  \begin{subfigure}[H]{0.30\textwidth}
+    \centering
+    \includestandalone{figures/fig_007}
+    \caption{Unstable}
+    \label{fig:007}
+  \end{subfigure}
+  \begin{subfigure}[H]{0.30\textwidth}
+    \centering
+    \includestandalone{figures/fig_008}
+    \caption{Semistable}
+    \label{fig:008}
+  \end{subfigure}
+  \caption{Types of Stability}
+  \label{fig:typesOfStability}
+\end{figure}
+
+\begin{example}{Autonomous ODE: Real World Example}
+  Falling object from a great height, subject to acceleration due to gravity ($mg$) and air resistance ($kv^2$). Newton's second law:
+  \begin{equation*}
+    m \cdot \frac{dv}{dt} = mg - kv^2;\ v(0) = 0
+  \end{equation*}
+  This ODE is autonomous since the RHS has no $t$ involved, so the equilibrium solution will be obtained by setting the RHS $= 0$.
+  \begin{gather*}
+    mg-kv^2 = 0 \\
+    \vdots \\
+    v = \pm \sqrt{\frac{mg}{k}}
+  \end{gather*}
+
+  Based on this model, the terminal velocity of the falling object will be:
+  \begin{equation*}
+    v = \sqrt{\frac{mg}{k}}
+  \end{equation*}
+  \hrule
+  \vspace{12pt}
+  This ODE can also be solved by finding the explicit solution, first by rearranging the equation:
+  \begin{gather*}
+    m \cdot \frac{dv}{dt} = mg - kv^2 \\
+    \vdots \\
+    \frac{m}{mg-kv^2}dv = dt
+  \end{gather*}
+  Then integrate both sides. Keep in mind that $g$, $k$, and $m$ are constants.
+  \begin{gather*}
+    \int_{}^{} \frac{m}{mg-kv^2} \,dv = \int_{}^{}  \,dt \\
+    \frac{m}{k}\int_{}^{} \frac{m}{\frac{mg}{k}-v^2} \,dv = \int_{}^{}  \,dt \\
+    \frac{m}{k}\int_{}^{} \frac{m}{\left(\sqrt{\frac{mg}{k}}-v\right)\left(\sqrt{\frac{mg}{k}}+v\right)} \,dv = \int_{}^{}  \,dt \\
+  \end{gather*}
+\end{example}
+
+\newpage
+\subsubsection{Phase Line}
+\label{sssec:phaseLine}
+
+\begin{wrapfigure}[]{r}{0.45\textwidth}
+  \vspace{-20pt}
+  \centering
+  \includestandalone{figures/fig_009}
+  \caption{Phase Line}
+  \label{fig:009}
+\end{wrapfigure}
+
+When there are multiple solutions to a given ODE, each solution might have a different stability. Though this information could absolutely be expressed as seen in Figure \ref{fig:typesOfStability} with multiple {\color{gr} solutions} drawn, this information could also be visualized in a phase line.
+
+Since these autonomous ODEs don't depend on an $x$, no information is gained by extending the graph into the $x$-axis. A phase line recognizes that by just expressing the stability of each solution along a single $y$-axis. This is seen in Figure \ref{fig:009}.
+
+\end{document}

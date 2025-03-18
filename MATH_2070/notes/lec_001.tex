@@ -151,4 +151,267 @@ Similarly, (\ref{eq:011}) is also non-linear because $\theta$ appears inside a $
   \label{eq:011}
 \end{equation}
 
+\subsection{Ordinary Differential Equations (ODE)}
+\label{ssec:ordinaryDifferentialEquations}
+
+\begin{wrapfigure}[14]{r}{0.45\textwidth}
+  \centering
+  \vspace{-15pt}
+  \includestandalone{figures/fig_001}
+  \caption{Position, Velocity, and Acceleration}
+  \label{fig:001}
+\end{wrapfigure}
+
+Ordinary differential equations (ODE) are differential equations with just a single input, generally thought of as time ($t$). However, this could be anything from position ($x$) to angle ($\theta$) to some other variable.
+
+Consider the relationships between {\color{re} position} ($x$), {\color{gr} velocity} ($v$), and {\color{bl} acceleration} ($a$). Velocity is the derivative of position and acceleration the derivative of velocity.
+
+If only the acceleration of an object across time is known ($g = 9.8 \frac{m}{s^2}$), and nothing else about that object is known, then differential equations can be used to solve for the object's velocity and acceleration.
+\begin{align*}
+  y''(t) &= -g \\
+  \frac{d(?)}{dt}(t) &= -g
+\end{align*}
+Based on this, if a function can be found to have a derivative of $-g$ then the velocity of the object can be said to have a velocity equal to that function. In this example, it is as simple as integrating the function for acceleration:
+\begin{equation*}
+  \frac{d(-gt + v_0)}{dt}(t) = -g
+\end{equation*}
+Going one step further and integrating the velocity will yield the position of the object.
+\begin{equation*}
+  \frac{d\left(-\frac{1}{2}gt^2+v_0t+x_0\right)}{dt}(t) = -gt + v_0
+\end{equation*}
+The last thing to consider with this example are the initial conditions of the differential equation. $v_0$ and $x_0$ are not known quantities, however, if they were to be specified then the differential would have an initial condition to satisfy.
+
+\subsubsection{General Solutions}
+\label{sssec:generalSolutions}
+
+Previously, in Subsection \ref{ssec:whatIsADifferentialEquation}, a particular solution was found for the differential equation of:
+\begin{equation}
+  \frac{dx}{dt} + x = 2 \cos(t)
+  \label{eq:201}
+\end{equation}
+However it has more than just a single particular solution. Consider:
+\begin{equation*}
+  \frac{dx}{dt} = -\sin(t) + \cos(t) - e^{-t}
+\end{equation*}
+as a solution to (\ref{eq:201}). To verify:
+\begin{align*}
+  \big(-\sin(t) + \cos(t) - e^{-t}\big) + \big(\cos(t) + \sin(t) + e^{-t}\big) &= 2\cos(t) \\
+  -\sin(t) + \sin(t) + \cos(t) + \cos(t) - e^{-t} + e^{-t} &= 2\cos(t) \\
+  \cos(t) + \cos(t) &= 2\cos(t) \\
+  2\cos(t) &= 2\cos(t)
+\end{align*}
+As can be seen, there exists more than just the single particular solution. In fact, for (\ref{eq:001}), the entire family of solutions exists in the form:
+\begin{equation*}
+  \frac{dx}{dt} = -\sin(t) + \cos(t) - Ce^{-t}
+\end{equation*}
+where $C$ is some constant. This is called a \textbf{One-Parameter Family of Solutions} for the differential equation.
+
+\begin{definition}{One-Parameter Family of Solutions}
+  A one-parameter family of solutions is a solution to a differential equation containing a single constant $C$. This constant is arbitrary, and thus the family of solutions it represents consists of all values of $C$.
+\end{definition}
+
+If a one-parameter family of solutions contains every possible solution to the differential equation, then it is referred to as the \textbf{General Solution}.
+
+\begin{definition}{General Solution}
+  The entire family of solutions for a given differential equation. A general form of the solution that can be adapted to different specifications.
+\end{definition}
+
+Each value of $C$ gives a different solution, so really there are infinite solutions for (\ref{eq:001}).
+
+\subsubsection{Singular Solutions}
+\label{sssec:singularSolutions}
+
+\begin{definition}{Singular Solution}
+  A single discrete solution to an ODE that has no parameters.
+\end{definition}
+
+Consider:
+\begin{equation}
+  y' = xy^3\left(1+x^2\right)^{-\frac{1}{2}}
+  \label{eq:206}
+\end{equation}
+(\ref{eq:206}) is a separable ODE that can be reorganized as:
+\begin{equation*}
+  y' = y^3 \cdot \frac{x}{\sqrt{1+x^2}}
+\end{equation*}
+And subsequently separated into:
+\begin{equation*}
+  \frac{dy}{y^3} = \frac{x}{\sqrt{1+x^2}}\ dx
+\end{equation*}
+And solved:
+\begin{align*}
+  \frac{dy}{y^3} &= \frac{x}{\sqrt{1+x^2}}\ dx \\
+  \int_{}^{} \frac{1}{y^3} \, dy &= \int_{}^{} \frac{x}{\sqrt{1+x^2}}\,dx \\
+  -\frac{1}{2y^2} &= \sqrt{1+x^2} + C
+\end{align*}
+It would now be tempting to say that $-\frac{1}{2y^2} = \sqrt{1+x^2} + C$ is a general solution to (\ref{eq:206}). However, $y=0$ is also a solution to (\ref{eq:206})$\hdots$
+
+The true answer then would be to say that $-\frac{1}{2y^2} = \sqrt{1+x^2} + C$ is a \textit{family} of solutions rather than the general solution and that $y=0$ is a singular solution.
+
+\subsection{Initial Value Problem (IVP)}
+\label{ssec:initialValueProblem}
+Sometimes there might be an additional condition that the solution to an ODE must satisfy. This might look like:
+\begin{equation}
+  y' = f(x), \ y(x_0) = y_0
+  \label{eq:203}
+\end{equation}
+Leaving the solution to (\ref{eq:203}) as:
+\begin{equation*}
+  y(x) = \int_{x_0}^{x} f(t) \,dt + y_0
+\end{equation*}
+Verifying the solution, first $y'$ is computed based on our solution.
+\begin{align*}
+  \frac{d}{dx}\big(y(x)\big) = \frac{d}{dx}\left(\int_{x_0}^{x} f(t) \,dt + y_0\right) \\
+  y' = f(x)
+\end{align*}
+Second, to verify that the initial condition is satisfied:
+\begin{align*}
+  y(x) &= \int_{x_0}^{x} f(t) \,dt + y_0 \\
+  y(x_0) &= \int_{x_0}^{x_0} f(t) \,dt + y_0 \\
+  y(x_0) &= 0 + y_0 \\
+  y(x_0) &= y_0
+\end{align*}
+This confirms the initial condition, and thus it can be seen that the solution to the differential equation with an initial condition has been found.
+\begin{example}{First Order Linear IVP by Direct Integration}
+  Solve
+  \begin{equation*}
+    y' = e^{-x^2}, \ y({\color{gr} 0}) = {\color{re} 1}
+  \end{equation*}
+  First, finding the solution, both sides can be integrated:
+  \begin{equation*}
+    y(x) = \int_{{\color{gr} 0}}^{x} e^{-t^2} \,dt + {\color{re} 1}
+  \end{equation*}
+  And to verify the solution:
+  \begin{figure}[H]
+    \centering
+    \begin{subfigure}[H]{0.45\textwidth}
+      \centering
+      \begin{align*}
+        \frac{d}{dx}\big(y(x)\big) &= \frac{d}{dx}\left(\int_{0}^{x} e^{-t^2} \,dt + 1\right) \\
+        y' &= e^{-x^2}
+      \end{align*}
+    \end{subfigure}
+    \begin{subfigure}[H]{0.45\textwidth}
+      \centering
+      \begin{align*}
+        y(0) &= \int_{0}^{x} e^{t^2} \,dt + 1 \\
+        y(0) &= 0 + 1 \\
+        y(0) &= 1
+      \end{align*}
+    \end{subfigure}
+  \end{figure}
+  The solution passes both verification tests, and so it can be safely said that the solution has been found.
+\end{example}
+
+\subsubsection{Pathological and Reasonable IVPs}
+\label{sssec:pathologicalAndReasonableIVPs}
+
+Consider:
+\begin{equation}
+  \frac{dy}{dx}=x \sqrt{y}\textup{, }y(0) = 0
+  \label{eq:207}
+\end{equation}
+Solving this IVP, it can be seen that both:
+\begin{equation*}
+  y = \frac{1}{16}x^2\ \ \ \textup{and}\ \ \ y=0
+\end{equation*}
+are both solutions to (\ref{eq:207}). This would then be referred to as a \textbf{Pathological IVP}.
+
+\begin{definition}{Pathological IVP}
+  An IVP with zero solutions, more than one solution, or infinitely many solutions.
+\end{definition}
+
+\begin{example}{Determining if an IVP is Pathological}
+  \begin{equation*}
+    ty'+(t-1)y = -e^{-t}\textup{,}\ y(0) = 1
+  \end{equation*}
+  First, putting the ODE into standard form:
+  \begin{equation*}
+    y'+ \frac{t-1}{t}y = \frac{-e^{-t}}{t}
+  \end{equation*}
+  Thus:
+  \begin{equation*}
+    p(t) = \frac{t-1}{t}\ \ \ \ \ \ g(t) = \frac{-e^{-t}}{t}\ \ \ \ \ \ \mu(t) = \frac{e^t}{t}
+  \end{equation*}
+  Giving the general solution as:
+  \begin{align*}
+    y = \frac{\int \frac{e^t}{t} \cdot \frac{-e^{-t}}{t} \,dt}{\frac{e^t}{t}} = \frac{-\int \frac{1}{t^2} \,dt}{\frac{e^t}{t}} = \frac{\frac{1}{t} + C}{\frac{e^t}{t}} = e^{-t} + Cte^{-t}
+  \end{align*}
+  Now to solve the IVP, plugging in the values of $y(0)$ and $t=0$:
+  \begin{equation*}
+    y = e^{-t} + Cte^{-t}\ \  \Rightarrow\ \ 1 = e^{0} + C \cdot 0 \cdot e^{0} = 1 + 0
+  \end{equation*}
+  The disappearance of $C$ (due to being multiplied by $0$) reveals that there are infinitely many solutions to this IVP, thus showing its pathological nature.
+\end{example}
+
+\begin{example}{Determining if an ODE is Pathological}
+  \begin{equation*}
+    ty'+(t-1)y = -e^{-t}\textup{,}\ y(0) = 0
+  \end{equation*}
+  By taking the same IVP as previous, but changing the initial condition from $y(0) = 1$ to $y(0) = 0$, the behavior changes:
+  \begin{equation*}
+    y = e^{-t} + Cte^{-t}\ \  \Rightarrow\ \ 0 = e^{0} + C \cdot 0 \cdot e^{0} = 1 + 0
+  \end{equation*}
+  Clearly, $0 \neq 1$, showing that this IVP has zero solutions. Again, this is a pathological IVP.
+\end{example}
+
+It might be tempting to say that any IVP that is \textit{not} pathological is then reasonable. While exclusivity exists between the two, the proper method to determine if an IVP is reasonably posed is by using the \textbf{Existence and Uniqueness Theorem}.
+
+\subsubsection{Existence and Uniqueness Theorem}
+\label{sssec:existenceAndUniquenessTheorem}
+
+As the name suggests, the Existence and Uniqueness Theorem is used to tell \textbf{two} things about an IVP:
+\begin{enumerate}
+  \itemsep0em
+  \item That there \textit{exists} a solution on some open open interval that contains $t_0$
+  \item That there is a \textit{unique} solution on some open interval $(a,b)$ that contains $t_0$
+\end{enumerate}
+
+The existence and uniqueness theorem has two forms: one for \textit{linear} IVPs and one for \textit{non-linear} IVPs. Each of these forms of the existence and uniqueness theorem tell the same thing about the IVP, but differ in \textit{how} to tell if the theorem applies to the IVP.
+
+\begin{definition}{Existence and Uniqueness Theorem - Linear IVP}
+  Consider:
+  \begin{equation*}
+    y' + p(t)y = g(t) + C,\ y(t_0) = y_0
+  \end{equation*}
+  where the IVP is \textbf{linear} and in its \textbf{standard form}.
+  Assuming that:
+  \begin{enumerate}
+    \itemsep0em
+    \item Both $p(t)$ and $g(t)$ are continuous over the open interval $(a,b)$
+    \item The open interval $(a,b)$ contains $t_0$
+  \end{enumerate}
+  Then there exists a unique function $y = y(t)$ over the interval $(a,b)$ that solves the IVP.
+\end{definition}
+
+Notice that, to determine if a unique solutions exists based on the existence and uniqueness theorem, the IVP need not be solved.
+
+Based on this theorem, it can be asserted that there exists a unique solution over an interval $(a,b)$ provided that this interval contains $t_0$ from the IVP and both functions $p(t)$ and $g(t)$ are continuous over this interval. From this understanding, the following steps can be formulated to generalize the process for finding the interval of existence and uniqueness of an IVP:
+\begin{enumerate}
+  \itemsep0em
+  \item Express the IVP in standard form:
+    \begin{equation*}
+      y' + p(t) \cdot y = g(t)
+    \end{equation*}
+  \item Find singular points $\big($points where $p(t)$ and $g(t)$ are discontinuous$\big)$
+  \item Plot the discontinuities to find a series of disjoint open intervals
+  \item Pick the open interval that contains $t_0$
+\end{enumerate}
+
+\begin{definition}{Existence and Uniqueness Theorem - Non-Linear IVP}
+  Consider:
+  \begin{equation*}
+    y' = f(t,y),\ y(t_0) = y_0
+  \end{equation*}
+  where the IVP is \textbf{non-linear} and in its \textbf{standard form}.
+  Assuming that:
+  \begin{enumerate}
+    \itemsep0em
+    \item The function $f(t,y)$ is continuous \textit{\textbf{near}} $(t_0,y_0)$
+    \item The function $\frac{\delta f}{\delta y}(t,y)$ is continuous \textbf{\textit{near}} $(t_0,y_0)$
+  \end{enumerate}
+  Then there exists a unique function $y = y(t)$ \textbf{\textit{near}} $t=t_0$
+\end{definition}
+This theorem is not quite as strong as the linear version as it only concludes local existence rather than the interval of existence. Nevertheless, the theorem can still be used to determine the pathological or reasonable nature of a non-linear IVP.
+
 \end{document}

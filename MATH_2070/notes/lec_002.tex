@@ -9,287 +9,125 @@
 \setcounter{equation}{0}
 \newpage
 
-\section{Ordinary Differential Equations}
-\label{sec:ordinaryDifferentialEquations}
+\section{First Order ODE}
+\label{sec:firstOrderODE}
 
-Ordinary differential equations (ODE) are differential equations with just a single input, generally thought of as time ($t$).
-
-Consider the relationships between {\color{re} position} ($x$), {\color{gr} velocity} ($v$), and {\color{bl} acceleration} ($a$). Velocity is the derivative of position and acceleration the derivative of velocity.
-
-\begin{figure}[H]
-  \centering
-  \includestandalone{figures/fig_001}
-  \caption{Position, Velocity, and Acceleration}
-  \label{fig:001}
-\end{figure}
-
-If only the acceleration of an object across time is known ($g = 9.8 \frac{m}{s^2}$), and nothing else about that object is known, then differential equations can be used to solve for the object's velocity and acceleration.
-\begin{align*}
-  y''(t) &= -g \\
-  \frac{d(?)}{dt}(t) &= -g
-\end{align*}
-Based on this, if a function can be found to have a derivative of $-g$ then the velocity of the object can be said to have a velocity equal to that function. In this example, it is as simple as integrating the function for acceleration:
-\begin{equation*}
-  \frac{d(-gt + v_0)}{dt}(t) = -g
-\end{equation*}
-Going one step further and integrating the velocity will yield the position of the object.
-\begin{equation*}
-  \frac{d\left(-\frac{1}{2}gt^2+v_0t+x_0\right)}{dt}(t) = -gt + v_0
-\end{equation*}
-The last thing to consider with this example are the initial conditions of the differential equation. $v_0$ and $x_0$ are not known quantities, however, if they were to be specified then the differential would have an initial condition to satisfy.
-
-\subsection{First Order ODE}
-\label{ssec:firstOrderODE}
-
-Based on the classification in Subsection \ref{ssec:classificationOfDifferentialEquations}, a first order ODE is a differential equation that whose highest order derivative is a first order derivative and all derivatives are with respect to the same variable.
+A first order ODE is an equation in the form of:
+\begin{equation}
+  \frac{dy}{dx} = f(x,y) \ \ \textup{or} \ \ y' = f(x,y)
+  \label{eq:202}
+  \vspace{-10pt}
+\end{equation}
 
 \begin{definition}{First Order ODE}
-  A differential equation of the first order, with all derivatives being with respect to a single variable (usually $x$ or $t$).
+  A differential equation whose highest order derivative is a first order derivative, with all derivatives being with respect to a single variable (usually $x$ or $t$).
 \end{definition}
 
-Previously, in Subsection \ref{ssec:whatIsADifferentialEquation}, a particular solution was found for the differential equation of:
+There is no strict process to find a solution to these equations. Thus, a lot of this class is spent on the various different ways to find solutions. To see one of the simpler ways, consider an equation where $f$ is a function of only $x$:
+\vspace{-10pt}
 \begin{equation*}
-  \frac{dx}{dt} + x = 2 \cos(t)
-  \label{eq:012}
+  y' = f(x)
 \end{equation*}
-However, this being a first order ODE, it has more than just a single particular solution. Consider:
+Integrating both sides with respect to $x$, the equation becomes:
 \begin{equation*}
-  \frac{dx}{dt} = -\sin(t) + \cos(t) - e^{-t}
+  \int_{}^{} y' \, dx = \int_{}^{} f(x) \, dx + C \rightarrow \left[y(x) = \int_{}^{} f(x) \, dx + C\right]
 \end{equation*}
-as a solution to (\ref{eq:012}). To verify:
-\begin{align*}
-  \big(-\sin(t) + \cos(t) - e^{-t}\big) + \big(\cos(t) + \sin(t) + e^{-t}\big) &= 2\cos(t) \\
-  -\sin(t) + \sin(t) + \cos(t) + \cos(t) - e^{-t} + e^{-t} &= 2\cos(t) \\
-  \cos(t) + \cos(t) &= 2\cos(t) \\
-  2\cos(t) &= 2\cos(t)
-\end{align*}
-As can be seen, there exists more than just the single particular solution. In fact, for (\ref{eq:001}), the entire family of solutions exists in the form:
-\begin{equation*}
-  \frac{dx}{dt} = -\sin(t) + \cos(t) - Ce^{-t}
-\end{equation*}
-where $C$ is some constant. This is called a \textbf{One-Parameter Family of Solutions} for the differential equation.
+$y(x) = \int_{}^{} f(x) \, dx + C$ is the general solution to (\ref{eq:202}). Thus, to solve a differential equation with just a single dependent variable $x$, finding the antiderivative of $f(x)$ is sufficient to find the general solution.
+\begin{example}{First Order ODE by Direct Integration}
+  \begin{equation*}
+    y' = 3x^2
+  \end{equation*}
+  Integrating each side gives:
+  \begin{equation*}
+    \int_{}^{} y' \, dx = \int_{}^{} 3x^2 \, dx + C \rightarrow \left[y(x) = x^3 + C\right]
+  \end{equation*}
+\end{example}
 
-\begin{definition}{One-Parameter Family of Solutions}
-  A one-parameter family of solutions is a solution to a differential equation containing a single constant $C$. This constant is arbitrary, and thus the family of solutions it represents consists of all values of $C$.
-\end{definition}
+\begin{example}{First Order Linear ODE by Standard Form}
+  \begin{equation*}
+    y' + y = \cos(2t)
+  \end{equation*}
+  This is already in standard form: $p(t) = {\color{ye} 1}$, $g(t) = {\color{ma} cos(2t)}$. Calculating $\mu(t)$:
+  \begin{equation*}
+    \mu(t) = e^{\int_{}^{} {\color{ye} 1} \,dt} = {\color{gr} e^t}
+  \end{equation*}
+  Thus, the general solution will be:
+  \begin{equation*}
+    y = \frac{\int_{}^{} {\color{gr} e^t} {\color{ma} \cos(2t)} \,dt}{{\color{gr} e^t}}
+  \end{equation*}
+  Integrating the numerator:
+  \begin{gather*}
+    \int_{}^{} e^t \cdot \cos(2t) \,dt = \hdots = \frac{1}{5}\left(e^t \cos(2t) + 2e^t \sin(2t)\right) + C
+  \end{gather*}
+  Thus:
+  \begin{equation*}
+    y = \frac{\frac{1}{5}\left(e^t \cos(2t) + 2e^t \sin(2t)\right) + C}{e^t}\ \ \ \textup{or}\ \ \ y = \frac{1}{5}\left(\cos(2t) + 2\sin(2t)\right) + Ce^{-t}
+  \end{equation*}
+\end{example}
 
-If a one-parameter family of solutions contains every possible solution to the differential equation, then it is referred to as the \textbf{General Solution}.
-
-\begin{definition}{General Solution}
-  The entire family of solutions for a given differential equation. A general form of the solution that can be adapted to different specifications.
-\end{definition}
-
-Each value of $C$ gives a different solution, so really there are infinite solutions for (\ref{eq:001}).
-
-\subsubsection{First Order Linear ODE}
-\label{sssec:firstOrderLinearODE}
-
-First Order Linear ODEs follow a simple pattern for their solutions. However, before getting to that, what is a first order linear ODE?
+\subsection{First Order Linear ODE}
+\label{ssec:firstOrderLinearODE}
 
 \begin{definition}{First Order Linear ODE}
   A differential equation that 1) doesn't contain a derivative beyond the first order, 2) contains only derivatives with respect to a single variable, and 3) has its dependent variable appear linearly (not part of a sin, cos, square, etc.).
 \end{definition}
 
-If a differential equation is given in \textbf{standard form}:
-\begin{equation*}
-  y' + p(t)y = g(t)
-\end{equation*}
-Where $p(t)$ and $g(t)$ are arbitrary functions of $t$, then the general solution can be expressed as:
-\begin{equation*}
-  y(t) = \frac{\int_{}^{} \mu(t)g(t) \,dt + C}{\mu(t)}
-\end{equation*}
-Where the \textbf{integrating factor} ($\mu(t)$) is:
-\begin{equation*}
-  \mu(t) = e^{\int_{}^{} p(t) \,dt}
-\end{equation*}
+Solving a first order linear ODE starts by putting the ODE into \textbf{standard form}. Though there are different "standard forms" for different kinds of ODEs, "standard form" refers to the generic (and arbitrary) way of writing an ODE.
 
-\begin{example}{First Order Linear ODE in Standard Form}
+\begin{formula}{Standard Form of a First Order Linear ODE}
   \begin{equation*}
-    y' + 2y = e^{3t},\ y(0) = 3
+    y' + {\color{gr} p(t)}y = {\color{ma} g(t)}
+  \end{equation*}
+\end{formula}
+
+If a differential equation is given in \textbf{standard form}, where {\color{gr} $p(t)$} and {\color{ma} $g(t)$} are arbitrary functions of $t$, then the general solution can be expressed as:
+\begin{equation*}
+  y(t) = \frac{\int_{}^{} {\color{or} \mu(t)}{\color{ma} g(t)} \,dt + C}{{\color{or} \mu(t)}},\ \textup{where}\ {\color{or} \mu(t)} = e^{\int_{}^{} {\color{gr} p(t)} \,dt}
+\end{equation*}
+% Where the \textbf{integrating factor} $\big[{\color{or} \mu(t)}\big]$ is:
+% \begin{equation*}
+%   {\color{or} \mu(t)} = e^{\int_{}^{} {\color{gr} p(t)} \,dt}
+% \end{equation*}
+
+\begin{example}{First Order Linear IVP in Standard Form}
+  \begin{equation*}
+    y' + 2y = {\color{ma} e^{3t}},\ y(0) = {\color{ye} 3}
   \end{equation*}
   This ODE is already in standard form, so the integrating factor can be written as:
-  \begin{align*}
-    \mu(t) &= e^{\int_{}^{} 2 \,dt} \\
-           &= e^{2t}
-  \end{align*}
+  \begin{equation*}
+    \mu(t) = e^{\int_{}^{} 2 \,dt} = {\color{or} e^{2t}}
+  \end{equation*}
   And thus the general solutions is:
   \begin{align*}
-    y(t) &= \frac{\int_{}^{} e^{2t} \cdot e^{3t} \,dt + C}{e^{2t}} \\
-         &= \frac{\int_{}^{} e^{5t} \,dt + C}{e^{2t}} \\
-         &= \frac{\frac{1}{5} e^{5t} + C}{e^{2t}} \\
-         &= \frac{1}{5} \frac{e^{5t}}{e^{2t}} + \frac{C}{e^{2t}} \\
-         &= \frac{1}{5} \cdot e^{3t} + \frac{C}{e^{2t}} \\
+    y(t) &= \frac{\int_{}^{} {\color{or} e^{2t}} {\color{ma} e^{3t}} \,dt + C}{{\color{or} e^{2t}}} = \frac{\int_{}^{} e^{5t} \,dt + C}{e^{2t}} = \frac{\frac{1}{5} e^{5t} + C}{e^{2t}} = \frac{1}{5} \frac{e^{5t}}{e^{2t}} + \frac{C}{e^{2t}} = {\color{bl} \frac{1}{5} e^{3t} + \frac{C}{e^{2t}}}
   \end{align*}
   Using the initial condition to find the specific solution:
-  \begin{align*}
-    y(t) &= \frac{1}{5} \cdot e^{3t} + \frac{C}{e^{2t}} \\
-    y(0) &= \frac{1}{5} \cdot e^{3 \cdot 0} + \frac{C}{e^{2 \cdot 0}} \\
-    3    &= \frac{1}{5} + C \\
-    \frac{14}{5} &= C
-  \end{align*}
+  \begin{equation*}
+    y(t) = {\color{bl} \frac{1}{5} e^{3t} + \frac{C}{e^{2t}}} \rightarrow \left[y(0) = \frac{1}{5} e^{3 \cdot 0} + \frac{C}{e^{2 \cdot 0}}\right] \rightarrow \left[{\color{ye} 3} = \frac{1}{5} + C\right] \rightarrow \left[{\color{re} \frac{14}{5}} = C\right]
+  \end{equation*}
   Thus, the solution of the IVP is:
   \begin{equation*}
-    y(t) = \frac{1}{5} \cdot e^{3t} + \frac{14}{15} \cdot e^{-2t} \\
+    y(t) = \frac{1}{5} e^{3t} + {\color{re} \frac{14}{5}} e^{-2t} \\
   \end{equation*}
 \end{example}
 
-\subsubsection{First Order ODE}
-\label{sssec:firstOrderODE}
+\subsection{First Order Non-Linear ODE}
+\label{ssec:firstOrderNonLinearODE}
 
-A first order ODE is an equation in the form of:
-\begin{equation}
-  \frac{dy}{dx} = f(x,y) \ \ \textup{or} \ \ y' = f(x,y)
-  \label{eq:201}
-\end{equation}
-There is no strict process to find a solution to these equations. Thus, a lot of this class is spent on the various different ways to find solutions. To see one of the simpler ways, consider an equation where $f$ is a function of only $x$:
-\begin{equation*}
-  y' = f(x)
-\end{equation*}
-Integrating both sides with respect to $x$, the equation becomes:
-\begin{align*}
-  \int_{}^{} y' \, dx &= \int_{}^{} f(x) \, dx + C \\
-  y(x) &= \int_{}^{} f(x) \, dx + C
-\end{align*}
-This $y(x)$ is the general solution to (\ref{eq:201}). Thus, to solve a differential equation with just a single dependent variable $x$, finding the antiderivative of $f(x)$ is sufficient to find the general solution.
-\begin{example}{First Order Linear ODE by Direct Integration}
-  Find the general solution for:
-  \begin{equation*}
-    y' = 3x^2
-  \end{equation*}
-  Integrating each side gives:
-  \begin{align*}
-    \int_{}^{} y' \, dx &= \int_{}^{} 3x^2 \, dx + C \\
-    y(x) &= x^3 + C
-  \end{align*}
-  Thus, the general solution for $y' = 3x^2$ is $y(x) = x^3 + C$.
-\end{example}
-\subsubsection{Initial Value Problem}
-\label{sssec:initialValueProblem}
-Generally, there also might be a condition that the solution to a differential equation must satisfy. In general terms, this might look like:
-\begin{equation}
-  y' = f(x), \ y(x_0) = y_0
-  \label{eq:202}
-\end{equation}
-Leaving the solution to (\ref{eq:202}) as:
-\begin{equation*}
-  y(x) = \int_{x_0}^{x} f(t) \,dt + y_0
-\end{equation*}
-Verifying the solution, first $y'$ is computed based on our solution.
-\begin{align*}
-  \frac{d}{dx}\big(y(x)\big) = \frac{d}{dx}\left(\int_{x_0}^{x} f(t) \,dt + y_0\right) \\
-  y' = f(x)
-\end{align*}
-Second, to verify that the initial condition is satisfied:
-\begin{align*}
-  y(x) &= \int_{x_0}^{x} f(t) \,dt + y_0 \\
-  y(x_0) &= \int_{x_0}^{x_0} f(t) \,dt + y_0 \\
-  y(x_0) &= 0 + y_0 \\
-  y(x_0) &= y_0
-\end{align*}
-This confirms the initial condition, and thus it can be seen that the solution to the differential equation with an initial condition has been found.
-\begin{example}{First Order Linear IVP by Direct Integration}
-  Solve
-  \begin{equation*}
-    y' = e^{-x^2}, \ y({\color{gr} 0}) = {\color{re} 1}
-  \end{equation*}
-  First, finding the solution, both sides can be integrated:
-  \begin{equation*}
-    y(x) = \int_{{\color{gr} 0}}^{x} e^{-t^2} \,dt + {\color{re} 1}
-  \end{equation*}
-  And to verify the solution:
-  \begin{figure}[H]
-    \centering
-    \begin{subfigure}[H]{0.45\textwidth}
-      \centering
-      \begin{align*}
-        \frac{d}{dx}\big(y(x)\big) &= \frac{d}{dx}\left(\int_{0}^{x} e^{-t^2} \,dt + 1\right) \\
-        y' &= e^{-x^2}
-      \end{align*}
-    \end{subfigure}
-    \begin{subfigure}[H]{0.45\textwidth}
-      \centering
-      \begin{align*}
-        y(0) &= \int_{0}^{x} e^{t^2} \,dt + 1 \\
-        y(0) &= 0 + 1 \\
-        y(0) &= 1
-      \end{align*}
-    \end{subfigure}
-  \end{figure}
-  The solution passes both verification tests, and so it can be safely said that the solution has been found.
-\end{example}
-
-% Using the same method as before, equations of the form in (\ref{eq:203}) can be solved as well.
-% \begin{equation}
-%   y' = f(y)\ \ \textup{or}\ \ \frac{dy}{dx} = f(y)
-%   \label{eq:203}
-% \end{equation}
-% (\ref{eq:203}) can be rewritten using the inverse function theorem from calculus to switch the roles of $x$ and $y$ to get:
-% \begin{equation*}
-%   \frac{dx}{dy} = \frac{1}{f(y)}
-% \end{equation*}
-% Finally, at this point both sides can be integrated with respect to $y$ to get:
-% \begin{equation*}
-%   x(y) = \int_{}^{} \frac{1}{f(y)} \,dy + C
-% \end{equation*}
-% From here, it is just a matter of solving for $y$.
-% \begin{example}{}
-%   In Subsection \ref{ssec:fourFundamentalEquations}, the claim was made that the solution for $y'=ky$ is $y=Ce^{kx}$ for $k>0$. To show this, the method of integration can be used:
-%   \begin{gather*}
-%     \frac{dy}{dx} = ky \rightarrow \frac{dx}{dy} = \frac{1}{ky} \\
-%     x(y) = \int_{}^{} \frac{1}{ky} \, dy \\
-%     x(y) = \frac{1}{k}\ln|y| + D \\
-%   \end{gather*}
-%   Now solving for $y$:
-%   \begin{gather*}
-%     x(y) = \frac{1}{k}\ln|y| + D \\
-%   \end{gather*}
-% \end{example}
-
-\begin{example}{First Order Linear ODE by Direct Integration}
-  \begin{equation*}
-    y' + y = \cos(2t)
-  \end{equation*}
-  This is already in standard form, so we can go on to calculate the integrating factor:
-  \begin{equation*}
-    \mu(t) = e^{\int_{}^{} 1 \,dt} = e^t
-  \end{equation*}
-  Thus, the general solution will be:
-  \begin{equation*}
-    y = \frac{\int_{}^{} e^t \cdot \cos(2t) \,dt}{e^t}
-  \end{equation*}
-  Integrating the numerator:
-  \begin{gather*}
-    \int_{}^{} e^t \cdot \cos(2t) \,dt \\
-    \vdots \\
-    \int_{}^{} e^t \cdot \cos(2t) \,dt = \frac{1}{5}\left(e^t \cos(2t) + 2e^t \sin(2t)\right) + C
-  \end{gather*}
-  Thus:
-  \begin{equation*}
-    y = \frac{\frac{1}{5}\left(e^t \cos(2t) + 2e^t \sin(2t)\right) + C}{e^t} \\
-  \end{equation*}
-  or:
-  \begin{equation*}
-    y = \frac{1}{5}\left(\cos(2t) + 2\sin(2t)\right) + Ce^{-t}
-  \end{equation*}
-\end{example}
-
-\subsection{Non-Linear ODE}
-\label{ssec:nonLinearODE}
-
-Generally, non-linear ODEs are quite difficult to solve. For some of them, there are techniques that can be used to simplify the process.
+Generally, non-linear ODEs are quite difficult to solve. The scope of this course doesn't cover non-linear ODEs in their entirety, but rather a select subset.
 
 \subsubsection{Separable ODE}
 \label{sssec:separableODE}
 
 The basic form of a separable ODE is:
 \begin{equation*}
-  \frac{dy}{dx} = f(y) \cdot g(x)
+  \frac{{\color{re} dy}}{{\color{gr} dx}} = {\color{bl} f(y)} \cdot {\color{ma} g(x)}
 \end{equation*}
 i.e., the derivative is a product of two functions, one depending on $x$ and the other on $y$.
 
 This type of ODE is solved first by separating the variables. The LHS is reserved for $y$ and the RHS for $x$:
 \begin{equation*}
-  \frac{dy}{f(y)} = g(x) dx
+  \frac{{\color{re} dy}}{{\color{bl} f(y)}} = {\color{ma} g(x)} {\color{gr} dx}
 \end{equation*}
 Now that there is a single type of variable on each side (only $x$ or only $y$), both sides can be integrated. This will yield a one-parameter family of \textit{implicit solutions} (see Subsection \ref{ssec:implicitAndExplicitSolutions}).
 \begin{example}{First Order Non-Linear ODE by Separation of Variables}
@@ -298,27 +136,21 @@ Now that there is a single type of variable on each side (only $x$ or only $y$),
   \end{equation*}
   This equation can be rewritten as:
   \begin{equation*}
-    \frac{dy}{dx} = x \cdot y
+    \frac{{\color{re} dy}}{{\color{gr} dx}} = {\color{bl} y} \cdot {\color{ma} x}
   \end{equation*}
   Here, it can be easily seen that this equation is separable:
-  \begin{align*}
-    \frac{dy}{y} &= x\ dx \\
-    \int_{}^{} \frac{1}{y} \, dy &= \int_{}^{} x \, dx + C \\
-    \ln|y| &= \frac{x^2}{2} + C
-  \end{align*}
-  This here is the implicit solution to the ODE. It won't always be the case, but here algebra can be used to find the explicit solution:
-  \begin{align*}
-    e^{\ln|y|} &= e^{\frac{x^2}{2} + C} \\
-    y &= e^{\frac{x^2}{2}} \cdot e^{C} \\
-    y &= De^{\frac{x^2}{2}}
-  \end{align*}
-  Where $D>0$. Since $y=0$ is a solution as well, this can be simplified to:
   \begin{equation*}
-    y = De^{\frac{x^2}{2}}
+    \frac{{\color{re} dy}}{{\color{bl} y}} = {\color{ma} x}\ {\color{gr} dx} \rightarrow \left[\int_{}^{} \frac{1}{y} \, dy = \int_{}^{} x \, dx + C\right] \rightarrow \left[{\color{or} \ln|y| = \frac{x^2}{2} + C}\right]
+  \end{equation*}
+  Having found the \textit{implicit solution}, it can be seen that the \textit{explicit solution} can also be found through algebra:
+  \begin{equation*}
+    {\color{or} \ln|y| = \frac{x^2}{2} + C} \rightarrow \left[e^{\ln|y|} = e^{\frac{x^2}{2} + C}\right] \rightarrow \left[y = e^{\frac{x^2}{2}} \cdot {\color{pi} e^{C}}\right] \rightarrow \left[y = {\color{pi} D}e^{\frac{x^2}{2}}\right]
+  \end{equation*}
+  Where $D>0$ (since $e^C>0$). Since $y=0$ is a solution as well, this can be simplified to:
+  \begin{equation*}
+    \forall D \geq 0,\ y = De^{\frac{x^2}{2}}
   \end{equation*}
 \end{example}
-
-\textbf{Principle:} If an ODE is given without initial values, a one-parameter family of solutions is sufficient. However, if an initial value is given (IVP), an explicit solution might be possible with an interval of existence.
 
 \begin{example}{First Order Non-Linear ODE by Separation of Variables}
   \begin{equation*}
@@ -337,380 +169,20 @@ Now that there is a single type of variable on each side (only $x$ or only $y$),
   And thus, a one-parameter family of implicit solutions has been found.
 \end{example}
 
-\subsubsection{Singular Solutions}
-\label{sssec:singularSolutions}
+\subsubsection{Singular Solutions for Separable ODE}
+\label{sssec:singularSolutionsForSeparableODE}
 
-Consider:
-\begin{equation}
-  y' = xy^3\left(1+x^2\right)^{-\frac{1}{2}}
-  \label{eq:206}
-\end{equation}
-(\ref{eq:206}) is a separable ODE that can be reorganized as:
+For a separable ODE:
 \begin{equation*}
-  y' = y^3 \cdot \frac{x}{\sqrt{1+x^2}}
+  {\color{ma} \frac{dy}{dx}} = {\color{gr} f(y) \cdot g(x)}
 \end{equation*}
-And subsequently separated into:
+the constant function $y={\color{re} a}$ is a singular solution for all numbers ${\color{re} a}$ satisfying $f({\color{re} a})=0$. This can be seen in two parts. First, with $f({\color{re} a})=0$, the {\color{gr} RHS} of the equation will always be zero:
 \begin{equation*}
-  \frac{dy}{y^3} = \frac{x}{\sqrt{1+x^2}}\ dx
+  \textup{RHS} = f({\color{re} a}) \cdot g(x) = 0 \cdot g(x) = 0
 \end{equation*}
-And solved:
-\begin{align*}
-  \frac{dy}{y^3} &= \frac{x}{\sqrt{1+x^2}}\ dx \\
-  \int_{}^{} \frac{1}{y^3} \, dy &= \int_{}^{} \frac{x}{\sqrt{1+x^2}}\,dx \\
-  -\frac{1}{2y^2} &= \sqrt{1+x^2} + C
-\end{align*}
-It would now be tempting to say that $-\frac{1}{2y^2} = \sqrt{1+x^2} + C$ is a general solution to (\ref{eq:206}). However, $y=0$ is also a solution to (\ref{eq:206})$\hdots$
-
-The true answer then would be to say that $-\frac{1}{2y^2} = \sqrt{1+x^2} + C$ is a \textit{family} of solutions rather than the general solution and that $y=0$ is a singular solution.
-
-\subsection{Implicit and Explicit Solutions}
-\label{ssec:implicitAndExplicitSolutions}
-
-In general, anytime an ODE is given \textit{without} initial values, then a single-parameter family of \textit{implicit} solutions is sufficient.
-
-If given an IVP, however, then finding an \textit{explicit} solution and an \textit{interval of existence} should be attempted. In some situations, this won't be possible, but it should be attempted at least.
-
-\subsubsection{Implicit Solutions}
-\label{sssec:implicitSolution}
-
-Sometimes a wall is reached even if the integration is possible. Consider:
-\begin{equation}
-  y' = \frac{xy}{y^2 + 1}
-  \label{eq:204}
-\end{equation}
-Using the technique described in Subsection \ref{sssec:separableODE}, this can be separated into:
-
-\begin{align*}
-  y' &= \frac{xy}{y^2 + 1} \\
-  \frac{dy}{dx} &= \frac{xy}{y^2 + 1} \\
-  \frac{y^2 + 1}{y}dy  &= x\ dx \\
-  \left(y+\frac{1}{y}\right)dy  &= x\ dx
-\end{align*}
-Integrating both sides gives:
+Second, the {\color{ma} LHS} will always be zero since $y={\color{re} a}$ is a constant function.
 \begin{equation*}
-  \frac{y^2}{2} + \ln|y| = \frac{x^2}{2} + C
+  \textup{LHS} = y' = \frac{dy}{dx} = \frac{d}{dx}\left({\color{re} a}\right) = 0
 \end{equation*}
-The integration of this equation is quite simple. However, try to solve for $y$ and see how difficult that will be. Though solving for $y$ itself is too difficult, this form is still a solution and can still be verified.
-\begin{align*}
-  \frac{d}{dx}\left(\frac{y^2}{2} + \ln|y|\right) &= \frac{d}{dx}\left(\frac{x^2}{2} + C\right) \\
-  y'\left(y + \frac{1}{y}\right) &= x \\
-  y \cdot \left(y'\left(y + \frac{1}{y}\right) \right) &= y \cdot x \\
-  y'\left(y^2 + 1\right) &= y \cdot x \\
-  y' &= \frac{xy}{y^2 + 1}
-\end{align*}
-Producing the exact same equation in (\ref{eq:204}), thus verifying the solution.
-
-Since these solutions are implicit, they might not be able to be graphed as a valid function. In those cases, other information, such as an initial condition, can be used to further inform the appropriate solution.
-
-\subsection{Pathological and Reasonable IVP}
-\label{ssec:pathologicalAndReasonableIVP}
-
-\subsubsection{Pathological IVP}
-\label{sssec:pathologicalIVP}
-
-Consider:
-\begin{equation}
-  \frac{dy}{dx}=x \sqrt{y}\textup{, }y(0) = 0
-  \label{eq:207}
-\end{equation}
-Solving this IVP, it can be seen that both:
-\begin{equation*}
-  y = \frac{1}{16}x^2\ \ \ \textup{and}\ \ \ y=0
-\end{equation*}
-are both solutions to (\ref{eq:207}). This would then be referred to as a \textbf{Pathological IVP}.
-
-\begin{definition}{Pathological IVP}
-  An IVP with zero solutions, more than one solution, or infinitely many solutions.
-\end{definition}
-
-\begin{example}{Determining if an ODE is Pathological}
-  \begin{equation*}
-    ty'+(t-1)y = -e^{-t}\textup{,}\ y(0) = 1
-  \end{equation*}
-  First, putting the ODE into standard form:
-  \begin{equation*}
-    y'+ \frac{t-1}{t}y = \frac{-e^{-t}}{t}
-  \end{equation*}
-  Thus:
-  \begin{equation*}
-    p(t) = \frac{t-1}{t}\ \ \ \ \ \ g(t) = \frac{-e^{-t}}{t}\ \ \ \ \ \ \mu(t) = \frac{e^t}{t}
-  \end{equation*}
-  Giving the general solution as:
-  \begin{align*}
-    y = \frac{\int \frac{e^t}{t} \cdot \frac{-e^{-t}}{t} \,dt}{\frac{e^t}{t}} = \frac{-\int \frac{1}{t^2} \,dt}{\frac{e^t}{t}} = \frac{\frac{1}{t} + C}{\frac{e^t}{t}} = e^{-t} + Cte^{-t}
-  \end{align*}
-  Now to solve the IVP, plugging in the values of $y(0)$ and $t=0$:
-  \begin{equation*}
-    y = e^{-t} + Cte^{-t}\ \  \Rightarrow\ \ 1 = e^{0} + C \cdot 0 \cdot e^{0} = 1 + 0
-  \end{equation*}
-  The disappearance of $C$ (due to being multiplied by $0$) reveals that there are infinitely many solutions to this IVP, thus showing its pathological nature.
-\end{example}
-
-\begin{example}{Determining if an ODE is Pathological}
-  \begin{equation*}
-    ty'+(t-1)y = -e^{-t}\textup{,}\ y(0) = 0
-  \end{equation*}
-  By taking the same IVP as previous, but changing the initial condition from $y(0) = 1$ to $y(0) = 0$, the behavior changes:
-  \begin{equation*}
-    y = e^{-t} + Cte^{-t}\ \  \Rightarrow\ \ 0 = e^{0} + C \cdot 0 \cdot e^{0} = 1 + 0
-  \end{equation*}
-  Clearly, $0 \neq 1$, showing that this IVP has zero solutions. Again, this is a pathological IVP.
-\end{example}
-
-\subsubsection{Reasonable IVP}
-\label{sssec:reasonableIVP}
-
-It might be tempting to say that any IVP that is \textit{not} pathological is then reasonable. While exclusivity exists between the two, the proper method to determine if an IVP is reasonably posed is by using the \textbf{Existence and Uniqueness Theorem}.
-
-\begin{definition}{Existence and Uniqueness Theorem}
-  Consider:
-  \begin{equation*}
-    y' + p(t)y = g(t) + C,\ y(t_0) = y_0
-  \end{equation*}
-  where the ODE is \textit{linear} and in its \textit{standard form}.
-  Assuming that:
-  \begin{enumerate}
-    \itemsep-0.15em
-    \item Both $p(t)$ and $g(t)$ are continuous over the open interval $(a,b)$
-    \item The open interval $(a,b)$ contains $t_0$
-  \end{enumerate}
-  Then there exists a unique function $y = y(t)$ over the interval $(a,b)$ that solves the IVP.
-\end{definition}
-
-Notice that, to determine if a unique solutions exists based on the existence and uniqueness theorem, the IVP need not be solved.
-
-Based on this theorem, it can be asserted that there exists a unique solution over an interval $(a,b)$ provided that this interval contains $t_0$ from the IVP and both functions $p(t)$ and $g(t)$ are continuous over this interval.
-
-\subsection{Intervals of Existence}
-\label{ssec:intervalsOfExistence}
-
-\subsubsection{Linear IVPs}
-\label{sssec:linearIVPs}
-
-Based on the existence and uniqueness theorem as outlined in Subsubsection \ref{sssec:reasonableIVP}, the general steps for finding the interval of existence is:
-\begin{enumerate}
-  \itemsep0em
-  \item Find the standard form
-    \begin{equation*}
-      y'+p(t)y = g(t)\textup{,}\ y(t_0) = y_0
-    \end{equation*}
-  \item Locate the singular points (where $p(t)$ or $g(t)$ are not continuous)
-  \item Based on the singular points, find the open intervals over which both $p(t)$ and $g(t)$ are continuous
-  \item Pick the interval that contains $t_0$
-\end{enumerate}
-
-\begin{example}{Interval of Existence of a First Order Linear IVP}
-  \begin{equation*}
-    ty'+(t-1)y = -e^{-t}\textup{,}\ y\left(\ln|2|\right) = \frac{1}{2}
-  \end{equation*}
-  Putting into standard form:
-  \begin{equation*}
-    y'+ \frac{t-1}{t}y = \frac{-e^{-t}}{t}
-  \end{equation*}
-  From here, $p(t)$ and $g(t)$ can be seen to be:
-  \begin{equation*}
-    p(t) = \frac{t-1}{t}\ \ \ \ \ \ g(t) = \frac{-e^{-t}}{t}
-  \end{equation*}
-  Both $p(t)$ and $g(t)$ are continuous everywhere except for at $t=0$, where both of their denominators will equal $0$. This says that there are two open intervals over which there could possbily be a single unique solution: $(-\infty,0)$ or $(0,\infty)$.
-\\ \\
-  Because the initial value is $y\left(\ln|2|\right) = \frac{1}{2}$, the second interval is chosen as $t_0=\ln|2|$ lays on the interval $(0,\infty)$.
-\end{example}
-
-\subsubsection{Non-Linear IVPs}
-\label{sssec:nonLinearIVPs}
-
-Consider:
-\begin{equation*}
-  y' = f(t,y)\textup{,}\ y(t_0) = y_0
-\end{equation*}
-Assume that:
-\begin{enumerate}
-  \itemsep0em
-  \item The function $f(t,y)$ is continuous \textbf{near} $(t_0,y_0)$
-  \item The function $\frac{\delta f}{\delta y}(t,y)$ is continuous \textbf{near} $(t_0,y_0)$
-\end{enumerate}
-Then a unique solution $y=y(t)$ exists \textbf{near} $t=t_0$, i.e., there exists a small number $\epsilon > 0$ such that a solution exists on $(t_0-\epsilon,t_0+\epsilon)$.
-
-\begin{example}{Interval of Existence of a First Order Non-Linear IVP}
-  \begin{equation*}
-    y' = y^{\frac{1}{3}}\textup{,}\ y(0) = 1
-  \end{equation*}
-  First, find the behavior of $f(t,y)$:
-  \begin{equation*}
-    f(t,y) = y^{\frac{1}{3}}\ \textup{is continuous everywhere.}
-  \end{equation*}
-  Then, find the behavior of $\frac{\delta f}{\delta y}(t,y)$:
-  \begin{equation*}
-    \frac{\delta f}{\delta y}(t,y) = \frac{d}{dx}\left(y^{\frac{1}{3}}\right) = \frac{1}{3}y^{-\frac{2}{3}}\ \textup{is continuous everywhere when $y\neq0$.}
-  \end{equation*}
-  Thus, since the IVP is $y(0)=1 \Rightarrow (t_0,y_0) = (0,1)$, the IVP has a unique solution near $t=0$. The discontinuity when $y=0$ is irrelevant because it is not near $y_0=1$.
-\end{example}
-
-Though still very helpful, this theorem is not as powerful as the linear version as it only concludes local existence rather than an interval of existence. However, it can still be used to determine whether an IVP is reasonably or pathologically formulated.
-
-\subsection{Autonomous ODE}
-\label{ssec:autonomousODE}
-
-\begin{equation*}
-  y' = f(y)
-\end{equation*}
-Such that the right hand side (RHS) does not involve $t$. In other words, it is a function purely in terms of $y$.
-
-The equilibrium solution:
-\begin{equation*}
-  y = y_0
-\end{equation*}
-Such that:
-\begin{equation*}
-  f(y_0) = 0
-\end{equation*}
-This means that the equilibrium solutions must be a value such that $y'(y_0)=0$.
-\begin{example}{Autonomous ODE}
-  \begin{equation*}
-    y' = y^3 - y
-  \end{equation*}
-  Clearly, the RHS is purely in terms of $y$, so this would be able to be solved as an autonomous ODE. So, taking the RHS and solving for $0$:
-  \begin{align*}
-    y^3 - y &= 0 \\
-    y\left(y^2 - 1\right) &= 0 \\
-    y\left(y - 1\right)\left(y + 1\right) &= 0 \\
-    y = 0;\ y = 1;\ y &= -1
-  \end{align*}
-  Thus, there are three equilibrium solutions.
-  \begin{gather*}
-    @y=0\\
-    y' = y\left(y - 1\right)\left(y + 1\right) \Rightarrow 0\left(0 - 1\right)\left(0 + 1\right) = 0 \cdot -1 \cdot 1 = 0
-  \end{gather*}
-  \begin{gather*}
-    @y=1\\
-    y' = y\left(y - 1\right)\left(y + 1\right) \Rightarrow 1\left(1 - 1\right)\left(1 + 1\right) = 1 \cdot 0 \cdot 2 = 0
-  \end{gather*}
-  \begin{gather*}
-    @y=-1\\
-    y' = y\left(y - 1\right)\left(y + 1\right) \Rightarrow -1\left(-1 - 1\right)\left(-1 + 1\right) = -1 \cdot -2 \cdot 0 = 0
-  \end{gather*}
-\end{example}
-
-\subsubsection{Stability of an Equilibrium Solution}
-\label{sssec:stabilityOfAnEqulibriumSolution}
-
-\begin{definition}{Stability}
-  Let $y=y_0$ be an equilibrium solution of $y' = f(y)$. $y=y_0$ is \textit{stable from above} if, for every $y>y_0$ near $y_0$, $f(y)<0$.
-\end{definition}
-
-\begin{figure}[H]
-  \centering
-  \begin{subfigure}[H]{0.45\textwidth}
-    \centering
-    \includestandalone{figures/fig_002}
-    \caption{Stable From Above}
-    \label{fig:002}
-  \end{subfigure}
-  \begin{subfigure}[H]{0.45\textwidth}
-    \centering
-    \includestandalone{figures/fig_003}
-    \caption{Stable From Below}
-    \label{fig:003}
-  \end{subfigure}
-  \caption{Stability}
-  \label{fig:stability}
-  \vspace{-10pt}
-\end{figure}
-Using Figure \ref{fig:002} as a visual, the {\color{gr} solution} is stable from above because, if you were to deviate from the solution, the direction field above will guide you back down to the solution. Figure \ref{fig:003} is stable from below for the same reasons.
-
-It follows then, that if the direction field around the solution points \textit{away} from the solution, then the solution is considered to be \textit{un}stable. See this in Figure \ref{fig:instability}.
-
-\begin{figure}[H]
-  \centering
-  \begin{subfigure}[H]{0.45\textwidth}
-    \centering
-    \includestandalone{figures/fig_004}
-    \caption{Unstable From Above}
-    \label{fig:004}
-  \end{subfigure}
-  \begin{subfigure}[H]{0.45\textwidth}
-    \centering
-    \includestandalone{figures/fig_005}
-    \caption{Unstable From Below}
-    \label{fig:005}
-  \end{subfigure}
-  \caption{Instability}
-  \label{fig:instability}
-  \vspace{-10pt}
-\end{figure}
-
-When considering a solutions behavior from both sides (top and bottom), it can be said to be either stable, unstable, or semistable.
-
-\begin{figure}[H]
-  \centering
-  \begin{subfigure}[H]{0.30\textwidth}
-    \centering
-    \includestandalone{figures/fig_006}
-    \caption{Stable}
-    \label{fig:006}
-  \end{subfigure}
-  \begin{subfigure}[H]{0.30\textwidth}
-    \centering
-    \includestandalone{figures/fig_007}
-    \caption{Unstable}
-    \label{fig:007}
-  \end{subfigure}
-  \begin{subfigure}[H]{0.30\textwidth}
-    \centering
-    \includestandalone{figures/fig_008}
-    \caption{Semistable}
-    \label{fig:008}
-  \end{subfigure}
-  \caption{Types of Stability}
-  \label{fig:typesOfStability}
-\end{figure}
-
-\begin{example}{Autonomous ODE: Real World Example}
-  Falling object from a great height, subject to acceleration due to gravity ($mg$) and air resistance ($kv^2$). Newton's second law:
-  \begin{equation*}
-    m \cdot \frac{dv}{dt} = mg - kv^2;\ v(0) = 0
-  \end{equation*}
-  This ODE is autonomous since the RHS has no $t$ involved, so the equilibrium solution will be obtained by setting the RHS $= 0$.
-  \begin{gather*}
-    mg-kv^2 = 0 \\
-    \vdots \\
-    v = \pm \sqrt{\frac{mg}{k}}
-  \end{gather*}
-
-  Based on this model, the terminal velocity of the falling object will be:
-  \begin{equation*}
-    v = \sqrt{\frac{mg}{k}}
-  \end{equation*}
-  \hrule
-  \vspace{12pt}
-  This ODE can also be solved by finding the explicit solution, first by rearranging the equation:
-  \begin{gather*}
-    m \cdot \frac{dv}{dt} = mg - kv^2 \\
-    \vdots \\
-    \frac{m}{mg-kv^2}dv = dt
-  \end{gather*}
-  Then integrate both sides. Keep in mind that $g$, $k$, and $m$ are constants.
-  \begin{gather*}
-    \int_{}^{} \frac{m}{mg-kv^2} \,dv = \int_{}^{}  \,dt \\
-    \frac{m}{k}\int_{}^{} \frac{m}{\frac{mg}{k}-v^2} \,dv = \int_{}^{}  \,dt \\
-    \frac{m}{k}\int_{}^{} \frac{m}{\left(\sqrt{\frac{mg}{k}}-v\right)\left(\sqrt{\frac{mg}{k}}+v\right)} \,dv = \int_{}^{}  \,dt \\
-  \end{gather*}
-\end{example}
-
-\newpage
-\subsubsection{Phase Line}
-\label{sssec:phaseLine}
-
-\begin{wrapfigure}[]{r}{0.45\textwidth}
-  \vspace{-20pt}
-  \centering
-  \includestandalone{figures/fig_009}
-  \caption{Phase Line}
-  \label{fig:009}
-\end{wrapfigure}
-
-When there are multiple solutions to a given ODE, each solution might have a different stability. Though this information could absolutely be expressed as seen in Figure \ref{fig:typesOfStability} with multiple {\color{gr} solutions} drawn, this information could also be visualized in a phase line.
-
-Since these autonomous ODEs don't depend on an $x$, no information is gained by extending the graph into the $x$-axis. A phase line recognizes that by just expressing the stability of each solution along a single $y$-axis. This is seen in Figure \ref{fig:009}.
 
 \end{document}
